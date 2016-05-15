@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Jekyll을 이용하여 Github Blog 만들기</title>
+  <meta name="description" content="1. curl/rvm(ruby version manager) 설치">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://jinyongjeong.github.io//jekyll/update/2016/05/15/jekyll_blog_making.html">
+  <link rel="alternate" type="application/rss+xml" title="Jeong Jinyong Blog" href="http://jinyongjeong.github.io//feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Jeong Jinyong Blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Jekyll을 이용하여 Github Blog 만들기</h1>
+    <p class="post-meta"><time datetime="2016-05-15T13:33:49+09:00" itemprop="datePublished">May 15, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h1 id="curlrvmruby-version-manager-">1. curl/rvm(ruby version manager) 설치</h1>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get install curl
+curl -sSL https://get.rvm.io | bash -s stable
+</code></pre>
+</div>
+
+<p>위 코드의 설치 과정에서 만약 다음과같은 error가 뜬다면</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="ss">curl: </span><span class="p">(</span><span class="mi">77</span><span class="p">)</span> <span class="n">error</span> <span class="n">setting</span> <span class="n">certificate</span> <span class="n">verify</span> <span class="ss">locations:
+</span><span class="no">CAfile</span><span class="p">:</span> <span class="sr">/etc/</span><span class="n">pki</span><span class="o">/</span><span class="n">tls</span><span class="o">/</span><span class="n">certs</span><span class="o">/</span><span class="n">ca</span><span class="o">-</span><span class="n">bundle</span><span class="p">.</span><span class="nf">crt</span>
+<span class="no">CApath</span><span class="p">:</span> <span class="n">none</span></code></pre></figure>
+
+<p>certificate 경로가 맞지 않는 것이다. 다음의 코드를 입력하여 경로 생성 후 <code class="highlighter-rouge">.crt</code> 파일을 복사해준다. 만약 <code class="highlighter-rouge">.crt</code>파일이 없다면 <code class="highlighter-rouge">sudo apt-get install ca-certificates</code>를 통해 설치한다.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo mkdir -p /etc/pki/tls/certs
+sudo cp /etc/ssl/certs/ca-certificates.crt /etc/pki/tls/certs/ca-bundle.crt
+</code></pre>
+</div>
+
+<p>다른 에러가 또 뜬다면 다음을 입력(아마 error 내용에 다음의 내용이 있을 것이다.)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+</code></pre>
+</div>
+
+<p>rvm 스크립트를 현재 쉘에 로드 및 현재 쉘에 로드</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>source ~/.rvm/scripts/rvm
+rvm requirements
+</code></pre>
+</div>
+
+<p>만약 다음과 같은 error가 발생한다면(아마 한국 서버에서 받아오는데 문제가 있는것 같다.)</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">E</span><span class="p">:</span> <span class="no">Failed</span> <span class="n">to</span> <span class="n">fetch</span> <span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="n">kr</span><span class="p">.</span><span class="nf">archive</span><span class="p">.</span><span class="nf">ubuntu</span><span class="p">.</span><span class="nf">com</span><span class="o">/</span><span class="n">ubuntu</span><span class="o">/</span><span class="n">pool</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">g</span><span class="o">/</span><span class="n">gawk</span><span class="o">/</span><span class="n">gawk_4</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">1</span><span class="o">+</span><span class="n">dfsg</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">1</span><span class="n">ubuntu2_amd64</span><span class="p">.</span><span class="nf">deb</span> <span class="no">Could</span> <span class="n">not</span> <span class="n">connect</span> <span class="n">to</span> <span class="n">kr</span><span class="p">.</span><span class="nf">archive</span><span class="p">.</span><span class="nf">ubuntu</span><span class="p">.</span><span class="nf">com</span><span class="p">:</span><span class="mi">80</span> <span class="p">(</span><span class="mi">103</span><span class="o">.</span><span class="mi">22</span><span class="o">.</span><span class="mi">220</span><span class="o">.</span><span class="mi">133</span><span class="p">).</span> <span class="nf">-</span> <span class="n">connect</span> <span class="p">(</span><span class="mi">111</span><span class="p">:</span> <span class="no">Connection</span> <span class="n">refused</span><span class="p">)</span></code></pre></figure>
+
+<p>Setting의 software updates에서 Download from 을 main server 로 바꿔준 후 다시 <code class="highlighter-rouge">rvm requirements</code> 실행한다.</p>
+
+<h1 id="ruby-">2. Ruby 설치</h1>
+
+<p>Ruby 2.1.2 설치 후 디폴트로 설정</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>rvm install 2.1.2
+rvm use 2.1.2 --default
+</code></pre>
+</div>
+
+<h1 id="nodejs-">3. nodejs 설치</h1>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get install nodejs
+</code></pre>
+</div>
+
+<h1 id="jekyll----">4. Jekyll 설치 및 버전 확인</h1>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>gem install jekyll
+jekyll -v
+</code></pre>
+</div>
+
+<p>여기까지 Jekyll 설치 완료.</p>
+
+<h1 id="jekyll--">5. jekyll의 설치를 확인</h1>
+
+<p>Jekyll을 이용하여 기본 테마를 생성 후 서버를 동작시킨다.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>jekyll new myblog
+cd myblog
+jekyll serve
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">http://localhost:4000</code> 으로 들어가면 local 블로그를 확인할 수 있다.</p>
+
+<h1 id="github-repository-">6. github의 repository를 생성</h1>
+
+<p><a href="http://www.github.com">Github</a>으로 접속 후 새로운 repository 생성. yourname.github.io 로 repository 생성 후 로컬에서 home folder로 이동하여 repository 복사.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/yourname/yourname.github.io.git
+</code></pre>
+</div>
+
+<p>폴더를  복사 후  그 폴더로 이동한 후 git 을 초기화시킨다. 초기화 시킨 후 git의 폴더에 jekyll의 기본 테마 설치</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git init
+jekyll new . --force 
+</code></pre>
+</div>
+
+<p>Jekyll로 생성된 모든 파일을 git에 add해 준 후 commit, push 를 해서 github에 올려준다.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git add *
+git commit -m "first commit"
+git push -u origin master
+</code></pre>
+</div>
+
+<p>첫 commit 시에 config 파일에 user.email과 user.name을 등록하라고 나오면</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git config user.email "이메일주소"
+git config user.name "이름"
+</code></pre>
+</div>
+
+<p>을 입력하여 이메일과 이름을 등록해 준다.이로써 github에 블로그가 생성되었다!</p>
+
+<p>git을 clone 받은 후 처음에는 <code class="highlighter-rouge">git push -u origin master</code>를 모두 입력해야 하지만 한번 한 이후에는 <code class="highlighter-rouge">git push</code>만 입력해도 된다.</p>
+
+<h1 id="blog-">7. Blog 작성</h1>
+
+<p>블로그 작성 시 입력한 내용이 예상한대로 동작을 하는지 확인 하기 위해서 매번 github에 push하는 것은 매우 힘든 일이다. 작성을 하는 동시에 바로 확인을 하기 위해서 위에서 언급한 것과 같이 <code class="highlighter-rouge">jekyll serve</code>를 이용하여 서버를 동작 시킨 후 <code class="highlighter-rouge">localhost:4000</code>으로 접속하면 바로 수정된 내용을 확인할 수 있다. 이렇게 수정이 완료된 후 github로 push하면 편하게 포스팅을 수정할 수 있다.</p>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Jeong Jinyong Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Jeong Jinyong Blog</li>
+          <li><a href="mailto:jjy0923@gmail.com">jjy0923@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/jinyongjeong"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">jinyongjeong</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
