@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Jinyong Jeong
+title: About
 permalink: /about/
 ---
 
-# About me
+# Jinyong Jeong
 
 <img style="float: right;" src="/fig/about/profile.jpg" width="200px" height="250px">
 

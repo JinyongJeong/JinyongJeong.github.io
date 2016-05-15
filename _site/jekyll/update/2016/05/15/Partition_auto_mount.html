@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>About</title>
-  <meta name="description" content="This blog will post various subjects such as computer science, algorithms and so on. Purpose of this blog is to remember the things I studied by posting it.  
-">
+  <title>Windows Partition Auto Mount in Ubuntu 14.04</title>
+  <meta name="description" content="윈도우 파티션의 파일시스템은 NTFS(New Technology File System)으로 보통 구성되어 있다. 예전에는 Ubuntu에서 NTFS 시스템을 읽거나 사용하기 어려웠는데 근래에는 Reverse Engineering을 통해 Ubuntu에서도 사용 가능할 수 있게 되었다....">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://jinyongjeong.github.io//about/">
+  <link rel="canonical" href="http://jinyongjeong.github.io//jekyll/update/2016/05/15/Partition_auto_mount.html">
   <link rel="alternate" type="application/rss+xml" title="Jeong Jinyong Blog" href="http://jinyongjeong.github.io//feed.xml">
 </head>
 
@@ -55,24 +54,25 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="post">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title">About</h1>
+    <h1 class="post-title" itemprop="name headline">Windows Partition Auto Mount in Ubuntu 14.04</h1>
+    <p class="post-meta"><time datetime="2016-05-15T13:33:49+09:00" itemprop="datePublished">May 15, 2016</time></p>
   </header>
 
-  <div class="post-content">
-    <h1 id="jinyong-jeong">Jinyong Jeong</h1>
+  <div class="post-content" itemprop="articleBody">
+    <p>윈도우 파티션의 파일시스템은 NTFS(New Technology File System)으로 보통 구성되어 있다. 예전에는 Ubuntu에서 NTFS 시스템을 읽거나 사용하기 어려웠는데 근래에는 Reverse Engineering을 통해 Ubuntu에서도 사용 가능할 수 있게 되었다. 윈도우 파티션의 자동 마운트에 대해서 설명하기 앞서 간단하게 file system에 대해서 설명한다.</p>
 
-<p><img style="float: right;" src="/fig/about/profile.jpg" width="200px" height="250px" /></p>
+<h1 id="file-sytem">1. FIle Sytem</h1>
 
-<ul>
-  <li>ph.D student</li>
-  <li>Civil and Environmental Engineering(CEE)</li>
-  <li>Korea Advanced Institute of Science and Technology(KAIST)</li>
-  <li>Research Interest: Autonomous car, SLAM, computer Vision</li>
-</ul>
+<h2 id="fat32file-allocate-table-32">1. FAT32(File Allocate Table 32)</h2>
 
+<h3 id="exfatextended-file-allocate-table">2. exFAT(Extended File Allocate Table)</h3>
+
+<h4 id="ntfsnew-technology-system">3. NTFS(New Technology System)</h4>
+
+<h5 id="ntfsnew-technology-system-1">3. NTFS(New Technology System)</h5>
 
   </div>
 
