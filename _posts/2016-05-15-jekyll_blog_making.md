@@ -79,9 +79,7 @@ cd myblog
 jekyll serve
 ````
 
-`http://localhost:4000`
-
-으로 들어가면 local 블로그를 확인할 수 있다.
+`http://localhost:4000` 으로 들어가면 local 블로그를 확인할 수 있다.
 
 # 1. github의 repository를 생성
 
