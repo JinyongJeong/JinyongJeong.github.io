@@ -113,3 +113,6 @@ git config user.name "이름"
 
 을 입력하여 이메일과 이름을 등록해 준다.이로써 github에 블로그가 생성되었다!
 
+git을 clone 받은 후 처음에는 `git push -u origin master`를 모두 입력해야 하지만 한번 한 이후에는 `git push`만 입력해도 된다.
+
+
