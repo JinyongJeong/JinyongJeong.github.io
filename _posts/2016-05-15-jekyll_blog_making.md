@@ -45,7 +45,7 @@ E: Failed to fetch http://kr.archive.ubuntu.com/ubuntu/pool/main/g/gawk/gawk_4.0
 
 setting의 software updates에서 Download from 을 main server 로 바꿔준 후 다시 `rvm requirements` 실행
 
-# 2. Ruby 설치
+# 1. Ruby 설치
 
 ruby 2.1.2 설치 후 디폴트로 설정
 
@@ -54,13 +54,13 @@ rvm install 2.1.2
 rvm use 2.1.2 --default
 ~~~~
 
-# 3. nodejs 설치
+# 1. nodejs 설치
 
 ~~~~
 sudo apt-get install nodejs
 ~~~~
 
-# 4. Jekyll 설치 및 버전 확인
+# 1. Jekyll 설치 및 버전 확인
 
 ~~~~
 gem install jekyll
@@ -69,7 +69,7 @@ jekyll -v
 
 여기까지 Jekyll 설치 완료
 
-# 5. jekyll의 설치를 확인
+# 1. jekyll의 설치를 확인
 
 Jekyll을 이용하여 기본 테마를 생성 후 서버를 동작시킨다.
 
@@ -83,7 +83,7 @@ jekyll serve
 
 으로 들어가면 local 블로그를 확인할 수 있다.
 
-# 6. github의 repository를 생성
+# 1. github의 repository를 생성
 
 www.github.com 으로 들어간 후 새로운 repository 생성. yourname.github.io 로 repository 생성 후 로컬에서 home folder로 이동하여 repository 복사
 
