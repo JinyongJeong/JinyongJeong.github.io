@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Jekyll을 이용하여 Github Blog 만들기</title>
-  <meta name="description" content="1. curl/rvm(ruby version manager) 설치">
+  <meta name="description" content="Jekyll을 이용해서 Github에 Blog를 만들어보자. 우선 Jekyll을 설치하기 위해서는 rvm(ruby version manager)를 설치해야 한다. rvm은 ruby의 버전관리를 위해 사용된다. ruby와 jekyll 설치 시 apt-get install을 사용하면 ...">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://jinyongjeong.github.io//jekyll/update/2016/05/15/jekyll_blog_making.html">
@@ -62,7 +62,9 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <h1 id="curlrvmruby-version-manager-">1. curl/rvm(ruby version manager) 설치</h1>
+    <p>Jekyll을 이용해서 Github에 Blog를 만들어보자. 우선 Jekyll을 설치하기 위해서는 rvm(ruby version manager)를 설치해야 한다. rvm은 ruby의 버전관리를 위해 사용된다. ruby와 jekyll 설치 시 <code class="highlighter-rouge">apt-get install</code>을 사용하면 안된다. 전체적인 순서는 rvm 설치 -&gt; ruby 설치 -&gt; jekyll 설치 -&gt; github.io 생성 이다.</p>
+
+<h1 id="curlrvmruby-version-manager-">1. curl/rvm(ruby version manager) 설치</h1>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get install curl
 curl -sSL https://get.rvm.io | bash -s stable
@@ -125,7 +127,7 @@ jekyll -v
 
 <p>여기까지 Jekyll 설치 완료.</p>
 
-<h1 id="jekyll--">5. jekyll의 설치를 확인</h1>
+<h1 id="jekyll--">5. Jekyll의 설치를 확인</h1>
 
 <p>Jekyll을 이용하여 기본 테마를 생성 후 서버를 동작시킨다.</p>
 
