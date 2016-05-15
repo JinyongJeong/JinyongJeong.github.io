@@ -100,18 +100,18 @@ jekyll new . --force
 
 Jekyll로 생성된 모든 파일을 git에 add해 준 후 commit, push 를 해서 github에 올려준다.
 
-~~~~
+````
 git add *
 git commit -m "first commit"
 git push -u origin master
-~~~~
+````
 
 첫 commit 시에 config 파일에 user.email과 user.name을 등록하라고 나오면 
 
-~~~~
+````
 git config user.email "이메일주소"
 git config user.name "이름"
-~~~~
+````
 
-을 입력하여 이메일과 이름을 등록해 준다.이로써 git에 블로그가 생성되었다!
+을 입력하여 이메일과 이름을 등록해 준다.이로써 github에 블로그가 생성되었다!
 
