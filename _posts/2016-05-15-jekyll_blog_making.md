@@ -73,7 +73,7 @@ jekyll -v
 
 여기까지 Jekyll 설치 완료.
 
-# 5. jekyll의 설치를 확인
+# 5. Jekyll의 설치를 확인
 
 Jekyll을 이용하여 기본 테마를 생성 후 서버를 동작시킨다.
 
