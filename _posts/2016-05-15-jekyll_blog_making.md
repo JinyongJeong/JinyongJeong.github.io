@@ -1,11 +1,10 @@
 ---
 layout: post
-title:  "making blog using jekyll"
+title:  "Jekyll을 이용하여 Github Blog 만들기"
 date:   2016-05-15 13:33:49 +0900
 categories: jekyll update
 ---
-
-1. curl 설치/rvm(ruby version manager)
+# 1. curl 설치/rvm(ruby version manager)
 'sudo apt-get install curl'
 'curl -sSL https://get.rvm.io | bash -s stable'
 
