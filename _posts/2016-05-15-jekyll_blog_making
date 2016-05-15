@@ -6,13 +6,15 @@ categories: jekyll update
 ---
 
 1. curl 설치/rvm(ruby version manager)
-sudo apt-get install curl
-curl -sSL https://get.rvm.io | bash -s stable
+'sudo apt-get install curl'
+'curl -sSL https://get.rvm.io | bash -s stable'
 
 만약 다음과같은 error가 뜬다면
+{% highlight ruby %}
 curl: (77) error setting certificate verify locations:
 CAfile: /etc/pki/tls/certs/ca-bundle.crt
 CApath: none
+{% endhighlight %}
 
 certificate 경로가 맞지 않는것이다. certs라는 경로를 생성한 후 ca=certificates.crt를 복사해준다.
 만약 cacertificate.crt가 없다면 sudo apt-get install ca-certificates를 통해 설치한다.
