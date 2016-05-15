@@ -9,12 +9,9 @@
 title: Jeong Jinyong Blog
 email: jjy0923@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+    This blog will post various subjects such as computer science, algorithms and so on. Purpose of this blog is to remember the things I studied by posting it.  
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://jinyongjeong.github.io/" # the base hostname & protocol for your site
-facebook_username: Jinyong
 github_username:  jinyongjeong
 
 # Build settings
