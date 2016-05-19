@@ -3,6 +3,7 @@ layout: post
 title:  "Jekyll을 이용하여 Github Blog 만들기"
 date:   2016-05-15 13:33:49 +0900
 categories: jekyll update
+comments: true
 ---
 
 Jekyll을 이용해서 Github에 Blog를 만들어보자. 우선 Jekyll을 설치하기 위해서는 rvm(ruby version manager)를 설치해야 한다. rvm은 ruby의 버전관리를 위해 사용된다. ruby와 jekyll 설치 시 `apt-get install`을 사용하면 안된다. 전체적인 순서는 rvm 설치 -> ruby 설치 -> jekyll 설치 -> github.io 생성 이다. 
