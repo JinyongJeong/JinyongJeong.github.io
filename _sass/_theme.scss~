@@ -63,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .post-summary,
 .post-meta {
-  font-size: 18px;
+  font-size: 15px;
   @include media-query($on-palm) {
     font-size: 14px;
   }
