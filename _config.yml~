@@ -20,3 +20,6 @@ disqus_shortname: jinyongjeong
 
 subtitle-quote: "It is not that I'm so smart. But I stay with the questions much longer."
 subtitle-author: "Albert Einstein"
+
+gems: [jekyll-paginate]
+paginate: 3 # number of posts you want per page
