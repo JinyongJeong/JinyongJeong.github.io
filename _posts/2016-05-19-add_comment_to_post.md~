@@ -43,9 +43,9 @@ layout: default
   </div>
 
   <!-- Code to add begin here -->
-  <!-- {% if page.comments %} -->
+  <!-- (중괄호))% if page.comments %(중괄호) -->
     <!--insert your code-->
-  <!-- {% endif %} -->
+  <!-- (중괄호)% endif %(중괄호) -->
   <!-- Code to add end here -->
 
 </article>

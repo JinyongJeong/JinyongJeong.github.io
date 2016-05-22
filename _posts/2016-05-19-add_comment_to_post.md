@@ -43,16 +43,16 @@ layout: default
   </div>
 
   <!-- Code to add begin here -->
-  <!-- {% if page.comments %} -->
+  <!-- (중괄호))% if page.comments %(중괄호) -->
     <!--insert your code-->
-  <!-- {% endif %} -->
+  <!-- (중괄호)% endif %(중괄호) -->
   <!-- Code to add end here -->
 
 </article>
 
 ```
 
-포스팅에서 comment활성화 여부를 설정하기 위해서 위의 예의 주석으로 되어 있는 `%if page.comments %` `% endif %` 이 부분도 추가해준다. 다음으로 `_config.yml` 파일을 열어 마지막에 다음의 코드를 추가한다. 
+포스팅에서 comment활성화 여부를 설정하기 위해서 위의 예의 주석으로 되어 있는 `%if page.comments %` `% endif %` 이 부분을 추가해준다. 추가할 때 앞 뒤로 중괄호({})를 넣어준다. 다음으로 `_config.yml` 파일을 열어 마지막에 다음의 코드를 추가한다. 
 
 ```
 disqus_shortname: myblog(등록한 본인 블로그 이름)
