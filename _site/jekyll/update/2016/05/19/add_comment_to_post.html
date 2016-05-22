@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>jekyll에 댓글 추가하기(Disqus)</title>
+  <meta name="description" content="Jekyll 블로그는 기본적인 layout만을 제공해 주기 때문에 블로그 포스팅에 댓글을 달 수 있도록 만들기 위해서는 추가적인 작업이 필요하다. 댓글창을 만들기 위해 Disqus를 사용할 것이다.">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://jinyongjeong.github.io//jekyll/update/2016/05/19/add_comment_to_post.html">
+  <link rel="alternate" type="application/rss+xml" title="Jeong Jinyong Blog" href="http://jinyongjeong.github.io//feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Jeong Jinyong Blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">jekyll에 댓글 추가하기(Disqus)</h1>
+    <p class="post-meta"><time datetime="2016-05-19T22:44:49+09:00" itemprop="datePublished">May 19, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Jekyll 블로그는 기본적인 layout만을 제공해 주기 때문에 블로그 포스팅에 댓글을 달 수 있도록 만들기 위해서는 추가적인 작업이 필요하다. 댓글창을 만들기 위해 <a href="https://disqus.com/">Disqus</a>를 사용할 것이다.</p>
+
+<h1 id="disqus--">1. Disqus 계정 만들기</h1>
+<p><img align="middle" src="/fig/post/add_comment_to_post/fig1.png" width="500" height="500px" /></p>
+
+<p>첫번째로 <a href="https://disqus.com/">Disqus</a>에 접속하여 회원가입 후 등록을 한다. 등록 후 Main 페이지에서 우측 상단의 톱니바퀴를 누르면 나오는 메뉴 중 <code class="highlighter-rouge">Setting</code>으로 이동 후 다시 <code class="highlighter-rouge">Add Disqus To Site</code>로 이동한다. 페이지 이동 후 페이지 가장 아래쪽으로 이동하면 <code class="highlighter-rouge">GET STARTED</code>를 눌러 블로그 명 및 URL을 등록한다.</p>
+
+<h1 id="universal-code-">2. Universal Code 복사하기</h1>
+<p><img align="middle" src="/fig/post/add_comment_to_post/fig2.png" width="800" height="500px" /></p>
+
+<p>등록을 마친 후 Setting의 Installation page로 이동 후 platform을 선택한다. Jekyll에 추가하기 위해서는 Universal code를 선택한다. 이제 1번에 있는 코드를 복사하여 Jekyll의 <code class="highlighter-rouge">_layouts/post.html</code> 파일에 추가해준다.</p>
+
+<h1 id="layoutposthtml--config--">3. Layout/post.html 및 config 파일 수정</h1>
+
+<p><code class="highlighter-rouge">_layouts/post.html</code> 파일을 열고 <code class="highlighter-rouge">&lt;article&gt;</code> 블락 사이에 복사한 내용을 아래 코드에서 <code class="highlighter-rouge">&lt;insert your code&gt;</code> 부분에 넣어준다.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+---
+layout: default
+---
+&lt;article class="post" itemscope itemtype="http://schema.org/BlogPosting"&gt;
+
+  &lt;header class="post-header"&gt;
+    &lt;h1 class="post-title" itemprop="name headline"&gt;jekyll에 댓글 추가하기(Disqus)&lt;/h1&gt;
+    &lt;p class="post-meta"&gt;&lt;time datetime="2016-05-19T22:44:49+09:00" itemprop="datePublished"&gt;May 19, 2016&lt;/time&gt;&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;div class="post-content" itemprop="articleBody"&gt;
+    &lt;article class="post" itemscope itemtype="http://schema.org/BlogPosting"&gt;
+
+  &lt;header class="post-header"&gt;
+    &lt;h1 class="post-title" itemprop="name headline"&gt;Jekyll을 이용하여 Github Blog 만들기&lt;/h1&gt;
+    &lt;p class="post-meta"&gt;&lt;time datetime="2016-05-15T13:33:49+09:00" itemprop="datePublished"&gt;May 15, 2016&lt;/time&gt;&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;div class="post-content" itemprop="articleBody"&gt;
+    &lt;p&gt;Jekyll을 이용해서 Github에 Blog를 만들어보자. 우선 Jekyll을 설치하기 위해서는 rvm(ruby version manager)를 설치해야 한다. rvm은 ruby의 버전관리를 위해 사용된다. ruby와 jekyll 설치 시 &lt;code class="highlighter-rouge"&gt;apt-get install&lt;/code&gt;을 사용하면 안된다. 전체적인 순서는 rvm 설치 -&amp;gt; ruby 설치 -&amp;gt; jekyll 설치 -&amp;gt; github.io 생성 이다.&lt;/p&gt;
+
+&lt;h1 id="curlrvmruby-version-manager-"&gt;1. curl/rvm(ruby version manager) 설치&lt;/h1&gt;
+
+&lt;div class="highlighter-rouge"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;sudo apt-get install curl
+curl -sSL https://get.rvm.io | bash -s stable
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;위 코드의 설치 과정에서 만약 다음과같은 error가 뜬다면&lt;/p&gt;
+
+&lt;figure class="highlight"&gt;&lt;pre&gt;&lt;code class="language-ruby" data-lang="ruby"&gt;&lt;span class="ss"&gt;curl: &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;77&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt; &lt;span class="n"&gt;setting&lt;/span&gt; &lt;span class="n"&gt;certificate&lt;/span&gt; &lt;span class="n"&gt;verify&lt;/span&gt; &lt;span class="ss"&gt;locations:
+&lt;/span&gt;&lt;span class="no"&gt;CAfile&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="sr"&gt;/etc/&lt;/span&gt;&lt;span class="n"&gt;pki&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tls&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;certs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ca&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bundle&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;crt&lt;/span&gt;
+&lt;span class="no"&gt;CApath&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;none&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;certificate 경로가 맞지 않는 것이다. 다음의 코드를 입력하여 경로 생성 후 &lt;code class="highlighter-rouge"&gt;.crt&lt;/code&gt; 파일을 복사해준다. 만약 &lt;code class="highlighter-rouge"&gt;.crt&lt;/code&gt;파일이 없다면 &lt;code class="highlighter-rouge"&gt;sudo apt-get install ca-certificates&lt;/code&gt;를 통해 설치한다.&lt;/p&gt;
+
+&lt;div class="highlighter-rouge"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;sudo mkdir -p /etc/pki/tls/certs
+sudo cp /etc/ssl/certs/ca-certificates.crt /etc/pki/tls/certs/ca-bundle.crt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;다른 에러가 또 뜬다면 다음을 입력(아마 error 내용에 다음의 내용이 있을 것이다.)&lt;/p&gt;
+
+&lt;div class="highlighter-rouge"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;rvm 스크립트를 현재 쉘에 로드 및 현재 쉘에 로드&lt;/p&gt;
+
+&lt;div class="highlighter-rouge"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;source ~/.rvm/scripts/rvm
+rvm requirements
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;만약 다음과 같은 error가 발생한다면(아마 한국 서버에서 받아오는데 문제가 있는것 같다.)&lt;/p&gt;
+
+&lt;figure class="highlight"&gt;&lt;pre&gt;&lt;code class="language-ruby" data-lang="ruby"&gt;&lt;span class="no"&gt;E&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="no"&gt;Failed&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;fetch&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="ss"&gt;:/&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;kr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;archive&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;ubuntu&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;pool&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;gawk&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;gawk_4&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;dfsg&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;ubuntu2_amd64&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;deb&lt;/span&gt; &lt;span class="no"&gt;Could&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="n"&gt;connect&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;kr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;archive&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;ubuntu&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;com&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;103&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;22&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;220&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;133&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt; &lt;span class="nf"&gt;-&lt;/span&gt; &lt;span class="n"&gt;connect&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;111&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="no"&gt;Connection&lt;/span&gt; &lt;span class="n"&gt;refused&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Setting의 software updates에서 Download from 을 main server 로 바꿔준 후 다시 &lt;code class="highlighter-rouge"&gt;rvm requirements&lt;/code&gt; 실행한다.&lt;/p&gt;
+
+&lt;h1 id="ruby-"&gt;2. Ruby 설치&lt;/h1&gt;
+
+&lt;p&gt;Ruby 2.1.2 설치 후 디폴트로 설정&lt;/p&gt;
+
+&lt;div class="highlighter-rouge"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;rvm install 2.1.2
+rvm use 2.1.2 --default
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id="nodejs-"&gt;3. nodejs 설치&lt;/h1&gt;
+
+&lt;div class="highlighter-rouge"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;sudo apt-get install nodejs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id="jekyll----"&gt;4. Jekyll 설치 및 버전 확인&lt;/h1&gt;
+
+&lt;div class="highlighter-rouge"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;gem install jekyll
+jekyll -v
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;여기까지 Jekyll 설치 완료.&lt;/p&gt;
+
+&lt;h1 id="jekyll--"&gt;5. Jekyll의 설치를 확인&lt;/h1&gt;
+
+&lt;p&gt;Jekyll을 이용하여 기본 테마를 생성 후 서버를 동작시킨다.&lt;/p&gt;
+
+&lt;div class="highlighter-rouge"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;jekyll new myblog
+cd myblog
+jekyll serve
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class="highlighter-rouge"&gt;http://localhost:4000&lt;/code&gt; 으로 들어가면 local 블로그를 확인할 수 있다.&lt;/p&gt;
+
+&lt;h1 id="github-repository-"&gt;6. github의 repository를 생성&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href="http://www.github.com"&gt;Github&lt;/a&gt;으로 접속 후 새로운 repository 생성. &lt;yourname&gt;.github.io 로 repository 생성 후 로컬에서 home folder로 이동하여 repository 복사.&lt;/yourname&gt;&lt;/p&gt;
+
+&lt;div class="highlighter-rouge"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;git clone https://github.com/&amp;lt;yourname&amp;gt;/&amp;lt;yourname&amp;gt;.github.io.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;폴더를  복사 후  그 폴더로 이동한 후 git 을 초기화시킨다. 초기화 시킨 후 git의 폴더에 jekyll의 기본 테마 설치&lt;/p&gt;
+
+&lt;div class="highlighter-rouge"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;git init
+jekyll new . --force 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Jekyll로 생성된 모든 파일을 git에 add해 준 후 commit, push 를 해서 github에 올려준다.&lt;/p&gt;
+
+&lt;div class="highlighter-rouge"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;git add *
+git commit -m "first commit"
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;첫 commit 시에 config 파일에 user.email과 user.name을 등록하라고 나오면&lt;/p&gt;
+
+&lt;div class="highlighter-rouge"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;git config user.email "이메일주소"
+git config user.name "이름"
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;을 입력하여 이메일과 이름을 등록해 준다.이로써 github에 블로그가 생성되었다!&lt;/p&gt;
+
+&lt;p&gt;git을 clone 받은 후 처음에는 &lt;code class="highlighter-rouge"&gt;git push -u origin master&lt;/code&gt;를 모두 입력해야 하지만 한번 한 이후에는 &lt;code class="highlighter-rouge"&gt;git push&lt;/code&gt;만 입력해도 된다.&lt;/p&gt;
+
+&lt;h1 id="blog-"&gt;7. Blog 작성&lt;/h1&gt;
+
+&lt;p&gt;블로그 작성 시 입력한 내용이 예상한대로 동작을 하는지 확인 하기 위해서 매번 github에 push하는 것은 매우 힘든 일이다. 작성을 하는 동시에 바로 확인을 하기 위해서 위에서 언급한 것과 같이 &lt;code class="highlighter-rouge"&gt;jekyll serve&lt;/code&gt;를 이용하여 서버를 동작 시킨 후 &lt;code class="highlighter-rouge"&gt;localhost:4000&lt;/code&gt;으로 접속하면 바로 수정된 내용을 확인할 수 있다. 이렇게 수정이 완료된 후 github로 push하면 편하게 포스팅을 수정할 수 있다.&lt;/p&gt;
+
+
+  &lt;/div&gt;
+
+    
+    &lt;div id="disqus_thread"&gt;&lt;/div&gt;
+    &lt;script&gt;
+    /**
+    * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+
+    s.src = '//jinyongjeong.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    &lt;/script&gt;
+    &lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript" rel="nofollow"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+    
+
+&lt;/article&gt;
+
+  &lt;/div&gt;
+
+  &lt;!-- Code to add begin here --&gt;
+  
+    &lt;!--insert your code--&gt;
+  
+  &lt;!-- Code to add end here --&gt;
+
+&lt;/article&gt;
+
+</code></pre>
+</div>
+
+<p>포스팅에서 comment활성화 여부를 설정할 것이기 때문에 <code class="highlighter-rouge">%if page.comments %</code> <code class="highlighter-rouge">% endif %</code> 이 부분도 추가해 주어야 한다. 다음으로 <code class="highlighter-rouge">_config.yml</code> 파일을 열어 마지막에 다음의 코드를 추가한다.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>disqus_shortname: myblog(등록한 본인 블로그 이름)
+</code></pre>
+</div>
+
+<h1 id="post--">4. Post에 명령 추가</h1>
+
+<p>마지막으로 포스팅을 할 때 포스팅 <code class="highlighter-rouge">.md</code> file의 맨 위에 <code class="highlighter-rouge">comments: true</code> 를 추가해 주면 포스팅에 댓글쓰기가 다음과 같이 활성화 된다.</p>
+
+<p><img align="middle" src="/fig/post/add_comment_to_post/fig3.png" width="800" height="200px" /></p>
+
+
+  </div>
+
+    
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+    * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+
+    s.src = '//jinyongjeong.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Jeong Jinyong Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Jeong Jinyong Blog</li>
+          <li><a href="mailto:jjy0923@gmail.com">jjy0923@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/jinyongjeong"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">jinyongjeong</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>This blog will post various subjects such as computer science, algorithms and so on. Purpose of this blog is to remember the things I studied by posting it.  
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
