@@ -1,23 +1,38 @@
 ---
 layout: default
 ---
-
 <div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
   <ul class="post-list">
-    {% for post in site.posts %}
+    {% for post in paginator.posts %}
       <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
+        <img src="{{ site.url }}{{ post.image }}" alt="{{ post.title }}" class="post-image" />
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
+        <div class="post-meta">
+          {{ post.date | date_to_long_string }}
+          •
+          {% assign words = post.content | number_of_words %}
+          {% if words < 360 %}
+            1 min
+          {% else %}
+            {{ words | divided_by:180 }} mins
+          {% endif %}
+          read
+        </div>
+        <p class="post-summary">
+          {{ post.summary }}
+        </p>
       </li>
     {% endfor %}
   </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+  <!-- Pagination links -->
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}" class="previous">&#8592; Newer posts</a>
+    {% endif %}
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path }}" class="next">Older posts &#8594;</a>
+    {% endif %}
+  </div>
 </div>
