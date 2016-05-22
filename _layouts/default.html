@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
   {% include head.html %}
@@ -18,3 +19,6 @@
   </body>
 
 </html>
+{% assign current = page.url | downcase | split: '/' %}
+
+
