@@ -8,7 +8,7 @@ layout: default
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
-        <h4>
+
         <div class="post-meta">
           {{ post.date | date_to_long_string }}
           •
@@ -20,10 +20,12 @@ layout: default
           {% endif %}
           read
         </div>
-        <p class="post-summary">
-          {{ post.summary }}
-        </p>
+        <h4>
+            <p class="post-summary">
+              {{ post.summary }}
         </h4>
+        </p>
+        
       </li>
     {% endfor %}
   </ul>
