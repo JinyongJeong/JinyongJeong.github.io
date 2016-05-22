@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Jekyll에 댓글 추가하기(Disqus)"
+title:  " Jekyll에 댓글 추가하기(Disqus) "
 date:   2016-05-19 22:44:49 +0900
 categories: jekyll update
 comments: true
