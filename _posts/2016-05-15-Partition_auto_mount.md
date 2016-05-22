@@ -11,8 +11,8 @@ categories: jekyll update
 
 ## 1. FAT32(File Allocate Table 32)
 
-### 2. exFAT(Extended File Allocate Table)
+### 1. exFAT(Extended File Allocate Table)
 
-#### 3. NTFS(New Technology System)
+#### 1. NTFS(New Technology System)
 
-##### 3. NTFS(New Technology System)
+##### 1. NTFS(New Technology System)
