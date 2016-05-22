@@ -2,28 +2,27 @@
  * Site header
  */
 .site-header {
-    border-top: 5px solid $grey-color-dark;
-    border-bottom: 1px solid $grey-color-light;
-    min-height: 56px;
-
-    // Positioning context for the mobile navigation icon
-    position: relative;
-}
-
-.site-title {
-    font-size: 26px;
-    font-weight: 300;
-    line-height: 56px;
-    letter-spacing: -1px;
-    margin-bottom: 0;
-    float: left;
-
-    &,
-    &:visited {
-        color: $grey-color-dark;
+  border: 0;
+  .wrapper {
+    padding: 50px 0;
+    text-align: center;
+    @include media-query($on-palm) {
+      padding: 20px 0;
     }
+  }
 }
-
+.site-title {
+  float: none;
+  font-family: $title-font-family;
+  font-weight: 900;
+  font-size: 35px;
+  color: $grey-color-dark;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  @include media-query($on-palm) {
+    font-size: 30px;
+  }
+}
 .site-nav {
     float: right;
     line-height: 56px;
@@ -233,7 +232,7 @@
     }
 
     h4 {
-        font-size: 12px;
+        font-size: 16px;
 
         @include media-query($on-laptop) {
             font-size: 18px;

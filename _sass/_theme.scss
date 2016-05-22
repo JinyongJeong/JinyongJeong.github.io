@@ -1,0 +1,143 @@
+.site-header {
+  border: 0;
+  .wrapper {
+    padding: 50px 0;
+    text-align: center;
+    @include media-query($on-palm) {
+      padding: 20px 0;
+    }
+  }
+}
+.site-title {
+  float: none;
+  font-family: $title-font-family;
+  font-weight: 900;
+  font-size: 35px;
+  color: $grey-color-dark;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  @include media-query($on-palm) {
+    font-size: 30px;
+  }
+}
+
+.site-subtitle{
+  margin-top: 60px;
+  span {
+    display: block;
+  }
+}
+.site-subtitle-quote {
+  font-family: $base-font-family;
+  font-size: 18px;
+  font-weight: 400;
+  @include media-query($on-palm) {
+    font-size: 16px;
+  }
+}
+.site-subtitle-author {
+  font-size: 16px;
+  font-weight: 700;
+  @include media-query($on-palm) {
+    font-size: 14px;
+  }
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: $title-font-family;
+  font-weight: 900;
+}
+.post-list {
+  li {
+    margin-bottom: 80px;
+    padding-top: 30px;
+    border-top: 1px solid $grey-color-light;
+    @include media-query($on-palm) {
+      margin-bottom: 40px;
+      padding-top: 15px;
+    }
+  }
+}
+.post-image {
+  display: block;
+  margin-bottom: 15px;
+}
+.post-summary,
+.post-meta {
+  font-size: 18px;
+  @include media-query($on-palm) {
+    font-size: 14px;
+  }
+}
+.post-meta {
+  margin-bottom: 15px;
+  font-family: $title-font-family;
+  font-weight: 300;
+}
+.post-link,
+.post-link:visited {
+  position: relative;
+  top: 0;
+  left: 0;
+  color: $grey-color-dark;
+  font-size: 45px;
+  font-weight: 900;
+  text-shadow: 0px 0px 0px $background-color;
+  transition: top 0.2s, left 0.2s, text-shadow 0.2s;
+  @include media-query($on-palm) {
+    font-size: 25px;
+    line-height: 1;
+  }
+}
+.post-link:hover {
+  top: -2px;
+  left: -2px;
+  text-shadow: 4px 4px 0px $brand-color;
+  color: $grey-color-dark;
+  text-decoration: none;
+}
+.pagination {
+  .next,
+  .previous {
+    display: block;
+    padding: 3px 10px;
+    font-size: 18px;
+    color: inherit;
+    border: 1px solid $text-color;
+    background: $background-color;
+    &:hover {
+      color: $background-color;
+      background: $brand-color;
+      border-color: $brand-color;
+      text-decoration: none;
+    }
+    @include media-query($on-palm) {
+      font-size: 16px;
+    }
+  }
+  .next {
+    float: right;
+  }
+  .previous {
+    float: left;
+  }
+}
+.social-media-list {
+  margin: 30px 0;
+  text-align: center;
+  @include media-query($on-palm) {
+    margin: 15px 0;
+  }
+  li {
+    display: inline-block;
+    margin: 0 15px;
+    svg {
+      width: 40px;
+      height: 40px;
+    }
+    &:hover {
+      svg path {
+        fill: $brand-color;
+      }
+    }
+  }
+}
