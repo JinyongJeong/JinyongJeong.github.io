@@ -5,7 +5,7 @@ date:   2016-05-19 22:44:49 +0900
 categories: jekyll update
 comments: true
 image: "/fig/default/default_post.jpg"
-summary: "Jekyll을 이용하여 만든 블로그의 포스팅에 댓글을 추가하는 방법을 소개합니다."
+summary: "Jekyll을 이용하여 만든 블로그의 포스팅에 댓글을 추가하는 방법 소개"
 ---
 
 Jekyll 블로그는 기본적인 layout만을 제공해 주기 때문에 블로그 포스팅에 댓글을 달 수 있도록 만들기 위해서는 추가적인 작업이 필요하다. 댓글창을 만들기 위해 [Disqus](https://disqus.com/)를 사용할 것이다. 
