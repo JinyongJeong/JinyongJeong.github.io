@@ -5,10 +5,10 @@ layout: default
   <ul class="post-list">
     {% for post in paginator.posts %}
       <li>
-        <img src="{{ site.url }}{{ post.image }}" alt="{{ post.title }}" class="post-image" />
+        
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
+        </h4>
         <div class="post-meta">
           {{ post.date | date_to_long_string }}
           •
