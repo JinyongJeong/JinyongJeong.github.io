@@ -27,29 +27,29 @@ Jekyll 블로그는 기본적인 layout만을 제공해 주기 때문에 블로�
 `_layouts/post.html` 파일을 열고 `<article>` 블락 사이에 복사한 내용을 아래 코드에서 `<insert your code>` 부분에 넣어준다. 
 
 ```
+<code>
+---
+layout: default
+---
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-            ---
-            layout: default
-            ---
-            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+  </header>
 
-              <header class="post-header">
-                <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-                <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
-              </header>
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
 
-              <div class="post-content" itemprop="articleBody">
-                {{ content }}
-              </div>
+  <!-- Code to add begin here -->
+  {% if page.comments %}
+    <!--insert your code-->
+  {% endif %}
+  <!-- Code to add end here -->
 
-              <!-- Code to add begin here -->
-              {% if page.comments %}
-                <!--insert your code-->
-              {% endif %}
-              <!-- Code to add end here -->
-
-            </article>
-
+</article>
+</code>
 ```
 
 
