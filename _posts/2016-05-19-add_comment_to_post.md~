@@ -5,7 +5,7 @@ date:   2016-05-19 22:44:49 +0900
 categories: jekyll update
 comments: true
 image: "/fig/default/default_post.jpg"
-summary: "Jekyll을 이용하여 만든 블로그의 포스팅에 댓글을 추가하는 방법 소개"
+summary: "Jekyll을 이용하여 만든 블로그의 포스팅에 댓글을 추가하는 방법을 소개합니다."
 ---
 
 Jekyll 블로그는 기본적인 layout만을 제공해 주기 때문에 블로그 포스팅에 댓글을 달 수 있도록 만들기 위해서는 추가적인 작업이 필요하다. 댓글창을 만들기 위해 [Disqus](https://disqus.com/)를 사용할 것이다. 
@@ -29,36 +29,16 @@ Jekyll 블로그는 기본적인 layout만을 제공해 주기 때문에 블로�
 `_layouts/post.html` 파일을 열고 `<article>` 블락 사이에 복사한 내용을 아래 코드에서 `<insert your code>` 부분에 넣어준다. 
 
 ```
-<code>
+
 ---
 layout: default
 ---
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-<<<<<<< HEAD
-=======
----
-layout: default
----
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
->>>>>>> e1a262ccc59702e00b074993f3ed77513b92571c
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
     <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
   </header>
-<<<<<<< HEAD
-
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
-  </div>
-
-  <!-- Code to add begin here -->
-  {% if page.comments %}
-    <!--insert your code-->
-  {% endif %}
-  <!-- Code to add end here -->
-=======
 
   <div class="post-content" itemprop="articleBody">
     {{ content }}
@@ -71,10 +51,7 @@ layout: default
   <!-- Code to add end here -->
 
 </article>
->>>>>>> e1a262ccc59702e00b074993f3ed77513b92571c
 
-</article>
-</code>
 ```
 
 포스팅에서 comment활성화 여부를 설정하기 위해서 위의 예의 주석으로 되어 있는 `%if page.comments %` `% endif %` 이 부분을 추가해준다. 추가할 때 앞 뒤로 중괄호({})를 넣어준다. 다음으로 `_config.yml` 파일을 열어 마지막에 다음의 코드를 추가한다. 

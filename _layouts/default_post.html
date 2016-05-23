@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+    <nav class="single-post-nav">
+      <ul>
+        <li>
+          {% if page.previous %}
+          <a href="{{ page.previous.url }}">&#8592; Previous post</a>
+          {% endif %}
+        </li>
+        <li><a href="{{ site.baseurl }}/">Posts list</a></li>
+        <li>
+          {% if page.next %}
+          <a href="{{ page.next.url }}">Next post &#8594;</a>
+          {% endif %}
+        </li>
+      </ul>
+    </nav>
+    <div class="single-post">
+      {{ content }}
+    </div>
+    {% include footer.html %}
+  </body>
+</html>
