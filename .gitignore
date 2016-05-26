@@ -1,0 +1,6 @@
+*.md~
+*.markdown~
+*.html~
+*.yml~
+*.*~
+.sass-cache
