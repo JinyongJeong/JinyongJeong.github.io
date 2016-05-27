@@ -47,8 +47,11 @@ UUID=16D219F9D219DE35 /media/win ntfs auto,defaults,rw 0 2
 ```
 
 위의 두가지 방식으로 설정 가능하다(device 이름 혹은 UUID)
+
 `/media/win` : mount 위치
+
 `ntfs-3g` : file type
+
 `rw` : read and write
 
 fstab까지 설정이 완료 후 재부팅하면 windows의 파티션이 자동으로 mount되는 것을 확인 가능하다.
