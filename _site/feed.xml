@@ -6,8 +6,8 @@
 </description>
     <link>http://jinyongjeong.github.io//</link>
     <atom:link href="http://jinyongjeong.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 27 May 2016 23:54:50 +0900</pubDate>
-    <lastBuildDate>Fri, 27 May 2016 23:54:50 +0900</lastBuildDate>
+    <pubDate>Sat, 28 May 2016 00:21:12 +0900</pubDate>
+    <lastBuildDate>Sat, 28 May 2016 00:21:12 +0900</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
     
       <item>
@@ -82,39 +82,39 @@ layout: default_post
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts/post.html&lt;/code&gt; 파일을 열고 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;article&amp;gt;&lt;/code&gt; 블락 사이에 복사한 내용을 아래 코드에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;insert your code&amp;gt;&lt;/code&gt; 부분에 넣어준다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 ---
 layout: default_post
 ---
-&amp;lt;article class=&quot;post&quot; itemscope itemtype=&quot;http://schema.org/BlogPosting&quot;&amp;gt;
-  &amp;lt;header class=&quot;post-header single-post-header&quot; style=&quot;background-image:url(&#39;{{ site.url }}{{ page.image }}&#39;)&quot;&amp;gt;
-    &amp;lt;div&amp;gt;
-      &amp;lt;h1 class=&quot;post-title single-post-title&quot; itemprop=&quot;name headline&quot;&amp;gt;{{ page.title }}&amp;lt;/h1&amp;gt;
-      &amp;lt;p class=&quot;post-meta single-post-meta&quot;&amp;gt;
-        &amp;lt;time datetime=&quot;{{ page.date | date_to_xmlschema }}&quot; itemprop=&quot;datePublished&quot;&amp;gt;{{ page.date | date_to_long_string }}&amp;lt;/time&amp;gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;article&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemscope&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemtype=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schema.org/BlogPosting&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;header&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-header single-post-header&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;background-image:url(&#39;{{ site.url }}{{ page.image }}&#39;)&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-title single-post-title&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;name headline&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ page.title }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-meta single-post-meta&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;time&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;datetime=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ page.date | date_to_xmlschema }}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;datePublished&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ page.date | date_to_long_string }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/time&amp;gt;&lt;/span&gt;
         •
         {% assign words = page.content | number_of_words %}
-        {% if words &amp;lt; 360 %}
-          1 min
-        {% else %}
-          {{ words | divided_by:180 }} mins
-        {% endif %}
-        read
-      &amp;lt;/p&amp;gt;
-    &amp;lt;/div&amp;gt;
-  &amp;lt;/header&amp;gt;
-  &amp;lt;div class=&quot;wrapper&quot;&amp;gt;
-    &amp;lt;div class=&quot;single-post-summary&quot;&amp;gt;
-     &amp;lt;code&amp;gt; {{ page.summary }} &amp;lt;/code&amp;gt;
-    &amp;lt;/div&amp;gt;
-    &amp;lt;div class=&quot;post-content single-post-content&quot; itemprop=&quot;articleBody&quot;&amp;gt;
-     &amp;lt;code&amp;gt; {{ content }} &amp;lt;/code&amp;gt;
-    &amp;lt;/div&amp;gt;
+        {% if words &lt;span class=&quot;nt&quot;&gt;&amp;lt; 360&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%}&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;min&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%}&lt;/span&gt;
+          &lt;span class=&quot;err&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;words&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;divided_by:180&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;}}&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mins&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;endif&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%}&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;read&lt;/span&gt;
+      &lt;span class=&quot;err&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrapper&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;single-post-summary&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;&amp;lt;code&amp;gt;&lt;/span&gt; {{ page.summary }} &lt;span class=&quot;nt&quot;&gt;&amp;lt;/code&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-content single-post-content&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;articleBody&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;&amp;lt;code&amp;gt;&lt;/span&gt; {{ content }} &lt;span class=&quot;nt&quot;&gt;&amp;lt;/code&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
     {% if page.comments %}
-        &amp;lt;-- add your code here --&amp;gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;--&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;your&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;here&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
     {% endif %}
-  &amp;lt;/div&amp;gt;
-&amp;lt;/article&amp;gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/article&amp;gt;&lt;/span&gt;
 
 
 &lt;/code&gt;&lt;/pre&gt;
