@@ -29,7 +29,7 @@ Jekyll 블로그는 기본적인 layout만을 제공해 주기 때문에 블로�
 `_layouts/post.html` 파일을 열고 `<article>` 블락 사이에 복사한 내용을 아래 코드에서 `<insert your code>` 부분에 넣어준다. 
 
 ```
-```
+<code>
 ---
 layout: default_post
 ---
@@ -62,10 +62,10 @@ layout: default_post
     {% endif %}
   </div>
 </article>
-
+</code>
 
 ```
-```
+
 
 포스팅에서 comment활성화 여부를 설정하기 위해서 위의 예의 주석으로 되어 있는 `%if page.comments %` `% endif %` 이 부분을 추가해준다. 추가할 때 앞 뒤로 중괄호({})를 넣어준다. 다음으로 `_config.yml` 파일을 열어 마지막에 다음의 코드를 추가한다. 
 
