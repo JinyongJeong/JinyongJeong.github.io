@@ -6,13 +6,8 @@
 </description>
     <link>http://jinyongjeong.github.io//</link>
     <atom:link href="http://jinyongjeong.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-<<<<<<< HEAD
-    <pubDate>Fri, 20 May 2016 01:11:02 +0900</pubDate>
-    <lastBuildDate>Fri, 20 May 2016 01:11:02 +0900</lastBuildDate>
-=======
-    <pubDate>Mon, 23 May 2016 01:21:06 +0900</pubDate>
-    <lastBuildDate>Mon, 23 May 2016 01:21:06 +0900</lastBuildDate>
->>>>>>> e1a262ccc59702e00b074993f3ed77513b92571c
+    <pubDate>Fri, 27 May 2016 23:13:30 +0900</pubDate>
+    <lastBuildDate>Fri, 27 May 2016 23:13:30 +0900</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
     
       <item>
@@ -33,175 +28,45 @@
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts/post.html&lt;/code&gt; 파일을 열고 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;article&amp;gt;&lt;/code&gt; 블락 사이에 복사한 내용을 아래 코드에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;insert your code&amp;gt;&lt;/code&gt; 부분에 넣어준다.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code&amp;gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 ---
-layout: default
+layout: default_post
 ---
 &amp;lt;article class=&quot;post&quot; itemscope itemtype=&quot;http://schema.org/BlogPosting&quot;&amp;gt;
-
-  &amp;lt;header class=&quot;post-header&quot;&amp;gt;
-    &amp;lt;h1 class=&quot;post-title&quot; itemprop=&quot;name headline&quot;&amp;gt; Jekyll에 댓글 추가하기(Disqus) &amp;lt;/h1&amp;gt;
-    &amp;lt;p class=&quot;post-meta&quot;&amp;gt;&amp;lt;time datetime=&quot;2016-05-19T22:44:49+09:00&quot; itemprop=&quot;datePublished&quot;&amp;gt;May 19, 2016&amp;lt;/time&amp;gt;&amp;lt;/p&amp;gt;
-  &amp;lt;/header&amp;gt;
-
-  &amp;lt;div class=&quot;post-content&quot; itemprop=&quot;articleBody&quot;&amp;gt;
-    &amp;lt;article class=&quot;post&quot; itemscope itemtype=&quot;http://schema.org/BlogPosting&quot;&amp;gt;
-  &amp;lt;header class=&quot;post-header single-post-header&quot; style=&quot;background-image:url(&#39;http://jinyongjeong.github.io//fig/default/default_post.jpg&#39;)&quot;&amp;gt;
+  &amp;lt;header class=&quot;post-header single-post-header&quot; style=&quot;background-image:url(&#39;{{ site.url }}{{ page.image }}&#39;)&quot;&amp;gt;
     &amp;lt;div&amp;gt;
-      &amp;lt;h1 class=&quot;post-title single-post-title&quot; itemprop=&quot;name headline&quot;&amp;gt;Jekyll을 이용하여 Github Blog 만들기&amp;lt;/h1&amp;gt;
+      &amp;lt;h1 class=&quot;post-title single-post-title&quot; itemprop=&quot;name headline&quot;&amp;gt;{{ page.title }}&amp;lt;/h1&amp;gt;
       &amp;lt;p class=&quot;post-meta single-post-meta&quot;&amp;gt;
-        &amp;lt;time datetime=&quot;2016-05-15T13:33:49+09:00&quot; itemprop=&quot;datePublished&quot;&amp;gt;15 May 2016&amp;lt;/time&amp;gt;
+        &amp;lt;time datetime=&quot;{{ page.date | date_to_xmlschema }}&quot; itemprop=&quot;datePublished&quot;&amp;gt;{{ page.date | date_to_long_string }}&amp;lt;/time&amp;gt;
         •
-        
-        
-          3 mins
-        
+        {% assign words = page.content | number_of_words %}
+        {% if words &amp;lt; 360 %}
+          1 min
+        {% else %}
+          {{ words | divided_by:180 }} mins
+        {% endif %}
         read
       &amp;lt;/p&amp;gt;
     &amp;lt;/div&amp;gt;
   &amp;lt;/header&amp;gt;
   &amp;lt;div class=&quot;wrapper&quot;&amp;gt;
     &amp;lt;div class=&quot;single-post-summary&quot;&amp;gt;
-      Jekyll을 이용한 간편하게 Github에 blog를 만드는 방법 소개
+     &amp;lt;code&amp;gt; {{ page.summary }} &amp;lt;/code&amp;gt;
     &amp;lt;/div&amp;gt;
     &amp;lt;div class=&quot;post-content single-post-content&quot; itemprop=&quot;articleBody&quot;&amp;gt;
-      &amp;lt;p&amp;gt;Jekyll을 이용해서 Github에 Blog를 만들어보자. 우선 Jekyll을 설치하기 위해서는 rvm(ruby version manager)를 설치해야 한다. rvm은 ruby의 버전관리를 위해 사용된다. ruby와 jekyll 설치 시 &amp;lt;code class=&quot;highlighter-rouge&quot;&amp;gt;apt-get install&amp;lt;/code&amp;gt;을 사용하면 안된다. 전체적인 순서는 rvm 설치 -&amp;amp;gt; ruby 설치 -&amp;amp;gt; jekyll 설치 -&amp;amp;gt; github.io 생성 이다.&amp;lt;/p&amp;gt;
-
-&amp;lt;h1 id=&quot;curlrvmruby-version-manager-&quot;&amp;gt;1. curl/rvm(ruby version manager) 설치&amp;lt;/h1&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;sudo apt-get install curl
-curl -sSL https://get.rvm.io | bash -s stable
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;p&amp;gt;위 코드의 설치 과정에서 만약 다음과같은 error가 뜬다면&amp;lt;/p&amp;gt;
-
-&amp;lt;figure class=&quot;highlight&quot;&amp;gt;&amp;lt;pre&amp;gt;&amp;lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&amp;gt;&amp;lt;span class=&quot;ss&quot;&amp;gt;curl: &amp;lt;/span&amp;gt;&amp;lt;span class=&quot;p&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;mi&quot;&amp;gt;77&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;p&quot;&amp;gt;)&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;error&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;setting&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;certificate&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;verify&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;ss&quot;&amp;gt;locations:
-&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;no&quot;&amp;gt;CAfile&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;p&quot;&amp;gt;:&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;sr&quot;&amp;gt;/etc/&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;pki&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;/&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;tls&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;/&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;certs&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;/&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;ca&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;-&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;bundle&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;p&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;nf&quot;&amp;gt;crt&amp;lt;/span&amp;gt;
-&amp;lt;span class=&quot;no&quot;&amp;gt;CApath&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;p&quot;&amp;gt;:&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;none&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/figure&amp;gt;
-
-&amp;lt;p&amp;gt;certificate 경로가 맞지 않는 것이다. 다음의 코드를 입력하여 경로 생성 후 &amp;lt;code class=&quot;highlighter-rouge&quot;&amp;gt;.crt&amp;lt;/code&amp;gt; 파일을 복사해준다. 만약 &amp;lt;code class=&quot;highlighter-rouge&quot;&amp;gt;.crt&amp;lt;/code&amp;gt;파일이 없다면 &amp;lt;code class=&quot;highlighter-rouge&quot;&amp;gt;sudo apt-get install ca-certificates&amp;lt;/code&amp;gt;를 통해 설치한다.&amp;lt;/p&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;sudo mkdir -p /etc/pki/tls/certs
-sudo cp /etc/ssl/certs/ca-certificates.crt /etc/pki/tls/certs/ca-bundle.crt
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;p&amp;gt;다른 에러가 또 뜬다면 다음을 입력(아마 error 내용에 다음의 내용이 있을 것이다.)&amp;lt;/p&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;p&amp;gt;rvm 스크립트를 현재 쉘에 로드 및 현재 쉘에 로드&amp;lt;/p&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;source ~/.rvm/scripts/rvm
-rvm requirements
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;p&amp;gt;만약 다음과 같은 error가 발생한다면(아마 한국 서버에서 받아오는데 문제가 있는것 같다.)&amp;lt;/p&amp;gt;
-
-&amp;lt;figure class=&quot;highlight&quot;&amp;gt;&amp;lt;pre&amp;gt;&amp;lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&amp;gt;&amp;lt;span class=&quot;no&quot;&amp;gt;E&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;p&quot;&amp;gt;:&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;no&quot;&amp;gt;Failed&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;to&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;fetch&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;http&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;ss&quot;&amp;gt;:/&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;/&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;kr&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;p&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;nf&quot;&amp;gt;archive&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;p&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;nf&quot;&amp;gt;ubuntu&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;p&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;nf&quot;&amp;gt;com&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;/&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;ubuntu&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;/&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;pool&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;/&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;main&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;/&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;g&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;/&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;gawk&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;/&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;gawk_4&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;mi&quot;&amp;gt;0&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;mi&quot;&amp;gt;1&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;+&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;dfsg&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;-&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;mi&quot;&amp;gt;2&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;mi&quot;&amp;gt;1&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;ubuntu2_amd64&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;p&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;nf&quot;&amp;gt;deb&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;no&quot;&amp;gt;Could&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;not&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;connect&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;to&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;kr&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;p&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;nf&quot;&amp;gt;archive&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;p&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;nf&quot;&amp;gt;ubuntu&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;p&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;nf&quot;&amp;gt;com&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;p&quot;&amp;gt;:&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;mi&quot;&amp;gt;80&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;p&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;mi&quot;&amp;gt;103&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;mi&quot;&amp;gt;22&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;mi&quot;&amp;gt;220&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;mi&quot;&amp;gt;133&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;p&quot;&amp;gt;).&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;nf&quot;&amp;gt;-&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;connect&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;p&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;mi&quot;&amp;gt;111&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;p&quot;&amp;gt;:&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;no&quot;&amp;gt;Connection&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;refused&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;p&quot;&amp;gt;)&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/figure&amp;gt;
-
-&amp;lt;p&amp;gt;Setting의 software updates에서 Download from 을 main server 로 바꿔준 후 다시 &amp;lt;code class=&quot;highlighter-rouge&quot;&amp;gt;rvm requirements&amp;lt;/code&amp;gt; 실행한다.&amp;lt;/p&amp;gt;
-
-&amp;lt;h1 id=&quot;ruby-&quot;&amp;gt;2. Ruby 설치&amp;lt;/h1&amp;gt;
-
-&amp;lt;p&amp;gt;Ruby 2.1.2 설치 후 디폴트로 설정&amp;lt;/p&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;rvm install 2.1.2
-rvm use 2.1.2 --default
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;h1 id=&quot;nodejs-&quot;&amp;gt;3. nodejs 설치&amp;lt;/h1&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;sudo apt-get install nodejs
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;h1 id=&quot;jekyll----&quot;&amp;gt;4. Jekyll 설치 및 버전 확인&amp;lt;/h1&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;gem install jekyll
-jekyll -v
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;p&amp;gt;여기까지 Jekyll 설치 완료.&amp;lt;/p&amp;gt;
-
-&amp;lt;h1 id=&quot;jekyll--&quot;&amp;gt;5. Jekyll의 설치를 확인&amp;lt;/h1&amp;gt;
-
-&amp;lt;p&amp;gt;Jekyll을 이용하여 기본 테마를 생성 후 서버를 동작시킨다.&amp;lt;/p&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;jekyll new myblog
-cd myblog
-jekyll serve
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;p&amp;gt;&amp;lt;code class=&quot;highlighter-rouge&quot;&amp;gt;http://localhost:4000&amp;lt;/code&amp;gt; 으로 들어가면 local 블로그를 확인할 수 있다.&amp;lt;/p&amp;gt;
-
-&amp;lt;h1 id=&quot;github-repository-&quot;&amp;gt;6. github의 repository를 생성&amp;lt;/h1&amp;gt;
-
-&amp;lt;p&amp;gt;&amp;lt;a href=&quot;http://www.github.com&quot;&amp;gt;Github&amp;lt;/a&amp;gt;으로 접속 후 새로운 repository 생성. &amp;lt;yourname&amp;gt;.github.io 로 repository 생성 후 로컬에서 home folder로 이동하여 repository 복사.&amp;lt;/yourname&amp;gt;&amp;lt;/p&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;git clone https://github.com/&amp;amp;lt;yourname&amp;amp;gt;/&amp;amp;lt;yourname&amp;amp;gt;.github.io.git
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;p&amp;gt;폴더를  복사 후  그 폴더로 이동한 후 git 을 초기화시킨다. 초기화 시킨 후 git의 폴더에 jekyll의 기본 테마 설치&amp;lt;/p&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;git init
-jekyll new . --force 
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;p&amp;gt;Jekyll로 생성된 모든 파일을 git에 add해 준 후 commit, push 를 해서 github에 올려준다.&amp;lt;/p&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;git add *
-git commit -m &quot;first commit&quot;
-git push -u origin master
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;p&amp;gt;첫 commit 시에 config 파일에 user.email과 user.name을 등록하라고 나오면&amp;lt;/p&amp;gt;
-
-&amp;lt;div class=&quot;highlighter-rouge&quot;&amp;gt;&amp;lt;pre class=&quot;highlight&quot;&amp;gt;&amp;lt;code&amp;gt;git config user.email &quot;이메일주소&quot;
-git config user.name &quot;이름&quot;
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;p&amp;gt;을 입력하여 이메일과 이름을 등록해 준다.이로써 github에 블로그가 생성되었다!&amp;lt;/p&amp;gt;
-
-&amp;lt;p&amp;gt;git을 clone 받은 후 처음에는 &amp;lt;code class=&quot;highlighter-rouge&quot;&amp;gt;git push -u origin master&amp;lt;/code&amp;gt;를 모두 입력해야 하지만 한번 한 이후에는 &amp;lt;code class=&quot;highlighter-rouge&quot;&amp;gt;git push&amp;lt;/code&amp;gt;만 입력해도 된다.&amp;lt;/p&amp;gt;
-
-&amp;lt;h1 id=&quot;blog-&quot;&amp;gt;7. Blog 작성&amp;lt;/h1&amp;gt;
-
-&amp;lt;p&amp;gt;블로그 작성 시 입력한 내용이 예상한대로 동작을 하는지 확인 하기 위해서 매번 github에 push하는 것은 매우 힘든 일이다. 작성을 하는 동시에 바로 확인을 하기 위해서 위에서 언급한 것과 같이 &amp;lt;code class=&quot;highlighter-rouge&quot;&amp;gt;jekyll serve&amp;lt;/code&amp;gt;를 이용하여 서버를 동작 시킨 후 &amp;lt;code class=&quot;highlighter-rouge&quot;&amp;gt;localhost:4000&amp;lt;/code&amp;gt;으로 접속하면 바로 수정된 내용을 확인할 수 있다. 이렇게 수정이 완료된 후 github로 push하면 편하게 포스팅을 수정할 수 있다.&amp;lt;/p&amp;gt;
-
-
+     &amp;lt;code&amp;gt; {{ content }} &amp;lt;/code&amp;gt;
     &amp;lt;/div&amp;gt;
-    
-      &amp;lt;!-- disqus code --&amp;gt;
-    
+    {% if page.comments %}
+        &amp;lt;-- add your code here --&amp;gt;
+    {% endif %}
   &amp;lt;/div&amp;gt;
 &amp;lt;/article&amp;gt;
 
-  &amp;lt;/div&amp;gt;
 
-  &amp;lt;!-- Code to add begin here --&amp;gt;
-  &amp;lt;!-- (중괄호))% if page.comments %(중괄호) --&amp;gt;
-    &amp;lt;!--insert your code--&amp;gt;
-  &amp;lt;!-- (중괄호)% endif %(중괄호) --&amp;gt;
-  &amp;lt;!-- Code to add end here --&amp;gt;
-
-&amp;lt;/article&amp;gt;
-&amp;lt;/code&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;포스팅에서 comment활성화 여부를 설정하기 위해서 위의 예의 주석으로 되어 있는 &lt;code class=&quot;highlighter-rouge&quot;&gt;%if page.comments %&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;% endif %&lt;/code&gt; 이 부분을 추가해준다. 추가할 때 앞 뒤로 중괄호({})를 넣어준다. 다음으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; 파일을 열어 마지막에 다음의 코드를 추가한다.&lt;/p&gt;
+&lt;p&gt;포스팅에서 comment활성화 여부를 설정하기 위해서 위의 예의 주석으로 되어 있는 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;page.comments&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;endif&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt; 이 부분을 추가해준다. 추가할 때 앞 뒤로 중괄호({})를 넣어준다. 다음으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; 파일을 열어 마지막에 다음의 코드를 추가한다.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;disqus_shortname: myblog(등록한 본인 블로그 이름)
 &lt;/code&gt;&lt;/pre&gt;
@@ -356,23 +221,53 @@ git config user.name &quot;이름&quot;
     
       <item>
         <title>Windows Partition Auto Mount in Ubuntu 14.04</title>
-        <description>&lt;p&gt;윈도우 파티션의 파일시스템은 NTFS(New Technology File System)으로 보통 구성되어 있다. 예전에는 Ubuntu에서 NTFS 시스템을 읽거나 사용하기 어려웠는데 근래에는 Reverse Engineering을 통해 Ubuntu에서도 사용 가능할 수 있게 되었다. 윈도우 파티션의 자동 마운트에 대해서 설명하기 앞서 간단하게 file system에 대해서 설명한다.&lt;/p&gt;
+        <description>&lt;p&gt;윈도우 파티션의 파일시스템은 NTFS(New Technology File System)으로 보통 구성되어 있다. 예전에는 Ubuntu에서 NTFS 시스템을 읽거나 사용하기 어려웠는데 근래에는 Reverse Engineering을 통해 Ubuntu에서도 사용 가능할 수 있게 되었다. 기본적으로 가장 오래된 시스템은 FAT(File Allocate Table)이며 안정성 면에서는 FAT32가 가장 좋다. 하지만 FAT32는 32bit 시스템을 사용하기 떄문에 4Gbyte 이상의 파일을 저장할 수 없다. 왜냐하면 32bit 방식은 표현할 수 있는 주소의 갯수가 2의 32승 = 4.2950e+09 이고  한개의 주소값으로 1Byte를 표현 할 수 있으므로 32bit 시스템으로 표현할 수 있는 최대 메모리는 4.2950e+09 Byte, 약 4GByte이다. 마찬가지로 32bit 운영체제에서 최대 사용가능한 메모리 용량이 4GByte인것도 같은 이유이다. 32bit 시스템에서 4GByte이상의 하드디스크를 사용할 수 있는 것은 하드시스크의 data를 RAM으로 이동 후 처리하기 때문에 가능한 것이다. 이러한 한계 때문에 개발 된 것이 exFAT시스템이다. exFAT시스템은 용량의 제한이 매우 커서 따로 신경쓸 필요가 없다. 하지만 exFAT 시스템으로 설정된 USB 및 디스크를 안전하게 제거하지 않는다거나 여러 경우에 불안한 모습을 보일 때가 있다고 한다. 마지막으로 NTFS 방식은 Windows에서 개발된 방식이기 때문에 블랙박스라던지 기타 디바이스에서 인식이 안되는 문제가 있다고 한다.&lt;/p&gt;
 
-&lt;h1 id=&quot;file-sytem&quot;&gt;1. FIle Sytem&lt;/h1&gt;
+&lt;p&gt;다시한번 정리하면
+FAT32 : 안전성에서는 가장 좋음, 저장 용량의 한계가 있음 
+exFAT : 안정성이 떨어짐, 저장용량의 한계는 없음
+NTFS: 확장성이 떨어짐&lt;/p&gt;
 
-&lt;h2 id=&quot;fat32file-allocate-table-32&quot;&gt;2. FAT32(File Allocate Table 32)&lt;/h2&gt;
+&lt;p&gt;따라서 디스크 포멧 시 본인의 맞는 방식에 맞춰서 사용하면 된다. 기본적으로 Windows가 설치된 디스크는 NTFS 방식으로 되어 있기 때문에, 윈도우가 설치된 디스크를 Ubuntu에 자동으로 mount 시키기 위해서는 다음과 같은 절차가 필요하다.&lt;/p&gt;
 
-&lt;h3 id=&quot;exfatextended-file-allocate-table&quot;&gt;1. exFAT(Extended File Allocate Table)&lt;/h3&gt;
+&lt;h2 id=&quot;directory-&quot;&gt;1. directory 생성&lt;/h2&gt;
 
-&lt;h4 id=&quot;ntfsnew-technology-system&quot;&gt;1. NTFS(New Technology System)&lt;/h4&gt;
+&lt;p&gt;우선 원하는 위치에 directory를 설정한다.&lt;/p&gt;
 
-&lt;p&gt;«««&amp;lt; HEAD
-##### 1. NTFS(New Technology System)
-=======
-##### 3. NTFS(New Technology System)&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mkdir /media/win
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;지금부터
-»»»&amp;gt; 3ed3efc96de18f32e317a314c6916efa082eee87&lt;/p&gt;
+&lt;h2 id=&quot;fstab-file&quot;&gt;2. fstab file수정&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc&lt;/code&gt; 경로의 fstab file을 수정한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo gedit /etc/fstab
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;우선 fstab file을 열고 다음을 추가한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;UUID=16D219F9D219DE35 /media/win ntfs auto,defaults,rw 0 2
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;또는&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/dev/sda1 /media/win ntfs-3g auto,defaults,rw 0 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;위의 두가지 방식으로 설정 가능하다(device 이름 혹은 UUID)&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/media/win&lt;/code&gt; : mount 위치&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ntfs-3g&lt;/code&gt; : file type&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rw&lt;/code&gt; : read and write&lt;/p&gt;
+
+&lt;p&gt;fstab까지 설정이 완료 후 재부팅하면 windows의 파티션이 자동으로 mount되는 것을 확인 가능하다.&lt;/p&gt;
 </description>
         <pubDate>Sun, 15 May 2016 13:33:49 +0900</pubDate>
         <link>http://jinyongjeong.github.io//jekyll/update/2016/05/15/Partition_auto_mount.html</link>
