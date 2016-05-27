@@ -29,6 +29,7 @@ Jekyll 블로그는 기본적인 layout만을 제공해 주기 때문에 블로�
 `_layouts/post.html` 파일을 열고 `<article>` 블락 사이에 복사한 내용을 아래 코드에서 `<insert your code>` 부분에 넣어준다. 
 
 ```
+```
 ---
 layout: default_post
 ---
@@ -63,40 +64,7 @@ layout: default_post
 </article>
 
 
-
----
-layout: default_post
----
-<article markdown = "0" class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header  markdown = "0" class="post-header single-post-header" style="background-image:url('{{ site.url }}{{ page.image }}')">
-    <div markdown = "0">
-      <h1 markdown = "0" class="post-title single-post-title" itemprop="name headline">{{ page.title }}</h1>
-      <p markdown = "0" class="post-meta single-post-meta">
-        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date_to_long_string }}</time>
-        •
-        {% assign words = page.content | number_of_words %}
-        {% if words < 360 %}
-          1 min
-        {% else %}
-          {{ words | divided_by:180 }} mins
-        {% endif %}
-        read
-      </p>
-    </div>
-  </header>
-  <div markdown = "0" class="wrapper">
-    <div markdown = "0" class="single-post-summary">
-      {{ page.summary }}
-    </div>
-    <div markdown = "0" class="post-content single-post-content" itemprop="articleBody">
-      {{ content }}
-    </div>
-    {% if page.comments %}
-        <-- add your code here -->
-    {% endif %}
-  </div>
-</article>
-
+```
 ```
 
 포스팅에서 comment활성화 여부를 설정하기 위해서 위의 예의 주석으로 되어 있는 `%if page.comments %` `% endif %` 이 부분을 추가해준다. 추가할 때 앞 뒤로 중괄호({})를 넣어준다. 다음으로 `_config.yml` 파일을 열어 마지막에 다음의 코드를 추가한다. 
