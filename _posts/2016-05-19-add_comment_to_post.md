@@ -29,52 +29,39 @@ Jekyll 블로그는 기본적인 layout만을 제공해 주기 때문에 블로�
 `_layouts/post.html` 파일을 열고 `<article>` 블락 사이에 복사한 내용을 아래 코드에서 `<insert your code>` 부분에 넣어준다. 
 
 ```
-<code>
 ---
-layout: default
----
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
-<<<<<<< HEAD
-=======
----
-layout: default
+layout: default_post
 ---
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
->>>>>>> e1a262ccc59702e00b074993f3ed77513b92571c
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+  <header class="post-header single-post-header" style="background-image:url('{{ site.url }}{{ page.image }}')">
+    <div>
+      <h1 class="post-title single-post-title" itemprop="name headline">{{ page.title }}</h1>
+      <p class="post-meta single-post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date_to_long_string }}</time>
+        •
+        {% assign words = page.content | number_of_words %}
+        {% if words < 360 %}
+          1 min
+        {% else %}
+          {{ words | divided_by:180 }} mins
+        {% endif %}
+        read
+      </p>
+    </div>
   </header>
-<<<<<<< HEAD
-
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
+  <div class="wrapper">
+    <div class="single-post-summary">
+      {{ page.summary }}
+    </div>
+    <div class="post-content single-post-content" itemprop="articleBody">
+      {{ content }}
+    </div>
+    {% if page.comments %}
+        <-- add your code here -->
+    {% endif %}
   </div>
-
-  <!-- Code to add begin here -->
-  {% if page.comments %}
-    <!--insert your code-->
-  {% endif %}
-  <!-- Code to add end here -->
-=======
-
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
-  </div>
-
-  <!-- Code to add begin here -->
-  <!-- (중괄호))% if page.comments %(중괄호) -->
-    <!--insert your code-->
-  <!-- (중괄호)% endif %(중괄호) -->
-  <!-- Code to add end here -->
-
 </article>
->>>>>>> e1a262ccc59702e00b074993f3ed77513b92571c
 
-</article>
-</code>
 ```
 
 포스팅에서 comment활성화 여부를 설정하기 위해서 위의 예의 주석으로 되어 있는 `%if page.comments %` `% endif %` 이 부분을 추가해준다. 추가할 때 앞 뒤로 중괄호({})를 넣어준다. 다음으로 `_config.yml` 파일을 열어 마지막에 다음의 코드를 추가한다. 
@@ -90,21 +77,4 @@ disqus_shortname: myblog(등록한 본인 블로그 이름)
 <img align="middle" src="/fig/post/add_comment_to_post/fig3.png" width="800" height="200px">
 
 
-
-$$
-\begin{align*}
-  & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
-  = \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) = \\
-  & (x_1, \ldots, x_n) \left( \begin{array}{ccc}
-      \phi(e_1, e_1) & \cdots & \phi(e_1, e_n) \\
-      \vdots & \ddots & \vdots \\
-      \phi(e_n, e_1) & \cdots & \phi(e_n, e_n)
-    \end{array} \right)
-  \left( \begin{array}{c}
-      y_1 \\
-      \vdots \\
-      y_n
-    \end{array} \right)
-\end{align*}
-$$
 
