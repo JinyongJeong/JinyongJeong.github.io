@@ -29,6 +29,7 @@ Jekyll 블로그는 기본적인 layout만을 제공해 주기 때문에 블로�
 `_layouts/post.html` 파일을 열고 `<article>` 블락 사이에 복사한 내용을 아래 코드에서 `<insert your code>` 부분에 넣어준다. 
 
 ```
+<div markdown="0">
 ---
 layout: default_post
 ---
