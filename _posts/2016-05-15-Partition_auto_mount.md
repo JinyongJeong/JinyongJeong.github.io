@@ -17,4 +17,38 @@ NTFS: 확장성이 떨어짐
 
 따라서 디스크 포멧 시 본인의 맞는 방식에 맞춰서 사용하면 된다. 기본적으로 Windows가 설치된 디스크는 NTFS 방식으로 되어 있기 때문에, 윈도우가 설치된 디스크를 Ubuntu에 자동으로 mount 시키기 위해서는 다음과 같은 절차가 필요하다.
 
+## 1. directory 생성
 
+우선 원하는 위치에 directory를 설정한다. 
+
+```
+sudo mkdir /media/win
+```
+
+## 2. fstab file수정
+
+`/etc` 경로의 fstab file을 수정한다. 
+
+```
+sudo gedit /etc/fstab
+```
+
+우선 fstab file을 열고 다음을 추가한다. 
+
+```
+UUID=16D219F9D219DE35 /media/win ntfs auto,defaults,rw 0 2
+
+```
+
+또는
+
+```
+/dev/sda1 /media/win ntfs-3g auto,defaults,rw 0 2
+```
+
+위의 두가지 방식으로 설정 가능하다(device 이름 혹은 UUID)
+`/media/win` : mount 위치
+`ntfs-3g` : file type
+`rw` : read and write
+
+fstab까지 설정이 완료 후 재부팅하면 windows의 파티션이 자동으로 mount되는 것을 확인 가능하다.
