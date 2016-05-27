@@ -50,39 +50,39 @@
     <div class="post-content single-post-content" itemprop="articleBody">
       <p>Jekyll을 이용하여 포스팅을 하면서 코드를 올리는 경우가 종종 있다. C 나 python 혹은 기타 코드를 code block에 넣으면 코드가 그대로 보이지만 HTML을 넣을 경우 실제 데이터로 convert가 되어 표기가 되어 원하는 코드를 재대로 보여줄 수 없다. 이때는 code block에 <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">%</span><span class="w"> </span><span class="err">raw</span><span class="w"> </span><span class="err">%</span><span class="w"> </span><span class="p">}</span></code> 와 <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">%</span><span class="w"> </span><span class="err">endraw</span><span class="w"> </span><span class="err">%</span><span class="w"> </span><span class="p">}</span></code>를 넣어줌으로써 code의 raw를 변환없이 아래와 같이 포스팅 할 수 있다. 실제 입력 시 <code class="highlighter-rouge"><span class="p">{</span></code> 와 <code class="highlighter-rouge">%</code> 사이에는 공백이 없어야 한다.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>
 ---
 layout: default_post
 ---
-&lt;article class="post" itemscope itemtype="http://schema.org/BlogPosting"&gt;
-  &lt;header class="post-header single-post-header" style="background-image:url('{{ site.url }}{{ page.image }}')"&gt;
-    &lt;div&gt;
-      &lt;h1 class="post-title single-post-title" itemprop="name headline"&gt;{{ page.title }}&lt;/h1&gt;
-      &lt;p class="post-meta single-post-meta"&gt;
-        &lt;time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished"&gt;{{ page.date | date_to_long_string }}&lt;/time&gt;
+<span class="nt">&lt;article</span> <span class="na">class=</span><span class="s">"post"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"http://schema.org/BlogPosting"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"post-header single-post-header"</span> <span class="na">style=</span><span class="s">"background-image:url('{{ site.url }}{{ page.image }}')"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+      <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"post-title single-post-title"</span> <span class="na">itemprop=</span><span class="s">"name headline"</span><span class="nt">&gt;</span>{{ page.title }}<span class="nt">&lt;/h1&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"post-meta single-post-meta"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;time</span> <span class="na">datetime=</span><span class="s">"{{ page.date | date_to_xmlschema }}"</span> <span class="na">itemprop=</span><span class="s">"datePublished"</span><span class="nt">&gt;</span>{{ page.date | date_to_long_string }}<span class="nt">&lt;/time&gt;</span>
         •
         {% assign words = page.content | number_of_words %}
-        {% if words &lt; 360 %}
-          1 min
-        {% else %}
-          {{ words | divided_by:180 }} mins
-        {% endif %}
-        read
-      &lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/header&gt;
-  &lt;div class="wrapper"&gt;
-    &lt;div class="single-post-summary"&gt;
-     &lt;code&gt; {{ page.summary }} &lt;/code&gt;
-    &lt;/div&gt;
-    &lt;div class="post-content single-post-content" itemprop="articleBody"&gt;
-     &lt;code&gt; {{ content }} &lt;/code&gt;
-    &lt;/div&gt;
+        {% if words <span class="nt">&lt; 360</span> <span class="err">%}</span>
+          <span class="na">1</span> <span class="na">min</span>
+        <span class="err">{%</span> <span class="na">else</span> <span class="err">%}</span>
+          <span class="err">{{</span> <span class="na">words</span> <span class="err">|</span> <span class="na">divided_by:180</span> <span class="err">}}</span> <span class="na">mins</span>
+        <span class="err">{%</span> <span class="na">endif</span> <span class="err">%}</span>
+        <span class="na">read</span>
+      <span class="err">&lt;/</span><span class="na">p</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/header&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"wrapper"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"single-post-summary"</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;code&gt;</span> {{ page.summary }} <span class="nt">&lt;/code&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"post-content single-post-content"</span> <span class="na">itemprop=</span><span class="s">"articleBody"</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;code&gt;</span> {{ content }} <span class="nt">&lt;/code&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
     {% if page.comments %}
-        &lt;-- add your code here --&gt;
+        <span class="nt">&lt;--</span> <span class="na">add</span> <span class="na">your</span> <span class="na">code</span> <span class="na">here</span> <span class="na">--</span><span class="nt">&gt;</span>
     {% endif %}
-  &lt;/div&gt;
-&lt;/article&gt;
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/article&gt;</span>
 
 
 </code></pre>
