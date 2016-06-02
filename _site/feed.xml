@@ -6,9 +6,57 @@
 </description>
     <link>http://jinyongjeong.github.io//</link>
     <atom:link href="http://jinyongjeong.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Jun 2016 11:36:52 +0900</pubDate>
-    <lastBuildDate>Thu, 02 Jun 2016 11:36:52 +0900</lastBuildDate>
+    <pubDate>Thu, 02 Jun 2016 23:19:57 +0900</pubDate>
+    <lastBuildDate>Thu, 02 Jun 2016 23:19:57 +0900</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
+    
+      <item>
+        <title>SSH keygen 설정</title>
+        <description>&lt;h1 id=&quot;ssh--&quot;&gt;1. ssh 접속 방법&lt;/h1&gt;
+
+&lt;p&gt;기본적으로 ssh 접속하는 방법은 다음과 같다&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh user@hostname.example.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;위의 명령어로 ssh 접속을 했을 경우 접속 시 마다 password를 물어보게 된다. 만약 &lt;code class=&quot;highlighter-rouge&quot;&gt;.sh&lt;/code&gt; 스크립트를 작성해서 어떤 동작을 시키려고 하거나 매번 접속할 때마다 password를 입력하는 것이 번거로울 때 ssh key를 생성하여 등록해 놓으면 매번 입력할 필요가 없다.&lt;/p&gt;
+
+&lt;h1 id=&quot;ssh-key-&quot;&gt;2. ssh key 생성&lt;/h1&gt;
+
+&lt;p&gt;ssh key를 생성하기 위해서는 다음의 명령어를 입력한다&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;명령을 입력 후 파일 명 및 몇가지 질문을 할 것인데 모두 디폴트로 설정하고 넘어가면 &lt;code class=&quot;highlighter-rouge&quot;&gt;/home/username/.ssh/id_rsa&lt;/code&gt; 파일이 생성된다. 위의 파일을 열어보면 ssh의 key가 생성된 것을 확인할 수 있다.&lt;/p&gt;
+
+&lt;h1 id=&quot;ssh-key-copy&quot;&gt;3. ssh key copy&lt;/h1&gt;
+
+&lt;p&gt;이렇게 생성된 ssh key를 ssh 서버에 복사해야 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-copy-id user@hostname.example.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;copy명령어를 입력하면 password를 물어볼 것인데, 이때 정확한 password를 입력하면 ssh key가 서버로 복사된다. 복사가 정상적으로 이루어 졌다면, 다음 접속부터는 비밀번호를 다시 물어보지 않을 것이다.&lt;/p&gt;
+
+&lt;h1 id=&quot;agent-admitted-failure-to-sign-using-the-key-error&quot;&gt;4. “Agent admitted failure to sign using the key” Error&lt;/h1&gt;
+
+&lt;p&gt;만약 ssh key 등록 후 ssh 접속 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;Agent admitted failure to sign using the key&lt;/code&gt; 의 error가 발생하며 password를 물어볼 경우 &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh-add&lt;/code&gt; 명령어를 통해 ssh key를 ssh agent로 load 함으로써 고칠 수 있다.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 01 Jun 2016 13:33:49 +0900</pubDate>
+        <link>http://jinyongjeong.github.io//jekyll/update/2016/06/01/SSH-keygen-%EC%84%A4%EC%A0%95.html</link>
+        <guid isPermaLink="true">http://jinyongjeong.github.io//jekyll/update/2016/06/01/SSH-keygen-%EC%84%A4%EC%A0%95.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
     
       <item>
         <title>이미지 확장자</title>
