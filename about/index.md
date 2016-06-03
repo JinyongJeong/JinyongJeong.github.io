@@ -6,7 +6,7 @@ share: true
 
 # Jinyong Jeong
 
-<img style="float: right;" src="/image/about/profile.jpg" width="200px" height="250px">
+<img style="float: right;" src="/images/about/profile.jpg" width="200px" height="250px">
 
 * ph.D student
 * Civil and Environmental Engineering(CEE)

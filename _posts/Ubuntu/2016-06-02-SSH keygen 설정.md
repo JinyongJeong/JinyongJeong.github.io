@@ -6,7 +6,7 @@ categories: jekyll update
 comments: true
 image: "/fig/default/default_post.jpg"
 summary: "ssh 접속 시 비밀번호를 묻지 않도록 key를 생성하는 방법"
-categories: [test]
+categories: [Ubuntu]
 ---
 
 # 1. ssh 접속 방법
