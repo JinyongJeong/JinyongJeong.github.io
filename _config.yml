@@ -1,7 +1,7 @@
 title:            Engineer Life
 description:      This is my blog
 # put your disqus here
-disqus_shortname: jinyongjeongsteve
+disqus_shortname: jinyongjeong
 reading_time:     true # if true, shows the estimated reading time for a post
 words_per_minute: 200
 logo:             images/logo.png # logo visible in the topbar
@@ -41,7 +41,7 @@ menu:
 owner:
   name:           Jinyong Jeong
   site:           jinyong.github.io
-  avatar:         images/profile.jpg
+  avatar:         images/about/profile.jpg
   bio:            "This blog will post various subjects such as computer science, algorithms and so on. Purpose of this blog is to remember the things I studied by posting it."
   email:          jjy0923@gmail.com
   # Twitter nick for use in Twitter cards and follow button.

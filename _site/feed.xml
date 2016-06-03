@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-06-03T07:42:04-04:00</updated>
+<updated>2016-06-03T09:57:01-04:00</updated>
 <id>/</id>
 <author>
   <name>Jinyong Jeong</name>
@@ -15,8 +15,8 @@
 
 <entry>
   <title type="html"><![CDATA[SSH keygen 설정]]></title>
- <link rel="alternate" type="text/html" href="/test/SSH-keygen-%EC%84%A4%EC%A0%95/" />
-  <id>/test/SSH keygen 설정</id>
+ <link rel="alternate" type="text/html" href="/ubuntu/SSH-keygen-%EC%84%A4%EC%A0%95/" />
+  <id>/ubuntu/SSH keygen 설정</id>
   <published>2016-06-01T00:33:49-04:00</published>
   <updated>2016-06-01T00:33:49-04:00</updated>
   <author>
@@ -60,15 +60,15 @@ ssh-copy-id user@hostname.example.com
 &lt;p&gt;만약 ssh key 등록 후 ssh 접속 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;Agent admitted failure to sign using the key&lt;/code&gt; 의 error가 발생하며 password를 물어볼 경우 &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh-add&lt;/code&gt; 명령어를 통해 ssh key를 ssh agent로 load 함으로써 고칠 수 있다.&lt;/p&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;/test/SSH-keygen-%EC%84%A4%EC%A0%95/&quot;&gt;SSH keygen 설정&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on June 01, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/ubuntu/SSH-keygen-%EC%84%A4%EC%A0%95/&quot;&gt;SSH keygen 설정&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on June 01, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[이미지 확장자]]></title>
- <link rel="alternate" type="text/html" href="/test/%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%99%95%EC%9E%A5%EC%9E%90/" />
-  <id>/test/이미지확장자</id>
+ <link rel="alternate" type="text/html" href="/computer/%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%99%95%EC%9E%A5%EC%9E%90/" />
+  <id>/computer/이미지확장자</id>
   <published>2016-06-01T00:33:49-04:00</published>
   <updated>2016-06-01T00:33:49-04:00</updated>
   <author>
@@ -125,15 +125,15 @@ TGA로 이뤄진 이미지 시퀀스(image sequence)를 ‘타가 시퀀스’�
 
 &lt;p&gt;앨더스(Aldus)와 마이크로소프트가 스캐너용으로 공동 개발한 비트맵 이미지 파일 컨테이너로 ‘태그드 이미지 파일 포맷(Tagged Image File Format)’의 줄임말이다. 무압축은 물론 다양한 압축률을 선택할 수 있으나 압축 방식을 사용하면 구형 이미지 뷰어에서 정상적으로 인식되지 않는 경우도 있기 때문에 사용에 주의가 필요하다. 포토샵의 PSD처럼 레이어도 지원한다. 등장 시기는 PCX와 비슷하지만 아직까지도 꾸준히 사용되고 있는 규격이다.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/test/%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%99%95%EC%9E%A5%EC%9E%90/&quot;&gt;이미지 확장자&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on June 01, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/computer/%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%99%95%EC%9E%A5%EC%9E%90/&quot;&gt;이미지 확장자&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on June 01, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[KAIST 산사태 경보 시스템]]></title>
- <link rel="alternate" type="text/html" href="/test/KAIST_%EC%82%B0%EC%82%AC%ED%83%9C%EA%B2%BD%EB%B3%B4/" />
-  <id>/test/KAIST_산사태경보</id>
+ <link rel="alternate" type="text/html" href="/and_so_on/KAIST_%EC%82%B0%EC%82%AC%ED%83%9C%EA%B2%BD%EB%B3%B4/" />
+  <id>/and_so_on/KAIST_산사태경보</id>
   <published>2016-06-01T00:33:49-04:00</published>
   <updated>2016-06-01T00:33:49-04:00</updated>
   <author>
@@ -142,20 +142,20 @@ TGA로 이뤄진 이미지 시퀀스(image sequence)를 ‘타가 시퀀스’�
     <email>jjy0923@gmail.com</email>
   </author>
   <content type="html">
-    &lt;h1 id=&quot;kaist--------&quot;&gt;&amp;lt; KAIST 건설 및 환경공학과 부산지역 산사태 경보 시스템 &amp;gt;&lt;/h1&gt;
+    &lt;h3 id=&quot;kaist--------&quot;&gt;&amp;lt; KAIST 건설 및 환경공학과 부산지역 산사태 경보 시스템 &amp;gt;&lt;/h3&gt;
 
 &lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;http://yshin.woobi.co.kr/imgs/fig.png&quot; width=&quot;800&quot; height=&quot;600px&quot; /&gt;&lt;/p&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;/test/KAIST_%EC%82%B0%EC%82%AC%ED%83%9C%EA%B2%BD%EB%B3%B4/&quot;&gt;KAIST 산사태 경보 시스템&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on June 01, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/and_so_on/KAIST_%EC%82%B0%EC%82%AC%ED%83%9C%EA%B2%BD%EB%B3%B4/&quot;&gt;KAIST 산사태 경보 시스템&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on June 01, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Jekyll Markdown에서 HTML소스코드 그대로 포스팅하기]]></title>
- <link rel="alternate" type="text/html" href="/test/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%8C%80%EB%A1%9C-%ED%8F%AC%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0/" />
-  <id>/test/소스코드 그대로 포스팅하기</id>
+ <link rel="alternate" type="text/html" href="/jekyll/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%8C%80%EB%A1%9C-%ED%8F%AC%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0/" />
+  <id>/jekyll/소스코드 그대로 포스팅하기</id>
   <published>2016-05-19T09:44:49-04:00</published>
   <updated>2016-05-19T09:44:49-04:00</updated>
   <author>
@@ -204,15 +204,15 @@ TGA로 이뤄진 이미지 시퀀스(image sequence)를 ‘타가 시퀀스’�
 &lt;p&gt;```&lt;/p&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;/test/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%8C%80%EB%A1%9C-%ED%8F%AC%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0/&quot;&gt;Jekyll Markdown에서 HTML소스코드 그대로 포스팅하기&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on May 19, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/jekyll/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%8C%80%EB%A1%9C-%ED%8F%AC%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0/&quot;&gt;Jekyll Markdown에서 HTML소스코드 그대로 포스팅하기&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on May 19, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[ Jekyll에 댓글 추가하기(Disqus) ]]></title>
- <link rel="alternate" type="text/html" href="/test/add_comment_to_post/" />
-  <id>/test/add_comment_to_post</id>
+ <link rel="alternate" type="text/html" href="/jekyll/add_comment_to_post/" />
+  <id>/jekyll/add_comment_to_post</id>
   <published>2016-05-19T09:44:49-04:00</published>
   <updated>2016-05-19T09:44:49-04:00</updated>
   <author>
@@ -224,12 +224,12 @@ TGA로 이뤄진 이미지 시퀀스(image sequence)를 ‘타가 시퀀스’�
     &lt;p&gt;Jekyll 블로그는 기본적인 layout만을 제공해 주기 때문에 블로그 포스팅에 댓글을 달 수 있도록 만들기 위해서는 추가적인 작업이 필요하다. 댓글창을 만들기 위해 &lt;a href=&quot;https://disqus.com/&quot;&gt;Disqus&lt;/a&gt;를 사용할 것이다.&lt;/p&gt;
 
 &lt;h1 id=&quot;disqus--&quot;&gt;1. Disqus 계정 만들기&lt;/h1&gt;
-&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/fig/post/add_comment_to_post/fig1.png&quot; width=&quot;500&quot; height=&quot;500px&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/images/post/add_comment_to_post/fig1.png&quot; width=&quot;500&quot; height=&quot;500px&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;첫번째로 &lt;a href=&quot;https://disqus.com/&quot;&gt;Disqus&lt;/a&gt;에 접속하여 회원가입 후 등록을 한다. 등록 후 Main 페이지에서 우측 상단의 톱니바퀴를 누르면 나오는 메뉴 중 &lt;code class=&quot;highlighter-rouge&quot;&gt;Setting&lt;/code&gt;으로 이동 후 다시 &lt;code class=&quot;highlighter-rouge&quot;&gt;Add Disqus To Site&lt;/code&gt;로 이동한다. 페이지 이동 후 페이지 가장 아래쪽으로 이동하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;GET STARTED&lt;/code&gt;를 눌러 블로그 명 및 URL을 등록한다.&lt;/p&gt;
 
 &lt;h1 id=&quot;universal-code-&quot;&gt;2. Universal Code 복사하기&lt;/h1&gt;
-&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/fig/post/add_comment_to_post/fig2.png&quot; width=&quot;800&quot; height=&quot;500px&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/images/post/add_comment_to_post/fig2.png&quot; width=&quot;800&quot; height=&quot;500px&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;등록을 마친 후 Setting의 Installation page로 이동 후 platform을 선택한다. Jekyll에 추가하기 위해서는 Universal code를 선택한다. 이제 1번에 있는 코드를 복사하여 Jekyll의 &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts/post.html&lt;/code&gt; 파일에 추가해준다.&lt;/p&gt;
 
@@ -284,18 +284,18 @@ disqus_shortname: myblog(등록한 본인 블로그 이름)
 
 &lt;p&gt;마지막으로 포스팅을 할 때 포스팅 &lt;code class=&quot;highlighter-rouge&quot;&gt;.md&lt;/code&gt; file의 맨 위에 &lt;code class=&quot;highlighter-rouge&quot;&gt;comments: true&lt;/code&gt; 를 추가해 주면 포스팅에 댓글쓰기가 다음과 같이 활성화 된다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/fig/post/add_comment_to_post/fig3.png&quot; width=&quot;800&quot; height=&quot;200px&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/images/post/add_comment_to_post/fig3.png&quot; width=&quot;800&quot; height=&quot;200px&quot; /&gt;&lt;/p&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;/test/add_comment_to_post/&quot;&gt; Jekyll에 댓글 추가하기(Disqus) &lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on May 19, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/jekyll/add_comment_to_post/&quot;&gt; Jekyll에 댓글 추가하기(Disqus) &lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on May 19, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Jekyll을 이용하여 Github Blog 만들기]]></title>
- <link rel="alternate" type="text/html" href="/test/jekyll_blog_making/" />
-  <id>/test/jekyll_blog_making</id>
+ <link rel="alternate" type="text/html" href="/jekyll/jekyll_blog_making/" />
+  <id>/jekyll/jekyll_blog_making</id>
   <published>2016-05-15T00:33:49-04:00</published>
   <updated>2016-05-15T00:33:49-04:00</updated>
   <author>
@@ -420,15 +420,15 @@ git config user.name &quot;이름&quot;
 &lt;p&gt;블로그 작성 시 입력한 내용이 예상한대로 동작을 하는지 확인 하기 위해서 매번 github에 push하는 것은 매우 힘든 일이다. 작성을 하는 동시에 바로 확인을 하기 위해서 위에서 언급한 것과 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;를 이용하여 서버를 동작 시킨 후 &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:4000&lt;/code&gt;으로 접속하면 바로 수정된 내용을 확인할 수 있다. 이렇게 수정이 완료된 후 github로 push하면 편하게 포스팅을 수정할 수 있다.&lt;/p&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;/test/jekyll_blog_making/&quot;&gt;Jekyll을 이용하여 Github Blog 만들기&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on May 15, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/jekyll/jekyll_blog_making/&quot;&gt;Jekyll을 이용하여 Github Blog 만들기&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on May 15, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Windows Partition Auto Mount in Ubuntu 14.04]]></title>
- <link rel="alternate" type="text/html" href="/test/Partition_auto_mount/" />
-  <id>/test/Partition_auto_mount</id>
+ <link rel="alternate" type="text/html" href="/ubuntu/Partition_auto_mount/" />
+  <id>/ubuntu/Partition_auto_mount</id>
   <published>2016-05-15T00:33:49-04:00</published>
   <updated>2016-05-15T00:33:49-04:00</updated>
   <author>
@@ -485,7 +485,7 @@ UUID=16D219F9D219DE35 /media/win ntfs auto,defaults,rw 0 2&lt;/p&gt;
 
 &lt;p&gt;fstab까지 설정이 완료 후 재부팅하면 windows의 파티션이 자동으로 mount되는 것을 확인 가능하다.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/test/Partition_auto_mount/&quot;&gt;Windows Partition Auto Mount in Ubuntu 14.04&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on May 15, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/ubuntu/Partition_auto_mount/&quot;&gt;Windows Partition Auto Mount in Ubuntu 14.04&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on May 15, 2016.&lt;/p&gt;
   </content>
 </entry>
 

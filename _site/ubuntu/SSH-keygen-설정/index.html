@@ -5,9 +5,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>A Post with a Video &#8211; Engineer Life</title>
-<meta name="description" content="Custom written post descriptions are the way to go... if you're not lazy.">
-<meta name="keywords" content="sample post, video">
+<title>SSH keygen 설정 &#8211; Engineer Life</title>
+<meta name="description" content="This is my blog">
+<meta name="keywords" content="">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
@@ -17,9 +17,9 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A Post with a Video">
-<meta property="og:description" content="Custom written post descriptions are the way to go... if you're not lazy.">
-<meta property="og:url" content="/jekyll/video-post/">
+<meta property="og:title" content="SSH keygen 설정">
+<meta property="og:description" content="This is my blog">
+<meta property="og:url" content="/ubuntu/SSH-keygen-%EC%84%A4%EC%A0%95/">
 <meta property="og:site_name" content="Engineer Life">
 <meta property="og:image" content="/images/images/logo.png">
 
@@ -27,7 +27,7 @@
 
 
 
-<link rel="canonical" href="/jekyll/video-post/">
+<link rel="canonical" href="/ubuntu/SSH-keygen-%EC%84%A4%EC%A0%95/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Engineer Life Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -149,9 +149,9 @@
 <div class="entry-header">
   <div class="header-title">
     <div class="header-title-wrap">
-      <h1>A Post with a Video</h1>
+      <h1>SSH keygen 설정</h1>
       
-        <h2><span class="entry-date date published updated"><time datetime="2013-06-25T00:00:00-04:00">June 25, 2013</time></span></h2>
+        <h2><span class="entry-date date published updated"><time datetime="2016-06-01T00:33:49-04:00">June 01, 2016</time></span></h2>
       
 
       
@@ -217,27 +217,51 @@
   <article class="hentry">
     <div class="entry-content">
         
-      <h1 class="post-title entry-title">A Post with a Video</h1>
-      <iframe width="560" height="315" src="//www.youtube.com/embed/SU3kYxJmWuQ" frameborder="0" allowfullscreen></iframe>
+      <h1 class="post-title entry-title">SSH keygen 설정</h1>
+      <h1 id="ssh--">1. ssh 접속 방법</h1>
 
-<p>Video embeds are responsive and scale with the width of the main content block with the help of <a href="http://fitvidsjs.com/">FitVids</a>.</p>
+<p>기본적으로 ssh 접속하는 방법은 다음과 같다</p>
 
-<p>Adding YouTube video embeds causes errors when building your Jekyll site. To fix wrap the html within <code class="highlighter-rouge"><span class="p">{</span><span class="err">::nomarkdown</span><span class="p">}</span></code> tags. Example below:</p>
+<p><code class="highlighter-rouge">
+ssh user@hostname.example.com
+</code></p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html">{::nomarkdown}
-<span class="nt">&lt;iframe</span> <span class="na">width=</span><span class="s">"560"</span> <span class="na">height=</span><span class="s">"315"</span> <span class="na">src=</span><span class="s">"//www.youtube.com/embed/SU3kYxJmWuQ"</span> <span class="na">frameborder=</span><span class="s">"0"</span> <span class="na">allowfullscreen</span><span class="nt">&gt;&lt;/iframe&gt;</span>
-{:/nomarkdown}</code></pre></figure>
+<p>위의 명령어로 ssh 접속을 했을 경우 접속 시 마다 password를 물어보게 된다. 만약 <code class="highlighter-rouge">.sh</code> 스크립트를 작성해서 어떤 동작을 시키려고 하거나 매번 접속할 때마다 password를 입력하는 것이 번거로울 때 ssh key를 생성하여 등록해 놓으면 매번 입력할 필요가 없다.</p>
+
+<h1 id="ssh-key-">2. ssh key 생성</h1>
+
+<p>ssh key를 생성하기 위해서는 다음의 명령어를 입력한다</p>
+
+<p><code class="highlighter-rouge">
+ssh-keygen
+</code></p>
+
+<p>명령을 입력 후 파일 명 및 몇가지 질문을 할 것인데 모두 디폴트로 설정하고 넘어가면 <code class="highlighter-rouge">/home/username/.ssh/id_rsa</code> 파일이 생성된다. 위의 파일을 열어보면 ssh의 key가 생성된 것을 확인할 수 있다.</p>
+
+<h1 id="ssh-key-copy">3. ssh key copy</h1>
+
+<p>이렇게 생성된 ssh key를 ssh 서버에 복사해야 한다.</p>
+
+<p><code class="highlighter-rouge">
+ssh-copy-id user@hostname.example.com
+</code></p>
+
+<p>copy명령어를 입력하면 password를 물어볼 것인데, 이때 정확한 password를 입력하면 ssh key가 서버로 복사된다. 복사가 정상적으로 이루어 졌다면, 다음 접속부터는 비밀번호를 다시 물어보지 않을 것이다.</p>
+
+<h1 id="agent-admitted-failure-to-sign-using-the-key-error">4. “Agent admitted failure to sign using the key” Error</h1>
+
+<p>만약 ssh key 등록 후 ssh 접속 시 <code class="highlighter-rouge">Agent admitted failure to sign using the key</code> 의 error가 발생하며 password를 물어볼 경우 <code class="highlighter-rouge">ssh-add</code> 명령어를 통해 ssh key를 ssh agent로 load 함으로써 고칠 수 있다.</p>
 
 
       <footer class="entry-meta">
-        <span class="entry-tags"><a href="/tags#sample post" title="Pages tagged sample post" class="tag"><span class="term">sample post</span></a><a href="/tags#video" title="Pages tagged video" class="tag"><span class="term">video</span></a></span>
+        <span class="entry-tags"></span>
         
         <span class="author vcard"><span class="fn">Jinyong Jeong</span></span>
         <div class="social-share">
   <ul class="socialcount socialcount-small inline-list">
-    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/jekyll/video-post/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
-    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/jekyll/video-post/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
-    <li class="googleplus"><a href="https://plus.google.com/share?url=/jekyll/video-post/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/ubuntu/SSH-keygen-%EC%84%A4%EC%A0%95/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/ubuntu/SSH-keygen-%EC%84%A4%EC%A0%95/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/ubuntu/SSH-keygen-%EC%84%A4%EC%A0%95/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
   </ul>
 </div><!-- /.social-share -->
 
@@ -274,23 +298,23 @@
     <div class="read-more">
   
     <div class="read-more-header">
-      <a href="/jekyll/readability-feature-post/" class="read-more-btn">Read More</a>
+      <a href="/computer/%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%99%95%EC%9E%A5%EC%9E%90/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="/ubuntu/SSH-keygen-%EC%84%A4%EC%A0%95/" title="SSH keygen 설정">SSH keygen 설정</a></h3>
-      <p># 1. ssh 접속 방법기본적으로 ssh 접속하는 방법은 다음과 같다```ssh user@hostname.example.com```위의 명령어로 ssh 접속을 했을 경우 접속 시 마다 password를 물어보게 된다. 만약 `.sh` 스크립트를...&hellip; <a href="/ubuntu/SSH-keygen-%EC%84%A4%EC%A0%95/">Continue reading</a></p>
+      <h3><a href="/computer/%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%99%95%EC%9E%A5%EC%9E%90/" title="이미지 확장자">이미지 확장자</a></h3>
+      <p>오디오 컨테이너가 가장 기술적으로 잘 알려진 컨테이너라 하면 이미지 컨테이너는 가장 많이 사용되고 있는 컨테이너일 것이다. 윈도로 대표되는 GUI(Graphic User Interface) 기반의 OS와 웹브라우저 기반 인터넷이 대중화하고 보급되...&hellip; <a href="/computer/%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%99%95%EC%9E%A5%EC%9E%90/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="/computer/%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%99%95%EC%9E%A5%EC%9E%90/" title="이미지 확장자">이미지 확장자</a></h4>
+        <h4><a href="/and_so_on/KAIST_%EC%82%B0%EC%82%AC%ED%83%9C%EA%B2%BD%EB%B3%B4/" title="KAIST 산사태 경보 시스템">KAIST 산사태 경보 시스템</a></h4>
         <span>Published on June 01, 2016</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="/and_so_on/KAIST_%EC%82%B0%EC%82%AC%ED%83%9C%EA%B2%BD%EB%B3%B4/" title="KAIST 산사태 경보 시스템">KAIST 산사태 경보 시스템</a></h4>
-        <span>Published on June 01, 2016</span>
+        <h4><a href="/jekyll/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%8C%80%EB%A1%9C-%ED%8F%AC%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0/" title="Jekyll Markdown에서 HTML소스코드 그대로 포스팅하기">Jekyll Markdown에서 HTML소스코드 그대로 포스팅하기</a></h4>
+        <span>Published on May 19, 2016</span>
       </div><!-- /.list-item -->
     
   </div><!-- /.read-more-list -->

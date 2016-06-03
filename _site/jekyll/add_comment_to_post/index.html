@@ -5,9 +5,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>A Post with a Video &#8211; Engineer Life</title>
-<meta name="description" content="Custom written post descriptions are the way to go... if you're not lazy.">
-<meta name="keywords" content="sample post, video">
+<title> Jekyll에 댓글 추가하기(Disqus)  &#8211; Engineer Life</title>
+<meta name="description" content="This is my blog">
+<meta name="keywords" content="">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
@@ -17,9 +17,9 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A Post with a Video">
-<meta property="og:description" content="Custom written post descriptions are the way to go... if you're not lazy.">
-<meta property="og:url" content="/jekyll/video-post/">
+<meta property="og:title" content=" Jekyll에 댓글 추가하기(Disqus) ">
+<meta property="og:description" content="This is my blog">
+<meta property="og:url" content="/jekyll/add_comment_to_post/">
 <meta property="og:site_name" content="Engineer Life">
 <meta property="og:image" content="/images/images/logo.png">
 
@@ -27,7 +27,7 @@
 
 
 
-<link rel="canonical" href="/jekyll/video-post/">
+<link rel="canonical" href="/jekyll/add_comment_to_post/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Engineer Life Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -149,9 +149,9 @@
 <div class="entry-header">
   <div class="header-title">
     <div class="header-title-wrap">
-      <h1>A Post with a Video</h1>
+      <h1> Jekyll에 댓글 추가하기(Disqus) </h1>
       
-        <h2><span class="entry-date date published updated"><time datetime="2013-06-25T00:00:00-04:00">June 25, 2013</time></span></h2>
+        <h2><span class="entry-date date published updated"><time datetime="2016-05-19T09:44:49-04:00">May 19, 2016</time></span></h2>
       
 
       
@@ -217,27 +217,82 @@
   <article class="hentry">
     <div class="entry-content">
         
-      <h1 class="post-title entry-title">A Post with a Video</h1>
-      <iframe width="560" height="315" src="//www.youtube.com/embed/SU3kYxJmWuQ" frameborder="0" allowfullscreen></iframe>
+      <h1 class="post-title entry-title"> Jekyll에 댓글 추가하기(Disqus) </h1>
+      <p>Jekyll 블로그는 기본적인 layout만을 제공해 주기 때문에 블로그 포스팅에 댓글을 달 수 있도록 만들기 위해서는 추가적인 작업이 필요하다. 댓글창을 만들기 위해 <a href="https://disqus.com/">Disqus</a>를 사용할 것이다.</p>
 
-<p>Video embeds are responsive and scale with the width of the main content block with the help of <a href="http://fitvidsjs.com/">FitVids</a>.</p>
+<h1 id="disqus--">1. Disqus 계정 만들기</h1>
+<p><img align="middle" src="/images/post/add_comment_to_post/fig1.png" width="500" height="500px" /></p>
 
-<p>Adding YouTube video embeds causes errors when building your Jekyll site. To fix wrap the html within <code class="highlighter-rouge"><span class="p">{</span><span class="err">::nomarkdown</span><span class="p">}</span></code> tags. Example below:</p>
+<p>첫번째로 <a href="https://disqus.com/">Disqus</a>에 접속하여 회원가입 후 등록을 한다. 등록 후 Main 페이지에서 우측 상단의 톱니바퀴를 누르면 나오는 메뉴 중 <code class="highlighter-rouge">Setting</code>으로 이동 후 다시 <code class="highlighter-rouge">Add Disqus To Site</code>로 이동한다. 페이지 이동 후 페이지 가장 아래쪽으로 이동하면 <code class="highlighter-rouge">GET STARTED</code>를 눌러 블로그 명 및 URL을 등록한다.</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html">{::nomarkdown}
-<span class="nt">&lt;iframe</span> <span class="na">width=</span><span class="s">"560"</span> <span class="na">height=</span><span class="s">"315"</span> <span class="na">src=</span><span class="s">"//www.youtube.com/embed/SU3kYxJmWuQ"</span> <span class="na">frameborder=</span><span class="s">"0"</span> <span class="na">allowfullscreen</span><span class="nt">&gt;&lt;/iframe&gt;</span>
-{:/nomarkdown}</code></pre></figure>
+<h1 id="universal-code-">2. Universal Code 복사하기</h1>
+<p><img align="middle" src="/images/post/add_comment_to_post/fig2.png" width="800" height="500px" /></p>
+
+<p>등록을 마친 후 Setting의 Installation page로 이동 후 platform을 선택한다. Jekyll에 추가하기 위해서는 Universal code를 선택한다. 이제 1번에 있는 코드를 복사하여 Jekyll의 <code class="highlighter-rouge">_layouts/post.html</code> 파일에 추가해준다.</p>
+
+<h1 id="layoutposthtml--config--">3. Layout/post.html 및 config 파일 수정</h1>
+
+<p><code class="highlighter-rouge">_layouts/post.html</code> 파일을 열고 <code class="highlighter-rouge">&lt;article&gt;</code> 블락 사이에 복사한 내용을 아래 코드에서 <code class="highlighter-rouge">&lt;insert your code&gt;</code> 부분에 넣어준다.</p>
+
+<p>```html</p>
+
+<hr />
+<p>layout: default_post
+—</p>
+<article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header class="post-header single-post-header" style="background-image:url('{{ site.url }}{{ page.image }}')">
+    <div>
+      <h1 class="post-title single-post-title" itemprop="name headline">{{ page.title }}</h1>
+      <p class="post-meta single-post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date_to_long_string }}</time>
+        •
+        {% assign words = page.content | number_of_words %}
+        {% if words &lt; 360 %}
+          1 min
+        {% else %}
+          {{ words | divided_by:180 }} mins
+        {% endif %}
+        read
+      </p>
+    </div>
+  </header>
+  <div class="wrapper">
+    <div class="single-post-summary">
+     <code> {{ page.summary }} </code>
+    </div>
+    <div class="post-content single-post-content" itemprop="articleBody">
+     <code> {{ content }} </code>
+    </div>
+    {% if page.comments %}
+        &lt;-- add your code here --&gt;
+    {% endif %}
+  </div>
+</article>
+
+<p>```</p>
+
+<p>포스팅에서 comment활성화 여부를 설정하기 위해서 위의 예의 주석으로 되어 있는 <code class="highlighter-rouge"><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">page.comments</span><span class="w"> </span><span class="err">%</span><span class="p">}</span></code> <code class="highlighter-rouge"><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">endif</span><span class="w"> </span><span class="err">%</span><span class="p">}</span></code> 이 부분을 추가해준다. 추가할 때 앞 뒤로 중괄호({})를 넣어준다. 다음으로 <code class="highlighter-rouge">_config.yml</code> 파일을 열어 마지막에 다음의 코드를 추가한다.</p>
+
+<p><code class="highlighter-rouge">
+disqus_shortname: myblog(등록한 본인 블로그 이름)
+</code></p>
+
+<h1 id="post--">4. Post에 명령 추가</h1>
+
+<p>마지막으로 포스팅을 할 때 포스팅 <code class="highlighter-rouge">.md</code> file의 맨 위에 <code class="highlighter-rouge">comments: true</code> 를 추가해 주면 포스팅에 댓글쓰기가 다음과 같이 활성화 된다.</p>
+
+<p><img align="middle" src="/images/post/add_comment_to_post/fig3.png" width="800" height="200px" /></p>
 
 
       <footer class="entry-meta">
-        <span class="entry-tags"><a href="/tags#sample post" title="Pages tagged sample post" class="tag"><span class="term">sample post</span></a><a href="/tags#video" title="Pages tagged video" class="tag"><span class="term">video</span></a></span>
+        <span class="entry-tags"></span>
         
         <span class="author vcard"><span class="fn">Jinyong Jeong</span></span>
         <div class="social-share">
   <ul class="socialcount socialcount-small inline-list">
-    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/jekyll/video-post/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
-    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/jekyll/video-post/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
-    <li class="googleplus"><a href="https://plus.google.com/share?url=/jekyll/video-post/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/jekyll/add_comment_to_post/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/jekyll/add_comment_to_post/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/jekyll/add_comment_to_post/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
   </ul>
 </div><!-- /.social-share -->
 
@@ -274,7 +329,7 @@
     <div class="read-more">
   
     <div class="read-more-header">
-      <a href="/jekyll/readability-feature-post/" class="read-more-btn">Read More</a>
+      <a href="/jekyll/jekyll_blog_making/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
       <h3><a href="/ubuntu/SSH-keygen-%EC%84%A4%EC%A0%95/" title="SSH keygen 설정">SSH keygen 설정</a></h3>
