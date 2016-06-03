@@ -5,9 +5,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>About &#8211; Engineer Life</title>
+<title>Windows Partition Auto Mount in Ubuntu 14.04 &#8211; Engineer Life</title>
 <meta name="description" content="This is my blog">
-
+<meta name="keywords" content="">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
@@ -17,9 +17,9 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="About">
+<meta property="og:title" content="Windows Partition Auto Mount in Ubuntu 14.04">
 <meta property="og:description" content="This is my blog">
-<meta property="og:url" content="/about/">
+<meta property="og:url" content="/jekyll/update/Partition_auto_mount/">
 <meta property="og:site_name" content="Engineer Life">
 <meta property="og:image" content="/images/images/logo.png">
 
@@ -27,7 +27,7 @@
 
 
 
-<link rel="canonical" href="/about/">
+<link rel="canonical" href="/jekyll/update/Partition_auto_mount/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Engineer Life Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
 
 </head>
 
-<body id="page">
+<body id="post" >
 
 <!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
 
@@ -111,6 +111,9 @@
               
                 
                   <li class="sub-item"><a href="/categories/#test">test</a></li>
+              
+                
+                  <li class="sub-item"><a href="/categories/#update">update</a></li>
               
             </ul>
           </li>
@@ -158,15 +161,17 @@
 <div class="entry-header">
   <div class="header-title">
     <div class="header-title-wrap">
-      <h1>About</h1>
+      <h1>Windows Partition Auto Mount in Ubuntu 14.04</h1>
       
-        <h2><span class="entry-date"><time>&nbsp;</time></span></h2>
+        <h2><span class="entry-date date published updated"><time datetime="2016-05-15T00:33:49-04:00">May 15, 2016</time></span></h2>
       
 
       
-          <p class="entry-reading-time">
-            &nbsp;
-          </p><!-- /.entry-reading-time -->
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+          Reading time ~1 minute
+        </p><!-- /.entry-reading-time -->
       
     </div><!-- /.header-title-wrap -->
   </div><!-- /.header-title -->
@@ -202,6 +207,9 @@
               
                 <li><a href="/categories/#test">test</a></li>
             
+              
+                <li><a href="/categories/#update">update</a></li>
+            
           </ul>
         </li>
       
@@ -229,52 +237,126 @@
 <div id="main" role="main">
   <article class="hentry">
     <div class="entry-content">
-      <h1 id="neo-hpstr-jekyll-theme">Neo-HPSTR Jekyll Theme</h1>
+        
+      <h1 class="post-title entry-title">Windows Partition Auto Mount in Ubuntu 14.04</h1>
+      <p>윈도우 파티션의 파일시스템은 NTFS(New Technology File System)으로 보통 구성되어 있다. 예전에는 Ubuntu에서 NTFS 시스템을 읽거나 사용하기 어려웠는데 근래에는 Reverse Engineering을 통해 Ubuntu에서도 사용 가능할 수 있게 되었다. 기본적으로 가장 오래된 시스템은 FAT(File Allocate Table)이며 안정성 면에서는 FAT32가 가장 좋다. 하지만 FAT32는 32bit 시스템을 사용하기 떄문에 4Gbyte 이상의 파일을 저장할 수 없다. 왜냐하면 32bit 방식은 표현할 수 있는 주소의 갯수가 2의 32승 = 4.2950e+09 이고  한개의 주소값으로 1Byte를 표현 할 수 있으므로 32bit 시스템으로 표현할 수 있는 최대 메모리는 4.2950e+09 Byte, 약 4GByte이다. 마찬가지로 32bit 운영체제에서 최대 사용가능한 메모리 용량이 4GByte인것도 같은 이유이다. 32bit 시스템에서 4GByte이상의 하드디스크를 사용할 수 있는 것은 하드시스크의 data를 RAM으로 이동 후 처리하기 때문에 가능한 것이다. 이러한 한계 때문에 개발 된 것이 exFAT시스템이다. exFAT시스템은 용량의 제한이 매우 커서 따로 신경쓸 필요가 없다. 하지만 exFAT 시스템으로 설정된 USB 및 디스크를 안전하게 제거하지 않는다거나 여러 경우에 불안한 모습을 보일 때가 있다고 한다. 마지막으로 NTFS 방식은 Windows에서 개발된 방식이기 때문에 블랙박스라던지 기타 디바이스에서 인식이 안되는 문제가 있다고 한다.</p>
 
-<p>Neo-HPSTR Jekyll is a responsive and modern blog template.</p>
+<p>다시한번 정리하면
+FAT32 : 안전성에서는 가장 좋음, 저장 용량의 한계가 있음 
+exFAT : 안정성이 떨어짐, 저장용량의 한계는 없음
+NTFS: 확장성이 떨어짐</p>
 
-<h1 id="live-demo">Live Demo</h1>
+<p>따라서 디스크 포멧 시 본인의 맞는 방식에 맞춰서 사용하면 된다. 기본적으로 Windows가 설치된 디스크는 NTFS 방식으로 되어 있기 때문에, 윈도우가 설치된 디스크를 Ubuntu에 자동으로 mount 시키기 위해서는 다음과 같은 절차가 필요하다.</p>
 
-<p>You can see it running <a href="http://blog.rhesoft.com/">here</a> and <a href="http://aronbordin.com/neo-hpstr-jekyll-theme/">here</a>.</p>
+<h2 id="directory-">1. directory 생성</h2>
 
-<h2 id="what-neo-hpstr-brings-to-the-table">What Neo-HPSTR brings to the table:</h2>
+<p>우선 원하는 위치에 directory를 설정한다.</p>
 
-<ul>
-  <li>Modern design.</li>
-  <li>Responsive templates for post, page, and post index <code class="highlighter-rouge">_layouts</code>. Looks great on mobile, tablet, and desktop devices.</li>
-  <li>Gracefully degrades in older browsers. Compatible with Internet Explorer 8+ and all modern browsers.</li>
-  <li>Sweet topbar animated menu with support for drop-downs.</li>
-  <li>Optional <a href="http://disqus.com">Disqus</a> comments and social sharing links.</li>
-  <li><a href="https://developers.facebook.com/docs/opengraph/">Open Graph</a> and <a href="https://dev.twitter.com/docs/cards">Twitter Cards</a> support for a better social sharing experience.</li>
-  <li>Simple <a href="http://mmistakes.github.io/hpstr-jekyll-theme/404.html">custom 404 page</a> to get you started.</li>
-  <li>Stylesheets for Pygments and Coderay <a href="http://mmistakes.github.io/hpstr-jekyll-theme/code-highlighting-post/">syntax highlighting</a> to make your code examples look snazzy</li>
-  <li>Author panel, with social links</li>
-  <li>Read more tag support(similar with Wordpress ).</li>
-</ul>
+<p><code class="highlighter-rouge">
+sudo mkdir /media/win
+</code></p>
 
-<p><img src="http://aronbordin.com/images/neo-hpstr-jekyll-theme-preview.png" alt="Preview" /></p>
+<h2 id="fstab-file">2. fstab file수정</h2>
 
-<hr />
+<p><code class="highlighter-rouge">/etc</code> 경로의 fstab file을 수정한다.</p>
 
-<h2 id="getting-started">Getting Started</h2>
+<p><code class="highlighter-rouge">
+sudo gedit /etc/fstab
+</code></p>
 
-<p>Neo-HPSTR takes advantage of Sass and data files to make customizing easier. These features require Jekyll 2.x and will not work with older versions of Jekyll.</p>
+<p>우선 fstab file을 열고 다음을 추가한다.</p>
 
-<p>To learn how to install and use this theme check out the <a href="http://aronbordin.com/neo-hpstr-jekyll-theme//theme-setup/">Setup Guid</a> for more information.</p>
+<p>```
+UUID=16D219F9D219DE35 /media/win ntfs auto,defaults,rw 0 2</p>
+
+<p>```</p>
+
+<p>또는</p>
+
+<p><code class="highlighter-rouge">
+/dev/sda1 /media/win ntfs-3g auto,defaults,rw 0 2
+</code></p>
+
+<p>위의 두가지 방식으로 설정 가능하다(device 이름 혹은 UUID)</p>
+
+<p><code class="highlighter-rouge">/media/win</code> : mount 위치</p>
+
+<p><code class="highlighter-rouge">ntfs-3g</code> : file type</p>
+
+<p><code class="highlighter-rouge">rw</code> : read and write</p>
+
+<p>fstab까지 설정이 완료 후 재부팅하면 windows의 파티션이 자동으로 mount되는 것을 확인 가능하다.</p>
 
       <footer class="entry-meta">
+        <span class="entry-tags"></span>
         
+        <span class="author vcard"><span class="fn">Jinyong Jeong</span></span>
         <div class="social-share">
   <ul class="socialcount socialcount-small inline-list">
-    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/about/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
-    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/about/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
-    <li class="googleplus"><a href="https://plus.google.com/share?url=/about/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/jekyll/update/Partition_auto_mount/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/jekyll/update/Partition_auto_mount/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/jekyll/update/Partition_auto_mount/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
   </ul>
 </div><!-- /.social-share -->
 
       </footer>
     </div><!-- /.entry-content -->
+    <div class="read-more">
+  <div class="read-more-header">
+    <a href="jinyong.github.io" class="read-more-btn">About the Author</a>
+  </div><!-- /.read-more-header -->
+  <div class="read-more-content author-info">
+    <h3>Jinyong Jeong</h3>
+    <div class="author-container">
+      <img class="author-img" src="/images/profile.jpg" alt="Jinyong Jeong" />
+      <div class="author-bio">This blog will post various subjects such as computer science, algorithms and so on. Purpose of this blog is to remember the things I studied by posting it.</div>
+    </div>
+    <div class="author-share">
+      <ul class="list-inline social-buttons">
+        
+          <li><a href="https://github.com/JinyongJeong" target="_blank"><i class="fa fa-github fa-fw"></i></a></li>
+        
+          <li><a href="https://br.linkedin.com/in/aronbordin" target="_blank"><i class="fa fa-linkedin fa-fw"></i></a></li>
+        
+          <li><a href="https://www.youtube.com/channel/UCfnSek-9HPWOx5e2pH7VFgg" target="_blank"><i class="fa fa-youtube fa-fw"></i></a></li>
+        
+      </ul>
+      
+        <a aria-label="Follow @aron-bordin on GitHub" data-style="mega" href="https://github.com/aron-bordin" class="github-button">Follow @aron-bordin</a>
+      
+      <br>
+      
+        <a href="https://twitter.com/aron_bordin" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @aron_bordin</a>
+      
+    </div>
+  </div>
+</div>
+
     <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/jekyll/feature-image/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/jekyll/update/SSH-keygen-%EC%84%A4%EC%A0%95/" title="SSH keygen 설정">SSH keygen 설정</a></h3>
+      <p># 1. ssh 접속 방법기본적으로 ssh 접속하는 방법은 다음과 같다```ssh user@hostname.example.com```위의 명령어로 ssh 접속을 했을 경우 접속 시 마다 password를 물어보게 된다. 만약 `.sh` 스크립트를...&hellip; <a href="/jekyll/update/SSH-keygen-%EC%84%A4%EC%A0%95/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/jekyll/update/%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%99%95%EC%9E%A5%EC%9E%90/" title="이미지 확장자">이미지 확장자</a></h4>
+        <span>Published on June 01, 2016</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/jekyll/update/KAIST_%EC%82%B0%EC%82%AC%ED%83%9C%EA%B2%BD%EB%B3%B4/" title="KAIST 산사태 경보 시스템">KAIST 산사태 경보 시스템</a></h4>
+        <span>Published on June 01, 2016</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
   </article>
 </div><!-- /#main -->
 

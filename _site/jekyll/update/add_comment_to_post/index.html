@@ -5,9 +5,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>About &#8211; Engineer Life</title>
+<title> Jekyll에 댓글 추가하기(Disqus)  &#8211; Engineer Life</title>
 <meta name="description" content="This is my blog">
-
+<meta name="keywords" content="">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
@@ -17,9 +17,9 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="About">
+<meta property="og:title" content=" Jekyll에 댓글 추가하기(Disqus) ">
 <meta property="og:description" content="This is my blog">
-<meta property="og:url" content="/about/">
+<meta property="og:url" content="/jekyll/update/add_comment_to_post/">
 <meta property="og:site_name" content="Engineer Life">
 <meta property="og:image" content="/images/images/logo.png">
 
@@ -27,7 +27,7 @@
 
 
 
-<link rel="canonical" href="/about/">
+<link rel="canonical" href="/jekyll/update/add_comment_to_post/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Engineer Life Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
 
 </head>
 
-<body id="page">
+<body id="post" >
 
 <!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
 
@@ -111,6 +111,9 @@
               
                 
                   <li class="sub-item"><a href="/categories/#test">test</a></li>
+              
+                
+                  <li class="sub-item"><a href="/categories/#update">update</a></li>
               
             </ul>
           </li>
@@ -158,15 +161,17 @@
 <div class="entry-header">
   <div class="header-title">
     <div class="header-title-wrap">
-      <h1>About</h1>
+      <h1> Jekyll에 댓글 추가하기(Disqus) </h1>
       
-        <h2><span class="entry-date"><time>&nbsp;</time></span></h2>
+        <h2><span class="entry-date date published updated"><time datetime="2016-05-19T09:44:49-04:00">May 19, 2016</time></span></h2>
       
 
       
-          <p class="entry-reading-time">
-            &nbsp;
-          </p><!-- /.entry-reading-time -->
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+          Reading time ~1 minute
+        </p><!-- /.entry-reading-time -->
       
     </div><!-- /.header-title-wrap -->
   </div><!-- /.header-title -->
@@ -202,6 +207,9 @@
               
                 <li><a href="/categories/#test">test</a></li>
             
+              
+                <li><a href="/categories/#update">update</a></li>
+            
           </ul>
         </li>
       
@@ -229,52 +237,144 @@
 <div id="main" role="main">
   <article class="hentry">
     <div class="entry-content">
-      <h1 id="neo-hpstr-jekyll-theme">Neo-HPSTR Jekyll Theme</h1>
+        
+      <h1 class="post-title entry-title"> Jekyll에 댓글 추가하기(Disqus) </h1>
+      <p>Jekyll 블로그는 기본적인 layout만을 제공해 주기 때문에 블로그 포스팅에 댓글을 달 수 있도록 만들기 위해서는 추가적인 작업이 필요하다. 댓글창을 만들기 위해 <a href="https://disqus.com/">Disqus</a>를 사용할 것이다.</p>
 
-<p>Neo-HPSTR Jekyll is a responsive and modern blog template.</p>
+<h1 id="disqus--">1. Disqus 계정 만들기</h1>
+<p><img align="middle" src="/fig/post/add_comment_to_post/fig1.png" width="500" height="500px" /></p>
 
-<h1 id="live-demo">Live Demo</h1>
+<p>첫번째로 <a href="https://disqus.com/">Disqus</a>에 접속하여 회원가입 후 등록을 한다. 등록 후 Main 페이지에서 우측 상단의 톱니바퀴를 누르면 나오는 메뉴 중 <code class="highlighter-rouge">Setting</code>으로 이동 후 다시 <code class="highlighter-rouge">Add Disqus To Site</code>로 이동한다. 페이지 이동 후 페이지 가장 아래쪽으로 이동하면 <code class="highlighter-rouge">GET STARTED</code>를 눌러 블로그 명 및 URL을 등록한다.</p>
 
-<p>You can see it running <a href="http://blog.rhesoft.com/">here</a> and <a href="http://aronbordin.com/neo-hpstr-jekyll-theme/">here</a>.</p>
+<h1 id="universal-code-">2. Universal Code 복사하기</h1>
+<p><img align="middle" src="/fig/post/add_comment_to_post/fig2.png" width="800" height="500px" /></p>
 
-<h2 id="what-neo-hpstr-brings-to-the-table">What Neo-HPSTR brings to the table:</h2>
+<p>등록을 마친 후 Setting의 Installation page로 이동 후 platform을 선택한다. Jekyll에 추가하기 위해서는 Universal code를 선택한다. 이제 1번에 있는 코드를 복사하여 Jekyll의 <code class="highlighter-rouge">_layouts/post.html</code> 파일에 추가해준다.</p>
 
-<ul>
-  <li>Modern design.</li>
-  <li>Responsive templates for post, page, and post index <code class="highlighter-rouge">_layouts</code>. Looks great on mobile, tablet, and desktop devices.</li>
-  <li>Gracefully degrades in older browsers. Compatible with Internet Explorer 8+ and all modern browsers.</li>
-  <li>Sweet topbar animated menu with support for drop-downs.</li>
-  <li>Optional <a href="http://disqus.com">Disqus</a> comments and social sharing links.</li>
-  <li><a href="https://developers.facebook.com/docs/opengraph/">Open Graph</a> and <a href="https://dev.twitter.com/docs/cards">Twitter Cards</a> support for a better social sharing experience.</li>
-  <li>Simple <a href="http://mmistakes.github.io/hpstr-jekyll-theme/404.html">custom 404 page</a> to get you started.</li>
-  <li>Stylesheets for Pygments and Coderay <a href="http://mmistakes.github.io/hpstr-jekyll-theme/code-highlighting-post/">syntax highlighting</a> to make your code examples look snazzy</li>
-  <li>Author panel, with social links</li>
-  <li>Read more tag support(similar with Wordpress ).</li>
-</ul>
+<h1 id="layoutposthtml--config--">3. Layout/post.html 및 config 파일 수정</h1>
 
-<p><img src="http://aronbordin.com/images/neo-hpstr-jekyll-theme-preview.png" alt="Preview" /></p>
+<p><code class="highlighter-rouge">_layouts/post.html</code> 파일을 열고 <code class="highlighter-rouge">&lt;article&gt;</code> 블락 사이에 복사한 내용을 아래 코드에서 <code class="highlighter-rouge">&lt;insert your code&gt;</code> 부분에 넣어준다.</p>
+
+<p>```html</p>
 
 <hr />
+<p>layout: default_post
+—</p>
+<article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header class="post-header single-post-header" style="background-image:url('{{ site.url }}{{ page.image }}')">
+    <div>
+      <h1 class="post-title single-post-title" itemprop="name headline">{{ page.title }}</h1>
+      <p class="post-meta single-post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date_to_long_string }}</time>
+        •
+        {% assign words = page.content | number_of_words %}
+        {% if words &lt; 360 %}
+          1 min
+        {% else %}
+          {{ words | divided_by:180 }} mins
+        {% endif %}
+        read
+      </p>
+    </div>
+  </header>
+  <div class="wrapper">
+    <div class="single-post-summary">
+     <code> {{ page.summary }} </code>
+    </div>
+    <div class="post-content single-post-content" itemprop="articleBody">
+     <code> {{ content }} </code>
+    </div>
+    {% if page.comments %}
+        &lt;-- add your code here --&gt;
+    {% endif %}
+  </div>
+</article>
 
-<h2 id="getting-started">Getting Started</h2>
+<p>```</p>
 
-<p>Neo-HPSTR takes advantage of Sass and data files to make customizing easier. These features require Jekyll 2.x and will not work with older versions of Jekyll.</p>
+<p>포스팅에서 comment활성화 여부를 설정하기 위해서 위의 예의 주석으로 되어 있는 <code class="highlighter-rouge"><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">page.comments</span><span class="w"> </span><span class="err">%</span><span class="p">}</span></code> <code class="highlighter-rouge"><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">endif</span><span class="w"> </span><span class="err">%</span><span class="p">}</span></code> 이 부분을 추가해준다. 추가할 때 앞 뒤로 중괄호({})를 넣어준다. 다음으로 <code class="highlighter-rouge">_config.yml</code> 파일을 열어 마지막에 다음의 코드를 추가한다.</p>
 
-<p>To learn how to install and use this theme check out the <a href="http://aronbordin.com/neo-hpstr-jekyll-theme//theme-setup/">Setup Guid</a> for more information.</p>
+<p><code class="highlighter-rouge">
+disqus_shortname: myblog(등록한 본인 블로그 이름)
+</code></p>
+
+<h1 id="post--">4. Post에 명령 추가</h1>
+
+<p>마지막으로 포스팅을 할 때 포스팅 <code class="highlighter-rouge">.md</code> file의 맨 위에 <code class="highlighter-rouge">comments: true</code> 를 추가해 주면 포스팅에 댓글쓰기가 다음과 같이 활성화 된다.</p>
+
+<p><img align="middle" src="/fig/post/add_comment_to_post/fig3.png" width="800" height="200px" /></p>
+
 
       <footer class="entry-meta">
+        <span class="entry-tags"></span>
         
+        <span class="author vcard"><span class="fn">Jinyong Jeong</span></span>
         <div class="social-share">
   <ul class="socialcount socialcount-small inline-list">
-    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/about/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
-    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/about/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
-    <li class="googleplus"><a href="https://plus.google.com/share?url=/about/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/jekyll/update/add_comment_to_post/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/jekyll/update/add_comment_to_post/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/jekyll/update/add_comment_to_post/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
   </ul>
 </div><!-- /.social-share -->
 
       </footer>
     </div><!-- /.entry-content -->
+    <div class="read-more">
+  <div class="read-more-header">
+    <a href="jinyong.github.io" class="read-more-btn">About the Author</a>
+  </div><!-- /.read-more-header -->
+  <div class="read-more-content author-info">
+    <h3>Jinyong Jeong</h3>
+    <div class="author-container">
+      <img class="author-img" src="/images/profile.jpg" alt="Jinyong Jeong" />
+      <div class="author-bio">This blog will post various subjects such as computer science, algorithms and so on. Purpose of this blog is to remember the things I studied by posting it.</div>
+    </div>
+    <div class="author-share">
+      <ul class="list-inline social-buttons">
+        
+          <li><a href="https://github.com/JinyongJeong" target="_blank"><i class="fa fa-github fa-fw"></i></a></li>
+        
+          <li><a href="https://br.linkedin.com/in/aronbordin" target="_blank"><i class="fa fa-linkedin fa-fw"></i></a></li>
+        
+          <li><a href="https://www.youtube.com/channel/UCfnSek-9HPWOx5e2pH7VFgg" target="_blank"><i class="fa fa-youtube fa-fw"></i></a></li>
+        
+      </ul>
+      
+        <a aria-label="Follow @aron-bordin on GitHub" data-style="mega" href="https://github.com/aron-bordin" class="github-button">Follow @aron-bordin</a>
+      
+      <br>
+      
+        <a href="https://twitter.com/aron_bordin" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @aron_bordin</a>
+      
+    </div>
+  </div>
+</div>
+
     <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/test/jekyll_blog_making/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/jekyll/update/SSH-keygen-%EC%84%A4%EC%A0%95/" title="SSH keygen 설정">SSH keygen 설정</a></h3>
+      <p># 1. ssh 접속 방법기본적으로 ssh 접속하는 방법은 다음과 같다```ssh user@hostname.example.com```위의 명령어로 ssh 접속을 했을 경우 접속 시 마다 password를 물어보게 된다. 만약 `.sh` 스크립트를...&hellip; <a href="/jekyll/update/SSH-keygen-%EC%84%A4%EC%A0%95/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/jekyll/update/%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%99%95%EC%9E%A5%EC%9E%90/" title="이미지 확장자">이미지 확장자</a></h4>
+        <span>Published on June 01, 2016</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/jekyll/update/KAIST_%EC%82%B0%EC%82%AC%ED%83%9C%EA%B2%BD%EB%B3%B4/" title="KAIST 산사태 경보 시스템">KAIST 산사태 경보 시스템</a></h4>
+        <span>Published on June 01, 2016</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
   </article>
 </div><!-- /#main -->
 
