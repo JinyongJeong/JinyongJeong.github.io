@@ -20,8 +20,8 @@ menu:
     url: '/'
   - title: 'Github'
     url: 'https://github.com/Jinyongjeong'
-  - title: 'Install'
-    url: '/theme-setup/'
+#  - title: 'Install'
+#    url: '/theme-setup/'
   - title: 'Tags'
     url: '/tags'
   - title: 'Categories'
@@ -57,10 +57,10 @@ twitter:
 social:
   - title: "github"
     url: "https://github.com/JinyongJeong"
-  - title: "linkedin"
-    url: "https://br.linkedin.com/in/aronbordin"
-  - title: "youtube"
-    url: "https://www.youtube.com/channel/UCfnSek-9HPWOx5e2pH7VFgg"
+#  - title: "linkedin"
+#    url: "https://br.linkedin.com/in/aronbordin"
+#  - title: "youtube"
+#    url: "https://www.youtube.com/channel/UCfnSek-9HPWOx5e2pH7VFgg"
 # Background image to be tiled on all pages
 background:
 
