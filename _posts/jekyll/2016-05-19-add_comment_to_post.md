@@ -2,7 +2,6 @@
 layout: post
 title:  " Jekyll에 댓글 추가하기(Disqus) "
 date:   2016-05-19 22:44:49 +0900
-categories: jekyll update
 comments: true
 image: "/fig/default/default_post.jpg"
 summary: "Jekyll을 이용하여 만든 블로그의 포스팅에 댓글을 추가하는 방법 소개"
