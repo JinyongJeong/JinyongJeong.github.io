@@ -4,7 +4,7 @@
       "title"    : "Sample Post with Feature Image",
       "category" : "",
       "tags"     : "sample post",
-      "url"      : "http://aronbordin.com/neo-hpstr-jekyll-theme/feature-image/",
+      "url"      : "/feature-image/",
       "date"     : "2013-10-28 00:00:00 -0400"
     } ,
   
@@ -12,7 +12,7 @@
       "title"    : "Dark Post",
       "category" : "",
       "tags"     : "sample post",
-      "url"      : "http://aronbordin.com/neo-hpstr-jekyll-theme/dark-post/",
+      "url"      : "/dark-post/",
       "date"     : "2013-10-28 00:00:00 -0400"
     } ,
   
@@ -20,7 +20,7 @@
       "title"    : "Post with a Background Image",
       "category" : "",
       "tags"     : "sample post",
-      "url"      : "http://aronbordin.com/neo-hpstr-jekyll-theme/image/background-image/",
+      "url"      : "/image/background-image/",
       "date"     : "2013-10-26 00:00:00 -0400"
     } ,
   
@@ -28,7 +28,7 @@
       "title"    : "Syntax Highlighting Post",
       "category" : "",
       "tags"     : "sample post, code, highlighting",
-      "url"      : "http://aronbordin.com/neo-hpstr-jekyll-theme/intro/code-highlighting-post/",
+      "url"      : "/intro/code-highlighting-post/",
       "date"     : "2013-08-16 00:00:00 -0400"
     } ,
   
@@ -36,7 +36,7 @@
       "title"    : "Sample Link Post",
       "category" : "",
       "tags"     : "sample post, link post",
-      "url"      : "http://aronbordin.com/neo-hpstr-jekyll-theme/intro/sample-link-post/",
+      "url"      : "/intro/sample-link-post/",
       "date"     : "2013-08-12 00:00:00 -0400"
     } ,
   
@@ -44,7 +44,7 @@
       "title"    : "A Post with a Video",
       "category" : "",
       "tags"     : "sample post, video",
-      "url"      : "http://aronbordin.com/neo-hpstr-jekyll-theme/intro/video-post/",
+      "url"      : "/intro/video-post/",
       "date"     : "2013-06-25 00:00:00 -0400"
     } ,
   
@@ -52,7 +52,7 @@
       "title"    : "Post with Large Feature Image and Text",
       "category" : "",
       "tags"     : "sample post, readability",
-      "url"      : "http://aronbordin.com/neo-hpstr-jekyll-theme/intro/readability-feature-post/",
+      "url"      : "/intro/readability-feature-post/",
       "date"     : "2013-05-23 00:00:00 -0400"
     } ,
   
@@ -60,7 +60,7 @@
       "title"    : "A Post with Images",
       "category" : "",
       "tags"     : "sample post, images, test",
-      "url"      : "http://aronbordin.com/neo-hpstr-jekyll-theme/sample/intro/sample-post-images/",
+      "url"      : "/sample/intro/sample-post-images/",
       "date"     : "2013-05-22 00:00:00 -0400"
     } ,
   
@@ -68,7 +68,7 @@
       "title"    : "Testing Readability with a Bunch of Text",
       "category" : "",
       "tags"     : "sample post, readability, test, intro",
-      "url"      : "http://aronbordin.com/neo-hpstr-jekyll-theme/intro/readability-post/",
+      "url"      : "/intro/readability-post/",
       "date"     : "2012-05-22 00:00:00 -0400"
     } ,
   
@@ -76,7 +76,7 @@
       "title"    : "Sample Post",
       "category" : "",
       "tags"     : "sample post",
-      "url"      : "http://aronbordin.com/neo-hpstr-jekyll-theme/intro/sample-post/",
+      "url"      : "/intro/sample-post/",
       "date"     : "2011-03-10 00:00:00 -0500"
     } 
   

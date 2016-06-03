@@ -1,14 +1,14 @@
-title:            Jinyong
+title:            Engineer Life
 description:      This is my blog
 # put your disqus here
-disqus_shortname: 
+disqus_shortname: jinyongjeongsteve
 reading_time:     true # if true, shows the estimated reading time for a post
 words_per_minute: 200
 logo:             images/logo.png # logo visible in the topbar
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
 # When testing locally leave blank or use http://localhost:4000
 
-url: http://aronbordin.com/neo-hpstr-jekyll-theme
+#url: http://aronbordin.com/neo-hpstr-jekyll-theme
 
 # draw your top menu here
 # each item must have a title and a url.
@@ -18,8 +18,8 @@ url: http://aronbordin.com/neo-hpstr-jekyll-theme
 menu:
   - title: 'Home'
     url: '/'
-  - title: 'Fork'
-    url: 'http://github.com/aron-bordin/neo-hpstr-jekyll-theme'
+  - title: 'Github'
+    url: 'https://github.com/Jinyongjeong'
   - title: 'Install'
     url: '/theme-setup/'
   - title: 'Tags'
@@ -39,9 +39,9 @@ menu:
 owner:
   name:           Jinyong Jeong
   site:           jinyong.github.io
-  avatar:         images/avatar.jpg
-  bio:            "Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice."
-  email:          you@email.com
+  avatar:         images/profile.jpg
+  bio:            "This blog will post various subjects such as computer science, algorithms and so on. Purpose of this blog is to remember the things I studied by posting it."
+  email:          jjy0923@gmail.com
   # Twitter nick for use in Twitter cards and follow button.
   twitter: aron_bordin # if no twitter in this config, the twitter follow button will be removed
   # GitHub nick for use in follow button in author block.
@@ -54,7 +54,7 @@ twitter:
 # Social networking links used in author block underneath posts. Update and remove as you like.
 social:
   - title: "github"
-    url: "https://github.com/aron-bordin"
+    url: "https://github.com/JinyongJeong"
   - title: "linkedin"
     url: "https://br.linkedin.com/in/aronbordin"
   - title: "youtube"
