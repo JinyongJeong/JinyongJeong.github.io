@@ -5,9 +5,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Search &#8211; Engineer Life</title>
-<meta name="description" content="This is my blog">
-
+<title>A Post with a Video &#8211; Engineer Life</title>
+<meta name="description" content="Custom written post descriptions are the way to go... if you're not lazy.">
+<meta name="keywords" content="sample post, video">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
@@ -17,9 +17,9 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Search">
-<meta property="og:description" content="This is my blog">
-<meta property="og:url" content="/search/">
+<meta property="og:title" content="A Post with a Video">
+<meta property="og:description" content="Custom written post descriptions are the way to go... if you're not lazy.">
+<meta property="og:url" content="/jekyll/video-post/">
 <meta property="og:site_name" content="Engineer Life">
 <meta property="og:image" content="/images/images/logo.png">
 
@@ -27,7 +27,7 @@
 
 
 
-<link rel="canonical" href="/search/">
+<link rel="canonical" href="/jekyll/video-post/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Engineer Life Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
 
 </head>
 
-<body id="post-index">
+<body id="post" >
 
 <!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
 
@@ -155,15 +155,17 @@
 <div class="entry-header">
   <div class="header-title">
     <div class="header-title-wrap">
-      <h1>Search</h1>
+      <h1>A Post with a Video</h1>
       
-        <h2><span class="entry-date"><time>&nbsp;</time></span></h2>
+        <h2><span class="entry-date date published updated"><time datetime="2013-06-25T00:00:00-04:00">June 25, 2013</time></span></h2>
       
 
       
-          <p class="entry-reading-time">
-            &nbsp;
-          </p><!-- /.entry-reading-time -->
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+          Reading time ~1 minute
+        </p><!-- /.entry-reading-time -->
       
     </div><!-- /.header-title-wrap -->
   </div><!-- /.header-title -->
@@ -221,29 +223,92 @@
 
 
 <div id="main" role="main">
-  <article>
-  <div style="text-align: center">
-    <h3>Finds a post by title, tag, category, date and url.</h3>
-    <input type="text" id="search-input"/>
+  <article class="hentry">
+    <div class="entry-content">
+        
+      <h1 class="post-title entry-title">A Post with a Video</h1>
+      <iframe width="560" height="315" src="//www.youtube.com/embed/SU3kYxJmWuQ" frameborder="0" allowfullscreen></iframe>
+
+<p>Video embeds are responsive and scale with the width of the main content block with the help of <a href="http://fitvidsjs.com/">FitVids</a>.</p>
+
+<p>Adding YouTube video embeds causes errors when building your Jekyll site. To fix wrap the html within <code class="highlighter-rouge"><span class="p">{</span><span class="err">::nomarkdown</span><span class="p">}</span></code> tags. Example below:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">{::nomarkdown}
+<span class="nt">&lt;iframe</span> <span class="na">width=</span><span class="s">"560"</span> <span class="na">height=</span><span class="s">"315"</span> <span class="na">src=</span><span class="s">"//www.youtube.com/embed/SU3kYxJmWuQ"</span> <span class="na">frameborder=</span><span class="s">"0"</span> <span class="na">allowfullscreen</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+{:/nomarkdown}</code></pre></figure>
+
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags#sample post" title="Pages tagged sample post" class="tag"><span class="term">sample post</span></a><a href="/tags#video" title="Pages tagged video" class="tag"><span class="term">video</span></a></span>
+        
+        <span class="author vcard"><span class="fn">Jinyong Jeong</span></span>
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/jekyll/video-post/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/jekyll/video-post/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/jekyll/video-post/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+
+      </footer>
+    </div><!-- /.entry-content -->
+    <div class="read-more">
+  <div class="read-more-header">
+    <a href="jinyong.github.io" class="read-more-btn">About the Author</a>
+  </div><!-- /.read-more-header -->
+  <div class="read-more-content author-info">
+    <h3>Jinyong Jeong</h3>
+    <div class="author-container">
+      <img class="author-img" src="/images/profile.jpg" alt="Jinyong Jeong" />
+      <div class="author-bio">This blog will post various subjects such as computer science, algorithms and so on. Purpose of this blog is to remember the things I studied by posting it.</div>
+    </div>
+    <div class="author-share">
+      <ul class="list-inline social-buttons">
+        
+          <li><a href="https://github.com/JinyongJeong" target="_blank"><i class="fa fa-github fa-fw"></i></a></li>
+        
+          <li><a href="https://br.linkedin.com/in/aronbordin" target="_blank"><i class="fa fa-linkedin fa-fw"></i></a></li>
+        
+          <li><a href="https://www.youtube.com/channel/UCfnSek-9HPWOx5e2pH7VFgg" target="_blank"><i class="fa fa-youtube fa-fw"></i></a></li>
+        
+      </ul>
+      
+        <a aria-label="Follow @aron-bordin on GitHub" data-style="mega" href="https://github.com/aron-bordin" class="github-button">Follow @aron-bordin</a>
+      
+      <br>
+      
+        <a href="https://twitter.com/aron_bordin" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @aron_bordin</a>
+      
+    </div>
   </div>
-  <h3>Results:</h3>
-	<ul id="results-container">
-	</ul>
-</article><!-- /.hentry -->
+</div>
 
-<script type="text/javascript">
-
-  window.onload = function(){
-    new SimpleJekyllSearch({
-      searchInput: document.getElementById('search-input'),
-      resultsContainer: document.getElementById('results-container'),
-      json: '/search.json',
-      searchResultTemplate: '<li class="entry-title"><a href="{url}" title="{title}">{title}</a></li>'
-    });
-  }
-
-</script>
-
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/jekyll/readability-feature-post/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/jekyll/feature-image/" title="Sample Post with Feature Image">Sample Post with Feature Image</a></h3>
+      <p>Sample Post with Feature Image <a href="/jekyll/feature-image/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/jekyll/dark-post/" title="Dark Post">Dark Post</a></h4>
+        <span>Published on October 28, 2013</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/jekyll/background-image/" title="Post with a Background Image">Post with a Background Image</a></h4>
+        <span>Published on October 26, 2013</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
 </div><!-- /#main -->
 
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -254,6 +319,29 @@
 
 
 
+
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jinyongjeongsteve'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
 

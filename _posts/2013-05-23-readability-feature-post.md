@@ -4,7 +4,7 @@ title: "Post with Large Feature Image and Text"
 description: "Custom written post descriptions are the way to go... if you're not lazy."
 tags: [sample post, readability]
 modified: 2013-06-30
-categories: [intro]
+categories: [jekyll]
 ---
 
 This is a sample post with a large feature image up top and tons of text. Odio ad blue bottle vinyl, 90's narwhal commodo bitters pour-over nostrud. Ugh est hashtag in, fingerstache adipisicing laboris esse Pinterest shabby chic Portland. Shoreditch bicycle rights anim, flexitarian laboris put a bird on it vinyl cupidatat narwhal. Hashtag artisan skateboard, flannel Bushwick nesciunt salvia aute fixie do plaid post-ironic dolor McSweeney's. Cliche pour-over chambray nulla four loko skateboard sapiente hashtag.

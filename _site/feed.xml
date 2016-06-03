@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-06-03T07:35:54-04:00</updated>
+<updated>2016-06-03T07:38:52-04:00</updated>
 <id>/</id>
 <author>
   <name>Jinyong Jeong</name>
@@ -15,8 +15,8 @@
 
 <entry>
   <title type="html"><![CDATA[Sample Post with Feature Image]]></title>
- <link rel="alternate" type="text/html" href="/feature-image/" />
-  <id>/feature-image</id>
+ <link rel="alternate" type="text/html" href="/jekyll/feature-image/" />
+  <id>/jekyll/feature-image</id>
   <published>2013-10-28T00:00:00-04:00</published>
   <updated>2013-10-28T00:00:00-04:00</updated>
   <author>
@@ -36,15 +36,15 @@
 
 &lt;p&gt;Warning! The image height is not limited. The image width will be adjusted to fit on the post container, make sure to not use images with a high height.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/feature-image/&quot;&gt;Sample Post with Feature Image&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on October 28, 2013.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/jekyll/feature-image/&quot;&gt;Sample Post with Feature Image&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on October 28, 2013.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Dark Post]]></title>
- <link rel="alternate" type="text/html" href="/dark-post/" />
-  <id>/dark-post</id>
+ <link rel="alternate" type="text/html" href="/jekyll/dark-post/" />
+  <id>/jekyll/dark-post</id>
   <published>2013-10-28T00:00:00-04:00</published>
   <updated>2013-10-28T00:00:00-04:00</updated>
   <author>
@@ -59,15 +59,15 @@
 
 &lt;p&gt;on your post. This theme adds a dark background with a white panel to show your content.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/dark-post/&quot;&gt;Dark Post&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on October 28, 2013.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/jekyll/dark-post/&quot;&gt;Dark Post&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on October 28, 2013.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Post with a Background Image]]></title>
- <link rel="alternate" type="text/html" href="/image/background-image/" />
-  <id>/image/background-image</id>
+ <link rel="alternate" type="text/html" href="/jekyll/background-image/" />
+  <id>/jekyll/background-image</id>
   <published>2013-10-26T00:00:00-04:00</published>
   <updated>2013-10-26T00:00:00-04:00</updated>
   <author>
@@ -87,15 +87,15 @@
 
 &lt;div xmlns:cc=&quot;http://creativecommons.org/ns#&quot; xmlns:dct=&quot;http://purl.org/dc/terms/&quot; about=&quot;http://subtlepatterns.com&quot; class=&quot;notice&quot;&gt;Background images from &lt;span property=&quot;dct:title&quot;&gt;Subtle Patterns&lt;/span&gt; (&lt;a rel=&quot;cc:attributionURL&quot; property=&quot;cc:attributionName&quot; href=&quot;http://subtlepatterns.com&quot;&gt;Subtle Patterns&lt;/a&gt;) / &lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-sa/3.0/&quot;&gt;CC BY-SA 3.0&lt;/a&gt;&lt;/div&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/image/background-image/&quot;&gt;Post with a Background Image&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on October 26, 2013.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/jekyll/background-image/&quot;&gt;Post with a Background Image&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on October 26, 2013.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Syntax Highlighting Post]]></title>
- <link rel="alternate" type="text/html" href="/intro/code-highlighting-post/" />
-  <id>/intro/code-highlighting-post</id>
+ <link rel="alternate" type="text/html" href="/jekyll/code-highlighting-post/" />
+  <id>/jekyll/code-highlighting-post</id>
   <updated>2014-12-23T00:00:00-00:00</updated>
   <published>2013-08-16T00:00:00-04:00</published>
   
@@ -165,7 +165,7 @@
   &lt;/ol&gt;
 &lt;/div&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/intro/code-highlighting-post/&quot;&gt;Syntax Highlighting Post&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on August 16, 2013.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/jekyll/code-highlighting-post/&quot;&gt;Syntax Highlighting Post&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on August 16, 2013.&lt;/p&gt;
   </content>
 </entry>
 
@@ -173,7 +173,7 @@
 <entry>
   <title type="html"><![CDATA[Sample Link Post]]></title>
  <link rel="alternate" type="text/html" href="http://mademistakes.com" />
-  <id>/intro/sample-link-post</id>
+  <id>/jekyll/sample-link-post</id>
   <published>2013-08-12T00:00:00-04:00</published>
   <updated>2013-08-12T00:00:00-04:00</updated>
   <author>
@@ -184,15 +184,15 @@
   <content type="html">
     &lt;p&gt;This theme supports &lt;strong&gt;link posts&lt;/strong&gt;, made famous by John Gruber. To use, just add &lt;code class=&quot;highlighter-rouge&quot;&gt;link: http://url-you-want-linked&lt;/code&gt; to the post’s YAML front matter and you’re done.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/intro/sample-link-post/&quot;&gt;Sample Link Post&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on August 12, 2013.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/jekyll/sample-link-post/&quot;&gt;Sample Link Post&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on August 12, 2013.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[A Post with a Video]]></title>
- <link rel="alternate" type="text/html" href="/intro/video-post/" />
-  <id>/intro/video-post</id>
+ <link rel="alternate" type="text/html" href="/jekyll/video-post/" />
+  <id>/jekyll/video-post</id>
   <published>2013-06-25T00:00:00-04:00</published>
   <updated>2013-06-25T00:00:00-04:00</updated>
   <author>
@@ -212,15 +212,15 @@
 {:/nomarkdown}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;/intro/video-post/&quot;&gt;A Post with a Video&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on June 25, 2013.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/jekyll/video-post/&quot;&gt;A Post with a Video&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on June 25, 2013.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Post with Large Feature Image and Text]]></title>
- <link rel="alternate" type="text/html" href="/intro/readability-feature-post/" />
-  <id>/intro/readability-feature-post</id>
+ <link rel="alternate" type="text/html" href="/jekyll/readability-feature-post/" />
+  <id>/jekyll/readability-feature-post</id>
   <updated>2013-06-30T00:00:00-00:00</updated>
   <published>2013-05-23T00:00:00-04:00</published>
   
@@ -273,15 +273,15 @@
 
 &lt;p&gt;Aliquip enim artisan dolor post-ironic. Pug tote bag Marfa, deserunt pour-over Portland wolf eu odio intelligentsia american apparel ugh ea. Sunt viral et, 3 wolf moon gastropub pug id. Id fashion axe est typewriter, mlkshk Portland art party aute brunch. Sint pork belly Cosby sweater, deep v mumblecore kitsch american apparel. Try-hard direct trade tumblr sint skateboard. Adipisicing bitters excepteur biodiesel, pickled gastropub aute veniam.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/intro/readability-feature-post/&quot;&gt;Post with Large Feature Image and Text&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on May 23, 2013.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/jekyll/readability-feature-post/&quot;&gt;Post with Large Feature Image and Text&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on May 23, 2013.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[A Post with Images]]></title>
- <link rel="alternate" type="text/html" href="/sample/intro/sample-post-images/" />
-  <id>/sample/intro/sample-post-images</id>
+ <link rel="alternate" type="text/html" href="/jekyll/sample-post-images/" />
+  <id>/jekyll/sample-post-images</id>
   <published>2013-05-22T00:00:00-04:00</published>
   <updated>2013-05-22T00:00:00-04:00</updated>
   <author>
@@ -388,15 +388,15 @@ Available values: [1..3].&lt;/li&gt;
 &lt;/figure&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;/sample/intro/sample-post-images/&quot;&gt;A Post with Images&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on May 22, 2013.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/jekyll/sample-post-images/&quot;&gt;A Post with Images&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on May 22, 2013.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Testing Readability with a Bunch of Text]]></title>
- <link rel="alternate" type="text/html" href="/intro/readability-post/" />
-  <id>/intro/readability-post</id>
+ <link rel="alternate" type="text/html" href="/jekyll/readability-post/" />
+  <id>/jekyll/readability-post</id>
   <published>2012-05-22T00:00:00-04:00</published>
   <updated>2012-05-22T00:00:00-04:00</updated>
   <author>
@@ -446,7 +446,7 @@ Available values: [1..3].&lt;/li&gt;
 
 &lt;p&gt;Aliquip enim artisan dolor post-ironic. Pug tote bag Marfa, deserunt pour-over Portland wolf eu odio intelligentsia american apparel ugh ea. Sunt viral et, 3 wolf moon gastropub pug id. Id fashion axe est typewriter, mlkshk Portland art party aute brunch. Sint pork belly Cosby sweater, deep v mumblecore kitsch american apparel. Try-hard direct trade tumblr sint skateboard. Adipisicing bitters excepteur biodiesel, pickled gastropub aute veniam.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/intro/readability-post/&quot;&gt;Testing Readability with a Bunch of Text&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on May 22, 2012.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/jekyll/readability-post/&quot;&gt;Testing Readability with a Bunch of Text&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Engineer Life&lt;/a&gt; on May 22, 2012.&lt;/p&gt;
   </content>
 </entry>
 
