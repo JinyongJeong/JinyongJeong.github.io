@@ -1,14 +1,12 @@
-title:            Engineer Life
-description:      This is my blog
+title:            Becoming Engineer
+description:      This is personal blog for study
 # put your disqus here
 disqus_shortname: jinyongjeong
-reading_time:     true # if true, shows the estimated reading time for a post
+reading_time:     false # if true, shows the estimated reading time for a post
 words_per_minute: 200
 logo:             images/logo.png # logo visible in the topbar
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
 # When testing locally leave blank or use http://localhost:4000
-
-#url: http://aronbordin.com/neo-hpstr-jekyll-theme
 
 # draw your top menu here
 # each item must have a title and a url.
@@ -20,20 +18,11 @@ menu:
     url: '/'
   - title: 'Github'
     url: 'https://github.com/Jinyongjeong'
-#  - title: 'Install'
-#    url: '/theme-setup/'
   - title: 'Tags'
     url: '/tags'
   - title: 'Categories'
     url: '/categories'
     type: 'categories'
-#  - title: 'Favorites'
-#    url: '#'
-#    submenu:
-#      - title: 'Code Highlighter'
-#        url: '/intro/code-highlighting-post/'
-#      - title: 'Sample Post'
-#        url: '/intro/sample-post/'
   - title: 'About'
     url: '/about'
 
@@ -44,10 +33,8 @@ owner:
   avatar:         images/about/profile.jpg
   bio:            "This blog will post various subjects such as computer science, algorithms and so on. Purpose of this blog is to remember the things I studied by posting it."
   email:          jjy0923@gmail.com
-  # Twitter nick for use in Twitter cards and follow button.
-  twitter: aron_bordin # if no twitter in this config, the twitter follow button will be removed
   # GitHub nick for use in follow button in author block.
-  github: aron-bordin
+  github: jinyong
 
 # Twitter account associated with the site if different from owner/author twitter account.
 # Used in Twitter cards.
@@ -62,7 +49,7 @@ social:
 #  - title: "youtube"
 #    url: "https://www.youtube.com/channel/UCfnSek-9HPWOx5e2pH7VFgg"
 # Background image to be tiled on all pages
-background:
+background: 
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:
