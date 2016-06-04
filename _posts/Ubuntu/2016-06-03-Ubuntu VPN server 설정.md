@@ -68,13 +68,16 @@ IP addresses에는 그냥 *를 입력한다.
 ## 8. iptable 변경
 
 `iptables-save > ~/iptables.save`를 입력하여 iptable을 백업한다.  그 다음으로 변경된 iptable을 기본 인터페이스로 사용하기 위해 다음을 입력한다(sudo로 입력해야 할 수도 있다.)
+
 ```
 iptables -t nat -A POSTROUTING -o br0 -j MASQUERADE
 iptables --table nat --append POSTROUTING --out-interface ppp0 -j MASQUERADE
 iptables -I INPUT -s 10.0.0.0/8 -i ppp0 -j ACCEPT
 iptables --append FORWARD --in-interface br0 -j ACCEPT
 ```
+
 이 설정을 reboot 후에도 유지하기 위해서 다음을 입력한다.
+
 ```
 sudo apt-get install iptables-persistent
 ```
