@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "KAIST Landslide Warning System(case study)"
+title:  "KAIST Landslide Warning System(Real time)"
 date:   2016-06-01 13:33:49 +0900
 comments: true
 summary: "KAIST Civil and Environment Engineering Departmet Land Slide Warning System"

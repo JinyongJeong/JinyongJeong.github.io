@@ -3,7 +3,6 @@ layout: post
 title:  "SSH keygen 설정"
 date:   2016-06-01 13:33:49 +0900
 comments: true
-image: "/fig/default/default_post.jpg"
 summary: "ssh 접속 시 비밀번호를 묻지 않도록 key를 생성하는 방법"
 categories: [Ubuntu]
 ---
