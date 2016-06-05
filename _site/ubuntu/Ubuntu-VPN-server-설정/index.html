@@ -1,0 +1,409 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Ubuntu VPN server &#8211; Becoming Engineer</title>
+<meta name="description" content="This is personal blog for study">
+<meta name="keywords" content="">
+
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu VPN server">
+<meta property="og:description" content="This is personal blog for study">
+<meta property="og:url" content="/ubuntu/Ubuntu-VPN-server-%EC%84%A4%EC%A0%95/">
+<meta property="og:site_name" content="Becoming Engineer">
+<meta property="og:image" content="/images/images/logo.png">
+
+
+
+
+
+<link rel="canonical" href="/ubuntu/Ubuntu-VPN-server-%EC%84%A4%EC%A0%95/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Becoming Engineer Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/jquery.mmenu.all.css">
+<link rel="stylesheet" href="/assets/css/jquery.floating-social-share.min.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script type="text/javascript" src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+
+
+<div class="header-menu header-menu-top">
+    <ul class="header-item-container">
+      <li class="header-item-title header-toggle "><a href="#menu"><h2><i class="fa fa-bars"></i></h2></a></li>
+      <li class="header-item-title">
+        <a href="/">
+          
+            <img class="logo" src="/images/logo.png" alt="Becoming Engineer">
+          
+          <a href="/" class="title"> Becoming Engineer</a>
+        </a>
+      </li>
+      
+        
+        
+
+        
+            
+                <li class="header-item "><a href="/about"><h3>About</h3></a></li>
+            
+        
+      
+        
+        
+
+        
+          <li class="header-item "><a href="/categories"><h3>Categories</h3></a>
+            <ul class="header-submenu">
+              
+                
+                  <li class="sub-item"><a href="/categories/#Computer">Computer</a></li>
+              
+                
+                  <li class="sub-item"><a href="/categories/#Ubuntu">Ubuntu</a></li>
+              
+                
+                  <li class="sub-item"><a href="/categories/#and_so_on">and_so_on</a></li>
+              
+                
+                  <li class="sub-item"><a href="/categories/#jekyll">jekyll</a></li>
+              
+            </ul>
+          </li>
+        
+      
+        
+        
+
+        
+            
+                <li class="header-item "><a href="/tags"><h3>Tags</h3></a></li>
+            
+        
+      
+        
+        
+
+        
+            
+                <li class="header-item "><a href="https://github.com/Jinyongjeong" target="_blank"><h3>Github</h3></a></li>
+            
+        
+      
+        
+        
+
+        
+            
+                <li class="header-item "><a href="/"><h3>Home</h3></a></li>
+            
+        
+      
+      <li class="header-item"><a href="/search"><h3><i class="fa fa-search"></i></h3></a></li>
+    </ul>
+  </div>
+<div class="entry-header">
+  <div class="header-title">
+    <div class="header-title-wrap">
+      <h1>Ubuntu VPN server</h1>
+      
+        <h2><span class="entry-date date published updated"><time datetime="2016-06-03T00:33:49-04:00">June 03, 2016</time></span></h2>
+      
+
+      
+          <p class="entry-reading-time">
+            &nbsp;
+          </p><!-- /.entry-reading-time -->
+      
+    </div><!-- /.header-title-wrap -->
+  </div><!-- /.header-title -->
+</div><!-- /.entry-header -->
+
+
+<nav id="menu" style="display: none">
+  <ul>
+    
+      
+        <li><a href="/"><h3>Home</h3></a></li>
+      
+    
+      
+        <li><a href="https://github.com/Jinyongjeong"><h3>Github</h3></a></li>
+      
+    
+      
+        <li><a href="/tags"><h3>Tags</h3></a></li>
+      
+    
+      
+        <li><a href="/categories"><h3>Categories</h3></a>
+          <ul>
+            
+              
+                <li><a href="/categories/#Computer">Computer</a></li>
+            
+              
+                <li><a href="/categories/#Ubuntu">Ubuntu</a></li>
+            
+              
+                <li><a href="/categories/#and_so_on">and_so_on</a></li>
+            
+              
+                <li><a href="/categories/#jekyll">jekyll</a></li>
+            
+          </ul>
+        </li>
+      
+    
+      
+        <li><a href="/about"><h3>About</h3></a></li>
+      
+    
+  </ul>
+</nav>
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <div class="entry-content">
+        
+      <h1 class="post-title entry-title">Ubuntu VPN server</h1>
+      <p>VPN(Virtual Private Network)은 IP를 우회할 수 있는 방법중에 하나이며 다양한 방법으로 응용가능하다. 예를들면 학교의 인터넷 망에서 자유롭게 논문을 볼 수 있지만(학교에서는 IEEE등에 논문을 구독할 수 있도록 지불을 했기 때문에) 외부 망에서는 동일하게 논문검색을 할 수 없다(물론 VPN을 이용하지 않고 논문을 검색하는 방법이 있긴 하다). 이럴 때 학교내 학교망에 연결되어 있는 컴퓨터에 VPN 설정을 하고 외부에서 이 컴퓨터 VPN server로 연결하여 외부로 접속을 한면 외부에서는 학교망에서 접속한 것으로 인식하기 때문에 학교내에서 접속한 것과 같은 효과를 볼 수 있다. Ubuntu 14.04에서 VPN server를 설정하는 방법은 다음과 같다.</p>
+
+<h2 id="pptpd-">1. pptpd 설치</h2>
+
+<p><code class="highlighter-rouge">
+sudo apt-get install pptpd
+</code></p>
+
+<h2 id="etcpptpdconf--">2. /etc/pptpd.conf 파일 수정</h2>
+
+<p><code class="highlighter-rouge">/etc/pptpd.conf</code> 파일을 다음과 같이 설정한다. 이 아이피는 본인의 IP와는 상관없이 설정한다.</p>
+
+<p><code class="highlighter-rouge">
+localiip 10.0.01
+remoteip 10.0.0.100-200
+</code></p>
+
+<h2 id="dns--">3. DNS 서버 추가</h2>
+<p><code class="highlighter-rouge">/etc/ppp/pptpd-options</code> 에 다음을 추가한다.</p>
+
+<p><code class="highlighter-rouge">
+ms-dns 8.8.8.8
+ms-dns 8.8.4.4
+</code></p>
+
+<h2 id="ip-forwarding-">4. IP forwarding을 활성화</h2>
+
+<p><code class="highlighter-rouge">sudo vim /etc/sysctl.conf</code> 로 config 파일을 열고 다음을 활성화(uncomment) 시킨다(주석을 제거 하라는 의미).</p>
+
+<p><code class="highlighter-rouge">
+net.ipv4.ip_forward = 1
+</code></p>
+
+<h2 id="section">5. 변경 저장</h2>
+
+<p><code class="highlighter-rouge">
+sudo sysctl -p /etc/sysctl.config
+</code></p>
+
+<h2 id="vpn-user-">6. VPN user 등록</h2>
+
+<p><code class="highlighter-rouge">/etc/ppp/chap-secrets</code>을 열어 다음과 같이 user를 등록해 준다.</p>
+
+<p><code class="highlighter-rouge">
+# Secrets for authentication using CHAP
+# client    server  secret          IP addresses
+username    pptpd    password              *
+</code></p>
+
+<p>IP addresses에는 그냥 *를 입력한다.</p>
+
+<h2 id="section-1">7. 재 시작</h2>
+
+<p><code class="highlighter-rouge">service pptpd restart</code>를 입력하여 재 시작한다.</p>
+
+<p>설정 상태는 <code class="highlighter-rouge">ifconfig</code>를 입력하여 확인 할 수 있다.</p>
+
+<h2 id="iptable-">8. iptable 변경</h2>
+
+<p><code class="highlighter-rouge">iptables-save &gt; ~/iptables.save</code>를 입력하여 iptable을 백업한다.  그 다음으로 변경된 iptable을 기본 인터페이스로 사용하기 위해 다음을 입력한다(sudo로 입력해야 할 수도 있다.)</p>
+
+<p><code class="highlighter-rouge">
+iptables -t nat -A POSTROUTING -o br0 -j MASQUERADE
+iptables --table nat --append POSTROUTING --out-interface ppp0 -j MASQUERADE
+iptables -I INPUT -s 10.0.0.0/8 -i ppp0 -j ACCEPT
+iptables --append FORWARD --in-interface br0 -j ACCEPT
+</code></p>
+
+<p>이 설정을 reboot 후에도 유지하기 위해서 다음을 입력한다.</p>
+
+<p><code class="highlighter-rouge">
+sudo apt-get install iptables-persistent
+</code></p>
+
+<h2 id="section-2">9. 옵션 설정</h2>
+
+<p>VPN 연결을 위해 Ubuntu 14.04를 사용하고 있다면, PPTP Advanced Option에서 (use Point to point encryption)을 클릭해야 한다.</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"></span>
+        
+        <span class="author vcard"><span class="fn">Jinyong Jeong</span></span>
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/ubuntu/Ubuntu-VPN-server-%EC%84%A4%EC%A0%95/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/ubuntu/Ubuntu-VPN-server-%EC%84%A4%EC%A0%95/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/ubuntu/Ubuntu-VPN-server-%EC%84%A4%EC%A0%95/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+
+      </footer>
+    </div><!-- /.entry-content -->
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    <div class="read-more">
+  <div class="read-more-header">
+    <a href="jinyong.github.io" class="read-more-btn">About the Author</a>
+  </div><!-- /.read-more-header -->
+  <div class="read-more-content author-info">
+    <h3>Jinyong Jeong</h3>
+    <div class="author-container">
+      <img class="author-img" src="/images/about/profile.jpg" alt="Jinyong Jeong" />
+      <div class="author-bio">This blog will post various subjects such as computer science, algorithms and so on. Purpose of this blog is to remember the things I studied by posting it.</div>
+    </div>
+    <div class="author-share">
+      <ul class="list-inline social-buttons">
+        
+          <li><a href="https://github.com/JinyongJeong" target="_blank"><i class="fa fa-github fa-fw"></i></a></li>
+        
+      </ul>
+      
+        <a aria-label="Follow @jinyong on GitHub" data-style="mega" href="https://github.com/jinyong" class="github-button">Follow @jinyong</a>
+      
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/ubuntu/SSH-keygen-%EC%84%A4%EC%A0%95/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/ubuntu/gcc_default_include_path_confirm/" title="gcc default include path 확인 방법">gcc default include path 확인 방법</a></h3>
+      <p>다른 정보들이 더 출력이 되긴 하지만,간단히 다음과 같은 명령어를 입력하면 된다. (-x 다음 인자에 c/c++ 입력) ```echo | gcc -v -x c -E - echo | gcc -v -x c++ -E - ```Ubuntu 14.04에서...&hellip; <a href="/ubuntu/gcc_default_include_path_confirm/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/ubuntu/bash_shell_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98/" title="bash shell 환경변수">bash shell 환경변수</a></h4>
+        <span>Published on June 04, 2016</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/ubuntu/VIM-install_and_setting/" title="vim install and setting">vim install and setting</a></h4>
+        <span>Published on June 04, 2016</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script type="text/javascript" src="/assets/js/scripts.min.js"></script>
+<script type="text/javascript" async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+<script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+
+
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jinyongjeong'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+<script type="text/javascript">
+    sharing();
+</script>
+
+
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2016 Jinyong Jeong. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://github.com/aron-bordin/neo-hpstr-jekyll-theme" rel="nofollow">Neo-HPSTR Theme</a>.</span>
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+</body>
+</html>

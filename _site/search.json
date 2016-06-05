@@ -1,10 +1,90 @@
 [
   
     {
+      "title"    : "gcc default include path 확인 방법",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/ubuntu/gcc_default_include_path_confirm/",
+      "date"     : "2016-06-04 00:33:49 -0400"
+    } ,
+  
+    {
+      "title"    : "bash shell 환경변수",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/ubuntu/bash_shell_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98/",
+      "date"     : "2016-06-04 00:33:49 -0400"
+    } ,
+  
+    {
+      "title"    : "vim install and setting",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/ubuntu/VIM-install_and_setting/",
+      "date"     : "2016-06-04 00:33:49 -0400"
+    } ,
+  
+    {
+      "title"    : "Ubuntu Gedit 한글 깨짐 수정",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/ubuntu/Ubuntu_gedit-%ED%95%9C%EA%B8%80%EA%B9%A8%EC%A7%90-%EC%88%98%EC%A0%95/",
+      "date"     : "2016-06-04 00:33:49 -0400"
+    } ,
+  
+    {
+      "title"    : "vim install and setting",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/ubuntu/GRUB-multiboot-repair/",
+      "date"     : "2016-06-04 00:33:49 -0400"
+    } ,
+  
+    {
+      "title"    : "Ubuntu and Window Keyboard&amp;Mouse sharing(Synergy)",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/ubuntu/Ubuntu-and-Window-Keyboard&Mouse-sharing/",
+      "date"     : "2016-06-04 00:33:49 -0400"
+    } ,
+  
+    {
+      "title"    : "Ubuntu VPN server",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/ubuntu/Ubuntu-VPN-server-%EC%84%A4%EC%A0%95/",
+      "date"     : "2016-06-03 00:33:49 -0400"
+    } ,
+  
+    {
       "title"    : "SSH keygen 설정",
       "category" : "",
       "tags"     : "",
       "url"      : "/ubuntu/SSH-keygen-%EC%84%A4%EC%A0%95/",
+      "date"     : "2016-06-01 00:33:49 -0400"
+    } ,
+  
+    {
+      "title"    : "Static 변수와 Extern변수)",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/computer/static_and_extern/",
+      "date"     : "2016-06-01 00:33:49 -0400"
+    } ,
+  
+    {
+      "title"    : "DLL파일과 LIB파일 차이",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/computer/DLL_and_LIB/",
+      "date"     : "2016-06-01 00:33:49 -0400"
+    } ,
+  
+    {
+      "title"    : "공개 SW 라이센스(GPL, LGPL, BSD)",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/computer/%EA%B3%B5%EA%B0%9CSW%EB%9D%BC%EC%9D%B4%EC%84%BC%EC%8A%A4/",
       "date"     : "2016-06-01 00:33:49 -0400"
     } ,
   
@@ -17,10 +97,18 @@
     } ,
   
     {
-      "title"    : "KAIST 산사태 경보 시스템",
+      "title"    : "KAIST Landslide Warning System(case study)",
       "category" : "",
       "tags"     : "",
       "url"      : "/and_so_on/KAIST_%EC%82%B0%EC%82%AC%ED%83%9C%EA%B2%BD%EB%B3%B4/",
+      "date"     : "2016-06-01 00:33:49 -0400"
+    } ,
+  
+    {
+      "title"    : "KAIST Landslide Warning System(Real time)",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/and_so_on/KAIST_%EC%82%B0%EC%82%AC%ED%83%9C%EA%B2%BD%EB%B3%B4(real_time)/",
       "date"     : "2016-06-01 00:33:49 -0400"
     } ,
   
