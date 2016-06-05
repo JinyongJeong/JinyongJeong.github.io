@@ -41,6 +41,7 @@ It will scan the System for few seconds and will show you the options Recommende
 
 <img align="left" src="/images/post/boot_repair/1.png" width="800">
 
+after waiting for second..
 
 <img align="left" src="/images/post/boot_repair/2.png" width="800">
 
@@ -53,9 +54,11 @@ Then select the GRUB locations tab and check the following options are selected 
 
 <img align="left" src="/images/post/boot_repair/4.png" width="800">
 
+and then 
 
 <img align="left" src="/images/post/boot_repair/5.png" width="800">
 
+waiting for a while
 
 <img align="left" src="/images/post/boot_repair/6.png" width="800">
 
