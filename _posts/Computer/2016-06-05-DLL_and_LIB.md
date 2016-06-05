@@ -37,7 +37,7 @@ categories: [Computer]
 
  
 ### 참조 사이트
-* http://wolfsi.egloos.com/2302024
-* http://blog.naver.com/PostView.nhn?blogId=clover6652&logNo=100063061060
-* http://jym2568.egloos.com/1186568
-* http://blog.naver.com/PostView.nhn?blogId=ssib0228&logNo=110013563400&redirect=Dlog&widgetTypeCall=true
+* [http://wolfsi.egloos.com/2302024](http://wolfsi.egloos.com/2302024)
+* [http://blog.naver.com/PostView.nhn?blogId=clover6652&logNo=100063061060](http://blog.naver.com/PostView.nhn?blogId=clover6652&logNo=100063061060)
+* [http://jym2568.egloos.com/1186568](http://jym2568.egloos.com/1186568)
+* [http://blog.naver.com/PostView.nhn?blogId=ssib0228&logNo=110013563400&redirect=Dlog&widgetTypeCall=true](http://blog.naver.com/PostView.nhn?blogId=ssib0228&logNo=110013563400&redirect=Dlog&widgetTypeCall=true)

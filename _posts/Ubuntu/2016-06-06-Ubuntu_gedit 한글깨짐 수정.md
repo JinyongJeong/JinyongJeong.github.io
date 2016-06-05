@@ -19,7 +19,10 @@ $ dconf-editor
 org -> gnome -> gedit -> preferences -> encodings -> auto-detected
 
 여기에 UHC라는 값을 추가 합니다. UHC(Unified Hangul Code)는 cp949와 동일한 통합 한글 코드를 의미합니다.
+
+```
 'UTF-8', 'UHC', 'CURRENT', 'ISO-8859-15', 'EUC-KR', 'UTF-16'
+```
 
 그리고 창을 찾고 해당 파일을 열어보시면 한글이 깨끗하게 열리는 것을 볼 수 있습니다.
 혹시 dconf-editor가 안될 때는 콘솔에서 gsettings로 한번에 설정값을 변경할 수 있습니다.
