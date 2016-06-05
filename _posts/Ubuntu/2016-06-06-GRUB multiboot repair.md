@@ -39,10 +39,10 @@ boot-repair
 NOTE: Update the Boot Repair if its newer version is available.
 It will scan the System for few seconds and will show you the options Recommended repair and Create a BootInfo summary. By clicking the Recommended Repair it will start repair the grub. Check the screen shots below.
 
-<img align="left" src="/images/post/boot_repair/1.png" width="600" height="200px">
+<img align="left" src="/images/post/boot_repair/1.png" width="800">
 
 
-<img align="left" src="/images/post/boot_repair/2.png" width="600">
+<img align="left" src="/images/post/boot_repair/2.png" width="800">
 
 Once done click ok and restart your system, your grub should work now. If not run the boot-repair again using live cd / usb. Then follow the steps below.
 Select the Advanced options, In Main options tab check whether the following options are selected or not. If not select it, the options are Reinstall Grub and unhide boot menu for 10 seconds. Check the screen shot below
@@ -54,10 +54,10 @@ Then select the GRUB locations tab and check the following options are selected 
 <img align="left" src="/images/post/boot_repair/4.png" width="800">
 
 
-<img align="left" src="/images/post/boot_repair/5.png" width="600">
+<img align="left" src="/images/post/boot_repair/5.png" width="800">
 
 
-<img align="left" src="/images/post/boot_repair/6.png" width="600">
+<img align="left" src="/images/post/boot_repair/6.png" width="800">
 
 
 Click ok and restart your System. To restore MBR Click Here.
