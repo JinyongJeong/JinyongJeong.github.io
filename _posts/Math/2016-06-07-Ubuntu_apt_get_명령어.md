@@ -16,12 +16,14 @@ SE(3), SO(3), GL(3,R) 와 관련된 내용을 정리해 보려고 한다.
 $$ f : \mathbb{R}^3 \to \mathbb{R}^3$$
 
 $$
-begin{bmatrix}
+\begin{bmatrix}
 X_2\\
 Y_2\\
 Z_2  
-\end{bmatrix} = R begin{bmatrix}
+\end{bmatrix} = R \begin{bmatrix}
                   X_1\\
                   Y_1\\
                   Z_1  
                   \end{bmatrix}
+
+이때 역행렬이 가능한 $3X3$ 매트릭스의 set은 general linear group GL(3,$ \mathbb{R}$)을 이룬다.
