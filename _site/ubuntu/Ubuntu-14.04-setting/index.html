@@ -7,7 +7,7 @@
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 <meta charset="utf-8">
-<title>Jekyll을 이용하여 Github Blog 만들기 &#8211; Becoming Engineer</title>
+<title>Ubuntu 14.04 setting(한글 및 기타) &#8211; Becoming Engineer</title>
 <meta name="description" content="This is personal blog for study">
 <meta name="keywords" content="">
 
@@ -16,9 +16,9 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jekyll을 이용하여 Github Blog 만들기">
+<meta property="og:title" content="Ubuntu 14.04 setting(한글 및 기타)">
 <meta property="og:description" content="This is personal blog for study">
-<meta property="og:url" content="/jekyll/jekyll_blog_making/">
+<meta property="og:url" content="/ubuntu/Ubuntu-14.04-setting/">
 <meta property="og:site_name" content="Becoming Engineer">
 <meta property="og:image" content="/images/images/logo.png">
 
@@ -26,7 +26,7 @@
 
 
 
-<link rel="canonical" href="/jekyll/jekyll_blog_making/">
+<link rel="canonical" href="/ubuntu/Ubuntu-14.04-setting/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Becoming Engineer Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -151,9 +151,9 @@
 <div class="entry-header">
   <div class="header-title">
     <div class="header-title-wrap">
-      <h1>Jekyll을 이용하여 Github Blog 만들기</h1>
+      <h1>Ubuntu 14.04 setting(한글 및 기타)</h1>
       
-        <h2><span class="entry-date date published updated"><time datetime="2016-05-15T00:33:49-04:00">May 15, 2016</time></span></h2>
+        <h2><span class="entry-date date published updated"><time datetime="2016-06-06T00:33:49-04:00">June 06, 2016</time></span></h2>
       
 
       
@@ -218,121 +218,36 @@
   <article class="hentry">
     <div class="entry-content">
         
-      <h1 class="post-title entry-title">Jekyll을 이용하여 Github Blog 만들기</h1>
-      <p>Jekyll을 이용해서 Github에 Blog를 만들어보자. 우선 Jekyll을 설치하기 위해서는 rvm(ruby version manager)를 설치해야 한다. rvm은 ruby의 버전관리를 위해 사용된다. ruby와 jekyll 설치 시 <code class="highlighter-rouge">apt-get install</code>을 사용하면 안된다. 전체적인 순서는 rvm 설치 -&gt; ruby 설치 -&gt; jekyll 설치 -&gt; github.io 생성 이다.</p>
+      <h1 class="post-title entry-title">Ubuntu 14.04 setting(한글 및 기타)</h1>
+      <p>&lt;본 포스팅은 <a href="http://blog.daum.net/bagjunggyu/154">다음</a>을 참고하였습니다&gt;</p>
 
-<h1 id="curlrvmruby-version-manager-">1. curl/rvm(ruby version manager) 설치</h1>
+<p><a href="http://blog.daum.net/bagjunggyu/154">여기</a>에서 한글 설정 및 다양한 Ubuntu 설정에 대한 내용을 찾을 수 있다.</p>
 
-<p><code class="highlighter-rouge">
-sudo apt-get install curl
-curl -sSL https://get.rvm.io | bash -s stable
-</code></p>
+<h1 id="ubuntu-1404--uim">Ubuntu 14.04 한글 설정(uim)</h1>
 
-<p>위 코드의 설치 과정에서 만약 다음과같은 error가 뜬다면</p>
+<p>uim은 지금까지 알려진 한글 입력기 중에서 쓰기 가장 무난한 입력기입니다. 다만, Qt5 어플 (포커스 라이터 1.5 -  Focuswriter 1.5 등)에서 한글 입력이 제대로 되지 않습니다.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="ss">curl: </span><span class="p">(</span><span class="mi">77</span><span class="p">)</span> <span class="n">error</span> <span class="n">setting</span> <span class="n">certificate</span> <span class="n">verify</span> <span class="ss">locations:
-</span><span class="no">CAfile</span><span class="p">:</span> <span class="sr">/etc/</span><span class="n">pki</span><span class="o">/</span><span class="n">tls</span><span class="o">/</span><span class="n">certs</span><span class="o">/</span><span class="n">ca</span><span class="o">-</span><span class="n">bundle</span><span class="p">.</span><span class="nf">crt</span>
-<span class="no">CApath</span><span class="p">:</span> <span class="n">none</span></code></pre></figure>
+<h2 id="section">1. 설치하기</h2>
 
-<p>certificate 경로가 맞지 않는 것이다. 다음의 코드를 입력하여 경로 생성 후 <code class="highlighter-rouge">.crt</code> 파일을 복사해준다. 만약 <code class="highlighter-rouge">.crt</code>파일이 없다면 <code class="highlighter-rouge">sudo apt-get install ca-certificates</code>를 통해 설치한다.</p>
+<p>터미널에서 설치하실 분들은 아래 명령어를 이용하세요</p>
 
 <p><code class="highlighter-rouge">
-sudo mkdir -p /etc/pki/tls/certs
-sudo cp /etc/ssl/certs/ca-certificates.crt /etc/pki/tls/certs/ca-bundle.crt
+sudo apt install uim uim-byeoru 
 </code></p>
 
-<p>다른 에러가 또 뜬다면 다음을 입력(아마 error 내용에 다음의 내용이 있을 것이다.)</p>
+<p>소프트웨어 센터를 이용하실 분들은  uim 이라고 검색하시면 나옵니다. 
+설치하신 후에, 이번엔 uim-byeoru를 검색하셔서 설치합니다.</p>
 
-<p><code class="highlighter-rouge">
-command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
-</code></p>
+<h2 id="section-1">2. 설정 하기</h2>
 
-<p>rvm 스크립트를 현재 쉘에 로드 및 현재 쉘에 로드</p>
+<p>노트북을 이용하시는 분들은 위에서 구성키 설정하기를 참고해주세요. 유니티 렌스에서 uim 이라고 검색하셔서 설정 도구를 실행하세요</p>
 
-<p><code class="highlighter-rouge">
-source ~/.rvm/scripts/rvm
-rvm requirements
-</code></p>
-
-<p>만약 다음과 같은 error가 발생한다면(아마 한국 서버에서 받아오는데 문제가 있는것 같다.)</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">E</span><span class="p">:</span> <span class="no">Failed</span> <span class="n">to</span> <span class="n">fetch</span> <span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="n">kr</span><span class="p">.</span><span class="nf">archive</span><span class="p">.</span><span class="nf">ubuntu</span><span class="p">.</span><span class="nf">com</span><span class="o">/</span><span class="n">ubuntu</span><span class="o">/</span><span class="n">pool</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">g</span><span class="o">/</span><span class="n">gawk</span><span class="o">/</span><span class="n">gawk_4</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">1</span><span class="o">+</span><span class="n">dfsg</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">1</span><span class="n">ubuntu2_amd64</span><span class="p">.</span><span class="nf">deb</span> <span class="no">Could</span> <span class="n">not</span> <span class="n">connect</span> <span class="n">to</span> <span class="n">kr</span><span class="p">.</span><span class="nf">archive</span><span class="p">.</span><span class="nf">ubuntu</span><span class="p">.</span><span class="nf">com</span><span class="p">:</span><span class="mi">80</span> <span class="p">(</span><span class="mi">103</span><span class="o">.</span><span class="mi">22</span><span class="o">.</span><span class="mi">220</span><span class="o">.</span><span class="mi">133</span><span class="p">).</span> <span class="nf">-</span> <span class="n">connect</span> <span class="p">(</span><span class="mi">111</span><span class="p">:</span> <span class="no">Connection</span> <span class="n">refused</span><span class="p">)</span></code></pre></figure>
-
-<p>Setting의 software updates에서 Download from 을 main server 로 바꿔준 후 다시 <code class="highlighter-rouge">rvm requirements</code> 실행한다.</p>
-
-<h1 id="ruby-">2. Ruby 설치</h1>
-
-<p>Ruby 2.1.2 설치 후 디폴트로 설정</p>
-
-<p><code class="highlighter-rouge">
-rvm install 2.1.2
-rvm use 2.1.2 --default
-</code></p>
-
-<h1 id="nodejs-">3. nodejs 설치</h1>
-
-<p><code class="highlighter-rouge">
-sudo apt-get install nodejs
-</code></p>
-
-<h1 id="jekyll----">4. Jekyll 설치 및 버전 확인</h1>
-
-<p><code class="highlighter-rouge">
-gem install jekyll
-jekyll -v
-</code></p>
-
-<p>여기까지 Jekyll 설치 완료.</p>
-
-<h1 id="jekyll--">5. Jekyll의 설치를 확인</h1>
-
-<p>Jekyll을 이용하여 기본 테마를 생성 후 서버를 동작시킨다.</p>
-
-<p><code class="highlighter-rouge">
-jekyll new myblog
-cd myblog
-jekyll serve
-</code></p>
-
-<p><code class="highlighter-rouge">http://localhost:4000</code> 으로 들어가면 local 블로그를 확인할 수 있다.</p>
-
-<h1 id="github-repository-">6. github의 repository를 생성</h1>
-
-<p><a href="http://www.github.com">Github</a>으로 접속 후 새로운 repository 생성. <yourname>.github.io 로 repository 생성 후 로컬에서 home folder로 이동하여 repository 복사.</yourname></p>
-
-<p><code class="highlighter-rouge">
-git clone https://github.com/&lt;yourname&gt;/&lt;yourname&gt;.github.io.git
-</code></p>
-
-<p>폴더를  복사 후  그 폴더로 이동한 후 git 을 초기화시킨다. 초기화 시킨 후 git의 폴더에 jekyll의 기본 테마 설치</p>
-
-<p><code class="highlighter-rouge">
-git init
-jekyll new . --force 
-</code></p>
-
-<p>Jekyll로 생성된 모든 파일을 git에 add해 준 후 commit, push 를 해서 github에 올려준다.</p>
-
-<p><code class="highlighter-rouge">
-git add *
-git commit -m "first commit"
-git push -u origin master
-</code></p>
-
-<p>첫 commit 시에 config 파일에 user.email과 user.name을 등록하라고 나오면</p>
-
-<p><code class="highlighter-rouge">
-git config user.email "이메일주소"
-git config user.name "이름"
-</code></p>
-
-<p>을 입력하여 이메일과 이름을 등록해 준다.이로써 github에 블로그가 생성되었다!</p>
-
-<p>git을 clone 받은 후 처음에는 <code class="highlighter-rouge">git push -u origin master</code>를 모두 입력해야 하지만 한번 한 이후에는 <code class="highlighter-rouge">git push</code>만 입력해도 된다.</p>
-
-<h1 id="blog-">7. Blog 작성</h1>
-
-<p>블로그 작성 시 입력한 내용이 예상한대로 동작을 하는지 확인 하기 위해서 매번 github에 push하는 것은 매우 힘든 일이다. 작성을 하는 동시에 바로 확인을 하기 위해서 위에서 언급한 것과 같이 <code class="highlighter-rouge">jekyll serve</code>를 이용하여 서버를 동작 시킨 후 <code class="highlighter-rouge">localhost:4000</code>으로 접속하면 바로 수정된 내용을 확인할 수 있다. 이렇게 수정이 완료된 후 github로 push하면 편하게 포스팅을 수정할 수 있다.</p>
+<ul>
+  <li>전첵적인 설정에서 디폴트 입력기를 벼루로 설정합니다.</li>
+  <li>그리고, 벼루키 설정 1 , 벼루키 설정 2에 원하시는 키를 지정합니다. 보통 한글 변환이기 때문에 한/영 키로 설정합니다.</li>
+  <li>그리고, 시스템 설정 - 언어 지원을 실행해서, 키보드 입력기를 uim으로 설정한 후
+시스템 전체에 적용을 누르시고, 로그아웃 &amp; 로그인 하시면 됩니다.</li>
+</ul>
 
 
       <footer class="entry-meta">
@@ -341,9 +256,9 @@ git config user.name "이름"
         <span class="author vcard"><span class="fn">Jinyong Jeong</span></span>
         <div class="social-share">
   <ul class="socialcount socialcount-small inline-list">
-    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/jekyll/jekyll_blog_making/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
-    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/jekyll/jekyll_blog_making/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
-    <li class="googleplus"><a href="https://plus.google.com/share?url=/jekyll/jekyll_blog_making/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/ubuntu/Ubuntu-14.04-setting/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/ubuntu/Ubuntu-14.04-setting/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/ubuntu/Ubuntu-14.04-setting/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
   </ul>
 </div><!-- /.social-share -->
 
@@ -379,7 +294,7 @@ git config user.name "이름"
     <div class="read-more">
   
     <div class="read-more-header">
-      <a href="/ubuntu/Partition_auto_mount/" class="read-more-btn">Read More</a>
+      <a href="/ubuntu/gcc_default_include_path_confirm/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
       <h3><a href="/ubuntu/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/" title="Ubuntu apt-get 명령어 정리">Ubuntu apt-get 명령어 정리</a></h3>

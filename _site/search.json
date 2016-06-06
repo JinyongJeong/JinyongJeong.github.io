@@ -1,6 +1,38 @@
 [
   
     {
+      "title"    : "Ubuntu apt-get 명령어 정리",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/ubuntu/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/",
+      "date"     : "2016-06-07 00:33:49 -0400"
+    } ,
+  
+    {
+      "title"    : "SE(3) and SO(3) transformation",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/math/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/",
+      "date"     : "2016-06-07 00:33:49 -0400"
+    } ,
+  
+    {
+      "title"    : "Jekyll&amp;github blog에서 latex 문법 사용하기",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/jekyll/Jekyll_github_blog_math/",
+      "date"     : "2016-06-06 09:44:49 -0400"
+    } ,
+  
+    {
+      "title"    : "Ubuntu 14.04 setting(한글 및 기타)",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/ubuntu/Ubuntu-14.04-setting/",
+      "date"     : "2016-06-06 00:33:49 -0400"
+    } ,
+  
+    {
       "title"    : "gcc default include path 확인 방법",
       "category" : "",
       "tags"     : "",
@@ -33,7 +65,7 @@
     } ,
   
     {
-      "title"    : "vim install and setting",
+      "title"    : "GRUB multiboot repair(멀티부팅 재설치)",
       "category" : "",
       "tags"     : "",
       "url"      : "/ubuntu/GRUB-multiboot-repair/",
