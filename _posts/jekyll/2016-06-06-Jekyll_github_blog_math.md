@@ -13,7 +13,7 @@ Markdown을 이용하여 글을 작성하는 것은 직관적이면서도 편리
 
 ## MathJax
 
-`_includes/head.html` 파일에 `MathJax`를 추가해 줌으로써 latex을 이용하여 수학 공식을 작성할 수 있다. `head.html`파일의 맨 위쪽에 다음의 code를 추가한ㄷ.
+`_includes/head.html` 파일에 `MathJax`를 추가해 줌으로써 latex을 이용하여 수학 공식을 작성할 수 있다. `head.html`파일의 맨 위쪽에 다음의 code를 추가한다.
 
 ```
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
