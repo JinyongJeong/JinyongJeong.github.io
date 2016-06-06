@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Jekyll and github blog math 사용하기(latex 문법 사용하기)"
+title:  "Jekyll&github blog에서 latex 문법 사용하기"
 date:   2016-06-06 22:44:49 +0900
 comments: true
-summary: "Jekyll and github blog math 사용하기"
+summary: "Jekyll&github blog에서 latex 문법 사용하기"
 categories: [jekyll]
 ---
 
-Markdown을 이용하여 글을 작성하는 것은 직관적이면서도 편리한 방법이다. 하지만 markdown만으로는 수학 수식을 입력하기 쉽지 않기 때문에 다양한 플러그인을 사용해야 한다.
+Markdown을 이용하여 글을 작성하는 것은 직관적이면서도 편리한 방법이다. 하지만 markdown만으로는 수학 수식을 입력하기 쉽지 않기 때문에 다양한 플러그인을 사용해야 한다. 그중에서 latex을 사용하기 위한 방법을 소개한다.
 
 자세한 내용은 [여기](http://www.dianacai.com/blog/2015/09/12/making-blog/)를 참고.
 
