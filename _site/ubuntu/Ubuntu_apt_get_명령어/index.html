@@ -7,7 +7,7 @@
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 <meta charset="utf-8">
-<title>DLL파일과 LIB파일 차이 &#8211; Becoming Engineer</title>
+<title>Ubuntu apt-get 명령어 정리 &#8211; Becoming Engineer</title>
 <meta name="description" content="This is personal blog for study">
 <meta name="keywords" content="">
 
@@ -16,9 +16,9 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DLL파일과 LIB파일 차이">
+<meta property="og:title" content="Ubuntu apt-get 명령어 정리">
 <meta property="og:description" content="This is personal blog for study">
-<meta property="og:url" content="/computer/DLL_and_LIB/">
+<meta property="og:url" content="/ubuntu/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/">
 <meta property="og:site_name" content="Becoming Engineer">
 <meta property="og:image" content="/images/images/logo.png">
 
@@ -26,7 +26,7 @@
 
 
 
-<link rel="canonical" href="/computer/DLL_and_LIB/">
+<link rel="canonical" href="/ubuntu/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Becoming Engineer Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -151,9 +151,9 @@
 <div class="entry-header">
   <div class="header-title">
     <div class="header-title-wrap">
-      <h1>DLL파일과 LIB파일 차이</h1>
+      <h1>Ubuntu apt-get 명령어 정리</h1>
       
-        <h2><span class="entry-date date published updated"><time datetime="2016-06-01T00:33:49-04:00">June 01, 2016</time></span></h2>
+        <h2><span class="entry-date date published updated"><time datetime="2016-06-07T00:33:49-04:00">June 07, 2016</time></span></h2>
       
 
       
@@ -218,44 +218,82 @@
   <article class="hentry">
     <div class="entry-content">
         
-      <h1 class="post-title entry-title">DLL파일과 LIB파일 차이</h1>
-      <p>&lt;본 포스팅은 <a href="http://it4all.tistory.com/16">다음</a>을 참고하였습니다&gt;</p>
+      <h1 class="post-title entry-title">Ubuntu apt-get 명령어 정리</h1>
+      <p>apt-get(Advanced Packaging Tool)은 우분투(Ubuntu)를 포함안 데비안(Debian)계열의 리눅스에서 쓰이는 팩키지 관리 명령어 도구입니다. 우분투에는 GUI로 되어 있는시냅틱 꾸러미 관리자도 있기는 하지만 이런 저런 개발관련 패키지를 설치할 때는 커맨드기반인 apt-get이 더 편하기도 합니다. sudo는 superuser권한으로 실행하기 위함입니다.</p>
 
-<p>라이브러리 만드는 이유는 소스의 외부 유출 없이, 자신이 만든 모듈을 외부와 공유하기 위해서다. 또한 미리 컴파일 되어 있어서 컴파일 시간도 단축된다.
-이때 라이브러리는 동적 라이브러리와 정적 라이브러리가 있는데, 각각의 특징을 살펴보자.
-아래의 특징을 보고 동적 라이브러리와 정적 라이브러리 중 어느 것을 사용할 지를 결정하면 된다.</p>
+<h2 id="section">1. 패키지 인덱스 인덱스 정보 업데이트</h2>
 
-<h1 id="dynamic-link-library">1. 동적 라이브러리(Dynamic Link Library)</h1>
+<p>apt-get은 인덱스를 가지고 있는데 이 인덱스는/etc/apt/sources.list에 있습니다. 이곳에 저장된 저장소에서 사용할 패키지의 정보를 얻습니다.</p>
 
-<ul>
-  <li>프로그램 실행 시 필요시만 외부 DLL 파일에서 함수를 참조</li>
-  <li>프로그램 실행 시 프로그램 로딩 시간이 단축</li>
-  <li>함수 업그레이드 시 해당 DLL만 수정 배포한다</li>
-  <li>소스 외부 유출 방지 효과</li>
-  <li>실행 파일 만들때 필요한 파일: <em>.h,</em>.lib (*.dll 참조 용)</li>
-  <li>프로그램 실행할 할 때 필요한 파일: *.dll (배포할 때 *.dll 필요)</li>
-  <li>dll 제작 시 lib도 같이 생성됨</li>
-</ul>
+<p><code class="highlighter-rouge">
+sudo apt-get update
+</code></p>
 
-<h1 id="static-link-library">2. 정적 라이브러리(Static Link Library)</h1>
+<h2 id="section-1">2. 설치된 패키지 업그래이드</h2>
 
-<ul>
-  <li>필요한 함수를 프로그램 코드에 붙여 프로그램 자체에서 참조</li>
-  <li>프로그램 실행 후 빠른 처리시간</li>
-  <li>프로그램 실행 파일만 있으면 실행(하나의 파일만 있으면 됨)</li>
-  <li>소스 외부 유출 방지 효과</li>
-  <li>실행 파일 만들때 필요한 파일: <em>.h,</em>.lib (별도의 *.dll 필요 없음)</li>
-</ul>
+<p>설치되어 있는 패키지를 모두 새버전으로 업그래이드 합니다.</p>
 
-<p>따라서 실행파일 자체의 크기를 비교하면 정적라이브러리를 포함한 프로그램의 크기가 더 크다.</p>
+<p><code class="highlighter-rouge">
+sudo apt-get upgrade
+</code></p>
 
-<h3 id="section">참조 사이트</h3>
-<ul>
-  <li><a href="http://wolfsi.egloos.com/2302024">http://wolfsi.egloos.com/2302024</a></li>
-  <li><a href="http://blog.naver.com/PostView.nhn?blogId=clover6652&amp;logNo=100063061060">http://blog.naver.com/PostView.nhn?blogId=clover6652&amp;logNo=100063061060</a></li>
-  <li><a href="http://jym2568.egloos.com/1186568">http://jym2568.egloos.com/1186568</a></li>
-  <li><a href="http://blog.naver.com/PostView.nhn?blogId=ssib0228&amp;logNo=110013563400&amp;redirect=Dlog&amp;widgetTypeCall=true">http://blog.naver.com/PostView.nhn?blogId=ssib0228&amp;logNo=110013563400&amp;redirect=Dlog&amp;widgetTypeCall=true</a></li>
-</ul>
+<h2 id="section-2">3. 의존성검사하며 설치하기</h2>
+
+<p><code class="highlighter-rouge">
+sudo apt-get dist-upgrade
+</code></p>
+
+<h2 id="section-3">4. 패키지 설치</h2>
+
+<p><code class="highlighter-rouge">
+sudo apt-get install 패키지이름
+</code></p>
+
+<h2 id="section-4">5. 패키지 재설치</h2>
+
+<p><code class="highlighter-rouge">
+apt-get --reinstall install 패키지이름
+</code></p>
+
+<h2 id="section-5">6. 패키지 삭제</h2>
+
+<p>설정파일은 지우지 않음</p>
+
+<p><code class="highlighter-rouge">
+sudo apt-get remove 패키지이름
+</code></p>
+
+<h2 id="section-6">7. 설정파일까지 모두 지움</h2>
+
+<p><code class="highlighter-rouge">
+sudo apt-get --purge remove 패키지이름
+</code></p>
+
+<h2 id="section-7">8. 패키지 소스코드 다운로드</h2>
+
+<p><code class="highlighter-rouge">
+sudo apt-get source 패키지이름
+</code></p>
+
+<h2 id="section-8">9. 위에서 받은 소스코드를 의존성있게 빌드</h2>
+
+<p><code class="highlighter-rouge">
+sudo apt-get build-dep 패키지이름
+</code></p>
+
+<h2 id="section-9">10. 패키지 검색</h2>
+
+<p><code class="highlighter-rouge">
+sudo apt-cache search 패키지이름
+</code></p>
+
+<h2 id="section-10">11. 패키지 정보 보기</h2>
+
+<p><code class="highlighter-rouge">
+sudo apt-cache show 패키지이름
+</code></p>
+
+<p>apt를 이용해서 설치된 deb패키지는 /var/cache/apt/archive/ 에 설치가 됩니다.</p>
 
       <footer class="entry-meta">
         <span class="entry-tags"></span>
@@ -263,9 +301,9 @@
         <span class="author vcard"><span class="fn">Jinyong Jeong</span></span>
         <div class="social-share">
   <ul class="socialcount socialcount-small inline-list">
-    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/computer/DLL_and_LIB/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
-    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/computer/DLL_and_LIB/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
-    <li class="googleplus"><a href="https://plus.google.com/share?url=/computer/DLL_and_LIB/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/ubuntu/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/ubuntu/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/ubuntu/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
   </ul>
 </div><!-- /.social-share -->
 
@@ -301,23 +339,23 @@
     <div class="read-more">
   
     <div class="read-more-header">
-      <a href="/computer/%EA%B3%B5%EA%B0%9CSW%EB%9D%BC%EC%9D%B4%EC%84%BC%EC%8A%A4/" class="read-more-btn">Read More</a>
+      <a href="/math/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/" class="read-more-btn">Read More</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="/ubuntu/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/" title="Ubuntu apt-get 명령어 정리">Ubuntu apt-get 명령어 정리</a></h3>
-      <p>apt-get(Advanced Packaging Tool)은 우분투(Ubuntu)를 포함안 데비안(Debian)계열의 리눅스에서 쓰이는 팩키지 관리 명령어 도구입니다. 우분투에는 GUI로 되어 있는시냅틱 꾸러미 관리자도 있기는 하지만 이런 저런 ...&hellip; <a href="/ubuntu/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/">Continue reading</a></p>
+      <h3><a href="/math/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/" title="SE(3) and SO(3) transformation">SE(3) and SO(3) transformation</a></h3>
+      <p>SE(3), SO(3) and GL(3,R)SE(3), SO(3), GL(3,R) 와 관련된 내용을 정리해 보려고 한다.만약 3차원 공간상에서 f를 x1의 점을 x2의 점으로 변환시키는 matrix R이라고 할 때 다음과 같이 표현 할 수 있다.&hellip; <a href="/math/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/">Continue reading</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="/math/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/" title="SE(3) and SO(3) transformation">SE(3) and SO(3) transformation</a></h4>
-        <span>Published on June 07, 2016</span>
+        <h4><a href="/ubuntu/Ubuntu-14.04-setting/" title="Ubuntu 14.04 setting(한글 및 기타)">Ubuntu 14.04 setting(한글 및 기타)</a></h4>
+        <span>Published on June 06, 2016</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="/ubuntu/Ubuntu-14.04-setting/" title="Ubuntu 14.04 setting(한글 및 기타)">Ubuntu 14.04 setting(한글 및 기타)</a></h4>
-        <span>Published on June 06, 2016</span>
+        <h4><a href="/ubuntu/gcc_default_include_path_confirm/" title="gcc default include path 확인 방법">gcc default include path 확인 방법</a></h4>
+        <span>Published on June 04, 2016</span>
       </div><!-- /.list-item -->
     
   </div><!-- /.read-more-list -->

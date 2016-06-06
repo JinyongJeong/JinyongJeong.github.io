@@ -4,6 +4,8 @@
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 <meta charset="utf-8">
 <title>Welcome to Blog for Engineer &#8211; Becoming Engineer</title>
 <meta name="description" content="Describe this nonsense.">
@@ -101,6 +103,9 @@
                   <li class="sub-item"><a href="/categories/#Computer">Computer</a></li>
               
                 
+                  <li class="sub-item"><a href="/categories/#Math">Math</a></li>
+              
+                
                   <li class="sub-item"><a href="/categories/#Ubuntu">Ubuntu</a></li>
               
                 
@@ -184,6 +189,9 @@
                 <li><a href="/categories/#Computer">Computer</a></li>
             
               
+                <li><a href="/categories/#Math">Math</a></li>
+            
+              
                 <li><a href="/categories/#Ubuntu">Ubuntu</a></li>
             
               
@@ -208,6 +216,149 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2016-06-01T00:33:49-04:00"><a href="/ubuntu/SSH-keygen-%EC%84%A4%EC%A0%95/">June 01, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/ubuntu/SSH-keygen-%EC%84%A4%EC%A0%95/" rel="bookmark" title="SSH keygen 설정" itemprop="url">SSH keygen 설정</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    
+      <h1 id="ssh--">1. ssh 접속 방법</h1>
+
+<p>기본적으로 ssh 접속하는 방법은 다음과 같다</p>
+
+<p><code class="highlighter-rouge">
+ssh user@hostname.example.com
+</code></p>
+
+<p>위의 명령어로 ssh 접속을 했을 경우 접속 시 마다 password를 물어보게 된다. 만약 <code class="highlighter-rouge">.sh</code> 스크립트를 작성해서 어떤 동작을 시키려고 하거나 매번 접속할 때마다 password를 입력하는 것이 번거로울 때 ssh key를 생성하여 등록해 놓으면 매번 입력할 필요가 없다.</p>
+
+<h1 id="ssh-key-">2. ssh key 생성</h1>
+
+<p>ssh key를 생성하기 위해서는 다음의 명령어를 입력한다</p>
+
+<p><code class="highlighter-rouge">
+ssh-keygen
+</code></p>
+
+<p>명령을 입력 후 파일 명 및 몇가지 질문을 할 것인데 모두 디폴트로 설정하고 넘어가면 <code class="highlighter-rouge">/home/username/.ssh/id_rsa</code> 파일이 생성된다. 위의 파일을 열어보면 ssh의 key가 생성된 것을 확인할 수 있다.</p>
+
+<h1 id="ssh-key-copy">3. ssh key copy</h1>
+
+<p>이렇게 생성된 ssh key를 ssh 서버에 복사해야 한다.</p>
+
+<p><code class="highlighter-rouge">
+ssh-copy-id user@hostname.example.com
+</code></p>
+
+<p>copy명령어를 입력하면 password를 물어볼 것인데, 이때 정확한 password를 입력하면 ssh key가 서버로 복사된다. 복사가 정상적으로 이루어 졌다면, 다음 접속부터는 비밀번호를 다시 물어보지 않을 것이다.</p>
+
+<h1 id="agent-admitted-failure-to-sign-using-the-key-error">4. “Agent admitted failure to sign using the key” Error</h1>
+
+<p>만약 ssh key 등록 후 ssh 접속 시 <code class="highlighter-rouge">Agent admitted failure to sign using the key</code> 의 error가 발생하며 password를 물어볼 경우 <code class="highlighter-rouge">ssh-add</code> 명령어를 통해 ssh key를 ssh agent로 load 함으로써 고칠 수 있다.</p>
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2016-06-01T00:33:49-04:00"><a href="/computer/static_and_extern/">June 01, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/computer/static_and_extern/" rel="bookmark" title="Static 변수와 Extern변수)" itemprop="url">Static 변수와 Extern변수)</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    
+      <p>&lt;본 포스팅은 <a href="http://thrillfighter.tistory.com/255">다음</a>을 참고하였습니다&gt;</p>
+
+<p>Static과 Extern의 개념 정리에 도움이 될듯 하다.</p>
+
+<ul>
+  <li>
+    <p>a.h 라는 헤더파일이 main.cpp와 a.cpp에서 include 되어 있고 a.h에 int a=3; 이라는 변수가 전역으로 선언 되어 있을 경우 object file을 잘 생성이 되나 링크시 에러가 발생하며, a라는 전역변수가 프로그램 내에서 두번 중복되기 때문이다. 이를 방지하기 위해서는 전역변수를 지역변수로 만드는 것이다.(함수외부에 변수를 선언하면 전역적 특징을 갖게 된다.)</p>
+  </li>
+  <li>
+    <p>함수 선언에 static이 붙어 static int a=3; 이 되면 main.cpp와 a.cpp는 같은 a.h를 include하지만 static 이기 때문에 각 cpp파일에서 사용하는 a는 각각의 지역변수가 되어 따로 존재하게 된다.</p>
+  </li>
+  <li>
+    <p>각 cpp파일에서 동일한 a를 사용할 목적이라면?
+-&gt; 각 cpp파일에 int a = 3; 이라고 선언 후 헤더(h)파일에 extern int a; 라고 선언하면 된다.</p>
+  </li>
+  <li>
+    <p>자세한 내용은 <a href="http://thrillfighter.tistory.com/255">다음</a>의 포스팅을 참고하자.</p>
+  </li>
+</ul>
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2016-06-01T00:33:49-04:00"><a href="/computer/DLL_and_LIB/">June 01, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/computer/DLL_and_LIB/" rel="bookmark" title="DLL파일과 LIB파일 차이" itemprop="url">DLL파일과 LIB파일 차이</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    
+      <p>&lt;본 포스팅은 <a href="http://it4all.tistory.com/16">다음</a>을 참고하였습니다&gt;</p>
+
+<p>라이브러리 만드는 이유는 소스의 외부 유출 없이, 자신이 만든 모듈을 외부와 공유하기 위해서다. 또한 미리 컴파일 되어 있어서 컴파일 시간도 단축된다.
+이때 라이브러리는 동적 라이브러리와 정적 라이브러리가 있는데, 각각의 특징을 살펴보자.
+아래의 특징을 보고 동적 라이브러리와 정적 라이브러리 중 어느 것을 사용할 지를 결정하면 된다.</p>
+
+<h1 id="dynamic-link-library">1. 동적 라이브러리(Dynamic Link Library)</h1>
+
+<ul>
+  <li>프로그램 실행 시 필요시만 외부 DLL 파일에서 함수를 참조</li>
+  <li>프로그램 실행 시 프로그램 로딩 시간이 단축</li>
+  <li>함수 업그레이드 시 해당 DLL만 수정 배포한다</li>
+  <li>소스 외부 유출 방지 효과</li>
+  <li>실행 파일 만들때 필요한 파일: <em>.h,</em>.lib (*.dll 참조 용)</li>
+  <li>프로그램 실행할 할 때 필요한 파일: *.dll (배포할 때 *.dll 필요)</li>
+  <li>dll 제작 시 lib도 같이 생성됨</li>
+</ul>
+
+<h1 id="static-link-library">2. 정적 라이브러리(Static Link Library)</h1>
+
+<ul>
+  <li>필요한 함수를 프로그램 코드에 붙여 프로그램 자체에서 참조</li>
+  <li>프로그램 실행 후 빠른 처리시간</li>
+  <li>프로그램 실행 파일만 있으면 실행(하나의 파일만 있으면 됨)</li>
+  <li>소스 외부 유출 방지 효과</li>
+  <li>실행 파일 만들때 필요한 파일: <em>.h,</em>.lib (별도의 *.dll 필요 없음)</li>
+</ul>
+
+<p>따라서 실행파일 자체의 크기를 비교하면 정적라이브러리를 포함한 프로그램의 크기가 더 크다.</p>
+
+<h3 id="section">참조 사이트</h3>
+<ul>
+  <li><a href="http://wolfsi.egloos.com/2302024">http://wolfsi.egloos.com/2302024</a></li>
+  <li><a href="http://blog.naver.com/PostView.nhn?blogId=clover6652&amp;logNo=100063061060">http://blog.naver.com/PostView.nhn?blogId=clover6652&amp;logNo=100063061060</a></li>
+  <li><a href="http://jym2568.egloos.com/1186568">http://jym2568.egloos.com/1186568</a></li>
+  <li><a href="http://blog.naver.com/PostView.nhn?blogId=ssib0228&amp;logNo=110013563400&amp;redirect=Dlog&amp;widgetTypeCall=true">http://blog.naver.com/PostView.nhn?blogId=ssib0228&amp;logNo=110013563400&amp;redirect=Dlog&amp;widgetTypeCall=true</a></li>
+</ul>
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -354,109 +505,6 @@ TGA로 이뤄진 이미지 시퀀스(image sequence)를 ‘타가 시퀀스’�
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2016-06-01T00:33:49-04:00"><a href="/and_so_on/KAIST_%EC%82%B0%EC%82%AC%ED%83%9C%EA%B2%BD%EB%B3%B4/">June 01, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/and_so_on/KAIST_%EC%82%B0%EC%82%AC%ED%83%9C%EA%B2%BD%EB%B3%B4/" rel="bookmark" title="KAIST Landslide Warning System(case study)" itemprop="url">KAIST Landslide Warning System(case study)</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    
-      <h3 id="kaist-civil-and-environment-engineering-departmet-land-slide-warning-system-">&lt; KAIST Civil and Environment Engineering Departmet Land Slide Warning System &gt;</h3>
-<p>This is Land Slide Warning System for Pusan area of KOREA produced by KAIST.
-<img align="left" src="http://yshin.woobi.co.kr/imgs/fig.png" width="800" height="600px" />
-This result is using current rainfall and geometrical featur to expect probability of landslide in Pusan area. Red color means dangerous and blue means normal state. If you are in dangerous area, please provide against emergency.</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2016-06-01T00:33:49-04:00"><a href="/and_so_on/KAIST_%EC%82%B0%EC%82%AC%ED%83%9C%EA%B2%BD%EB%B3%B4(real_time)/">June 01, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/and_so_on/KAIST_%EC%82%B0%EC%82%AC%ED%83%9C%EA%B2%BD%EB%B3%B4(real_time)/" rel="bookmark" title="KAIST Landslide Warning System(Real time)" itemprop="url">KAIST Landslide Warning System(Real time)</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    
-      <h3 id="kaist-civil-and-environment-engineering-departmet-land-slide-warning-system-">&lt; KAIST Civil and Environment Engineering Departmet Land Slide Warning System &gt;</h3>
-<p>This is Land Slide Warning System for Pusan area of KOREA produced by KAIST.
-<img align="left" src="http://yshin.woobi.co.kr/imgs/fig.png" width="800" height="600px" />
-This result is using current rainfall and geometrical featur to expect probability of landslide in Pusan area. Red color means dangerous and blue means normal state. If you are in dangerous area, please provide against emergency.</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2016-05-19T09:44:49-04:00"><a href="/jekyll/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%8C%80%EB%A1%9C-%ED%8F%AC%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0/">May 19, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/jekyll/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%8C%80%EB%A1%9C-%ED%8F%AC%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0/" rel="bookmark" title="Jekyll Markdown에서 HTML소스코드 그대로 포스팅하기" itemprop="url">Jekyll Markdown에서 HTML소스코드 그대로 포스팅하기</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    
-      <p>Jekyll을 이용하여 포스팅을 하면서 코드를 올리는 경우가 종종 있다. C 나 python 혹은 기타 코드를 code block에 넣으면 코드가 그대로 보이지만 HTML을 넣을 경우 실제 데이터로 convert가 되어 표기가 되어 원하는 코드를 재대로 보여줄 수 없다. 이때는 code block에 <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">%</span><span class="w"> </span><span class="err">raw</span><span class="w"> </span><span class="err">%</span><span class="w"> </span><span class="p">}</span></code> 와 <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">%</span><span class="w"> </span><span class="err">endraw</span><span class="w"> </span><span class="err">%</span><span class="w"> </span><span class="p">}</span></code>를 넣어줌으로써 code의 raw를 변환없이 아래와 같이 포스팅 할 수 있다. 실제 입력 시 <code class="highlighter-rouge"><span class="p">{</span></code> 와 <code class="highlighter-rouge">%</code> 사이에는 공백이 없어야 한다.</p>
-
-<p>```html</p>
-
-<hr />
-<p>layout: default_post
-—</p>
-<article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <header class="post-header single-post-header" style="background-image:url('{{ site.url }}{{ page.image }}')">
-    <div>
-      <h1 class="post-title single-post-title" itemprop="name headline">{{ page.title }}</h1>
-      <p class="post-meta single-post-meta">
-        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date_to_long_string }}</time>
-        •
-        {% assign words = page.content | number_of_words %}
-        {% if words &lt; 360 %}
-          1 min
-        {% else %}
-          {{ words | divided_by:180 }} mins
-        {% endif %}
-        read
-      </p>
-    </div>
-  </header>
-  <div class="wrapper">
-    <div class="single-post-summary">
-     <code> {{ page.summary }} </code>
-    </div>
-    <div class="post-content single-post-content" itemprop="articleBody">
-     <code> {{ content }} </code>
-    </div>
-    {% if page.comments %}
-        &lt;-- add your code here --&gt;
-    {% endif %}
-  </div>
-</article>
-
-<p>```</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 
 <div class="pagination">
@@ -506,12 +554,21 @@ This result is using current rainfall and geometrical featur to expect probabili
         <li><a href="/page5/">5</a></li>
       
     
+      
+        
+        
+        
+        <li><a href="/page6/">6</a></li>
+      
+    
 
     
     
+      <li>…</li>
+    
 
     
-      <li><a href="/page6/">6</a></li>
+      <li><a href="/page7/">7</a></li>
     
 
     

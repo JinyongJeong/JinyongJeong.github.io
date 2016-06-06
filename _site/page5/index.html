@@ -4,6 +4,8 @@
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 <meta charset="utf-8">
 <title>Welcome to Blog for Engineer &#8211; Becoming Engineer</title>
 <meta name="description" content="Describe this nonsense.">
@@ -101,6 +103,9 @@
                   <li class="sub-item"><a href="/categories/#Computer">Computer</a></li>
               
                 
+                  <li class="sub-item"><a href="/categories/#Math">Math</a></li>
+              
+                
                   <li class="sub-item"><a href="/categories/#Ubuntu">Ubuntu</a></li>
               
                 
@@ -184,6 +189,9 @@
                 <li><a href="/categories/#Computer">Computer</a></li>
             
               
+                <li><a href="/categories/#Math">Math</a></li>
+            
+              
                 <li><a href="/categories/#Ubuntu">Ubuntu</a></li>
             
               
@@ -208,6 +216,128 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2016-05-15T00:33:49-04:00"><a href="/ubuntu/Partition_auto_mount/">May 15, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/ubuntu/Partition_auto_mount/" rel="bookmark" title="Windows Partition Auto Mount in Ubuntu 14.04" itemprop="url">Windows Partition Auto Mount in Ubuntu 14.04</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    
+      <p>윈도우 파티션의 파일시스템은 NTFS(New Technology File System)으로 보통 구성되어 있다. 예전에는 Ubuntu에서 NTFS 시스템을 읽거나 사용하기 어려웠는데 근래에는 Reverse Engineering을 통해 Ubuntu에서도 사용 가능할 수 있게 되었다. 기본적으로 가장 오래된 시스템은 FAT(File Allocate Table)이며 안정성 면에서는 FAT32가 가장 좋다. 하지만 FAT32는 32bit 시스템을 사용하기 떄문에 4Gbyte 이상의 파일을 저장할 수 없다. 왜냐하면 32bit 방식은 표현할 수 있는 주소의 갯수가 2의 32승 = 4.2950e+09 이고  한개의 주소값으로 1Byte를 표현 할 수 있으므로 32bit 시스템으로 표현할 수 있는 최대 메모리는 4.2950e+09 Byte, 약 4GByte이다. 마찬가지로 32bit 운영체제에서 최대 사용가능한 메모리 용량이 4GByte인것도 같은 이유이다. 32bit 시스템에서 4GByte이상의 하드디스크를 사용할 수 있는 것은 하드시스크의 data를 RAM으로 이동 후 처리하기 때문에 가능한 것이다. 이러한 한계 때문에 개발 된 것이 exFAT시스템이다. exFAT시스템은 용량의 제한이 매우 커서 따로 신경쓸 필요가 없다. 하지만 exFAT 시스템으로 설정된 USB 및 디스크를 안전하게 제거하지 않는다거나 여러 경우에 불안한 모습을 보일 때가 있다고 한다. 마지막으로 NTFS 방식은 Windows에서 개발된 방식이기 때문에 블랙박스라던지 기타 디바이스에서 인식이 안되는 문제가 있다고 한다.</p>
+
+<p>다시한번 정리하면
+FAT32 : 안전성에서는 가장 좋음, 저장 용량의 한계가 있음 
+exFAT : 안정성이 떨어짐, 저장용량의 한계는 없음
+NTFS: 확장성이 떨어짐</p>
+
+<p>따라서 디스크 포멧 시 본인의 맞는 방식에 맞춰서 사용하면 된다. 기본적으로 Windows가 설치된 디스크는 NTFS 방식으로 되어 있기 때문에, 윈도우가 설치된 디스크를 Ubuntu에 자동으로 mount 시키기 위해서는 다음과 같은 절차가 필요하다.</p>
+
+<h2 id="directory-">1. directory 생성</h2>
+
+<p>우선 원하는 위치에 directory를 설정한다.</p>
+
+<p><code class="highlighter-rouge">
+sudo mkdir /media/win
+</code></p>
+
+<h2 id="fstab-file">2. fstab file수정</h2>
+
+<p><code class="highlighter-rouge">/etc</code> 경로의 fstab file을 수정한다.</p>
+
+<p><code class="highlighter-rouge">
+sudo gedit /etc/fstab
+</code></p>
+
+<p>우선 fstab file을 열고 다음을 추가한다.</p>
+
+<p>```
+UUID=16D219F9D219DE35 /media/win ntfs auto,defaults,rw 0 2</p>
+
+<p>```</p>
+
+<p>또는</p>
+
+<p><code class="highlighter-rouge">
+/dev/sda1 /media/win ntfs-3g auto,defaults,rw 0 2
+</code></p>
+
+<p>위의 두가지 방식으로 설정 가능하다(device 이름 혹은 UUID)</p>
+
+<p><code class="highlighter-rouge">/media/win</code> : mount 위치</p>
+
+<p><code class="highlighter-rouge">ntfs-3g</code> : file type</p>
+
+<p><code class="highlighter-rouge">rw</code> : read and write</p>
+
+<p>fstab까지 설정이 완료 후 재부팅하면 windows의 파티션이 자동으로 mount되는 것을 확인 가능하다.</p>
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+      <div class="entry-image-index">
+        <a href="/jekyll/feature-image/" title="Sample Post with Feature Image"><img src="/images/feature.jpg" alt="Sample Post with Feature Image"></a>
+        <div class="image-credit">Image source: <a target="_blank" href="http://www.dargadgetz.com/ios-8-abstract-wallpaper-pack-for-iphone-5s-5c-and-ipod-touch-retina/">dargadgetz</a></div><!-- /.image-credit -->
+
+      </div><!-- /.entry-image -->
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2013-10-28T00:00:00-04:00"><a href="/jekyll/feature-image/">October 28, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/jekyll/feature-image/" rel="bookmark" title="Sample Post with Feature Image" itemprop="url">Sample Post with Feature Image</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    
+      <p>This post demonstrate how to use feature images on your posts.</p>
+
+<p>Just add:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">image</span><span class="pi">:</span>
+  <span class="s">feature</span><span class="pi">:</span> <span class="s">filename.png</span></code></pre></figure>
+
+<p>where <strong>filename.png</strong> is an image inside <code class="highlighter-rouge">images</code> folder. This image will be displayed on the top of your post.</p>
+
+<p>Warning! The image height is not limited. The image width will be adjusted to fit on the post container, make sure to not use images with a high height.</p>
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2013-10-28T00:00:00-04:00"><a href="/jekyll/dark-post/">October 28, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/jekyll/dark-post/" rel="bookmark" title="Dark Post" itemprop="url">Dark Post</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    
+      <p>This is a sample post to show the dark post theme. To use this dark theme, just add:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">layout</span><span class="pi">:</span> <span class="s">dark-post</span></code></pre></figure>
+
+<p>on your post. This theme adds a dark background with a white panel to show your content.</p>
+
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -313,79 +443,6 @@
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2013-08-12T00:00:00-04:00"><a href="/jekyll/sample-link-post/">August 12, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/jekyll/sample-link-post/" class="permalink" rel="bookmark" title="Sample Link Post"><i class="fa fa-bookmark"></i></a> <a href="http://mademistakes.com">Sample Link Post</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    
-      <p>This theme supports <strong>link posts</strong>, made famous by John Gruber. To use, just add <code class="highlighter-rouge">link: http://url-you-want-linked</code> to the post’s YAML front matter and you’re done.</p>
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2013-06-25T00:00:00-04:00"><a href="/jekyll/video-post/">June 25, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/jekyll/video-post/" rel="bookmark" title="A Post with a Video" itemprop="url">A Post with a Video</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    
-      <iframe width="560" height="315" src="//www.youtube.com/embed/SU3kYxJmWuQ" frameborder="0" allowfullscreen></iframe>
-
-<p>Video embeds are responsive and scale with the width of the main content block with the help of <a href="http://fitvidsjs.com/">FitVids</a>.</p>
-
-<p>Adding YouTube video embeds causes errors when building your Jekyll site. To fix wrap the html within <code class="highlighter-rouge"><span class="p">{</span><span class="err">::nomarkdown</span><span class="p">}</span></code> tags. Example below:</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html">{::nomarkdown}
-<span class="nt">&lt;iframe</span> <span class="na">width=</span><span class="s">"560"</span> <span class="na">height=</span><span class="s">"315"</span> <span class="na">src=</span><span class="s">"//www.youtube.com/embed/SU3kYxJmWuQ"</span> <span class="na">frameborder=</span><span class="s">"0"</span> <span class="na">allowfullscreen</span><span class="nt">&gt;&lt;/iframe&gt;</span>
-{:/nomarkdown}</code></pre></figure>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2013-05-23T00:00:00-04:00"><a href="/jekyll/readability-feature-post/">May 23, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/jekyll/readability-feature-post/" rel="bookmark" title="Post with Large Feature Image and Text" itemprop="url">Post with Large Feature Image and Text</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    
-    <p>This is a sample post with a large feature image up top and tons of text. Odio ad blue bottle vinyl, 90’s narwhal commodo bitters pour-over nostrud. Ugh est hashtag in, fingerstache adipisicing laboris esse Pinterest shabby chic Portland. Shoreditch bicycle rights anim, flexitarian laboris put a bird on it vinyl cupidatat narwhal. Hashtag artisan skateboard, flannel Bushwick nesciunt salvia aute fixie do plaid post-ironic dolor McSweeney’s. Cliche pour-over chambray nulla four loko skateboard sapiente hashtag.</p>
-
-<p>Vero laborum commodo occupy. Semiotics voluptate mumblecore pug. Cosby sweater ullamco quinoa ennui assumenda, sapiente occupy delectus lo-fi. Ea fashion axe Marfa cillum aliquip. Retro Bushwick keytar cliche. Before they sold out sustainable gastropub Marfa readymade, ethical Williamsburg skateboard brunch qui consectetur gentrify semiotics. Mustache cillum irony, fingerstache magna pour-over keffiyeh tousled selfies.</p>
-
-<h2 id="cupidatat-90s-lo-fi-authentic-try-hard">Cupidatat 90’s lo-fi authentic try-hard</h2>
-
-<p>In pug Portland incididunt mlkshk put a bird on it vinyl quinoa. Terry Richardson shabby chic +1, scenester Tonx excepteur tempor fugiat voluptate fingerstache aliquip nisi next level. Farm-to-table hashtag Truffaut, Odd Future ex meggings gentrify single-origin coffee try-hard 90’s.</p>
-
-
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 
 <div class="pagination">
@@ -432,12 +489,19 @@
         <li><strong class="current-page">5</strong></li>
       
     
+      
+        
+        
+        
+        <li><a href="/page6/">6</a></li>
+      
+    
 
     
     
 
     
-      <li><a href="/page6/">6</a></li>
+      <li><a href="/page7/">7</a></li>
     
 
     
