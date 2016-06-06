@@ -15,7 +15,7 @@ categories: [Ubuntu]
 ssh user@hostname.example.com
 ```
 
-위의 명령어로 ssh 접속을 했을 경우 접속 시 마다 password를 물어보게 된다. 만약 `.sh` 스크립트를 작성해서 어떤 동작을 시키려고 하거나 매번 접속할 때마다 password를 입력하는 것이 번거로울 때 ssh key를 생성하여 등록해 놓으면 매번 입력할 필요가 없다.
+위의 명령어로 ssh 접속을 했을 경우 접속 시 마다 password를 물어보게 된다. 만약 `.sh` 스크립트를 작성해서 어떤 동작을 시키려고 하거나 매번 접속할 때마다 password를 입력하는 것이 번거로울 때 ssh key를 생성하여 등록해 놓으면 매번 입력할 필요가 없다. 
 
 # 2. ssh key 생성
 
@@ -35,8 +35,10 @@ ssh-keygen
 ssh-copy-id user@hostname.example.com
 ```
 
-copy명령어를 입력하면 password를 물어볼 것인데, 이때 정확한 password를 입력하면 ssh key가 서버로 복사된다. 복사가 정상적으로 이루어 졌다면, 다음 접속부터는 비밀번호를 다시 물어보지 않을 것이다.
+copy명령어를 입력하면 password를 물어볼 것인데, 이때 정확한 password를 입력하면 ssh key가 서버로 복사된다. 복사가 정상적으로 이루어 졌다면, 다음 접속부터는 비밀번호를 다시 물어보지 않을 것이다. 
 
 # 4. "Agent admitted failure to sign using the key" Error
 
-만약 ssh key 등록 후 ssh 접속 시 `Agent admitted failure to sign using the key` 의 error가 발생하며 password를 물어볼 경우 `ssh-add` 명령어를 통해 ssh key를 ssh agent로 load 함으로써 고칠 수 있다.
+만약 ssh key 등록 후 ssh 접속 시 `Agent admitted failure to sign using the key` 의 error가 발생하며 password를 물어볼 경우 `ssh-add` 명령어를 통해 ssh key를 ssh agent로 load 함으로써 고칠 수 있다. 
+
+
