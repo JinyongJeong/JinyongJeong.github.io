@@ -13,11 +13,11 @@ apt-get(Advanced Packaging Tool)은 우분투(Ubuntu)를 포함안 데비안(Deb
 
 apt-get은 인덱스를 가지고 있는데 이 인덱스는/etc/apt/sources.list에 있습니다. 이곳에 저장된 저장소에서 사용할 패키지의 정보를 얻습니다.
 
-``` 
+```
 sudo apt-get update
 ```
 
-## 2. 설치된 패키지 업그래이드 
+## 2. 설치된 패키지 업그래이드
 
 설치되어 있는 패키지를 모두 새버전으로 업그래이드 합니다.
 
