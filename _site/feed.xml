@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-06-06T07:34:18-04:00</updated>
+<updated>2016-06-13T21:48:47-04:00</updated>
 <id>/</id>
 <author>
   <name>Jinyong Jeong</name>
@@ -1023,34 +1023,11 @@ TGA로 이뤄진 이미지 시퀀스(image sequence)를 ‘타가 시퀀스’�
   <content type="html">
     &lt;h3 id=&quot;kaist-civil-and-environment-engineering-departmet-land-slide-warning-system-&quot;&gt;&amp;lt; KAIST Civil and Environment Engineering Departmet Land Slide Warning System &amp;gt;&lt;/h3&gt;
 &lt;p&gt;This is Land Slide Warning System for Pusan area of KOREA produced by KAIST.
-&lt;img align=&quot;left&quot; src=&quot;http://yshin.woobi.co.kr/imgs/fig.png&quot; width=&quot;800&quot; height=&quot;600px&quot; /&gt;
+&lt;img align=&quot;left&quot; src=&quot;http://jjy0923.woobi.co.kr/imgs/case/fig.png&quot; width=&quot;800&quot; height=&quot;600px&quot; /&gt;
 This result is using current rainfall and geometrical featur to expect probability of landslide in Pusan area. Red color means dangerous and blue means normal state. If you are in dangerous area, please provide against emergency.&lt;/p&gt;
 
 
     &lt;p&gt;&lt;a href=&quot;/and_so_on/KAIST_%EC%82%B0%EC%82%AC%ED%83%9C%EA%B2%BD%EB%B3%B4/&quot;&gt;KAIST Landslide Warning System(case study)&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Becoming Engineer&lt;/a&gt; on June 01, 2016.&lt;/p&gt;
-  </content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[KAIST Landslide Warning System(Real time)]]></title>
- <link rel="alternate" type="text/html" href="/and_so_on/KAIST_%EC%82%B0%EC%82%AC%ED%83%9C%EA%B2%BD%EB%B3%B4(real_time)/" />
-  <id>/and_so_on/KAIST_산사태경보(real_time)</id>
-  <published>2016-06-01T00:33:49-04:00</published>
-  <updated>2016-06-01T00:33:49-04:00</updated>
-  <author>
-    <name>Jinyong Jeong</name>
-    <uri></uri>
-    <email>jjy0923@gmail.com</email>
-  </author>
-  <content type="html">
-    &lt;h3 id=&quot;kaist-civil-and-environment-engineering-departmet-land-slide-warning-system-&quot;&gt;&amp;lt; KAIST Civil and Environment Engineering Departmet Land Slide Warning System &amp;gt;&lt;/h3&gt;
-&lt;p&gt;This is Land Slide Warning System for Pusan area of KOREA produced by KAIST.
-&lt;img align=&quot;left&quot; src=&quot;http://yshin.woobi.co.kr/imgs/fig.png&quot; width=&quot;800&quot; height=&quot;600px&quot; /&gt;
-This result is using current rainfall and geometrical featur to expect probability of landslide in Pusan area. Red color means dangerous and blue means normal state. If you are in dangerous area, please provide against emergency.&lt;/p&gt;
-
-
-    &lt;p&gt;&lt;a href=&quot;/and_so_on/KAIST_%EC%82%B0%EC%82%AC%ED%83%9C%EA%B2%BD%EB%B3%B4(real_time)/&quot;&gt;KAIST Landslide Warning System(Real time)&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Becoming Engineer&lt;/a&gt; on June 01, 2016.&lt;/p&gt;
   </content>
 </entry>
 
@@ -1191,6 +1168,139 @@ disqus_shortname: myblog(등록한 본인 블로그 이름)
 
 
     &lt;p&gt;&lt;a href=&quot;/jekyll/add_comment_to_post/&quot;&gt; Jekyll에 댓글 추가하기(Disqus) &lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Becoming Engineer&lt;/a&gt; on May 19, 2016.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Jekyll을 이용하여 Github Blog 만들기]]></title>
+ <link rel="alternate" type="text/html" href="/jekyll/jekyll_blog_making/" />
+  <id>/jekyll/jekyll_blog_making</id>
+  <published>2016-05-15T00:33:49-04:00</published>
+  <updated>2016-05-15T00:33:49-04:00</updated>
+  <author>
+    <name>Jinyong Jeong</name>
+    <uri></uri>
+    <email>jjy0923@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;Jekyll을 이용해서 Github에 Blog를 만들어보자. 우선 Jekyll을 설치하기 위해서는 rvm(ruby version manager)를 설치해야 한다. rvm은 ruby의 버전관리를 위해 사용된다. ruby와 jekyll 설치 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install&lt;/code&gt;을 사용하면 안된다. 전체적인 순서는 rvm 설치 -&amp;gt; ruby 설치 -&amp;gt; jekyll 설치 -&amp;gt; github.io 생성 이다.&lt;/p&gt;
+
+&lt;h1 id=&quot;curlrvmruby-version-manager-&quot;&gt;1. curl/rvm(ruby version manager) 설치&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+sudo apt-get install curl
+curl -sSL https://get.rvm.io | bash -s stable
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;위 코드의 설치 과정에서 만약 다음과같은 error가 뜬다면&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;ss&quot;&gt;curl: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;77&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setting&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;certificate&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;verify&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;locations:
+&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;CAfile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/etc/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pki&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tls&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;certs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ca&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;crt&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;CApath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;none&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;certificate 경로가 맞지 않는 것이다. 다음의 코드를 입력하여 경로 생성 후 &lt;code class=&quot;highlighter-rouge&quot;&gt;.crt&lt;/code&gt; 파일을 복사해준다. 만약 &lt;code class=&quot;highlighter-rouge&quot;&gt;.crt&lt;/code&gt;파일이 없다면 &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install ca-certificates&lt;/code&gt;를 통해 설치한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+sudo mkdir -p /etc/pki/tls/certs
+sudo cp /etc/ssl/certs/ca-certificates.crt /etc/pki/tls/certs/ca-bundle.crt
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;다른 에러가 또 뜬다면 다음을 입력(아마 error 내용에 다음의 내용이 있을 것이다.)&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;rvm 스크립트를 현재 쉘에 로드 및 현재 쉘에 로드&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+source ~/.rvm/scripts/rvm
+rvm requirements
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;만약 다음과 같은 error가 발생한다면(아마 한국 서버에서 받아오는데 문제가 있는것 같다.)&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Failed&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fetch&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;archive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pool&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gawk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gawk_4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dfsg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu2_amd64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Could&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;connect&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;archive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;103&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;220&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;133&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;connect&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;111&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Connection&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;refused&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Setting의 software updates에서 Download from 을 main server 로 바꿔준 후 다시 &lt;code class=&quot;highlighter-rouge&quot;&gt;rvm requirements&lt;/code&gt; 실행한다.&lt;/p&gt;
+
+&lt;h1 id=&quot;ruby-&quot;&gt;2. Ruby 설치&lt;/h1&gt;
+
+&lt;p&gt;Ruby 2.1.2 설치 후 디폴트로 설정&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+rvm install 2.1.2
+rvm use 2.1.2 --default
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;nodejs-&quot;&gt;3. nodejs 설치&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+sudo apt-get install nodejs
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;jekyll----&quot;&gt;4. Jekyll 설치 및 버전 확인&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+gem install jekyll
+jekyll -v
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;여기까지 Jekyll 설치 완료.&lt;/p&gt;
+
+&lt;h1 id=&quot;jekyll--&quot;&gt;5. Jekyll의 설치를 확인&lt;/h1&gt;
+
+&lt;p&gt;Jekyll을 이용하여 기본 테마를 생성 후 서버를 동작시킨다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+jekyll new myblog
+cd myblog
+jekyll serve
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:4000&lt;/code&gt; 으로 들어가면 local 블로그를 확인할 수 있다.&lt;/p&gt;
+
+&lt;h1 id=&quot;github-repository-&quot;&gt;6. github의 repository를 생성&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.github.com&quot;&gt;Github&lt;/a&gt;으로 접속 후 새로운 repository 생성. &lt;yourname&gt;.github.io 로 repository 생성 후 로컬에서 home folder로 이동하여 repository 복사.&lt;/yourname&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+git clone https://github.com/&amp;lt;yourname&amp;gt;/&amp;lt;yourname&amp;gt;.github.io.git
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;폴더를  복사 후  그 폴더로 이동한 후 git 을 초기화시킨다. 초기화 시킨 후 git의 폴더에 jekyll의 기본 테마 설치&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+git init
+jekyll new . --force 
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Jekyll로 생성된 모든 파일을 git에 add해 준 후 commit, push 를 해서 github에 올려준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+git add *
+git commit -m &quot;first commit&quot;
+git push -u origin master
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;첫 commit 시에 config 파일에 user.email과 user.name을 등록하라고 나오면&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+git config user.email &quot;이메일주소&quot;
+git config user.name &quot;이름&quot;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;을 입력하여 이메일과 이름을 등록해 준다.이로써 github에 블로그가 생성되었다!&lt;/p&gt;
+
+&lt;p&gt;git을 clone 받은 후 처음에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;git push -u origin master&lt;/code&gt;를 모두 입력해야 하지만 한번 한 이후에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;git push&lt;/code&gt;만 입력해도 된다.&lt;/p&gt;
+
+&lt;h1 id=&quot;blog-&quot;&gt;7. Blog 작성&lt;/h1&gt;
+
+&lt;p&gt;블로그 작성 시 입력한 내용이 예상한대로 동작을 하는지 확인 하기 위해서 매번 github에 push하는 것은 매우 힘든 일이다. 작성을 하는 동시에 바로 확인을 하기 위해서 위에서 언급한 것과 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;를 이용하여 서버를 동작 시킨 후 &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:4000&lt;/code&gt;으로 접속하면 바로 수정된 내용을 확인할 수 있다. 이렇게 수정이 완료된 후 github로 push하면 편하게 포스팅을 수정할 수 있다.&lt;/p&gt;
+
+
+    &lt;p&gt;&lt;a href=&quot;/jekyll/jekyll_blog_making/&quot;&gt;Jekyll을 이용하여 Github Blog 만들기&lt;/a&gt; was originally published by Jinyong Jeong at &lt;a href=&quot;&quot;&gt;Becoming Engineer&lt;/a&gt; on May 15, 2016.&lt;/p&gt;
   </content>
 </entry>
 

@@ -137,14 +137,6 @@
     } ,
   
     {
-      "title"    : "KAIST Landslide Warning System(Real time)",
-      "category" : "",
-      "tags"     : "",
-      "url"      : "/and_so_on/KAIST_%EC%82%B0%EC%82%AC%ED%83%9C%EA%B2%BD%EB%B3%B4(real_time)/",
-      "date"     : "2016-06-01 00:33:49 -0400"
-    } ,
-  
-    {
       "title"    : "Jekyll Markdown에서 HTML소스코드 그대로 포스팅하기",
       "category" : "",
       "tags"     : "",
