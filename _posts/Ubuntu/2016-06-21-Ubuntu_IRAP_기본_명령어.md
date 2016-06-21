@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Ubuntu SVN 및 기타 명령어 정리"
+title:  "Ubuntu SVN 및 기타 명령어 정리(IRAP)"
 date:   2016-06-21 12:33:49 +0900
 comments: true
 summary: "Ubuntu SVN 및 기타 명령어 정리"
@@ -106,7 +106,7 @@ svn copy svn+ssh://계정명@irap.kaist.ac.kr/경로/trunk svn+ssh://계정명@i
 
 ## 10. LCM 환경설정
 
-* LCM ttl 설정
+### LCM ttl 설정
 
 ```
 sudo vi /etc/environment
@@ -120,7 +120,7 @@ export LCM_DEFAULT_URL=udpm://239.255.76.67:7667?ttl=0
 
 ttl을 0으로 설정하는 것이며, ttl이 0일 때는 publish된 lcm message가 local computer 내에서만 공유된다. ttl을 1로 설정했을 경우는 외부로 까지 cast 된다. 
 
-* Buffer size 수정
+### Buffer size 수정
 
 LCM을 이용하여 대용량의 파일을 전송하기 위해서 MAX와 Default buffer 사이즈를 수정한다.
 
