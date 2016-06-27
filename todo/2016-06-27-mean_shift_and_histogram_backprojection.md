@@ -1,13 +1,14 @@
 ---
 layout: post
-title:  "Static 변수와 Extern변수"
-date:   2016-06-01 13:33:49 +0900
+title:  "Mean shift와 Histogram backprojection"
+date:   2016-06-27 13:33:49 +0900
 comments: true
-summary: "Static 변수와 Extern변수"
-categories: [Computer]
+summary: "Mean shift와 Histogram backprojection"
+categories: [Computer vision]
 ---
 
-<본 포스팅은 [다음](http://thrillfighter.tistory.com/255)을 참고하였습니다>
+<본 포스팅은 [다음 다크프로그래머 blog](http://darkpgmr.tistory.com/64)를 참고하였습니다>
+개인적으로 공부한 내용을 정리한 것이므로 내용중에 틀린 부분이 있을 경우 지적 부탁드립니다.
 
 
 Static과 Extern의 개념 정리에 도움이 될듯 하다.
