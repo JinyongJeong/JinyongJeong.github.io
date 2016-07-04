@@ -54,3 +54,12 @@ UUID=16D219F9D219DE35 /media/win ntfs auto,defaults,rw 0 2
 `rw` : read and write
 
 fstab까지 설정이 완료 후 재부팅하면 windows의 파티션이 자동으로 mount되는 것을 확인 가능하다.
+
+## 추가
+
+어느순간 잘 되다가 윈도우 파티션을 mount할 수 없다고 뜨는 경우가 있다. 이런경우는 종종 윈도우가 정상적으로 종료되지 않았을 경우이기 때문에 윈도우로 갔다가 돌아오면 정상적으로 mount가 되는데, 한번씩 윈도우 파티션이 hibernated 파티션이라고 뜨면서 안되는 경우가 있다. 이런경우에는 윈도우를 켰다가 끄고 재 접속을 해도 auto mount가 되지 않는다. 이런경우는 위의 설정은 변경하지 않고 아래의 명령어를 이용하여 hibernated를 풀어주면 된다. 
+
+```
+sudo mount -t ntfs-3g -o remove_hiberfile /dev/sda1 /media/win
+```
+
