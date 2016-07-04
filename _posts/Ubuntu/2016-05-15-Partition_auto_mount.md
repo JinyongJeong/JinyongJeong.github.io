@@ -63,3 +63,10 @@ fstab까지 설정이 완료 후 재부팅하면 windows의 파티션이 자동�
 sudo mount -t ntfs-3g -o remove_hiberfile /dev/sda1 /media/win
 ```
 
+그래도 안되는 경우에는 Window에서 hibernate 옵션을 강제로 꺼준다. 윈도우를 키고 cmd 창을 관리자 모드로 실행 시킨 후 다음 명령어를 실행시킨다.
+
+```
+powercfg -h off
+```
+
+
