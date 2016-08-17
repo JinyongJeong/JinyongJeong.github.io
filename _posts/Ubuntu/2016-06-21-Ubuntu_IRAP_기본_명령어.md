@@ -174,5 +174,14 @@ chgrp 그룹명 파일명
 
 관리자 권한이 필요한 경우에는 앞에 `sudo`를 붙인다.
 
+## 14. '/usr/bin/ld: cannot find -IGL' 이라는 에러가 뜰 경우
+
+이런 경우는 libGL.so 파일을 재대로 찾지 못하는 경우이다 이런경우는 아래의 명령어로 링크를 다시 걸어준다.
+
+```
+sudo rm /usr/lib/x86_64-linux-gnu/libGL.so 
+sudo ln -s /usr/lib/libGL.so.1 /usr/lib/x86_64-linux-gnu/libGL.so 
+```
+
 
 
