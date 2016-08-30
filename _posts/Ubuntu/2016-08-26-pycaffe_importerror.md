@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Ubuntu rsync 오류 및 옵션"
+title:  "Pycaffe importerror문제"
 date:   2016-06-28 12:33:49 +0900
 comments: true
 summary: "Pycaffe importerror문제"
