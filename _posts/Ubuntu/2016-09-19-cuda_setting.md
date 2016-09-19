@@ -13,15 +13,17 @@ categories: [Ubuntu]
 
 그래픽카드가 다르기 때문에 setting또한 달라서 복잡하다. 
 
-# GTX760 PC
+# 1. GTX760 PC
 
 ## CUDA 7.5
+
 ## Opencv 2.4
+
 ## Python 2.7
 
 GTX760은 CUDA7.5와 Oepncv 2.4조합으로 잘 세팅이 된다. 
 
-# GTX1060 PC
+# 2. GTX1060 PC
 
 ## CUDA 8.0
 
@@ -32,27 +34,31 @@ GTX760은 CUDA7.5와 Oepncv 2.4조합으로 잘 세팅이 된다.
 CUDA8.0을 설치하고 Opencv3.0을 build하면 오류가 나는데, opencv에서 graphcut알고리즘이 cudalegacy 모듈을 사용하는데 CUDA8.0에서 이 legacy를 삭제한것 같다. 현재 이 문제는 github의 opencv에는 해결되어 있으므로 github의 opencv를 사용하면 해결된다. 
 
 문제해결 포스팅 관련 URL
+
 <https://github.com/opencv/opencv/pull/6510>
  
 문제 해결된 opencv github
+
 <https://github.com/opencv/opencv>
 
 
 ## 추가적인 문제
 
-### thrust
+### 1. thrust
 
 추가적으로 CUDA8.0RC에 thrust관련 문제가 있다. 
 
 문제해결 포스팅 관련 URL
+
 <https://github.com/thrust/thrust/issues/800>
 
 thrust github URL
+
 <https://github.com/thrust/thrust>
 
 위의 포스팅에 글처럼 github에서 git clone을 받은 후 기존의 `/usr/local/cuda8.0/thrust` 를 `thrust_old`로 바꾸고 다운받은 `thrust`폴더의 링크를 넣어준다. 
 
-### Opencv3.0 features2D error
+### 2. Opencv3.0 features2D error
 
 Opencv3.0 을 build하다보면 features2d.hpp에서 error가 발생한다. 
 
@@ -68,5 +74,6 @@ vector관련 에러는 `using std::vector`를 넣어주고
 
 
 기타 fast rcnn 설정을 위한 참고 URL
+
 <http://m.blog.daum.net/goodgodgd/27>
 
