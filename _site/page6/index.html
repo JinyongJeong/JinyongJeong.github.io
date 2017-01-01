@@ -7,7 +7,7 @@
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 <meta charset="utf-8">
-<title>Welcome to Blog for Engineer &#8211; Becoming Engineer</title>
+<title>Welcome to Blog for Engineers &#8211; Becoming an Engineer</title>
 <meta name="description" content="Describe this nonsense.">
 
 
@@ -16,10 +16,10 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Welcome to Blog for Engineer">
+<meta property="og:title" content="Welcome to Blog for Engineers">
 <meta property="og:description" content="Describe this nonsense.">
 <meta property="og:url" content="/page6/">
-<meta property="og:site_name" content="Becoming Engineer">
+<meta property="og:site_name" content="Becoming an Engineer">
 <meta property="og:image" content="/images/images/logo.png">
 
 
@@ -27,7 +27,7 @@
 
 
 <link rel="canonical" href="/page6/">
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Becoming Engineer Feed">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Becoming an Engineer Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -77,9 +77,9 @@
       <li class="header-item-title">
         <a href="/">
           
-            <img class="logo" src="/images/logo.png" alt="Becoming Engineer">
+            <img class="logo" src="/images/logo.png" alt="Becoming an Engineer">
           
-          <a href="/" class="title"> Becoming Engineer</a>
+          <a href="/" class="title"> Becoming an Engineer</a>
         </a>
       </li>
       
@@ -101,6 +101,9 @@
               
                 
                   <li class="sub-item"><a href="/categories/#Computer">Computer</a></li>
+              
+                
+                  <li class="sub-item"><a href="/categories/#IRAP">IRAP</a></li>
               
                 
                   <li class="sub-item"><a href="/categories/#Math">Math</a></li>
@@ -151,7 +154,7 @@
 <div class="entry-header">
   <div class="header-title">
     <div class="header-title-wrap">
-      <h1>Welcome to Blog for Engineer</h1>
+      <h1>Welcome to Blog for Engineers</h1>
       
         <h2><span class="entry-date"><time>&nbsp;</time></span></h2>
       
@@ -189,6 +192,9 @@
                 <li><a href="/categories/#Computer">Computer</a></li>
             
               
+                <li><a href="/categories/#IRAP">IRAP</a></li>
+            
+              
                 <li><a href="/categories/#Math">Math</a></li>
             
               
@@ -220,184 +226,76 @@
   <header>
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2013-08-12T00:00:00-04:00"><a href="/jekyll/sample-link-post/">August 12, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2016-05-15T00:33:49-04:00"><a href="/ubuntu/Partition_auto_mount/">May 15, 2016</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="/jekyll/sample-link-post/" class="permalink" rel="bookmark" title="Sample Link Post"><i class="fa fa-bookmark"></i></a> <a href="http://mademistakes.com">Sample Link Post</a></h1>
+      <h1 class="entry-title"><a href="/ubuntu/Partition_auto_mount/" rel="bookmark" title="Windows Partition Auto Mount in Ubuntu 14.04" itemprop="url">Windows Partition Auto Mount in Ubuntu 14.04</a></h1>
     
   </header>
   <div class="entry-content">
     
-      <p>This theme supports <strong>link posts</strong>, made famous by John Gruber. To use, just add <code class="highlighter-rouge">link: http://url-you-want-linked</code> to the post’s YAML front matter and you’re done.</p>
+      <p>윈도우 파티션의 파일시스템은 NTFS(New Technology File System)으로 보통 구성되어 있다. 예전에는 Ubuntu에서 NTFS 시스템을 읽거나 사용하기 어려웠는데 근래에는 Reverse Engineering을 통해 Ubuntu에서도 사용 가능할 수 있게 되었다. 기본적으로 가장 오래된 시스템은 FAT(File Allocate Table)이며 안정성 면에서는 FAT32가 가장 좋다. 하지만 FAT32는 32bit 시스템을 사용하기 떄문에 4Gbyte 이상의 파일을 저장할 수 없다. 왜냐하면 32bit 방식은 표현할 수 있는 주소의 갯수가 2의 32승 = 4.2950e+09 이고  한개의 주소값으로 1Byte를 표현 할 수 있으므로 32bit 시스템으로 표현할 수 있는 최대 메모리는 4.2950e+09 Byte, 약 4GByte이다. 마찬가지로 32bit 운영체제에서 최대 사용가능한 메모리 용량이 4GByte인것도 같은 이유이다. 32bit 시스템에서 4GByte이상의 하드디스크를 사용할 수 있는 것은 하드시스크의 data를 RAM으로 이동 후 처리하기 때문에 가능한 것이다. 이러한 한계 때문에 개발 된 것이 exFAT시스템이다. exFAT시스템은 용량의 제한이 매우 커서 따로 신경쓸 필요가 없다. 하지만 exFAT 시스템으로 설정된 USB 및 디스크를 안전하게 제거하지 않는다거나 여러 경우에 불안한 모습을 보일 때가 있다고 한다. 마지막으로 NTFS 방식은 Windows에서 개발된 방식이기 때문에 블랙박스라던지 기타 디바이스에서 인식이 안되는 문제가 있다고 한다.</p>
 
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
+<p>다시한번 정리하면
+FAT32 : 안전성에서는 가장 좋음, 저장 용량의 한계가 있음 
+exFAT : 안정성이 떨어짐, 저장용량의 한계는 없음
+NTFS: 확장성이 떨어짐</p>
 
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2013-06-25T00:00:00-04:00"><a href="/jekyll/video-post/">June 25, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/jekyll/video-post/" rel="bookmark" title="A Post with a Video" itemprop="url">A Post with a Video</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    
-      <iframe width="560" height="315" src="//www.youtube.com/embed/SU3kYxJmWuQ" frameborder="0" allowfullscreen></iframe>
+<p>따라서 디스크 포멧 시 본인의 맞는 방식에 맞춰서 사용하면 된다. 기본적으로 Windows가 설치된 디스크는 NTFS 방식으로 되어 있기 때문에, 윈도우가 설치된 디스크를 Ubuntu에 자동으로 mount 시키기 위해서는 다음과 같은 절차가 필요하다.</p>
 
-<p>Video embeds are responsive and scale with the width of the main content block with the help of <a href="http://fitvidsjs.com/">FitVids</a>.</p>
+<h2 id="directory-">1. directory 생성</h2>
 
-<p>Adding YouTube video embeds causes errors when building your Jekyll site. To fix wrap the html within <code class="highlighter-rouge"><span class="p">{</span><span class="err">::nomarkdown</span><span class="p">}</span></code> tags. Example below:</p>
+<p>우선 원하는 위치에 directory를 설정한다.</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html">{::nomarkdown}
-<span class="nt">&lt;iframe</span> <span class="na">width=</span><span class="s">"560"</span> <span class="na">height=</span><span class="s">"315"</span> <span class="na">src=</span><span class="s">"//www.youtube.com/embed/SU3kYxJmWuQ"</span> <span class="na">frameborder=</span><span class="s">"0"</span> <span class="na">allowfullscreen</span><span class="nt">&gt;&lt;/iframe&gt;</span>
-{:/nomarkdown}</code></pre></figure>
+<p><code class="highlighter-rouge">
+sudo mkdir /media/win
+</code></p>
 
+<h2 id="fstab-file">2. fstab file수정</h2>
 
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
+<p><code class="highlighter-rouge">/etc</code> 경로의 fstab file을 수정한다.</p>
 
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2013-05-23T00:00:00-04:00"><a href="/jekyll/readability-feature-post/">May 23, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/jekyll/readability-feature-post/" rel="bookmark" title="Post with Large Feature Image and Text" itemprop="url">Post with Large Feature Image and Text</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    
-    <p>This is a sample post with a large feature image up top and tons of text. Odio ad blue bottle vinyl, 90’s narwhal commodo bitters pour-over nostrud. Ugh est hashtag in, fingerstache adipisicing laboris esse Pinterest shabby chic Portland. Shoreditch bicycle rights anim, flexitarian laboris put a bird on it vinyl cupidatat narwhal. Hashtag artisan skateboard, flannel Bushwick nesciunt salvia aute fixie do plaid post-ironic dolor McSweeney’s. Cliche pour-over chambray nulla four loko skateboard sapiente hashtag.</p>
+<p><code class="highlighter-rouge">
+sudo gedit /etc/fstab
+</code></p>
 
-<p>Vero laborum commodo occupy. Semiotics voluptate mumblecore pug. Cosby sweater ullamco quinoa ennui assumenda, sapiente occupy delectus lo-fi. Ea fashion axe Marfa cillum aliquip. Retro Bushwick keytar cliche. Before they sold out sustainable gastropub Marfa readymade, ethical Williamsburg skateboard brunch qui consectetur gentrify semiotics. Mustache cillum irony, fingerstache magna pour-over keffiyeh tousled selfies.</p>
+<p>우선 fstab file을 열고 다음을 추가한다.</p>
 
-<h2 id="cupidatat-90s-lo-fi-authentic-try-hard">Cupidatat 90’s lo-fi authentic try-hard</h2>
+<p>```
+UUID=16D219F9D219DE35 /media/win ntfs auto,defaults,rw 0 2</p>
 
-<p>In pug Portland incididunt mlkshk put a bird on it vinyl quinoa. Terry Richardson shabby chic +1, scenester Tonx excepteur tempor fugiat voluptate fingerstache aliquip nisi next level. Farm-to-table hashtag Truffaut, Odd Future ex meggings gentrify single-origin coffee try-hard 90’s.</p>
+<p>```</p>
 
+<p>또는</p>
 
-    
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
+<p><code class="highlighter-rouge">
+/dev/sda1 /media/win ntfs-3g auto,defaults,rw 0 2
+</code></p>
 
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2013-05-22T00:00:00-04:00"><a href="/jekyll/sample-post-images/">May 22, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/jekyll/sample-post-images/" rel="bookmark" title="A Post with Images" itemprop="url">A Post with Images</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    
-      <p>Here are some examples of what a post with images might look like. If you want to display two or three images next to each other responsively use <code class="highlighter-rouge">figure</code> with the appropriate <code class="highlighter-rouge">class</code>. Each instance of <code class="highlighter-rouge">figure</code> is auto-numbered and displayed in the caption.</p>
+<p>위의 두가지 방식으로 설정 가능하다(device 이름 혹은 UUID)</p>
 
-<h2 id="figures-for-images-or-video">Figures (for images or video)</h2>
+<p><code class="highlighter-rouge">/media/win</code> : mount 위치</p>
 
-<h3 id="one-up">One Up</h3>
+<p><code class="highlighter-rouge">ntfs-3g</code> : file type</p>
 
-<figure>
-	<a href="http://farm9.staticflickr.com/8426/7758832526_cc8f681e48_b.jpg"><img src="http://farm9.staticflickr.com/8426/7758832526_cc8f681e48_c.jpg" alt="" /></a>
-	<figcaption><a href="http://www.flickr.com/photos/80901381@N04/7758832526/" title="Morning Fog Emerging From Trees by A Guy Taking Pictures, on Flickr">Morning Fog Emerging From Trees by A Guy Taking Pictures, on Flickr</a>.</figcaption>
-</figure>
+<p><code class="highlighter-rouge">rw</code> : read and write</p>
 
-<h3 id="one-center">One Center</h3>
+<p>fstab까지 설정이 완료 후 재부팅하면 windows의 파티션이 자동으로 mount되는 것을 확인 가능하다.</p>
 
-<figure class="half center">
-	<a href="http://farm9.staticflickr.com/8426/7758832526_cc8f681e48_b.jpg"><img src="http://farm9.staticflickr.com/8426/7758832526_cc8f681e48_c.jpg" alt="" /></a>
-	<figcaption><a href="http://www.flickr.com/photos/80901381@N04/7758832526/" title="Morning Fog Emerging From Trees by A Guy Taking Pictures, on Flickr">Morning Fog Emerging From Trees by A Guy Taking Pictures, on Flickr</a>.</figcaption>
-</figure>
+<h2 id="section">추가</h2>
 
-<h3 id="two-up">Two Up</h3>
+<p>어느순간 잘 되다가 윈도우 파티션을 mount할 수 없다고 뜨는 경우가 있다. 이런경우는 종종 윈도우가 정상적으로 종료되지 않았을 경우이기 때문에 윈도우로 갔다가 돌아오면 정상적으로 mount가 되는데, 한번씩 윈도우 파티션이 hibernated 파티션이라고 뜨면서 안되는 경우가 있다. 이런경우에는 윈도우를 켰다가 끄고 재 접속을 해도 auto mount가 되지 않는다. 이런경우는 위의 설정은 변경하지 않고 아래의 명령어를 이용하여 hibernated를 풀어주면 된다.</p>
 
-<p>Apply the <code class="highlighter-rouge">half</code> class like so to display two images side by side that share the same caption.</p>
+<p><code class="highlighter-rouge">
+sudo mount -t ntfs-3g -o remove_hiberfile /dev/sda1 /media/win
+</code></p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"half"</span><span class="nt">&gt;</span>
-	<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/images/image-filename-1.jpg"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
-	<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/images/image-filename-2.jpg"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
-	<span class="nt">&lt;figcaption&gt;</span>Caption describing these two images.<span class="nt">&lt;/figcaption&gt;</span>
-<span class="nt">&lt;/figure&gt;</span></code></pre></figure>
+<p>그래도 안되는 경우에는 Window에서 hibernate 옵션을 강제로 꺼준다. 윈도우를 키고 cmd 창을 관리자 모드로 실행 시킨 후 다음 명령어를 실행시킨다.</p>
 
-<p>And you’ll get something that looks like this:</p>
-
-<figure class="half">
-	<a href="http://placehold.it/1200x600.jpg"><img src="http://placehold.it/600x300.jpg" alt="" /></a>
-	<a href="http://placehold.it/1200x600.jpg"><img src="http://placehold.it/600x300.jpg" alt="" /></a>
-	<img src="http://placehold.it/600x300.jpg" alt="" />
-	<img src="http://placehold.it/600x300.jpg" alt="" />
-	<figcaption>Two images.</figcaption>
-</figure>
-
-<h3 id="three-up">Three Up</h3>
-
-<p>Apply the <code class="highlighter-rouge">third</code> class like so to display three images side by side that share the same caption.</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"third"</span><span class="nt">&gt;</span>
-	<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://placehold.it/1200x600.jpg"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"http://placehold.it/600x300.jpg"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/a&gt;</span>
-	<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://placehold.it/1200x600.jpg"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"http://placehold.it/600x300.jpg"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/a&gt;</span>
-	<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://placehold.it/1200x600.jpg"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"http://placehold.it/600x300.jpg"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/a&gt;</span>
-	<span class="nt">&lt;figcaption&gt;</span>Caption describing these three images.<span class="nt">&lt;/figcaption&gt;</span>
-<span class="nt">&lt;/figure&gt;</span></code></pre></figure>
-
-<p>And you’ll get something that looks like this:</p>
-
-<figure class="third">
-	<a href="http://placehold.it/1200x600.jpg"><img src="http://placehold.it/600x300.jpg" alt="" /></a>
-	<a href="http://placehold.it/1200x600.jpg"><img src="http://placehold.it/600x300.jpg" alt="" /></a>
-	<a href="http://placehold.it/1200x600.jpg"><img src="http://placehold.it/600x300.jpg" alt="" /></a>
-	<a href="http://placehold.it/1200x600.jpg"><img src="http://placehold.it/600x300.jpg" alt="" /></a>
-	<a href="http://placehold.it/1200x600.jpg"><img src="http://placehold.it/600x300.jpg" alt="" /></a>
-	<a href="http://placehold.it/1200x600.jpg"><img src="http://placehold.it/600x300.jpg" alt="" /></a>
-	<figcaption>Three images.</figcaption>
-</figure>
-
-<h3 id="alternative-way">Alternative way</h3>
-
-<p>Another way to achieve the same result is to include <code class="highlighter-rouge">gallery</code> Liquid template. In this case you
-don’t have to write any HTML tags – just copy a small block of code, adjust the parameters (see below)
-and fill the block with any number of links to images. You can mix relative and external links.</p>
-
-<p>Here is the block you might want to use:</p>
-
-<figure class="highlight"><pre><code class="language-jinja" data-lang="jinja">{% capture images %}
-	/images/abstract-10.jpg
-	/images/abstract-11.jpg
-	http://upload.wikimedia.org/wikipedia/en/2/24/Lenna.png
-{% endcapture %}
-{% include gallery images=images caption="Test images" cols=3 %}</code></pre></figure>
-
-<p>Parameters:</p>
-
-<ul>
-  <li><code class="highlighter-rouge">caption</code>: Sets the caption under the gallery (see <code class="highlighter-rouge">figcaption</code> HTML tag above);</li>
-  <li><code class="highlighter-rouge">cols</code>: Sets the number of columns of the gallery.
-Available values: [1..3].</li>
-</ul>
-
-<p>It will look something like this:</p>
-
-<figure class="third">
-    
-    <a href="/images/abstract-10.jpg"><img src="/images/abstract-10.jpg" alt="" /></a>
-    
-    <a href="/images/abstract-11.jpg"><img src="/images/abstract-11.jpg" alt="" /></a>
-    
-    <a href="http://upload.wikimedia.org/wikipedia/en/2/24/Lenna.png"><img src="http://upload.wikimedia.org/wikipedia/en/2/24/Lenna.png" alt="" /></a>
-    
-    <figcaption>Test images</figcaption>
-</figure>
+<p><code class="highlighter-rouge">
+powercfg -h off
+</code></p>
 
 
     
@@ -407,56 +305,160 @@ Available values: [1..3].</li>
 <article class="hentry">
   <header>
     
+      <div class="entry-image-index">
+        <a href="/jekyll/feature-image/" title="Sample Post with Feature Image"><img src="/images/feature.jpg" alt="Sample Post with Feature Image"></a>
+        <div class="image-credit">Image source: <a target="_blank" href="http://www.dargadgetz.com/ios-8-abstract-wallpaper-pack-for-iphone-5s-5c-and-ipod-touch-retina/">dargadgetz</a></div><!-- /.image-credit -->
+
+      </div><!-- /.entry-image -->
+    
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2012-05-22T00:00:00-04:00"><a href="/jekyll/readability-post/">May 22, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2013-10-28T00:00:00-04:00"><a href="/jekyll/feature-image/">October 28, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="/jekyll/readability-post/" rel="bookmark" title="Testing Readability with a Bunch of Text" itemprop="url">Testing Readability with a Bunch of Text</a></h1>
+      <h1 class="entry-title"><a href="/jekyll/feature-image/" rel="bookmark" title="Sample Post with Feature Image" itemprop="url">Sample Post with Feature Image</a></h1>
     
   </header>
   <div class="entry-content">
     
-      <p>Portland in <code class="highlighter-rouge">shoreditch Vice, labore typewriter pariatur hoodie fap sartorial Austin.</code> Pinterest literally occupy Schlitz forage. Odio ad blue bottle vinyl, 90’s narwhal commodo bitters pour-over nostrud. Ugh est hashtag in, fingerstache adipisicing laboris esse Pinterest shabby chic Portland. Shoreditch bicycle rights anim, flexitarian laboris put a bird on it vinyl cupidatat narwhal. Hashtag artisan skateboard, flannel Bushwick nesciunt salvia aute fixie do plaid post-ironic dolor McSweeney’s. Cliche pour-over chambray nulla four loko skateboard sapiente hashtag.</p>
+      <p>This post demonstrate how to use feature images on your posts.</p>
 
-<p>Vero laborum commodo occupy. Semiotics voluptate mumblecore pug. Cosby sweater ullamco quinoa ennui assumenda, sapiente occupy delectus lo-fi. Ea fashion axe Marfa cillum aliquip. Retro Bushwick keytar cliche. Before they sold out sustainable gastropub Marfa readymade, ethical Williamsburg skateboard brunch qui consectetur gentrify semiotics. Mustache cillum irony, fingerstache magna pour-over keffiyeh tousled selfies.</p>
+<p>Just add:</p>
 
-<h2 id="cupidatat-90s-lo-fi-authentic-try-hard">Cupidatat 90’s lo-fi authentic try-hard</h2>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">image</span><span class="pi">:</span>
+  <span class="s">feature</span><span class="pi">:</span> <span class="s">filename.png</span></code></pre></figure>
 
-<p>In pug Portland incididunt mlkshk put a bird on it vinyl quinoa. Terry Richardson shabby chic +1, scenester Tonx excepteur tempor fugiat voluptate fingerstache aliquip nisi next level. Farm-to-table hashtag Truffaut, Odd Future ex meggings gentrify single-origin coffee try-hard 90’s.</p>
+<p>where <strong>filename.png</strong> is an image inside <code class="highlighter-rouge">images</code> folder. This image will be displayed on the top of your post.</p>
 
-<ul>
-  <li>Sartorial hoodie</li>
-  <li>Labore viral forage</li>
-  <li>Tote bag selvage</li>
-  <li>DIY exercitation et id ugh tumblr church-key</li>
-</ul>
+<p>Warning! The image height is not limited. The image width will be adjusted to fit on the post container, make sure to not use images with a high height.</p>
 
-<p>Incididunt umami sriracha, ethical fugiat VHS ex assumenda yr irure direct trade. Marfa Truffaut bicycle rights, kitsch placeat Etsy kogi asymmetrical. Beard locavore flexitarian, kitsch photo booth hoodie plaid ethical readymade leggings yr.</p>
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
 
-<p>Aesthetic odio dolore, meggings disrupt qui readymade stumptown brunch Terry Richardson pour-over gluten-free. Banksy american apparel in selfies, biodiesel flexitarian organic meh wolf quinoa gentrify banjo kogi. Readymade tofu ex, scenester dolor umami fingerstache occaecat fashion axe Carles jean shorts minim. Keffiyeh fashion axe nisi Godard mlkshk dolore. Lomo you probably haven’t heard of them eu non, Odd Future Truffaut pug keytar meggings McSweeney’s Pinterest cred. Etsy literally aute esse, eu bicycle rights qui meggings fanny pack. Gentrify leggings pug flannel duis.</p>
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2013-10-28T00:00:00-04:00"><a href="/jekyll/dark-post/">October 28, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/jekyll/dark-post/" rel="bookmark" title="Dark Post" itemprop="url">Dark Post</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    
+      <p>This is a sample post to show the dark post theme. To use this dark theme, just add:</p>
 
-<h2 id="forage-occaecat-cardigan-qui">Forage occaecat cardigan qui</h2>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">layout</span><span class="pi">:</span> <span class="s">dark-post</span></code></pre></figure>
 
-<p>Fashion axe hella gastropub lo-fi kogi 90’s aliquip +1 veniam delectus tousled. Cred sriracha locavore gastropub kale chips, iPhone mollit sartorial. Anim dolore 8-bit, pork belly dolor photo booth aute flannel small batch. Dolor disrupt ennui, tattooed whatever salvia Banksy sartorial roof party selfies raw denim sint meh pour-over. Ennui eu cardigan sint, gentrify iPhone cornhole.</p>
+<p>on your post. This theme adds a dark background with a white panel to show your content.</p>
 
-<blockquote>
-  <p>Whatever velit occaecat quis deserunt gastropub, leggings elit tousled roof party 3 wolf moon kogi pug blue bottle ea. Fashion axe shabby chic Austin quinoa pickled laborum bitters next level, disrupt deep v accusamus non fingerstache.</p>
-</blockquote>
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
 
-<p>Tote bag asymmetrical elit sunt. Occaecat authentic Marfa, hella McSweeney’s next level irure veniam master cleanse. Sed hoodie letterpress artisan wolf leggings, 3 wolf moon commodo ullamco. Anim occupy ea labore Terry Richardson. Tofu ex master cleanse in whatever pitchfork banh mi, occupy fugiat fanny pack Austin authentic. Magna fugiat 3 wolf moon, labore McSweeney’s sustainable vero consectetur. Gluten-free disrupt enim, aesthetic fugiat jean shorts trust fund keffiyeh magna try-hard.</p>
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2013-10-26T00:00:00-04:00"><a href="/jekyll/background-image/">October 26, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/jekyll/background-image/" rel="bookmark" title="Post with a Background Image" itemprop="url">Post with a Background Image</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    
+      <p>Here be a sample post with a custom background image. To utilize this “feature” just add the following YAML to a post’s front matter.</p>
 
-<h2 id="hoodie-duis">Hoodie Duis</h2>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">image</span><span class="pi">:</span>
+  <span class="s">background</span><span class="pi">:</span> <span class="s">filename.png</span></code></pre></figure>
 
-<p>Actually salvia consectetur, hoodie duis lomo YOLO sunt sriracha. Aute pop-up brunch farm-to-table odio, salvia irure occaecat. Sriracha small batch literally skateboard. Echo Park nihil hoodie, aliquip forage artisan laboris. Trust fund reprehenderit nulla locavore. Stumptown raw denim kitsch, keffiyeh nulla twee dreamcatcher fanny pack ullamco 90’s pop-up est culpa farm-to-table. Selfies 8-bit do pug odio.</p>
+<p>This little bit of YAML makes the assumption that your background image asset is in the <code class="highlighter-rouge">/images</code> folder. If you place it somewhere else or are hotlinking from the web, just include the full http(s):// URL. Either way you should have a background image that is tiled.</p>
 
-<h3 id="thundercats-ho">Thundercats Ho!</h3>
+<p>If you want to set a background image for the entire site just add <code class="highlighter-rouge">background: filename.png</code> to your <code class="highlighter-rouge">_config.yml</code> and BOOM — background images on every page!</p>
 
-<p>Fingerstache thundercats Williamsburg, deep v scenester Banksy ennui vinyl selfies mollit biodiesel duis odio pop-up. Banksy 3 wolf moon try-hard, sapiente enim stumptown deep v ad letterpress. Squid beard brunch, exercitation raw denim yr sint direct trade. Raw denim narwhal id, flannel DIY McSweeney’s seitan. Letterpress artisan bespoke accusamus, meggings laboris consequat Truffaut qui in seitan. Sustainable cornhole Schlitz, twee Cosby sweater banh mi deep v forage letterpress flannel whatever keffiyeh. Sartorial cred irure, semiotics ethical sed blue bottle nihil letterpress.</p>
+<div xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/" about="http://subtlepatterns.com" class="notice">Background images from <span property="dct:title">Subtle Patterns</span> (<a rel="cc:attributionURL" property="cc:attributionName" href="http://subtlepatterns.com">Subtle Patterns</a>) / <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></div>
 
-<p>Occupy et selvage squid, pug brunch blog nesciunt hashtag mumblecore skateboard yr kogi. Ugh small batch swag four loko. Fap post-ironic qui tote bag farm-to-table american apparel scenester keffiyeh vero, swag non pour-over gentrify authentic pitchfork. Schlitz scenester lo-fi voluptate, tote bag irony bicycle rights pariatur vero Vice freegan wayfarers exercitation nisi shoreditch. Chambray tofu vero sed. Street art swag literally leggings, Cosby sweater mixtape PBR lomo Banksy non in pitchfork ennui McSweeney’s selfies. Odd Future Banksy non authentic.</p>
+    
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
 
-<p>Aliquip enim artisan dolor post-ironic. Pug tote bag Marfa, deserunt pour-over Portland wolf eu odio intelligentsia american apparel ugh ea. Sunt viral et, 3 wolf moon gastropub pug id. Id fashion axe est typewriter, mlkshk Portland art party aute brunch. Sint pork belly Cosby sweater, deep v mumblecore kitsch american apparel. Try-hard direct trade tumblr sint skateboard. Adipisicing bitters excepteur biodiesel, pickled gastropub aute veniam.</p>
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2013-08-16T00:00:00-04:00"><a href="/jekyll/code-highlighting-post/">August 16, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Jinyong Jeong">Jinyong Jeong</a></span></span>
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/jekyll/code-highlighting-post/" rel="bookmark" title="Syntax Highlighting Post" itemprop="url">Syntax Highlighting Post</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    
+      <p>Syntax highlighting is a feature that displays source code, in different colors and fonts according to the category of terms. This feature facilitates writing in a structured language such as a programming language or a markup language as both structures and syntax errors are visually distinct. Highlighting does not affect the meaning of the text itself; it is intended only for human readers.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<h3 id="rouge-code-blocks">Rouge Code Blocks</h3>
+
+<p>To modify styling and highlight colors edit <code class="highlighter-rouge">/_sass/_rouge.scss</code>.</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nf">#container</span> <span class="p">{</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="m">-240px</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"pagination"</span> <span class="na">role=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>
+    {% if page.previous %}
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"{{ site.url }}{{ page.previous.url }}"</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">title=</span><span class="s">"{{ page.previous.title }}"</span><span class="nt">&gt;</span>Previous article<span class="nt">&lt;/a&gt;</span>
+    {% endif %}
+    {% if page.next %}
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"{{ site.url }}{{ page.next.url }}"</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">title=</span><span class="s">"{{ page.next.title }}"</span><span class="nt">&gt;</span>Next article<span class="nt">&lt;/a&gt;</span>
+    {% endif %}
+<span class="nt">&lt;/nav&gt;</span><span class="c">&lt;!-- /.pagination --&gt;</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">module</span> <span class="nn">Jekyll</span>
+  <span class="k">class</span> <span class="nc">TagIndex</span> <span class="o">&lt;</span> <span class="no">Page</span>
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">dir</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span>
+      <span class="vi">@site</span> <span class="o">=</span> <span class="n">site</span>
+      <span class="vi">@base</span> <span class="o">=</span> <span class="n">base</span>
+      <span class="vi">@dir</span> <span class="o">=</span> <span class="n">dir</span>
+      <span class="vi">@name</span> <span class="o">=</span> <span class="s1">'index.html'</span>
+      <span class="nb">self</span><span class="p">.</span><span class="nf">process</span><span class="p">(</span><span class="vi">@name</span><span class="p">)</span>
+      <span class="nb">self</span><span class="p">.</span><span class="nf">read_yaml</span><span class="p">(</span><span class="no">File</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="s1">'_layouts'</span><span class="p">),</span> <span class="s1">'tag_index.html'</span><span class="p">)</span>
+      <span class="nb">self</span><span class="p">.</span><span class="nf">data</span><span class="p">[</span><span class="s1">'tag'</span><span class="p">]</span> <span class="o">=</span> <span class="n">tag</span>
+      <span class="n">tag_title_prefix</span> <span class="o">=</span> <span class="n">site</span><span class="p">.</span><span class="nf">config</span><span class="p">[</span><span class="s1">'tag_title_prefix'</span><span class="p">]</span> <span class="o">||</span> <span class="s1">'Tagged: '</span>
+      <span class="n">tag_title_suffix</span> <span class="o">=</span> <span class="n">site</span><span class="p">.</span><span class="nf">config</span><span class="p">[</span><span class="s1">'tag_title_suffix'</span><span class="p">]</span> <span class="o">||</span> <span class="s1">'&amp;#8211;'</span>
+      <span class="nb">self</span><span class="p">.</span><span class="nf">data</span><span class="p">[</span><span class="s1">'title'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"</span><span class="si">#{</span><span class="n">tag_title_prefix</span><span class="si">}#{</span><span class="n">tag</span><span class="si">}</span><span class="s2">"</span>
+      <span class="nb">self</span><span class="p">.</span><span class="nf">data</span><span class="p">[</span><span class="s1">'description'</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"An archive of posts tagged </span><span class="si">#{</span><span class="n">tag</span><span class="si">}</span><span class="s2">."</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<h3 id="standard-code-block">Standard Code Block</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;nav class="pagination" role="navigation"&gt;
+    {% if page.previous %}
+        &lt;a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}"&gt;Previous article&lt;/a&gt;
+    {% endif %}
+    {% if page.next %}
+        &lt;a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}"&gt;Next article&lt;/a&gt;
+    {% endif %}
+&lt;/nav&gt;&lt;!-- /.pagination --&gt;
+</code></pre>
+</div>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="http://en.wikipedia.org/wiki/Syntax_highlighting">http://en.wikipedia.org/wiki/Syntax_highlighting</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
     
   </div><!-- /.entry-content -->
@@ -508,12 +510,19 @@ Available values: [1..3].</li>
         <li><strong class="current-page">6</strong></li>
       
     
+      
+        
+        
+        
+        <li><a href="/page7/">7</a></li>
+      
+    
 
     
     
 
     
-      <li><a href="/page7/">7</a></li>
+      <li><a href="/page8/">8</a></li>
     
 
     
