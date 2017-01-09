@@ -50,7 +50,7 @@ git 에서 다운받는다
 
 
 ```
-git clone https://github.com/PointCloudLibrary/pcl.github
+git clone https://github.com/PointCloudLibrary/pcl.git
 ```
 
 PCL의 qt5 경로를 설정해주기 위해서 cmake file에서 prefix 를 설정한다. /pcl/cmake/pcl_find_qt5.cmake 를 열고 최 상단에 추가
