@@ -33,7 +33,7 @@ git clone https://github.com/Kitware/VTK.git
 ```
 cd build
 
-cmake -DVTK_QT_VERSION:STRING=5 -DQT_QMAKE_EXECUTABLE:PATH=opt/Qt5.6.1/5.6/gcc_64/bin/qmake -DVTK_Group_Qt:BOOL=ON -DCMAKE_PREFIX_PATH:PATH=opt/Qt5.6.1/5.6/gcc_64/lib/cmake -DBUILD_SHARED_LIBS:BOOL=ON ..
+cmake -DVTK_QT_VERSION:STRING=5 -DQT_QMAKE_EXECUTABLE:PATH=/opt/Qt5.6.1/5.6/gcc_64/bin/qmake -DVTK_Group_Qt:BOOL=ON -DCMAKE_PREFIX_PATH:PATH=/opt/Qt5.6.1/5.6/gcc_64/lib/cmake -DBUILD_SHARED_LIBS:BOOL=ON ..
 ```
 
 그다음 설치해준다.
