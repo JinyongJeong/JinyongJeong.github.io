@@ -4,7 +4,7 @@ title:  "그래픽 카드별 CUDA 및 Opencv 설정"
 date:   2016-09-19 12:33:49 +0900
 comments: true
 summary: "그래픽 카드별 CUDA 및 Opencv 설정"
-categories: [Ubuntu]
+categories: [ubuntu]
 ---
 
 현재 github의 fast rcnn 을 사용하면서 부딛히는 문제점들을 정리해본다.

@@ -4,7 +4,7 @@ title:  "PCL install with QT5"
 date:   2016-11-22 12:33:49 +0900
 comments: true
 summary: "PCL install with QT5"
-categories: [Ubuntu]
+categories: [ubuntu]
 ---
 
 

@@ -4,7 +4,7 @@ title:  "SE(3) and SO(3) transformation"
 date:   2016-06-07 13:33:49 +0900
 comments: true
 summary: "SE(3) and SO(3) transformation"
-categories: [Math]
+categories: [math]
 ---
 
 ## SE(3), SO(3) and GL(3,R)

@@ -4,7 +4,7 @@ title:  "Ubuntu NVIDIA Graphic Driver 설치(nouveau kernel 문제 등)"
 date:   2016-11-22 12:33:49 +0900
 comments: true
 summary: "Ubuntu NVIDIA Graphic Driver 설치(nouveau kernel 문제 등)"
-categories: [Ubuntu]
+categories: [ubuntu]
 ---
 
 # 그래픽 드라이버 설치하기 

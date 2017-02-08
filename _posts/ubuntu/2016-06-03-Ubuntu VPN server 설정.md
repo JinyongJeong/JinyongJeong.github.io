@@ -4,7 +4,7 @@ title:  "Ubuntu VPN server"
 date:   2016-06-03 13:33:49 +0900
 comments: true
 summary: "Ubuntu VPN server setting"
-categories: [Ubuntu]
+categories: [ubuntu]
 ---
 
 VPN(Virtual Private Network)은 IP를 우회할 수 있는 방법중에 하나이며 다양한 방법으로 응용가능하다. 예를들면 학교의 인터넷 망에서 자유롭게 논문을 볼 수 있지만(학교에서는 IEEE등에 논문을 구독할 수 있도록 지불을 했기 때문에) 외부 망에서는 동일하게 논문검색을 할 수 없다(물론 VPN을 이용하지 않고 논문을 검색하는 방법이 있긴 하다). 이럴 때 학교내 학교망에 연결되어 있는 컴퓨터에 VPN 설정을 하고 외부에서 이 컴퓨터 VPN server로 연결하여 외부로 접속을 한면 외부에서는 학교망에서 접속한 것으로 인식하기 때문에 학교내에서 접속한 것과 같은 효과를 볼 수 있다. Ubuntu 14.04에서 VPN server를 설정하는 방법은 다음과 같다.

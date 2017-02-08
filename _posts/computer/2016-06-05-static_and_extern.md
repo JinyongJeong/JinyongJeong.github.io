@@ -4,7 +4,7 @@ title:  "Static 변수와 Extern변수"
 date:   2016-06-01 13:33:49 +0900
 comments: true
 summary: "Static 변수와 Extern변수"
-categories: [Computer]
+categories: [computer]
 ---
 
 <본 포스팅은 [다음](http://thrillfighter.tistory.com/255)을 참고하였습니다>

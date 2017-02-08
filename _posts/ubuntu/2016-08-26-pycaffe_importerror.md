@@ -4,7 +4,7 @@ title:  "Pycaffe importerror문제"
 date:   2016-06-28 12:33:49 +0900
 comments: true
 summary: "Pycaffe importerror문제"
-categories: [Ubuntu]
+categories: [ubuntu]
 ---
 
 Pycaffe를 사용하면서 import error를 자주 만나게 되는데 

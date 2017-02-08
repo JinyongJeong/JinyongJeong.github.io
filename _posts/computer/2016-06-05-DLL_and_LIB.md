@@ -4,7 +4,7 @@ title:  "DLL파일과 LIB파일 차이"
 date:   2016-06-01 13:33:49 +0900
 comments: true
 summary: "DLL파일과 LIB파일 차이"
-categories: [Computer]
+categories: [computer]
 ---
 
 <본 포스팅은 [다음](http://it4all.tistory.com/16)을 참고하였습니다>

@@ -4,7 +4,7 @@ title:  "bash shell 환경변수"
 date:   2016-06-04 13:33:49 +0900
 comments: true
 summary: "bash shell 환경변수"
-categories: [Ubuntu]
+categories: [ubuntu]
 ---
 
 <본 포스팅은 [다음](http://seven00.tistory.com/680)을 참고하였습니다>

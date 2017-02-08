@@ -4,7 +4,7 @@ title:  "Ubuntu Gedit 한글 깨짐 수정"
 date:   2016-06-04 13:33:49 +0900
 comments: true
 summary: "Ubuntu Gedit 한글 깨짐 수정"
-categories: [Ubuntu]
+categories: [ubuntu]
 ---
 
 우분투 기본 에디터인 gedit에서 자동 인식되는 인코딩에 cp949 방식을 추가합니다.

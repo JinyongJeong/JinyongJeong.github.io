@@ -4,7 +4,7 @@ title:  "vim install and setting"
 date:   2016-06-04 13:33:49 +0900
 comments: true
 summary: "vim install and setting"
-categories: [Ubuntu]
+categories: [ubuntu]
 ---
 
 vim에 관련하여 [다음](http://www.joinc.co.kr/w/Site/Vim/Documents/UsedVim#AEN18) 블로그에 가면 자세한 정보를 얻을 수 있다. 

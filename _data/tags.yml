@@ -40,3 +40,10 @@ math:
   description: >
     Ubuntu is ~.
 
+IRAP:
+  name: IRAP
+  image: /public/img/jekyll.jpg
+  color: '#949667'
+  description: >
+    Ubuntu is ~.
+

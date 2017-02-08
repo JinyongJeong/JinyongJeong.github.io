@@ -4,7 +4,7 @@ title:  "Ubuntu SVN 및 기타 명령어 정리(IRAP)"
 date:   2016-06-21 12:33:49 +0900
 comments: true
 summary: "Ubuntu SVN 및 기타 명령어 정리"
-categories: [Ubuntu,IRAP]
+categories: [ubuntu,IRAP]
 ---
 
 본 포스팅은 한국과학기술원(KAIST) IRAP(Intelligent Robotic Autonomy and Perception) 연구실에서 주로 사용하는 Ubuntu 명령어들을 정리하였다.

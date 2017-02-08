@@ -4,7 +4,7 @@ title:  "GRUB multiboot repair(멀티부팅 재설치)"
 date:   2016-06-04 13:33:49 +0900
 comments: true
 summary: "GRUB multiboot repair"
-categories: [Ubuntu]
+categories: [ubuntu]
 ---
 
 멀티부팅을 위한 Rrub 재설치 방법

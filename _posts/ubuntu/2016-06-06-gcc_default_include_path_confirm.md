@@ -4,7 +4,7 @@ title:  "gcc default include path 확인 방법"
 date:   2016-06-04 13:33:49 +0900
 comments: true
 summary: "gcc default include path 확인하기"
-categories: [Ubuntu]
+categories: [ubuntu]
 ---
 
 다른 정보들이 더 출력이 되긴 하지만,
