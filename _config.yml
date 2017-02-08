@@ -40,8 +40,8 @@ author:
   name:              'Jinyong Jeong'
 
   # This photo will be used in the about section
-  photo:             http://qwtel.com/public/img/flo.jpg
-  photo2x:           http://qwtel.com/public/img/flo@2x.jpg
+  photo:             /images/about/profile.jpg
+  photo2x:           /images/about/profile.jpg
 
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
