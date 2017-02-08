@@ -45,10 +45,13 @@ author:
 
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    Hi, I'm Florian or [`@qwtel`](https://www.twitter.com/qwtel), which isn't an acronym,
-    I just [wanted a short username](http://qwtel.com/how-to-find-a-short-username) and that one happened to be available.
+    * ph.D student
 
-    Read my thoughts on [#software](http://qwtel.com/tag/software) and [#cryptoeconomics](http://qwtel.com/tag/cryptoeconomics).
+    * Civil and Environmental Engineering(CEE)
+
+    * Korea Advanced Institute of Science and Technology(KAIST)
+
+    * Research Interest: Autonomous car, SLAM, computer Vision
 
   # Social media icons in sidebar
   # Comment/uncommet to show/hide
