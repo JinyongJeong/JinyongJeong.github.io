@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>Hydejack</title>
- <link href="http://localhost:4000/hydejack/atom.xml" rel="self"/>
- <link href="http://localhost:4000/hydejack/"/>
- <updated>2017-02-08T22:49:28+09:00</updated>
- <id>http://localhost:4000/hydejack</id>
+ <title>JinyongJeong</title>
+ <link href="http://localhost:4000//atom.xml" rel="self"/>
+ <link href="http://localhost:4000//"/>
+ <updated>2017-02-08T23:15:05+09:00</updated>
+ <id>http://localhost:4000/</id>
  <author>
    <name>Florian Klampfer</name>
    <email></email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>v5: The Fast One</title>
-   <link href="http://localhost:4000/hydejack/2016/09/17/the-fast-one/"/>
+   <link href="http://localhost:4000//2016/09/17/the-fast-one/"/>
    <updated>2016-09-17T00:00:00+09:00</updated>
-   <id>http://localhost:4000/hydejack/2016/09/17/the-fast-one</id>
+   <id>http://localhost:4000//2016/09/17/the-fast-one</id>
    <content type="html">&lt;p&gt;This major release increases page load speed dramatically. The page now scores roughly 90/100 on &lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fqwtel.com%2Fhydejack%2F&quot;&gt;Google’s PageSpeed Insights&lt;/a&gt; (up from ~50) and has a high score on similar tools.&lt;/p&gt;
 
 &lt;p&gt;Most importantly, the critical rendering path is no longer blocked by loading styles or scripts, meaning the site becomes visible faster.&lt;/p&gt;
@@ -56,9 +56,9 @@ Future versions might address this, but it is the currency in which loading spee
  
  <entry>
    <title>v4: Social Media Impocalypse</title>
-   <link href="http://localhost:4000/hydejack/2016/08/30/social-media-impocalypse/"/>
+   <link href="http://localhost:4000//2016/08/30/social-media-impocalypse/"/>
    <updated>2016-08-30T00:00:00+09:00</updated>
-   <id>http://localhost:4000/hydejack/2016/08/30/social-media-impocalypse</id>
+   <id>http://localhost:4000//2016/08/30/social-media-impocalypse</id>
    <content type="html">&lt;h2 id=&quot;breaking&quot;&gt;Breaking&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;Structure of &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; has changed
@@ -98,9 +98,9 @@ Future versions might address this, but it is the currency in which loading spee
  
  <entry>
    <title>Introducing Hydejack</title>
-   <link href="http://localhost:4000/hydejack/2016/03/08/introducing-hydejack/"/>
+   <link href="http://localhost:4000//2016/03/08/introducing-hydejack/"/>
    <updated>2016-03-08T00:00:00+09:00</updated>
-   <id>http://localhost:4000/hydejack/2016/03/08/introducing-hydejack</id>
+   <id>http://localhost:4000//2016/03/08/introducing-hydejack</id>
    <content type="html">&lt;h2 id=&quot;features&quot;&gt;Features&lt;/h2&gt;
 &lt;p&gt;Unlike Hyde, it’s very opinionated about how you are going to use it.&lt;/p&gt;
 
@@ -199,9 +199,9 @@ They will appear in the listed order.&lt;/p&gt;
  
  <entry>
    <title>Introducing Hyde</title>
-   <link href="http://localhost:4000/hydejack/2013/12/28/introducing-hyde/"/>
+   <link href="http://localhost:4000//2013/12/28/introducing-hyde/"/>
    <updated>2013-12-28T00:00:00+09:00</updated>
-   <id>http://localhost:4000/hydejack/2013/12/28/introducing-hyde</id>
+   <id>http://localhost:4000//2013/12/28/introducing-hyde</id>
    <content type="html">&lt;p&gt;Hyde is a brazen two-column &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; theme that pairs a prominent sidebar with uncomplicated content. It’s based on &lt;a href=&quot;http://getpoole.com&quot;&gt;Poole&lt;/a&gt;, the Jekyll butler.&lt;/p&gt;
 
 &lt;h3 id=&quot;built-on-poole&quot;&gt;Built on Poole&lt;/h3&gt;
@@ -243,9 +243,9 @@ They will appear in the listed order.&lt;/p&gt;
  
  <entry>
    <title>Example content</title>
-   <link href="http://localhost:4000/hydejack/2012/02/07/example-content/"/>
+   <link href="http://localhost:4000//2012/02/07/example-content/"/>
    <updated>2012-02-07T00:00:00+09:00</updated>
-   <id>http://localhost:4000/hydejack/2012/02/07/example-content</id>
+   <id>http://localhost:4000//2012/02/07/example-content</id>
    <content type="html">&lt;p&gt;Cum sociis natoque penatibus et magnis &lt;a href=&quot;#&quot;&gt;dis parturient montes&lt;/a&gt;, nascetur ridiculus mus. &lt;em&gt;Aenean eu leo quam.&lt;/em&gt; Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -416,9 +416,9 @@ They will appear in the listed order.&lt;/p&gt;
  
  <entry>
    <title>What's Jekyll?</title>
-   <link href="http://localhost:4000/hydejack/2012/02/06/whats-jekyll/"/>
+   <link href="http://localhost:4000//2012/02/06/whats-jekyll/"/>
    <updated>2012-02-06T00:00:00+09:00</updated>
-   <id>http://localhost:4000/hydejack/2012/02/06/whats-jekyll</id>
+   <id>http://localhost:4000//2012/02/06/whats-jekyll</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From &lt;a href=&quot;https://github.com/mojombo/jekyll/blob/master/README.markdown&quot;&gt;the project’s readme&lt;/a&gt;:&lt;/p&gt;
 
 &lt;blockquote&gt;
