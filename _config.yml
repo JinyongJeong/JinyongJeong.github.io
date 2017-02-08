@@ -21,7 +21,7 @@ paginate_path:       '/page-:num/'
 
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
 description:         >
-   blog description
+   This blog will post various subjects such as computer science, algorithms and so on. Purpose of this blog is to remember the things I studied by posting it.
 
 # The tags listed as entries in the sidebar
 sidebar_tags:        [ubuntu, jekyll, computer, math, IRAP]
