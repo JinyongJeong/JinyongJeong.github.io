@@ -13,7 +13,7 @@ url:                 http://qwtel.com
 # i.e. `http://<username>.github.io`
 baseurl:             /JinyongJeong
 
-title:               JinyongJeong
+title:               Jinyong Jeong
 
 # Pagination
 paginate:            5
@@ -21,9 +21,7 @@ paginate_path:       '/page-:num/'
 
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
 description:         >
-  A pretentious two-column [Jekyll](http://jekyllrb.com/) theme, stolen by [`@qwtel`{:style="background: rgba(255, 255, 255, 0.15)"}](https://twitter.com/qwtel)
-  from [Hyde](http://hyde.getpoole.com).
-  You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
+   blog description
 
 # The tags listed as entries in the sidebar
 sidebar_tags:        [jekyll, hyde]
@@ -39,7 +37,7 @@ load_google_fonts:   'Roboto+Slab:700|PT+Serif:400,400italic,700,700italic'
 
 # About yourself
 author:
-  name:              'Florian Klampfer'
+  name:              'Jinyong Jeong'
 
   # This photo will be used in the about section
   photo:             http://qwtel.com/public/img/flo.jpg
