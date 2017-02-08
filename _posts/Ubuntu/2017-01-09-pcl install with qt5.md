@@ -8,6 +8,7 @@ categories: [Ubuntu]
 ---
 
 
+
 원하는 버전의 QT5와 VTK, PCL을 설치하는 방법에 대해 설명한다. 
 
 일반적인 방법으로 PCL을 설치할 경우 PCL의 기본 QT의 경로가 /usr/lib/x86_64-linux-gnu/ 로 잡히게 된다. 
