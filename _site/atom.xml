@@ -4,7 +4,7 @@
  <title>Jinyong Jeong</title>
  <link href="http://localhost:4000/JinyongJeong/atom.xml" rel="self"/>
  <link href="http://localhost:4000/JinyongJeong/"/>
- <updated>2017-02-08T23:30:13+09:00</updated>
+ <updated>2017-02-08T23:36:20+09:00</updated>
  <id>http://localhost:4000/JinyongJeong</id>
  <author>
    <name>Jinyong Jeong</name>
@@ -238,6 +238,12 @@ They will appear in the listed order.&lt;/p&gt;
 &lt;p&gt;Hyde is developed on and hosted with GitHub. Head to the &lt;a href=&quot;https://github.com/poole/hyde&quot;&gt;GitHub repository&lt;/a&gt; for downloads, bug reports, and features requests.&lt;/p&gt;
 
 &lt;p&gt;Thanks!&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;this file &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get&lt;/code&gt; hahah.&lt;/p&gt;
 </content>
  </entry>
  
