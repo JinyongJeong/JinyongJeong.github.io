@@ -14,35 +14,35 @@
 
 ubuntu:
   name: Ubuntu
-  image: /public/img/jekyll.jpg
+  image: /public/img/1.jpg
   color: '#949667'
   description: >
     Ubuntu is a Debian-based Linux operating system for personal computers, tablets and smartphones.
 
 computer:
   name: Computer
-  image: /public/img/jekyll.jpg
+  image: /public/img/5.jpg
   color: '#949667'
   description: >
     A computer is a device that can be instructed to carry out an arbitrary set of arithmetic or logical operations automatically.
 
 jekyll:
   name: Jekyll
-  image: /public/img/jekyll.jpg
+  image: /public/img/2.jpg
   color: '#949667'
   description: >
     Jekyll is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes.
 
 math:
   name: Math
-  image: /public/img/jekyll.jpg
+  image: /public/img/3.jpg
   color: '#949667'
   description: >
     Mathematics is the study of topics such as quantity (numbers), structure, space, and change.
 
 IRAP:
   name: IRAP
-  image: /public/img/jekyll.jpg
+  image: /public/img/4.jpg
   color: '#949667'
   description: >
     Intelligent Robotic Autonomy and Perception (IRAP) Lab focuses on robotics problems in civil and environmental engineering applications. Targeting many hardly accessible or dangerous sites in the environment, we solves for robot autonomy dealing with perceptual sensor data. Main research interest and detailed robotics topics include perception based environment mapping, intelligent sensor fusion, decision making and control of the robotic agents, robotic operation and navigation in GPS-denied enthronements (e.g., underwater, indoor). 
