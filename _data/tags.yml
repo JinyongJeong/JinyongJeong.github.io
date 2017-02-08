@@ -11,13 +11,20 @@
 #     *My Tag* is an example of how to define a custom tag.
 # ~~~
 
-hyde:
-  name: Hyde
-  image: /public/img/hyde.jpg
+
+ubuntu:
+  name: Ubuntu
+  image: /public/img/jekyll.jpg
   color: '#949667'
   description: >
-    Hyde is a brazen two-column Jekyll theme that pairs a prominent sidebar with uncomplicated content.
-    It’s based on Poole, the Jekyll butler.
+    Ubuntu is ~.
+
+computer:
+  name: Computer
+  image: /public/img/jekyll.jpg
+  color: '#949667'
+  description: >
+    Ubuntu is ~.
 
 jekyll:
   name: Jekyll
@@ -26,22 +33,8 @@ jekyll:
   description: >
     Jekyll is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes.
 
-ubuntu:
-  name: ubuntu
-  image: /public/img/jekyll.jpg
-  color: '#949667'
-  description: >
-    Ubuntu is ~.
-
-computer:
-  name: computer
-  image: /public/img/jekyll.jpg
-  color: '#949667'
-  description: >
-    Ubuntu is ~.
-
-jekyll:
-  name: Jekyll
+math:
+  name: Math
   image: /public/img/jekyll.jpg
   color: '#949667'
   description: >

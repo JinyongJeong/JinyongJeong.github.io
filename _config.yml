@@ -24,7 +24,7 @@ description:         >
    blog description
 
 # The tags listed as entries in the sidebar
-sidebar_tags:        [jekyll, hyde]
+sidebar_tags:        [ubuntu, jekyll, computer, math]
 
 # Fallback image and color if not overwritten for tag or post
 image:                /public/img/nap.jpg
