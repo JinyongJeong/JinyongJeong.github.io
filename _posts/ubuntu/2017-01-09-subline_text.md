@@ -19,13 +19,11 @@ $ sudo add-apt-repository ppa:webupd8team/sublime-text-3
 $ sudo apt-get update
 $ sudo apt-get install sublime-text-installer
 ```
-
-### 2. sublime text 기본 사용법
-
-### 3. irap-project를 위한 패키지 구성
+### 2. Project 를 위한 패키지 구성
 
 #### Package Control 설치
 메뉴 View -> Show Consol (Ctrl+`) 실행후 console 창을 열어서 아래의 명령어 입력후 에디터 재시작
+Sublime text 버전에 따라 다르게 입력
 
 Sublime Text 2
 
@@ -80,7 +78,7 @@ Preferences -> Package Settings -> YcmdCompletion -> Settings - Default 클릭 �
 ```
 
 - Sublime Text의 Syntax Specific 추가
-Preferences -> Settings - More -> Syntax Specific - User 클릭 후 C++.sublime-settings에 다음 내용 추가
+Preferences -> Settings - More -> Syntax Specific - User 클릭 후 C++.sublime-settings에 다음 내용 추가(c++ 프로젝트 혹은 파일을 열었을 때 C++.sublime-settings을 열 수 있다.
 
 ```
 {
@@ -102,8 +100,7 @@ $ cmake . -G "Sublime Text 2 - Unix Makefiles"
 ```
 
 	- CMakeLists.txt를 이용하는 방법
-project의 root의 CMakeLists.txt에 다음 항목 추가
-
+        project의 root의 CMakeLists.txt에 다음 항목 추가
 
 ```
 set(CMAKE_EXPORT_COMPILE_COMMANDS "ON")
