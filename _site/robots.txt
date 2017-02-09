@@ -1,1 +1,1 @@
-Sitemap: http://localhost:4000/JinyongJeong/sitemap.xml
+Sitemap: http://localhost:4000/http://JinyongJeong.github.io/sitemap.xml
