@@ -109,6 +109,7 @@ Preferences -> Settings - More -> Syntax Specific - User 클릭 후 C++.sublime-
     ```
 
     - CMakeLists.txt 를 이용하는 방법
+
     project의 root의 CMakeLists.txt에 다음 항목 추가
 
     ```
