@@ -109,7 +109,7 @@ author:
 google_analytics_id: 'UA-84025722-2'
 
 # Setting a disqus subdomain will enable the comment section
-disqus:            jjy0923@gmail.com
+disqus:            jinyongjeong
 
 kramdown:
   math_engine:       mathjax
