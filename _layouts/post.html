@@ -5,10 +5,6 @@ layout: default
 {% include post.html post=page link_title=false %}
 
 {% if site.disqus %}
-  {% include comments.html post=page %}
-{% endif %}
-
-{% if site.disqus %}
   {% include disqus_comments.html post=page %}
 {% endif %}
 
