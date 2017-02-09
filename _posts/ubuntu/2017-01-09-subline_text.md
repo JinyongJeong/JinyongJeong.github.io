@@ -99,7 +99,6 @@ Preferences -> Settings - More -> Syntax Specific - User 클릭 후 C++.sublime-
 ```
 $ cd build
 $ cmake . -G "Sublime Text 2 - Unix Makefiles"
-
 ```
 
 	- CMakeLists.txt를 이용하는 방법
@@ -107,7 +106,6 @@ project의 root의 CMakeLists.txt에 다음 항목 추가
 
 
 ```
-
 set(CMAKE_EXPORT_COMPILE_COMMANDS "ON")
 set(CMAKE_GENERATOR "Unix Makefiles" CACHE INTERNAL "" FORCE)
 set(CMAKE_EXTRA_GENERATOR "Sublime Text 2" CACHE INTERNAL "" FORCE)
