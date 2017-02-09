@@ -8,10 +8,11 @@ layout: default
   {% include comments.html post=page %}
 {% endif %}
 
+{% include related.html post=page %}
+
 {% if site.author.about %}
   {% include about.html author=site.author %}
 {% endif %}
 
-{% include related.html post=page %}
 
 
