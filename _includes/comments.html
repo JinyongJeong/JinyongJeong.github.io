@@ -17,8 +17,7 @@
     var disqus_thread_offsetTop = document.getElementById('disqus_thread').offsetTop;
 
     window.addEventListener('scroll', function (e) {
-    //if (!loaded && document.body.scrollTop + window.innerHeight >= disqus_thread_offsetTop) {
-    if (document.body.scrollTop + window.innerHeight >= disqus_thread_offsetTop) {
+    if (!loaded && document.body.scrollTop + window.innerHeight >= disqus_thread_offsetTop) {
        
         loaded = true;
         var d = document, s = d.createElement('script');
