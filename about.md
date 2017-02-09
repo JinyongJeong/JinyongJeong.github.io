@@ -9,14 +9,16 @@ title: About
 {% endcomment %}
 {% include about-short.html author=site.author %}
 
-[Publication]
+[Publications]
+
+[2017]
+
+
 
 [2016]
 
-[2015]
+* Roh, H., Jeong, J., Cho, Y., & Kim, A. (2016). Accurate Mobile Urban Mapping via Digital Map-Based SLAM. Sensors, 16(8), 1315. [[pdf](/Download/papers/roh_2016_sensors_accurate_mobile_urban_mapping.pdf)]
 
-[2014]
-
-[2013]
+* Jeong, Jinyong, and Ayoung Kim. "Adaptive Inverse Perspective Mapping for lane map generation with SLAM." Ubiquitous Robots and Ambient Intelligence (URAI), 2016 13th International Conference on. IEEE, 2016. [[pdf](/Download/papers/jjeong_2016_urai_aIPM.pdf)]
 
 
