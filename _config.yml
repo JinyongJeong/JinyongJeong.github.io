@@ -44,21 +44,27 @@ author:
 
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
+
+    Jinyong Jeong
+
     [Current]
 
     * ph.D student
 
     * Civil and Environmental Engineering(CEE)
 
-    * Korea Advanced Institute of Science and Technology(KAIST)
+    * Korea Advanced Institute of Science and Technology([KAIST](www.kaist.ac.kr)
 
-    * IRAP(Intelligent Robotic Autonomy and Perception)[irap.kaist.ac.kr]
+    * Intelligent Robotic Autonomy and Perception([IRAP](irap.kaist.ac.kr))
 
     * Research Interest: Autonomous car, SLAM, computer Vision
 
     [Previous]
 
-    
+    * 2005.2 ~ 2012.8 : Inha university (undergraduate course)
+    * 2012.8 ~ 2014.8 : KAIST (master course)
+    * 2014.8 ~ 2015.10 : Defense Agency for Technology and Quality (DTaQ) researcher
+    * 2016.2 ~ current : KAIST (ph.D course)
 
   # Social media icons in sidebar
   # Comment/uncommet to show/hide
