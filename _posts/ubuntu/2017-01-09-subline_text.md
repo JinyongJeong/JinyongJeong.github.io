@@ -101,16 +101,16 @@ Preferences -> Settings - More -> Syntax Specific - User 클릭 후 C++.sublime-
 ```
 
 * Sublime project 생성하기
-    * CMake를 이용하는 방법
+* CMake를 이용하는 방법
 
 ```
 cd build
 cmake . -G "Sublime Text 2 - Unix Makefiles"
 ```
 
-    * CMakeLists.txt 를 이용하는 방법
+* CMakeLists.txt 를 이용하는 방법
 
-    project의 root의 CMakeLists.txt에 다음 항목 추가
+project의 root의 CMakeLists.txt에 다음 항목 추가
 
 ```
 set(CMAKE_EXPORT_COMPILE_COMMANDS "ON")
