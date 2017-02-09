@@ -11,6 +11,13 @@
 #     *My Tag* is an example of how to define a custom tag.
 # ~~~
 
+post:
+  name: All post
+  image: /public/img/6.jpg
+  color: '#949667'
+  description: >
+    This blog is to remember what I studied.
+
 
 ubuntu:
   name: Ubuntu
