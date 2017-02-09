@@ -21,8 +21,7 @@ paginate_path:       '/page-:num/'
 
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
 description:         >
-   This blog will post various subjects such as computer science, algorithms and so on. Purpose of this blog is to remember the things I studied by posting it.
-
+   Various subjects such as ubuntu, computer vision algorithm will be posted in this blog. This blog is to remember what I studied.
 # The tags listed as entries in the sidebar
 sidebar_tags:        [ubuntu, jekyll, computer, math, IRAP]
 
@@ -45,13 +44,21 @@ author:
 
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
+    [Current]
+
     * ph.D student
 
     * Civil and Environmental Engineering(CEE)
 
     * Korea Advanced Institute of Science and Technology(KAIST)
 
+    * IRAP(Intelligent Robotic Autonomy and Perception)[irap.kaist.ac.kr]
+
     * Research Interest: Autonomous car, SLAM, computer Vision
+
+    [Previous]
+
+    
 
   # Social media icons in sidebar
   # Comment/uncommet to show/hide
