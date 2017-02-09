@@ -107,7 +107,6 @@ google_analytics_id: 'UA-84025722-2'
 # Setting a disqus subdomain will enable the comment section
 disqus:            jinyongjeong
 
-disqus_shortname: jinyongjeong
 
 kramdown:
   math_engine:       mathjax
