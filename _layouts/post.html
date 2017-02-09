@@ -8,10 +8,6 @@ layout: default
   {% include comments.html post=page %}
 {% endif %}
 
-{% if site.disqus_shortname %}
-  {% include disqus_comments.html post=page %}
-{% endif %}
-
 {% include related.html post=page %}
 
 {% if site.author.about %}
