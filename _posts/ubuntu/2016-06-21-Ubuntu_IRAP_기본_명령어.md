@@ -1,11 +1,11 @@
 ---
 layout: post
-title: 'Ubuntu SVN 및 기타 명령어 정리(IRAP)'
+title: 'Ubuntu SVN 및 기타 명령어 정리 (IRAP)'
 tags: [ubuntu,IRAP]
 description: >
-  Ubuntu SVN 및 기타 명령어 정리
+  IRAP에서 주로 사용하는 svn 및 기타 ubuntu 명령어 정리
 ---
-본 포스팅은 한국과학기술원(KAIST) IRAP(Intelligent Robotic Autonomy and Perception) 연구실에서 주로 사용하는 Ubuntu 명령어들을 정리하였다.
+본 포스팅은 한국과학기술원(KAIST)의 [IRAP](http://irap.kaist.ac.kr)(Intelligent Robotic Autonomy and Perception) 연구실에서 주로 사용하는 Ubuntu 명령어들을 정리하였다.
 
 ## 1. ssh 서버 접속
 
@@ -102,6 +102,8 @@ svn copy svn+ssh://계정명@irap.kaist.ac.kr/경로/trunk svn+ssh://계정명@i
 
 ```
 
+주의해야 할 점은 내 컴퓨터에 있는 폴더가 아닌, 서버에 있는 폴더를 직접 복사한다는 점이다.
+
 ## 10. LCM 환경설정
 
 ### LCM ttl 설정
@@ -145,7 +147,7 @@ MTU는 이더넷의 전송 packet의 사이즈이다. MTU 값이 작으면 작�
 ifconfig eth0 mtu 8000
 ```
 
-`ifconfig`를 실행하면 현재 컴퓨터의 이더넷 연결 상태를 확인할 수 있으며 현재 설정되어 있는 MTU값도 확인 가능하다.
+`ifconfig`를 실행하면 현재 컴퓨터의 이더넷 연결 상태를 확인할 수 있으며 현재 설정되어 있는 MTU값도 확인 가능하다. 하지만 무조건 mtu값이 높은 것이 좋은 것은 아니다. 실제 데이터의 packet 사이즈가 작은데 mtu가 너무 높은 경우 속도가 느려질 수도 있다. 
 
 
 ## 12. 폴더 및 파일 권한 설정
