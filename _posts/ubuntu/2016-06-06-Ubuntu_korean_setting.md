@@ -32,7 +32,7 @@ sudo apt install uim uim-byeoru
 
 첫번째로 Launchers(가장 위) 메뉴에서 `key to show the HUD` 키를 `Alt L` 로 변경해 줍니다. 
 
-원래 Alt L로 되어 있는 경우는 넘어갑니다. 
+원래 `Alt L` 로 되어 있는 경우는 넘어갑니다. 
 
 두번쨰로 Typing(자판입력) 탭에서 Compose Key(구성키)를 `Right Alt`로 변경해 줍니다.
 
