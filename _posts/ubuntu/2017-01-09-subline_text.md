@@ -11,8 +11,8 @@ description: >
 
 ### 1. sublime text 설치하기
 
-* [sublimetext](http://www.sublimetext.com/) 에서 다운로드 후 설치
-* ppa 이용한 설치 방법
+##### [sublimetext](http://www.sublimetext.com/) 에서 다운로드 후 설치
+##### ppa 이용한 설치 방법
 
 
 ```
@@ -23,7 +23,7 @@ sudo apt-get install sublime-text-installer
 
 ### 2. Project 를 위한 패키지 구성
 
-#### Package Control 설치
+##### Package Control 설치
 
 메뉴 View -> Show Consol (Ctrl+`) 실행후 console 창을 열어서 아래의 명령어 입력후 에디터 재시작
 Sublime text 버전에 따라 다르게 입력
@@ -66,11 +66,11 @@ git submodule update --init --recursive
 
 ##### 3. YcmdCompletion 설정
 
-* HMAC key 생성
+###### HMAC key 생성
 
 Command Pallete (Ctrl+Shift+p) -> Ycmd: Create HMAC keys
 
-* Sublime Text의 Ycmd Completion 설정
+###### Sublime Text의 Ycmd Completion 설정
 
 Preferences -> Package Settings -> YcmdCompletion -> Settings - Default 클릭 후 YcmdCompletion.sublime-settings 파일의 주석 처리된 부분을 풀어서 다음과 같이 입력
 
@@ -85,7 +85,7 @@ Preferences -> Package Settings -> YcmdCompletion -> Settings - Default 클릭 �
 }
 ```
 
-* Sublime Text의 Syntax Specific 추가
+###### Sublime Text의 Syntax Specific 추가
 
 Preferences -> Settings - More -> Syntax Specific - User 클릭 후 C++.sublime-settings에 다음 내용 추가(c++ 프로젝트 혹은 파일을 열었을 때 C++.sublime-settings을 열 수 있다.
 
@@ -100,7 +100,7 @@ Preferences -> Settings - More -> Syntax Specific - User 클릭 후 C++.sublime-
 }
 ```
 
-* Sublime project 생성하기
+###### Sublime project 생성하기
 * CMake를 이용하는 방법
 
 ```
@@ -118,7 +118,7 @@ set(CMAKE_GENERATOR "Unix Makefiles" CACHE INTERNAL "" FORCE)
 set(CMAKE_EXTRA_GENERATOR "Sublime Text 2" CACHE INTERNAL "" FORCE)
 ```
 
-* Ycmd default_settings.json 파일 설정
+###### Ycmd default_settings.json 파일 설정
 
 위에서 복제한 ycmd server directory에서 default_settings.json 파일 내용 중 아래 부분 변경
 
@@ -129,7 +129,8 @@ set(CMAKE_EXTRA_GENERATOR "Sublime Text 2" CACHE INTERNAL "" FORCE)
   "hmac_secret": "위의 HMAC key 입력",
 ```
 
-* [.ycm_extra_conf.py](https://github.com/Valloric/ycmd/blob/master/cpp/ycm/.ycm_extra_conf.py) 파일 설정하기
+###### [.ycm_extra_conf.py](https://github.com/Valloric/ycmd/blob/master/cpp/ycm/.ycm_extra_conf.py) 파일 설정하기
+
     * gobal ycm_conf 설정 : ycmd server의 default_settings.json 파일의 "global_ycm_extra_conf" 설정 경로에 위 링크 파일 복사
     * local ycm_conf 설정 : 해당 프로젝트의 root에 .ycmd_extra_conf.py복사 후 compilation_database_folder 값을 아래와 같이 변경
 
@@ -137,7 +138,8 @@ set(CMAKE_EXTRA_GENERATOR "Sublime Text 2" CACHE INTERNAL "" FORCE)
 compilation_database_folder = os.path.expanduser("~/projects/naver/build")
 ```
 
-* YCM-Generator 이용해서 .ycm_extra_conf.py 만들기
+###### YCM-Generator 이용해서 .ycm_extra_conf.py 만들기
+
 YCM-Generator를 github repository로부터 복제
 
 
