@@ -62,6 +62,6 @@ git config user.name "이름"
 
 git을 clone 받은 후 처음에는 `git push -u origin master`를 모두 입력해야 하지만 한번 한 이후에는 `git push`만 입력해도 된다.
 
-# 7. Blog 작성
+## Blog 작성
 
 블로그 작성 시 입력한 내용이 예상한대로 동작을 하는지 확인 하기 위해서 매번 github에 push하는 것은 매우 힘든 일이다. 작성을 하는 동시에 바로 확인을 하기 위해서 위에서 언급한 것과 같이 `jekyll serve`를 이용하여 서버를 동작 시킨 후 `localhost:4000`으로 접속하면 바로 수정된 내용을 확인할 수 있다. 이렇게 수정이 완료된 후 github로 push하면 편하게 포스팅을 수정할 수 있다.
