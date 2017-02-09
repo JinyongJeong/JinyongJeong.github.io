@@ -132,8 +132,8 @@ set(CMAKE_EXTRA_GENERATOR "Sublime Text 2" CACHE INTERNAL "" FORCE)
 
 ###### [.ycm_extra_conf.py](https://github.com/Valloric/ycmd/blob/master/cpp/ycm/.ycm_extra_conf.py) 파일 설정하기
 
-    * gobal ycm_conf 설정 : ycmd server의 default_settings.json 파일의 "global_ycm_extra_conf" 설정 경로에 위 링크 파일 복사
-    * local ycm_conf 설정 : 해당 프로젝트의 root에 .ycmd_extra_conf.py복사 후 compilation_database_folder 값을 아래와 같이 변경
+* gobal ycm_conf 설정 : ycmd server의 default_settings.json 파일의 "global_ycm_extra_conf" 설정 경로에 위 링크 파일 복사
+* local ycm_conf 설정 : 해당 프로젝트의 root에 .ycmd_extra_conf.py복사 후 compilation_database_folder 값을 아래와 같이 변경
 
 ```
 compilation_database_folder = os.path.expanduser("~/projects/naver/build")
