@@ -61,9 +61,11 @@ $ git submodule update --init --recursive
 ##### 3. YcmdCompletion 설정
 
 - HMAC key 생성
+
 Command Pallete (Ctrl+Shift+p) -> Ycmd: Create HMAC keys
 
 - Sublime Text의 Ycmd Completion 설정
+
 Preferences -> Package Settings -> YcmdCompletion -> Settings - Default 클릭 후 YcmdCompletion.sublime-settings 파일의 주석 처리된 부분을 풀어서 다음과 같이 입력
 
 ```
@@ -78,6 +80,7 @@ Preferences -> Package Settings -> YcmdCompletion -> Settings - Default 클릭 �
 ```
 
 - Sublime Text의 Syntax Specific 추가
+
 Preferences -> Settings - More -> Syntax Specific - User 클릭 후 C++.sublime-settings에 다음 내용 추가(c++ 프로젝트 혹은 파일을 열었을 때 C++.sublime-settings을 열 수 있다.
 
 ```
@@ -100,7 +103,8 @@ Preferences -> Settings - More -> Syntax Specific - User 클릭 후 C++.sublime-
     ```
 
     - CMakeLists.txt를 이용하는 방법
-        project의 root의 CMakeLists.txt에 다음 항목 추가
+
+    project의 root의 CMakeLists.txt에 다음 항목 추가
 
     ```
     set(CMAKE_EXPORT_COMPILE_COMMANDS "ON")
@@ -109,6 +113,7 @@ Preferences -> Settings - More -> Syntax Specific - User 클릭 후 C++.sublime-
     ```
 
 - Ycmd default_settings.json 파일 설정
+
 위에서 복제한 ycmd server directory에서 default_settings.json 파일 내용 중 아래 부분 변경
 
 
