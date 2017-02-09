@@ -9,7 +9,7 @@ title: About
 {% endcomment %}
 {% include about-short.html author=site.author %}
 
-## Publications
+### Publications
 
 [2017]
 
