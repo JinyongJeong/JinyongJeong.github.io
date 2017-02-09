@@ -12,6 +12,7 @@ description: >
 ### 1. sublime text 설치하기
 
 ##### [sublimetext](http://www.sublimetext.com/) 에서 다운로드 후 설치
+
 ##### ppa 이용한 설치 방법
 
 
