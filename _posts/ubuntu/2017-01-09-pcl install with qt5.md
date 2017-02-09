@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 'PCL install with QT5'
+title: '원하는 QT 버전에 맞게 PCL 설치하기'
 tags: [ubuntu]
 description: >
-  PCL install with QT5
+  PCL을 설치할 때 원하는 QT버전으로 지정하여 설치하는 방법에 대해서 설명한다. 
 ---
 
 
@@ -52,7 +52,7 @@ git 에서 다운받는다
 git clone https://github.com/PointCloudLibrary/pcl.git
 ```
 
-PCL의 qt5 경로를 설정해주기 위해서 cmake file에서 prefix 를 설정한다. /pcl/cmake/pcl_find_qt5.cmake 를 열고 최 상단에 추가
+PCL의 qt5 경로를 설정해주기 위해서 cmake file에서 prefix 를 설정한다. /pcl/cmake/pcl_find_qt5.cmake 를 열고 최 상단에 아래의 setting을 추가
 
 
 ```
