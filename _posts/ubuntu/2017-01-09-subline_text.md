@@ -15,9 +15,9 @@ description: >
 
 
 ```
-$ sudo add-apt-repository ppa:webupd8team/sublime-text-3
-$ sudo apt-get update
-$ sudo apt-get install sublime-text-installer
+sudo add-apt-repository ppa:webupd8team/sublime-text-3
+sudo apt-get update
+sudo apt-get install sublime-text-installer
 ```
 ### 2. Project 를 위한 패키지 구성
 
@@ -47,9 +47,9 @@ import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.
 - Ycmd의 github 원격 저장소를 복제후 submodule 업데이트
 
 ```
-$ git clone https://github.com/Valloric/ycmd.git
-$ cd ycmd
-$ git submodule update --init --recursive
+git clone https://github.com/Valloric/ycmd.git
+cd ycmd
+git submodule update --init --recursive
 ```
 
 - Ycmd 빌드
@@ -98,8 +98,8 @@ Preferences -> Settings - More -> Syntax Specific - User 클릭 후 C++.sublime-
     - CMake를 이용하는 방법
 
     ```
-    $ cd build
-    $ cmake . -G "Sublime Text 2 - Unix Makefiles"
+    cd build
+    cmake . -G "Sublime Text 2 - Unix Makefiles"
     ```
 
     - CMakeLists.txt를 이용하는 방법
@@ -136,14 +136,14 @@ YCM-Generator를 github repository로부터 복제
 
 
 ```
-$ git clone https://github.com/rdnetto/YCM-Generator.git
+git clone https://github.com/rdnetto/YCM-Generator.git
 ```
 
 프로젝트 디렉토리에 .ycm_extra_conf.py 만들기
 
 ```
-$ cd YCM-Generator
-$ ./config_gen.py 프로젝트디렉토리
+cd YCM-Generator
+./config_gen.py 프로젝트디렉토리
 ```
 
 위의 프로그램을 수행하면 프로젝트디렉토리의 root에 .ycm_extra_conf.py파일이 생성됨
