@@ -14,12 +14,6 @@ description: >
 
 # 1. GTX760 PC
 
-## CUDA 7.5
-
-## Opencv 2.4
-
-## Python 2.7
-
 GTX760은 CUDA7.5와 Oepncv 2.4조합으로 잘 세팅이 된다. 
 
 # 2. GTX1060 PC
@@ -68,8 +62,6 @@ Opencv3.0 을 build하다보면 features2d.hpp에서 error가 발생한다.
 vector관련 에러는 `using std::vector`를 넣어주고
 
 `AlgorithmInfo` 관련 에러는 `AlgorithmInfo`를 `Algorithm`으로 바꾸어 준다. 
-
-
 
 
 기타 fast rcnn 설정을 위한 참고 URL
