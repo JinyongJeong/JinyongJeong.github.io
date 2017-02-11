@@ -26,8 +26,8 @@ ubuntu:
   description: >
     Ubuntu is a Debian-based Linux operating system for personal computers, tablets and smartphones.
 
-computer:
-  name: Computer
+software:
+  name: Software
   image: /public/img/5.jpg
   color: '#949667'
   description: >

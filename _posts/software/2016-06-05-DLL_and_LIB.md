@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'DLL파일과 LIB파일 차이'
-tags: [computer]
+tags: [software]
 description: >
   DLL파일과 LIB파일 차이
 ---
