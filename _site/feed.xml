@@ -1,32 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-
- <title>Jinyong Jeong</title>
- <link href="http://localhost:4000http://JinyongJeong.github.io/atom.xml" rel="self"/>
- <link href="http://localhost:4000http://JinyongJeong.github.io/"/>
- <updated>2017-02-13T16:11:26+09:00</updated>
- <id>http://localhost:4000http://JinyongJeong.github.io</id>
- <author>
-   <name>Jinyong Jeong</name>
-   <email></email>
- </author>
-
- 
- <entry>
-   <title>bayes</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM_bayes_model/"/>
-   <updated>2017-01-13T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM_bayes_model</id>
-   <content type="html">
-</content>
- </entry>
- 
- <entry>
-   <title>Ubuntu Sublime text 설치하기</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2017/01/09/subline_text/"/>
-   <updated>2017-01-09T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2017/01/09/subline_text</id>
-   <content type="html">&lt;h1 id=&quot;sublimetext3&quot;&gt;SublimeText3&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jinyong Jeong</title>
+    <description>Various subjects such as ubuntu, computer vision algorithm will be posted in this blog. This blog is to remember what I studied.
+</description>
+    <link>http://localhost:4000http://JinyongJeong.github.io/</link>
+    <atom:link href="http://localhost:4000http://JinyongJeong.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 13 Feb 2017 16:11:26 +0900</pubDate>
+    <lastBuildDate>Mon, 13 Feb 2017 16:11:26 +0900</lastBuildDate>
+    <generator>Jekyll v3.4.0</generator>
+    
+      <item>
+        <title>bayes</title>
+        <description>
+</description>
+        <pubDate>Fri, 13 Jan 2017 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM_bayes_model/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM_bayes_model/</guid>
+        
+        <category>SLAM</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ubuntu Sublime text 설치하기</title>
+        <description>&lt;h1 id=&quot;sublimetext3&quot;&gt;SublimeText3&lt;/h1&gt;
 
 &lt;h3 id=&quot;1-sublime-text-설치하기&quot;&gt;1. sublime text 설치하기&lt;/h3&gt;
 
@@ -188,15 +187,21 @@ set(CMAKE_EXTRA_GENERATOR &quot;Sublime Text 2&quot; CACHE INTERNAL &quot;&quot;
 
 &lt;p&gt;위의 프로그램을 수행하면 프로젝트디렉토리의 root에 .ycm_extra_conf.py파일이 생성됨&lt;/p&gt;
 
-</content>
- </entry>
- 
- <entry>
-   <title>원하는 QT 버전에 맞게 PCL 설치하기</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2017/01/09/pcl-install-with-qt5/"/>
-   <updated>2017-01-09T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2017/01/09/pcl install with qt5</id>
-   <content type="html">&lt;p&gt;원하는 버전의 QT5와 VTK, PCL을 설치하는 방법에 대해 설명한다.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 09 Jan 2017 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2017/01/09/subline_text/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2017/01/09/subline_text/</guid>
+        
+        <category>ubuntu</category>
+        
+        <category>IRAP</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>원하는 QT 버전에 맞게 PCL 설치하기</title>
+        <description>&lt;p&gt;원하는 버전의 QT5와 VTK, PCL을 설치하는 방법에 대해 설명한다.&lt;/p&gt;
 
 &lt;p&gt;일반적인 방법으로 PCL을 설치할 경우 PCL의 기본 QT의 경로가 /usr/lib/x86_64-linux-gnu/ 로 잡히게 된다.&lt;/p&gt;
 
@@ -253,15 +258,19 @@ make install
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-</content>
- </entry>
- 
- <entry>
-   <title>Jekyll을 이용하여 Github Blog 만들기</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2017/01/08/jekyll_blog_making_new/"/>
-   <updated>2017-01-08T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2017/01/08/jekyll_blog_making_new</id>
-   <content type="html">&lt;h2 id=&quot;ruby와-jekyll-설치&quot;&gt;Ruby와 Jekyll 설치&lt;/h2&gt;
+</description>
+        <pubDate>Mon, 09 Jan 2017 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2017/01/09/pcl-install-with-qt5/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2017/01/09/pcl-install-with-qt5/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Jekyll을 이용하여 Github Blog 만들기</title>
+        <description>&lt;h2 id=&quot;ruby와-jekyll-설치&quot;&gt;Ruby와 Jekyll 설치&lt;/h2&gt;
 &lt;p&gt;Jekyll을 이용하여 github의 Blog를 만들어보도록 하자. 우선 Jekyll을 설치하기 위해서는 ruby를 설치해야 한다. 아래명령어를 이용하여 ruby를 설치한 후 Jekyll을 설치한다.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
@@ -320,15 +329,19 @@ git config user.name &quot;이름&quot;
 &lt;h2 id=&quot;blog-작성&quot;&gt;Blog 작성&lt;/h2&gt;
 
 &lt;p&gt;블로그 작성 시 입력한 내용이 예상한대로 동작을 하는지 확인 하기 위해서 매번 github에 push하는 것은 매우 힘든 일이다. 작성을 하는 동시에 바로 확인을 하기 위해서 위에서 언급한 것과 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;를 이용하여 서버를 동작 시킨 후 &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:4000&lt;/code&gt;으로 접속하면 바로 수정된 내용을 확인할 수 있다. 이렇게 수정이 완료된 후 github로 push하면 편하게 포스팅을 수정할 수 있다.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Ubuntu NVIDIA Graphic Driver 설치(nouveau kernel 문제 등)</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/11/22/ubuntu_graphic_driver_install/"/>
-   <updated>2016-11-22T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/11/22/ubuntu_graphic_driver_install</id>
-   <content type="html">&lt;h1 id=&quot;그래픽-드라이버-설치하기&quot;&gt;그래픽 드라이버 설치하기&lt;/h1&gt;
+</description>
+        <pubDate>Sun, 08 Jan 2017 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2017/01/08/jekyll_blog_making_new/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2017/01/08/jekyll_blog_making_new/</guid>
+        
+        <category>jekyll</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ubuntu NVIDIA Graphic Driver 설치(nouveau kernel 문제 등)</title>
+        <description>&lt;h1 id=&quot;그래픽-드라이버-설치하기&quot;&gt;그래픽 드라이버 설치하기&lt;/h1&gt;
 &lt;p&gt;우분투를 처음 설치하고 나서 NVIDIA 그래픽 드라이버를 설치하는 과정에서 많은 사람들이 다양한 문제를 경험한다.&lt;/p&gt;
 
 &lt;p&gt;우선 NVIDA 홈페이지에 들어가서 본인의 시스템에 맞는 그래픽 드라이버를 최근 3가지 종류를 미리 다운받아 놓는것을 추천한다.&lt;/p&gt;
@@ -404,15 +417,19 @@ update-initramfs -u
 
 &lt;p&gt;본인은 이정도로도 설치가 되었다. 만약 안된다면 위의 사이트를 좀더 자세히 참고하길 바란다.&lt;/p&gt;
 
-</content>
- </entry>
- 
- <entry>
-   <title>그래픽 카드별 CUDA 및 Opencv 설정</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/09/19/cuda_setting/"/>
-   <updated>2016-09-19T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/09/19/cuda_setting</id>
-   <content type="html">&lt;p&gt;현재 github의 fast rcnn 을 사용하면서 부딛히는 문제점들을 정리해본다.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 22 Nov 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/11/22/ubuntu_graphic_driver_install/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/11/22/ubuntu_graphic_driver_install/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>그래픽 카드별 CUDA 및 Opencv 설정</title>
+        <description>&lt;p&gt;현재 github의 fast rcnn 을 사용하면서 부딛히는 문제점들을 정리해본다.&lt;/p&gt;
 
 &lt;p&gt;현재 사용하고 있는 PC는 2대로 한대는 GTX760, 다른 한대는 GTX1060을 사용하고 있는데&lt;/p&gt;
 
@@ -472,15 +489,19 @@ update-initramfs -u
 
 &lt;p&gt;&lt;a href=&quot;http://m.blog.daum.net/goodgodgd/27&quot;&gt;http://m.blog.daum.net/goodgodgd/27&lt;/a&gt;&lt;/p&gt;
 
-</content>
- </entry>
- 
- <entry>
-   <title>Pycaffe importerror문제</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/08/26/pycaffe_importerror/"/>
-   <updated>2016-08-26T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/08/26/pycaffe_importerror</id>
-   <content type="html">&lt;p&gt;Pycaffe를 사용하면서 import error를 자주 만나게 되는데&lt;/p&gt;
+</description>
+        <pubDate>Mon, 19 Sep 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/09/19/cuda_setting/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/09/19/cuda_setting/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Pycaffe importerror문제</title>
+        <description>&lt;p&gt;Pycaffe를 사용하면서 import error를 자주 만나게 되는데&lt;/p&gt;
 
 &lt;p&gt;아무리 구글링을 해도 해결이 안될때가 있다.&lt;/p&gt;
 
@@ -512,15 +533,19 @@ update-initramfs -u
 
 &lt;p&gt;&lt;a href=&quot;http://jangjy.tistory.com/210&quot;&gt;http://jangjy.tistory.com/210&lt;/a&gt;&lt;/p&gt;
 
-</content>
- </entry>
- 
- <entry>
-   <title>Ubuntu rsync 오류 및 옵션</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/08/17/rsync-%EC%98%A4%EB%A5%98/"/>
-   <updated>2016-08-17T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/08/17/rsync 오류</id>
-   <content type="html">&lt;p&gt;rsync와 scp는 원격으로 파일을 복사할때 사용하는 명령어이다.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 26 Aug 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/08/26/pycaffe_importerror/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/08/26/pycaffe_importerror/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ubuntu rsync 오류 및 옵션</title>
+        <description>&lt;p&gt;rsync와 scp는 원격으로 파일을 복사할때 사용하는 명령어이다.&lt;/p&gt;
 
 &lt;p&gt;내가 주로 사용하는 rsync 명령어 및 옵션은 `rsync -avPh source dest’으로 평소에 사용할 때에는 별 문제가 없다. 하지만 exFAT로 format되어있는 하드디스크로 복사를 하려고 할 때&lt;/p&gt;
 
@@ -545,15 +570,19 @@ update-initramfs -u
 &lt;p&gt;&lt;a href=&quot;http://blog.marcelotmelo.com/linux/ubuntu/rsync-to-an-exfat-partition/&quot;&gt;http://blog.marcelotmelo.com/linux/ubuntu/rsync-to-an-exfat-partition/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://gyus.me/?p=214&quot;&gt;http://gyus.me/?p=214&lt;/a&gt;&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Ubuntu SVN 및 기타 명령어 정리 (IRAP)</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/21/Ubuntu_IRAP_%EA%B8%B0%EB%B3%B8_%EB%AA%85%EB%A0%B9%EC%96%B4/"/>
-   <updated>2016-06-21T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/21/Ubuntu_IRAP_기본_명령어</id>
-   <content type="html">&lt;p&gt;본 포스팅은 한국과학기술원(KAIST)의 &lt;a href=&quot;http://irap.kaist.ac.kr&quot;&gt;IRAP&lt;/a&gt;(Intelligent Robotic Autonomy and Perception) 연구실에서 주로 사용하는 Ubuntu 명령어들을 정리하였다.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 17 Aug 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/08/17/rsync-%EC%98%A4%EB%A5%98/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/08/17/rsync-%EC%98%A4%EB%A5%98/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ubuntu SVN 및 기타 명령어 정리 (IRAP)</title>
+        <description>&lt;p&gt;본 포스팅은 한국과학기술원(KAIST)의 &lt;a href=&quot;http://irap.kaist.ac.kr&quot;&gt;IRAP&lt;/a&gt;(Intelligent Robotic Autonomy and Perception) 연구실에서 주로 사용하는 Ubuntu 명령어들을 정리하였다.&lt;/p&gt;
 
 &lt;h2 id=&quot;1-ssh-서버-접속&quot;&gt;1. ssh 서버 접속&lt;/h2&gt;
 
@@ -730,15 +759,21 @@ sudo ln -s /usr/lib/libGL.so.1 /usr/lib/x86_64-linux-gnu/libGL.so
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-</content>
- </entry>
- 
- <entry>
-   <title>Ubuntu apt-get 명령어 정리</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/07/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/"/>
-   <updated>2016-06-07T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/07/Ubuntu_apt_get_명령어</id>
-   <content type="html">&lt;p&gt;apt-get(Advanced Packaging Tool)은 우분투(Ubuntu)를 포함안 데비안(Debian)계열의 리눅스에서 쓰이는 팩키지 관리 명령어 도구입니다. 우분투에는 GUI로 되어 있는시냅틱 꾸러미 관리자도 있기는 하지만 이런 저런 개발관련 패키지를 설치할 때는 커맨드기반인 apt-get이 더 편하기도 합니다. sudo는 superuser권한으로 실행하기 위함입니다.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 21 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/21/Ubuntu_IRAP_%EA%B8%B0%EB%B3%B8_%EB%AA%85%EB%A0%B9%EC%96%B4/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/21/Ubuntu_IRAP_%EA%B8%B0%EB%B3%B8_%EB%AA%85%EB%A0%B9%EC%96%B4/</guid>
+        
+        <category>ubuntu</category>
+        
+        <category>IRAP</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ubuntu apt-get 명령어 정리</title>
+        <description>&lt;p&gt;apt-get(Advanced Packaging Tool)은 우분투(Ubuntu)를 포함안 데비안(Debian)계열의 리눅스에서 쓰이는 팩키지 관리 명령어 도구입니다. 우분투에는 GUI로 되어 있는시냅틱 꾸러미 관리자도 있기는 하지만 이런 저런 개발관련 패키지를 설치할 때는 커맨드기반인 apt-get이 더 편하기도 합니다. sudo는 superuser권한으로 실행하기 위함입니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;1-패키지-인덱스-인덱스-정보-업데이트&quot;&gt;1. 패키지 인덱스 인덱스 정보 업데이트&lt;/h2&gt;
 
@@ -813,15 +848,19 @@ sudo ln -s /usr/lib/libGL.so.1 /usr/lib/x86_64-linux-gnu/libGL.so
 &lt;/div&gt;
 
 &lt;p&gt;apt를 이용해서 설치된 deb패키지는 /var/cache/apt/archive/ 에 설치가 됩니다.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>SE(3) and SO(3) transformation</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/07/se3_so3_transformation/"/>
-   <updated>2016-06-07T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/07/se3_so3_transformation</id>
-   <content type="html">&lt;h2 id=&quot;se3-so3-and-gl3r&quot;&gt;SE(3), SO(3) and GL(3,R)&lt;/h2&gt;
+</description>
+        <pubDate>Tue, 07 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/07/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/07/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>SE(3) and SO(3) transformation</title>
+        <description>&lt;h2 id=&quot;se3-so3-and-gl3r&quot;&gt;SE(3), SO(3) and GL(3,R)&lt;/h2&gt;
 
 &lt;p&gt;SE(3), SO(3), GL(3,R) 와 관련된 내용을 정리해 보려고 한다.&lt;/p&gt;
 
@@ -917,15 +956,19 @@ z_2\\
 &lt;p&gt;즉 &lt;code class=&quot;MathJax_Preview&quot;&gt;SE(3) \subset GL(4, \mathbb{R})&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;SE(3) \subset GL(4, \mathbb{R})&lt;/script&gt;의 관계이다.&lt;/p&gt;
 
 &lt;p&gt;더 자세한 내용은 &lt;a href=&quot;/Download/SE3/jlblanco2010geometry3d_techrep.pdf&quot;&gt;A tutorial on SE(3) transformation parameterizations and on-manifold optimization&lt;/a&gt; 를 참고하기 바란다.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>gcc default include path 확인 방법</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/06/gcc_default_include_path_confirm/"/>
-   <updated>2016-06-06T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/gcc_default_include_path_confirm</id>
-   <content type="html">&lt;p&gt;다른 정보들이 더 출력이 되긴 하지만,
+</description>
+        <pubDate>Tue, 07 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/07/se3_so3_transformation/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/07/se3_so3_transformation/</guid>
+        
+        <category>math</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>gcc default include path 확인 방법</title>
+        <description>&lt;p&gt;다른 정보들이 더 출력이 되긴 하지만,
 간단히 다음과 같은 명령어를 입력하면 된다. (-x 다음 인자에 c/c++ 입력)&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo | gcc -v -x c -E - 
@@ -979,15 +1022,19 @@ COLLECT_GCC_OPTIONS='-v' '-E' '-mtune=generic' '-march=x86-64'
 
 &lt;p&gt;한번쯤 실행해 보고, 나머지 부분도 알아두면 좋은 정보들이 많다.&lt;/p&gt;
 
-</content>
- </entry>
- 
- <entry>
-   <title>bash shell 환경변수</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/06/bash_shell_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98/"/>
-   <updated>2016-06-06T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/bash_shell_환경변수</id>
-   <content type="html">&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://seven00.tistory.com/680&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 06 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/gcc_default_include_path_confirm/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/gcc_default_include_path_confirm/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>bash shell 환경변수</title>
+        <description>&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://seven00.tistory.com/680&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
 
 &lt;p&gt;Bash shell 관련 소개 내용&lt;/p&gt;
 
@@ -1033,15 +1080,19 @@ $PATH 환경변수에 있는 file들은 어느 위치에서나 실행 가능.&lt
 &lt;/div&gt;
 
 &lt;p&gt;와 같이 source 명령어를 이용하면 된다.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>vim install and setting</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/06/VIM-install_and_setting/"/>
-   <updated>2016-06-06T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/VIM install_and_setting</id>
-   <content type="html">&lt;p&gt;vim에 관련하여 &lt;a href=&quot;http://www.joinc.co.kr/w/Site/Vim/Documents/UsedVim#AEN18&quot;&gt;다음&lt;/a&gt; 블로그에 가면 자세한 정보를 얻을 수 있다.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 06 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/bash_shell_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/bash_shell_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>vim install and setting</title>
+        <description>&lt;p&gt;vim에 관련하여 &lt;a href=&quot;http://www.joinc.co.kr/w/Site/Vim/Documents/UsedVim#AEN18&quot;&gt;다음&lt;/a&gt; 블로그에 가면 자세한 정보를 얻을 수 있다.&lt;/p&gt;
 
 &lt;p&gt;vim은 우분투에서 사용되는 vi 에디터에 설정을 더하여 보다 편리하게 사용할 수 있도록 해주는 에디터입니다.&lt;/p&gt;
 
@@ -1097,15 +1148,19 @@ syntax on        &quot; 문법 하이라이트 킴&quot;
 
 &lt;p&gt;입력이 끝나고 저장하고 나오시면 이제 코드가 바뀌어있는걸 볼 수 있습니다.&lt;/p&gt;
 
-</content>
- </entry>
- 
- <entry>
-   <title>Ubuntu 한글 키보드 설정</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_korean_setting/"/>
-   <updated>2016-06-06T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_korean_setting</id>
-   <content type="html">&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://blog.daum.net/bagjunggyu/154&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 06 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/VIM-install_and_setting/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/VIM-install_and_setting/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ubuntu 한글 키보드 설정</title>
+        <description>&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://blog.daum.net/bagjunggyu/154&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://blog.daum.net/bagjunggyu/154&quot;&gt;여기&lt;/a&gt;에서 한글 설정 및 다양한 Ubuntu 설정에 대한 내용을 찾을 수 있다.&lt;/p&gt;
 
@@ -1146,15 +1201,19 @@ syntax on        &quot; 문법 하이라이트 킴&quot;
   &lt;li&gt;system setting(시스템 설정) - Language Support(언어 지원)을 실행해서, 키보드 입력기를 uim으로 설정한 후  로그아웃 &amp;amp; 로그인 하시면 됩니다.&lt;/li&gt;
 &lt;/ul&gt;
 
-</content>
- </entry>
- 
- <entry>
-   <title>Ubuntu Gedit 한글 깨짐 수정</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_gedit-%ED%95%9C%EA%B8%80%EA%B9%A8%EC%A7%90-%EC%88%98%EC%A0%95/"/>
-   <updated>2016-06-06T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_gedit 한글깨짐 수정</id>
-   <content type="html">&lt;p&gt;우분투 기본 에디터인 gedit에서 자동 인식되는 인코딩에 cp949 방식을 추가합니다.
+</description>
+        <pubDate>Mon, 06 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_korean_setting/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_korean_setting/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ubuntu Gedit 한글 깨짐 수정</title>
+        <description>&lt;p&gt;우분투 기본 에디터인 gedit에서 자동 인식되는 인코딩에 cp949 방식을 추가합니다.
 먼저 콘솔에서 dconf-editor를 설치합니다. 있다면 패스합니다.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo apt-get install dconf-editor
@@ -1187,15 +1246,19 @@ org -&amp;gt; gnome -&amp;gt; gedit -&amp;gt; preferences -&amp;gt; encodings -&
 &lt;p&gt;‘UTF-8’, ‘UHC’, ‘CURRENT’, ‘ISO-8859-15’, ‘EUC-KR’, ‘UTF-16’   &amp;lt;==현재 시스템에 설정된 값 확인&lt;/p&gt;
 
 &lt;p&gt;이렇게 하면 우분투에서 콘솔이든 UI든지 윈도우에서 작업한 한글 텍스트를 보는데 문제가 없을 것입니다.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>GRUB multiboot repair(멀티부팅 재설치)</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/06/GRUB-multiboot-repair/"/>
-   <updated>2016-06-06T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/GRUB multiboot repair</id>
-   <content type="html">&lt;p&gt;멀티부팅을 위한 Rrub 재설치 방법&lt;/p&gt;
+</description>
+        <pubDate>Mon, 06 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_gedit-%ED%95%9C%EA%B8%80%EA%B9%A8%EC%A7%90-%EC%88%98%EC%A0%95/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_gedit-%ED%95%9C%EA%B8%80%EA%B9%A8%EC%A7%90-%EC%88%98%EC%A0%95/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>GRUB multiboot repair(멀티부팅 재설치)</title>
+        <description>&lt;p&gt;멀티부팅을 위한 Rrub 재설치 방법&lt;/p&gt;
 
 &lt;p&gt;To Reinstall Grub
 You need to have Ubuntu Live CD or Live USB. Normal session can be used to repair the grub. Boot using your Ubuntu Live CD or Live USB, while booting choose Try Ubuntu.
@@ -1253,15 +1316,19 @@ Select the Advanced options, In Main options tab check whether the following opt
 &lt;p&gt;Click ok and restart your System. To restore MBR Click Here.
 Hope this will be helpful for you!!!&lt;/p&gt;
 
-</content>
- </entry>
- 
- <entry>
-   <title>Jekyll&amp;github blog에서 latex 문법 사용하기</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Jekyll_github_blog_math/"/>
-   <updated>2016-06-06T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Jekyll_github_blog_math</id>
-   <content type="html">&lt;p&gt;Markdown을 이용하여 글을 작성하는 것은 직관적이면서도 편리한 방법이다. 하지만 markdown만으로는 수학 수식을 입력하기 쉽지 않기 때문에 다양한 플러그인을 사용해야 한다. 그중에서 latex을 사용하기 위한 방법을 소개한다.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 06 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/GRUB-multiboot-repair/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/GRUB-multiboot-repair/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Jekyll&amp;github blog에서 latex 문법 사용하기</title>
+        <description>&lt;p&gt;Markdown을 이용하여 글을 작성하는 것은 직관적이면서도 편리한 방법이다. 하지만 markdown만으로는 수학 수식을 입력하기 쉽지 않기 때문에 다양한 플러그인을 사용해야 한다. 그중에서 latex을 사용하기 위한 방법을 소개한다.&lt;/p&gt;
 
 &lt;p&gt;자세한 내용은 &lt;a href=&quot;http://www.dianacai.com/blog/2015/09/12/making-blog/&quot;&gt;여기&lt;/a&gt;를 참고.&lt;/p&gt;
 
@@ -1276,15 +1343,19 @@ Hope this will be helpful for you!!!&lt;/p&gt;
 
 &lt;p&gt;그리고 Matxjax가 정상적으로 동작하기 위해서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;파일에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;markdown: kramdown&lt;/code&gt; 으로 되어 있어야 한다. 기본적으로 github &amp;amp; jekyll 에서는 기본적으로 kramdown으로 되어 있을 것이다.&lt;/p&gt;
 
-</content>
- </entry>
- 
- <entry>
-   <title>Static 변수와 Extern변수</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/05/static_and_extern/"/>
-   <updated>2016-06-05T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/05/static_and_extern</id>
-   <content type="html">&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://thrillfighter.tistory.com/255&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 06 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Jekyll_github_blog_math/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Jekyll_github_blog_math/</guid>
+        
+        <category>jekyll</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Static 변수와 Extern변수</title>
+        <description>&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://thrillfighter.tistory.com/255&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
 
 &lt;p&gt;Static과 Extern의 개념 정리에 도움이 될듯 하다.&lt;/p&gt;
 
@@ -1303,15 +1374,19 @@ Hope this will be helpful for you!!!&lt;/p&gt;
     &lt;p&gt;자세한 내용은 &lt;a href=&quot;http://thrillfighter.tistory.com/255&quot;&gt;다음&lt;/a&gt;의 포스팅을 참고하자.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>DLL파일과 LIB파일 차이</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/05/DLL_and_LIB/"/>
-   <updated>2016-06-05T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/05/DLL_and_LIB</id>
-   <content type="html">&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://it4all.tistory.com/16&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 05 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/05/static_and_extern/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/05/static_and_extern/</guid>
+        
+        <category>software</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>DLL파일과 LIB파일 차이</title>
+        <description>&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://it4all.tistory.com/16&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
 
 &lt;p&gt;라이브러리 만드는 이유는 소스의 외부 유출 없이, 자신이 만든 모듈을 외부와 공유하기 위해서다. 또한 미리 컴파일 되어 있어서 컴파일 시간도 단축된다.
 이때 라이브러리는 동적 라이브러리와 정적 라이브러리가 있는데, 각각의 특징을 살펴보자.
@@ -1348,28 +1423,36 @@ Hope this will be helpful for you!!!&lt;/p&gt;
   &lt;li&gt;&lt;a href=&quot;http://jym2568.egloos.com/1186568&quot;&gt;http://jym2568.egloos.com/1186568&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://blog.naver.com/PostView.nhn?blogId=ssib0228&amp;amp;logNo=110013563400&amp;amp;redirect=Dlog&amp;amp;widgetTypeCall=true&quot;&gt;http://blog.naver.com/PostView.nhn?blogId=ssib0228&amp;amp;logNo=110013563400&amp;amp;redirect=Dlog&amp;amp;widgetTypeCall=true&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Ubuntu and Window Keyboard&amp;Mouse sharing(Synergy)</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/04/Ubuntu-and-Window-Keyboard&Mouse-sharing/"/>
-   <updated>2016-06-04T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/04/Ubuntu and Window Keyboard&Mouse sharing</id>
-   <content type="html">&lt;p&gt;Synergy는 두 컴퓨터를 인터넷망으로 연결하여 Input device를 공유하도록 하는 프로그램이다. 이 프로그램의 장점은 윈도우와 리눅스에서 동시에 사용 가능하다는 점이다. 즉 데스크탑 한대(리눅스)와 노트북(윈도우)를 한개의 Input device로 control이 가능하다. 즉, 윈도우로 사용 가능한 여유분의 노트북이 있다면 리눅스에 kakao talk을 설치하려고 삽질하는 노력을 하지 않아도 된다는 뜻이다.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 05 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/05/DLL_and_LIB/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/05/DLL_and_LIB/</guid>
+        
+        <category>software</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ubuntu and Window Keyboard&amp;Mouse sharing(Synergy)</title>
+        <description>&lt;p&gt;Synergy는 두 컴퓨터를 인터넷망으로 연결하여 Input device를 공유하도록 하는 프로그램이다. 이 프로그램의 장점은 윈도우와 리눅스에서 동시에 사용 가능하다는 점이다. 즉 데스크탑 한대(리눅스)와 노트북(윈도우)를 한개의 Input device로 control이 가능하다. 즉, 윈도우로 사용 가능한 여유분의 노트북이 있다면 리눅스에 kakao talk을 설치하려고 삽질하는 노력을 하지 않아도 된다는 뜻이다.&lt;/p&gt;
 
 &lt;p&gt;현재 Synergy는 유료프로그램으로 전환 되었으나 1.4.18버전을 사용한다면(구버전) 무료로 사용 가능하다. 최신 무료버전을 다운받고 싶으면 &lt;a href=&quot;http://storycompiler.tistory.com/37&quot;&gt;여기&lt;/a&gt;의 포스팅을 참고한다. 참고로 뒤에 얘기하지만 포스팅을 쓰고 있는 현 시점에 Synergy 1.4.18버전은 한글입력 문제를 위한 패치를 1.4.10버전에 비해 구하기 쉽지 않다.&lt;/p&gt;
 
 &lt;p&gt;현재 구성되어 있는 시스템은 리눅스(서버), 윈도우(클라이언트)인데 접속은 잘 되지만 윈도우에서 한글이 안되는 문제가 발생한다. 이 문제는 서버의 문제가 아닌 클라이언트 쪽의 문제이다. 아무리 찾아도 1.4.18버전의 한글 패치 버전을 찾기 힘들다. 직접 빌드를 해도 되지만 한글 패치가 있는 버전으로 내려서 설치하였다. 찾아보니 1.4.10버전의 한글패치가 가장 많은 듯 하여 1.4.10버전으로 설치하고 패치까지 완료하니 정상작동된다. 한글패치 파일을 클라이언트쪽(윈도우)의 경로에 붙여넣어준다. 보통 C:\Program Files\Synergy 이다. 자세한 내용은 &lt;a href=&quot;http://blog.shgeum.com/entry/Synergy-1410-x86-x64-%ED%95%9C%EA%B8%80-%ED%8C%A8%EC%B9%98&quot;&gt;다음&lt;/a&gt; 포스팅을 참고한다. 이 글을 보는 분들을 위해 synergy 1.4.10 window(64bit), ubuntu(64bit), 그리고 한글 패치파일 총 3개 파일 첨부한다.리눅스 파일을 설치할 때 오류가 뜨는데 무시하고 설치하니 잘 동작한다. &lt;a href=&quot;/Download/Synergy/1.4.10.zip&quot;&gt;여기&lt;/a&gt;에서 파일을 다운 받을 수 있다.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Ubuntu VPN server</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu-VPN-server-%EC%84%A4%EC%A0%95/"/>
-   <updated>2016-06-03T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu VPN server 설정</id>
-   <content type="html">&lt;p&gt;VPN(Virtual Private Network)은 IP를 우회할 수 있는 방법중에 하나이며 다양한 방법으로 응용가능하다. 예를들면 학교의 인터넷 망에서 자유롭게 논문을 볼 수 있지만(학교에서는 IEEE등에 논문을 구독할 수 있도록 지불을 했기 때문에) 외부 망에서는 동일하게 논문검색을 할 수 없다(물론 VPN을 이용하지 않고 논문을 검색하는 방법이 있긴 하다). 이럴 때 학교내 학교망에 연결되어 있는 컴퓨터에 VPN 설정을 하고 외부에서 이 컴퓨터 VPN server로 연결하여 외부로 접속을 한면 외부에서는 학교망에서 접속한 것으로 인식하기 때문에 학교내에서 접속한 것과 같은 효과를 볼 수 있다. Ubuntu 14.04에서 VPN server를 설정하는 방법은 다음과 같다.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 04 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/04/Ubuntu-and-Window-Keyboard&Mouse-sharing/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/04/Ubuntu-and-Window-Keyboard&Mouse-sharing/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ubuntu VPN server</title>
+        <description>&lt;p&gt;VPN(Virtual Private Network)은 IP를 우회할 수 있는 방법중에 하나이며 다양한 방법으로 응용가능하다. 예를들면 학교의 인터넷 망에서 자유롭게 논문을 볼 수 있지만(학교에서는 IEEE등에 논문을 구독할 수 있도록 지불을 했기 때문에) 외부 망에서는 동일하게 논문검색을 할 수 없다(물론 VPN을 이용하지 않고 논문을 검색하는 방법이 있긴 하다). 이럴 때 학교내 학교망에 연결되어 있는 컴퓨터에 VPN 설정을 하고 외부에서 이 컴퓨터 VPN server로 연결하여 외부로 접속을 한면 외부에서는 학교망에서 접속한 것으로 인식하기 때문에 학교내에서 접속한 것과 같은 효과를 볼 수 있다. Ubuntu 14.04에서 VPN server를 설정하는 방법은 다음과 같다.&lt;/p&gt;
 
 &lt;h2 id=&quot;1-pptpd-설치&quot;&gt;1. pptpd 설치&lt;/h2&gt;
 
@@ -1446,15 +1529,19 @@ iptables --append FORWARD --in-interface br0 -j ACCEPT
 &lt;h2 id=&quot;9-옵션-설정&quot;&gt;9. 옵션 설정&lt;/h2&gt;
 
 &lt;p&gt;VPN 연결을 위해 Ubuntu 14.04를 사용하고 있다면, PPTP Advanced Option에서 (use Point to point encryption)을 클릭해야 한다.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>SSH keygen 설정</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH-keygen-%EC%84%A4%EC%A0%95/"/>
-   <updated>2016-06-02T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH keygen 설정</id>
-   <content type="html">&lt;h1 id=&quot;1-ssh-접속-방법&quot;&gt;1. ssh 접속 방법&lt;/h1&gt;
+</description>
+        <pubDate>Fri, 03 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu-VPN-server-%EC%84%A4%EC%A0%95/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu-VPN-server-%EC%84%A4%EC%A0%95/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>SSH keygen 설정</title>
+        <description>&lt;h1 id=&quot;1-ssh-접속-방법&quot;&gt;1. ssh 접속 방법&lt;/h1&gt;
 
 &lt;p&gt;기본적으로 ssh 접속하는 방법은 다음과 같다&lt;/p&gt;
 
@@ -1488,15 +1575,19 @@ iptables --append FORWARD --in-interface br0 -j ACCEPT
 
 &lt;p&gt;만약 ssh key 등록 후 ssh 접속 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;Agent admitted failure to sign using the key&lt;/code&gt; 의 error가 발생하며 password를 물어볼 경우 &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh-add&lt;/code&gt; 명령어를 통해 ssh key를 ssh agent로 load 함으로써 고칠 수 있다.&lt;/p&gt;
 
-</content>
- </entry>
- 
- <entry>
-   <title>공개 SW 라이센스(GPL, LGPL, BSD)</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/01/%EA%B3%B5%EA%B0%9CSW%EB%9D%BC%EC%9D%B4%EC%84%BC%EC%8A%A4/"/>
-   <updated>2016-06-01T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/01/공개SW라이센스</id>
-   <content type="html">&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://darkpgmr.tistory.com/89&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 02 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH-keygen-%EC%84%A4%EC%A0%95/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH-keygen-%EC%84%A4%EC%A0%95/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>공개 SW 라이센스(GPL, LGPL, BSD)</title>
+        <description>&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://darkpgmr.tistory.com/89&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
 
 &lt;p&gt;오픈소스를 사용하다보면 GPL, LGPL, BSD, MIT 등 다양한 라이센스가 있는데 이에 대해 알아두어야 할 것 같아서 정리합니다.&lt;/p&gt;
 
@@ -1565,15 +1656,19 @@ iptables --append FORWARD --in-interface br0 -j ACCEPT
 이런 것을 재귀약자라고 한다네요.
 참고로 아프리카 영양중에 gnu(누~ 라고 발음)라는 것이 있는데, 이것과 구분하여 GNU는 ‘그누~’라고 발음한답니다. 그리고 &lt;a href=&quot;http://www.gnu.org/&quot;&gt;GNU 홈페이지&lt;/a&gt;에 가보면 이 영양 머리모양을 마크로 하고 있음을 알 수 있습니다.&lt;/p&gt;
 
-</content>
- </entry>
- 
- <entry>
-   <title>이미지 확장자</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/05/29/%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%99%95%EC%9E%A5%EC%9E%90/"/>
-   <updated>2016-05-29T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/05/29/이미지확장자</id>
-   <content type="html">&lt;p&gt;오디오 컨테이너가 가장 기술적으로 잘 알려진 컨테이너라 하면 이미지 컨테이너는 가장 많이 사용되고 있는 컨테이너일 것이다. 윈도로 대표되는 GUI(Graphic User Interface) 기반의 OS와 웹브라우저 기반 인터넷이 대중화하고 보급되면서 인류의 디지털 라이프는 온갖 종류의 이미지로 채워지게 되었기 때문이다. 이처럼 우리의 생활과 매우 밀접한 존재이기 때문에 단순 소비를 위한 편의성에서는 오디오 컨테이너와 마찬가지로 거의 신경 쓸 필요 없이 일반적으로 사용되는 시스템에서 그대로 사용하면 된다. 하지만 오디오 컨테이너에 비해 사용되는 종류가 압도적으로 다양하며 당연히 이로 인해 호환성이 조금은 떨어지는 것은 사실이다.
+</description>
+        <pubDate>Wed, 01 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/01/%EA%B3%B5%EA%B0%9CSW%EB%9D%BC%EC%9D%B4%EC%84%BC%EC%8A%A4/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/01/%EA%B3%B5%EA%B0%9CSW%EB%9D%BC%EC%9D%B4%EC%84%BC%EC%8A%A4/</guid>
+        
+        <category>software</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>이미지 확장자</title>
+        <description>&lt;p&gt;오디오 컨테이너가 가장 기술적으로 잘 알려진 컨테이너라 하면 이미지 컨테이너는 가장 많이 사용되고 있는 컨테이너일 것이다. 윈도로 대표되는 GUI(Graphic User Interface) 기반의 OS와 웹브라우저 기반 인터넷이 대중화하고 보급되면서 인류의 디지털 라이프는 온갖 종류의 이미지로 채워지게 되었기 때문이다. 이처럼 우리의 생활과 매우 밀접한 존재이기 때문에 단순 소비를 위한 편의성에서는 오디오 컨테이너와 마찬가지로 거의 신경 쓸 필요 없이 일반적으로 사용되는 시스템에서 그대로 사용하면 된다. 하지만 오디오 컨테이너에 비해 사용되는 종류가 압도적으로 다양하며 당연히 이로 인해 호환성이 조금은 떨어지는 것은 사실이다.
 동영상은 비슷한 정지 이미지의 연속이라는 점에서 이미지와 무관할 수 없으며 제한적이나마 이미지 시퀀스란 형태로 서로 호환되기도 하기 때문에 동영상 작업을 하는 작업자라도 정지 이미지에 대해 기본적인 내용은 숙지할 필요가 있다.&lt;/p&gt;
 
 &lt;h1 id=&quot;비트맵-이미지와-벡터-이미지&quot;&gt;비트맵 이미지와 벡터 이미지&lt;/h1&gt;
@@ -1620,15 +1715,19 @@ TGA로 이뤄진 이미지 시퀀스(image sequence)를 ‘타가 시퀀스’�
 &lt;h2 id=&quot;10-tif&quot;&gt;10. TIF&lt;/h2&gt;
 
 &lt;p&gt;앨더스(Aldus)와 마이크로소프트가 스캐너용으로 공동 개발한 비트맵 이미지 파일 컨테이너로 ‘태그드 이미지 파일 포맷(Tagged Image File Format)’의 줄임말이다. 무압축은 물론 다양한 압축률을 선택할 수 있으나 압축 방식을 사용하면 구형 이미지 뷰어에서 정상적으로 인식되지 않는 경우도 있기 때문에 사용에 주의가 필요하다. 포토샵의 PSD처럼 레이어도 지원한다. 등장 시기는 PCX와 비슷하지만 아직까지도 꾸준히 사용되고 있는 규격이다.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Jekyll Markdown에서 HTML소스코드 그대로 포스팅하기</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/05/27/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%8C%80%EB%A1%9C-%ED%8F%AC%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0/"/>
-   <updated>2016-05-27T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/05/27/소스코드 그대로 포스팅하기</id>
-   <content type="html">&lt;p&gt;Jekyll을 이용하여 포스팅을 하면서 코드를 올리는 경우가 종종 있다. C 나 python 혹은 기타 코드를 code block에 넣으면 코드가 그대로 보이지만 HTML을 넣을 경우 실제 데이터로 convert가 되어 표기가 되어 원하는 코드를 재대로 보여줄 수 없다. 이때는 code block에 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;raw&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt; 와 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;endraw&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;를 넣어줌으로써 code의 raw를 변환없이 아래와 같이 포스팅 할 수 있다. 실제 입력 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;/code&gt; 와 &lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt; 사이에는 공백이 없어야 한다.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 29 May 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/29/%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%99%95%EC%9E%A5%EC%9E%90/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/29/%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%99%95%EC%9E%A5%EC%9E%90/</guid>
+        
+        <category>software</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Jekyll Markdown에서 HTML소스코드 그대로 포스팅하기</title>
+        <description>&lt;p&gt;Jekyll을 이용하여 포스팅을 하면서 코드를 올리는 경우가 종종 있다. C 나 python 혹은 기타 코드를 code block에 넣으면 코드가 그대로 보이지만 HTML을 넣을 경우 실제 데이터로 convert가 되어 표기가 되어 원하는 코드를 재대로 보여줄 수 없다. 이때는 code block에 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;raw&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt; 와 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;endraw&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;를 넣어줌으로써 code의 raw를 변환없이 아래와 같이 포스팅 할 수 있다. 실제 입력 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;/code&gt; 와 &lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt; 사이에는 공백이 없어야 한다.&lt;/p&gt;
 
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 ---
@@ -1668,15 +1767,19 @@ layout: default_post
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-</content>
- </entry>
- 
- <entry>
-   <title>Jekyll에 댓글 추가하기(Disqus)</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/05/19/add_comment_to_post/"/>
-   <updated>2016-05-19T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/05/19/add_comment_to_post</id>
-   <content type="html">&lt;p&gt;Jekyll 블로그는 기본적인 layout만을 제공해 주기 때문에 블로그 포스팅에 댓글을 달 수 있도록 만들기 위해서는 추가적인 작업이 필요하다. 댓글창을 만들기 위해 &lt;a href=&quot;https://disqus.com/&quot;&gt;Disqus&lt;/a&gt;를 사용할 것이다.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 27 May 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/27/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%8C%80%EB%A1%9C-%ED%8F%AC%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/27/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%8C%80%EB%A1%9C-%ED%8F%AC%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0/</guid>
+        
+        <category>jekyll</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Jekyll에 댓글 추가하기(Disqus)</title>
+        <description>&lt;p&gt;Jekyll 블로그는 기본적인 layout만을 제공해 주기 때문에 블로그 포스팅에 댓글을 달 수 있도록 만들기 위해서는 추가적인 작업이 필요하다. 댓글창을 만들기 위해 &lt;a href=&quot;https://disqus.com/&quot;&gt;Disqus&lt;/a&gt;를 사용할 것이다.&lt;/p&gt;
 
 &lt;h1 id=&quot;1-disqus-계정-만들기&quot;&gt;1. Disqus 계정 만들기&lt;/h1&gt;
 &lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/images/post/add_comment_to_post/fig1.png&quot; width=&quot;500&quot; height=&quot;500px&quot; /&gt;&lt;/p&gt;
@@ -1742,15 +1845,19 @@ layout: default_post
 
 &lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/images/post/add_comment_to_post/fig3.png&quot; width=&quot;800&quot; height=&quot;200px&quot; /&gt;&lt;/p&gt;
 
-</content>
- </entry>
- 
- <entry>
-   <title>Windows Partition Auto Mount in Ubuntu 14.04</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/05/15/Partition_auto_mount/"/>
-   <updated>2016-05-15T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/05/15/Partition_auto_mount</id>
-   <content type="html">&lt;p&gt;윈도우 파티션의 파일시스템은 NTFS(New Technology File System)으로 보통 구성되어 있다. 예전에는 Ubuntu에서 NTFS 시스템을 읽거나 사용하기 어려웠는데 근래에는 Reverse Engineering을 통해 Ubuntu에서도 사용 가능할 수 있게 되었다. 기본적으로 가장 오래된 시스템은 FAT(File Allocate Table)이며 안정성 면에서는 FAT32가 가장 좋다. 하지만 FAT32는 32bit 시스템을 사용하기 떄문에 4Gbyte 이상의 파일을 저장할 수 없다. 왜냐하면 32bit 방식은 표현할 수 있는 주소의 갯수가 2의 32승 = 4.2950e+09 이고  한개의 주소값으로 1Byte를 표현 할 수 있으므로 32bit 시스템으로 표현할 수 있는 최대 메모리는 4.2950e+09 Byte, 약 4GByte이다. 마찬가지로 32bit 운영체제에서 최대 사용가능한 메모리 용량이 4GByte인것도 같은 이유이다. 32bit 시스템에서 4GByte이상의 하드디스크를 사용할 수 있는 것은 하드시스크의 data를 RAM으로 이동 후 처리하기 때문에 가능한 것이다. 이러한 한계 때문에 개발 된 것이 exFAT시스템이다. exFAT시스템은 용량의 제한이 매우 커서 따로 신경쓸 필요가 없다. 하지만 exFAT 시스템으로 설정된 USB 및 디스크를 안전하게 제거하지 않는다거나 여러 경우에 불안한 모습을 보일 때가 있다고 한다. 마지막으로 NTFS 방식은 Windows에서 개발된 방식이기 때문에 블랙박스라던지 기타 디바이스에서 인식이 안되는 문제가 있다고 한다.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 19 May 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/19/add_comment_to_post/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/19/add_comment_to_post/</guid>
+        
+        <category>jekyll</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Windows Partition Auto Mount in Ubuntu 14.04</title>
+        <description>&lt;p&gt;윈도우 파티션의 파일시스템은 NTFS(New Technology File System)으로 보통 구성되어 있다. 예전에는 Ubuntu에서 NTFS 시스템을 읽거나 사용하기 어려웠는데 근래에는 Reverse Engineering을 통해 Ubuntu에서도 사용 가능할 수 있게 되었다. 기본적으로 가장 오래된 시스템은 FAT(File Allocate Table)이며 안정성 면에서는 FAT32가 가장 좋다. 하지만 FAT32는 32bit 시스템을 사용하기 떄문에 4Gbyte 이상의 파일을 저장할 수 없다. 왜냐하면 32bit 방식은 표현할 수 있는 주소의 갯수가 2의 32승 = 4.2950e+09 이고  한개의 주소값으로 1Byte를 표현 할 수 있으므로 32bit 시스템으로 표현할 수 있는 최대 메모리는 4.2950e+09 Byte, 약 4GByte이다. 마찬가지로 32bit 운영체제에서 최대 사용가능한 메모리 용량이 4GByte인것도 같은 이유이다. 32bit 시스템에서 4GByte이상의 하드디스크를 사용할 수 있는 것은 하드시스크의 data를 RAM으로 이동 후 처리하기 때문에 가능한 것이다. 이러한 한계 때문에 개발 된 것이 exFAT시스템이다. exFAT시스템은 용량의 제한이 매우 커서 따로 신경쓸 필요가 없다. 하지만 exFAT 시스템으로 설정된 USB 및 디스크를 안전하게 제거하지 않는다거나 여러 경우에 불안한 모습을 보일 때가 있다고 한다. 마지막으로 NTFS 방식은 Windows에서 개발된 방식이기 때문에 블랙박스라던지 기타 디바이스에서 인식이 안되는 문제가 있다고 한다.&lt;/p&gt;
 
 &lt;p&gt;다시한번 정리하면&lt;/p&gt;
 
@@ -1815,8 +1922,15 @@ layout: default_post
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-</content>
- </entry>
- 
-
-</feed>
+</description>
+        <pubDate>Sun, 15 May 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/15/Partition_auto_mount/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/15/Partition_auto_mount/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
