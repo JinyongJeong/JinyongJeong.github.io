@@ -4,7 +4,7 @@
  <title>Jinyong Jeong</title>
  <link href="http://localhost:4000http://JinyongJeong.github.io/atom.xml" rel="self"/>
  <link href="http://localhost:4000http://JinyongJeong.github.io/"/>
- <updated>2017-02-13T16:38:12+09:00</updated>
+ <updated>2017-02-13T16:41:39+09:00</updated>
  <id>http://localhost:4000http://JinyongJeong.github.io</id>
  <author>
    <name>Jinyong Jeong</name>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>bayes</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM-bayes-model/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM_bayes_model/"/>
    <updated>2017-01-13T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM-bayes-model</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM_bayes_model</id>
    <content type="html">
 </content>
  </entry>
@@ -193,9 +193,9 @@ set(CMAKE_EXTRA_GENERATOR &quot;Sublime Text 2&quot; CACHE INTERNAL &quot;&quot;
  
  <entry>
    <title>원하는 QT 버전에 맞게 PCL 설치하기</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2017/01/09/pcl-install-with-qt5/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2017/01/09/pcl_install_with_qt5/"/>
    <updated>2017-01-09T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2017/01/09/pcl install with qt5</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2017/01/09/pcl_install_with_qt5</id>
    <content type="html">&lt;p&gt;원하는 버전의 QT5와 VTK, PCL을 설치하는 방법에 대해 설명한다.&lt;/p&gt;
 
 &lt;p&gt;일반적인 방법으로 PCL을 설치할 경우 PCL의 기본 QT의 경로가 /usr/lib/x86_64-linux-gnu/ 로 잡히게 된다.&lt;/p&gt;
@@ -258,9 +258,9 @@ make install
  
  <entry>
    <title>Jekyll을 이용하여 Github Blog 만들기</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2017/01/08/jekyll-blog-making-new/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2017/01/08/jekyll_blog_making_new/"/>
    <updated>2017-01-08T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2017/01/08/jekyll-blog-making-new</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2017/01/08/jekyll_blog_making_new</id>
    <content type="html">&lt;h2 id=&quot;ruby와-jekyll-설치&quot;&gt;Ruby와 Jekyll 설치&lt;/h2&gt;
 &lt;p&gt;Jekyll을 이용하여 github의 Blog를 만들어보도록 하자. 우선 Jekyll을 설치하기 위해서는 ruby를 설치해야 한다. 아래명령어를 이용하여 ruby를 설치한 후 Jekyll을 설치한다.&lt;/p&gt;
 
@@ -818,9 +818,9 @@ sudo ln -s /usr/lib/libGL.so.1 /usr/lib/x86_64-linux-gnu/libGL.so
  
  <entry>
    <title>SE(3) and SO(3) transformation</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/07/se3-so3-transformation/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/07/se3_so3_transformation/"/>
    <updated>2016-06-07T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/07/se3-so3-transformation</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/07/se3_so3_transformation</id>
    <content type="html">&lt;h2 id=&quot;se3-so3-and-gl3r&quot;&gt;SE(3), SO(3) and GL(3,R)&lt;/h2&gt;
 
 &lt;p&gt;SE(3), SO(3), GL(3,R) 와 관련된 내용을 정리해 보려고 한다.&lt;/p&gt;
@@ -1192,9 +1192,9 @@ org -&amp;gt; gnome -&amp;gt; gedit -&amp;gt; preferences -&amp;gt; encodings -&
  
  <entry>
    <title>GRUB multiboot repair(멀티부팅 재설치)</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/06/GRUB-multiboot-repair/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/06/GRUB_multiboot_repair/"/>
    <updated>2016-06-06T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/GRUB multiboot repair</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/GRUB_multiboot_repair</id>
    <content type="html">&lt;p&gt;멀티부팅을 위한 Rrub 재설치 방법&lt;/p&gt;
 
 &lt;p&gt;To Reinstall Grub
@@ -1258,9 +1258,9 @@ Hope this will be helpful for you!!!&lt;/p&gt;
  
  <entry>
    <title>Jekyll&amp;github blog에서 latex 문법 사용하기</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Jekyll-github-blog-math/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Jekyll_github_blog_math/"/>
    <updated>2016-06-06T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Jekyll-github-blog-math</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Jekyll_github_blog_math</id>
    <content type="html">&lt;p&gt;Markdown을 이용하여 글을 작성하는 것은 직관적이면서도 편리한 방법이다. 하지만 markdown만으로는 수학 수식을 입력하기 쉽지 않기 때문에 다양한 플러그인을 사용해야 한다. 그중에서 latex을 사용하기 위한 방법을 소개한다.&lt;/p&gt;
 
 &lt;p&gt;자세한 내용은 &lt;a href=&quot;http://www.dianacai.com/blog/2015/09/12/making-blog/&quot;&gt;여기&lt;/a&gt;를 참고.&lt;/p&gt;
@@ -1281,9 +1281,9 @@ Hope this will be helpful for you!!!&lt;/p&gt;
  
  <entry>
    <title>Static 변수와 Extern변수</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/05/static-and-extern/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/05/static_and_extern/"/>
    <updated>2016-06-05T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/05/static-and-extern</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/05/static_and_extern</id>
    <content type="html">&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://thrillfighter.tistory.com/255&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
 
 &lt;p&gt;Static과 Extern의 개념 정리에 도움이 될듯 하다.&lt;/p&gt;
@@ -1308,9 +1308,9 @@ Hope this will be helpful for you!!!&lt;/p&gt;
  
  <entry>
    <title>DLL파일과 LIB파일 차이</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/05/DLL-and-LIB/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/05/DLL_and_LIB/"/>
    <updated>2016-06-05T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/05/DLL-and-LIB</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/05/DLL_and_LIB</id>
    <content type="html">&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://it4all.tistory.com/16&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
 
 &lt;p&gt;라이브러리 만드는 이유는 소스의 외부 유출 없이, 자신이 만든 모듈을 외부와 공유하기 위해서다. 또한 미리 컴파일 되어 있어서 컴파일 시간도 단축된다.
@@ -1366,9 +1366,9 @@ Hope this will be helpful for you!!!&lt;/p&gt;
  
  <entry>
    <title>Ubuntu VPN server</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu-VPN-setting/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu_VPN_setting/"/>
    <updated>2016-06-03T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu-VPN-setting</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu_VPN_setting</id>
    <content type="html">&lt;p&gt;VPN(Virtual Private Network)은 IP를 우회할 수 있는 방법중에 하나이며 다양한 방법으로 응용가능하다. 예를들면 학교의 인터넷 망에서 자유롭게 논문을 볼 수 있지만(학교에서는 IEEE등에 논문을 구독할 수 있도록 지불을 했기 때문에) 외부 망에서는 동일하게 논문검색을 할 수 없다(물론 VPN을 이용하지 않고 논문을 검색하는 방법이 있긴 하다). 이럴 때 학교내 학교망에 연결되어 있는 컴퓨터에 VPN 설정을 하고 외부에서 이 컴퓨터 VPN server로 연결하여 외부로 접속을 한면 외부에서는 학교망에서 접속한 것으로 인식하기 때문에 학교내에서 접속한 것과 같은 효과를 볼 수 있다. Ubuntu 14.04에서 VPN server를 설정하는 방법은 다음과 같다.&lt;/p&gt;
 
 &lt;h2 id=&quot;1-pptpd-설치&quot;&gt;1. pptpd 설치&lt;/h2&gt;
@@ -1451,9 +1451,9 @@ iptables --append FORWARD --in-interface br0 -j ACCEPT
  
  <entry>
    <title>SSH keygen 설정</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH-keygen-setting/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH_keygen_setting/"/>
    <updated>2016-06-02T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH-keygen-setting</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH_keygen_setting</id>
    <content type="html">&lt;h1 id=&quot;1-ssh-접속-방법&quot;&gt;1. ssh 접속 방법&lt;/h1&gt;
 
 &lt;p&gt;기본적으로 ssh 접속하는 방법은 다음과 같다&lt;/p&gt;
@@ -1493,9 +1493,9 @@ iptables --append FORWARD --in-interface br0 -j ACCEPT
  
  <entry>
    <title>공개 SW 라이센스(GPL, LGPL, BSD)</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/01/software-license/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/01/software_license/"/>
    <updated>2016-06-01T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/01/software-license</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/01/software_license</id>
    <content type="html">&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://darkpgmr.tistory.com/89&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
 
 &lt;p&gt;오픈소스를 사용하다보면 GPL, LGPL, BSD, MIT 등 다양한 라이센스가 있는데 이에 대해 알아두어야 할 것 같아서 정리합니다.&lt;/p&gt;
@@ -1570,9 +1570,9 @@ iptables --append FORWARD --in-interface br0 -j ACCEPT
  
  <entry>
    <title>이미지 확장자</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/05/29/image-type/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/05/29/image_type/"/>
    <updated>2016-05-29T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/05/29/image-type</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/05/29/image_type</id>
    <content type="html">&lt;p&gt;오디오 컨테이너가 가장 기술적으로 잘 알려진 컨테이너라 하면 이미지 컨테이너는 가장 많이 사용되고 있는 컨테이너일 것이다. 윈도로 대표되는 GUI(Graphic User Interface) 기반의 OS와 웹브라우저 기반 인터넷이 대중화하고 보급되면서 인류의 디지털 라이프는 온갖 종류의 이미지로 채워지게 되었기 때문이다. 이처럼 우리의 생활과 매우 밀접한 존재이기 때문에 단순 소비를 위한 편의성에서는 오디오 컨테이너와 마찬가지로 거의 신경 쓸 필요 없이 일반적으로 사용되는 시스템에서 그대로 사용하면 된다. 하지만 오디오 컨테이너에 비해 사용되는 종류가 압도적으로 다양하며 당연히 이로 인해 호환성이 조금은 떨어지는 것은 사실이다.
 동영상은 비슷한 정지 이미지의 연속이라는 점에서 이미지와 무관할 수 없으며 제한적이나마 이미지 시퀀스란 형태로 서로 호환되기도 하기 때문에 동영상 작업을 하는 작업자라도 정지 이미지에 대해 기본적인 내용은 숙지할 필요가 있다.&lt;/p&gt;
 
@@ -1625,9 +1625,9 @@ TGA로 이뤄진 이미지 시퀀스(image sequence)를 ‘타가 시퀀스’�
  
  <entry>
    <title>Jekyll Markdown에서 HTML소스코드 그대로 포스팅하기</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/05/27/post-source-code/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/05/27/post_source_code/"/>
    <updated>2016-05-27T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/05/27/post-source-code</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/05/27/post_source_code</id>
    <content type="html">&lt;p&gt;Jekyll을 이용하여 포스팅을 하면서 코드를 올리는 경우가 종종 있다. C 나 python 혹은 기타 코드를 code block에 넣으면 코드가 그대로 보이지만 HTML을 넣을 경우 실제 데이터로 convert가 되어 표기가 되어 원하는 코드를 재대로 보여줄 수 없다. 이때는 code block에 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;raw&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt; 와 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;endraw&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;를 넣어줌으로써 code의 raw를 변환없이 아래와 같이 포스팅 할 수 있다. 실제 입력 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;/code&gt; 와 &lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt; 사이에는 공백이 없어야 한다.&lt;/p&gt;
 
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
@@ -1673,9 +1673,9 @@ layout: default_post
  
  <entry>
    <title>Jekyll에 댓글 추가하기(Disqus)</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/05/19/add-comment-to-post/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/05/19/add_comment_to_post/"/>
    <updated>2016-05-19T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/05/19/add-comment-to-post</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/05/19/add_comment_to_post</id>
    <content type="html">&lt;p&gt;Jekyll 블로그는 기본적인 layout만을 제공해 주기 때문에 블로그 포스팅에 댓글을 달 수 있도록 만들기 위해서는 추가적인 작업이 필요하다. 댓글창을 만들기 위해 &lt;a href=&quot;https://disqus.com/&quot;&gt;Disqus&lt;/a&gt;를 사용할 것이다.&lt;/p&gt;
 
 &lt;h1 id=&quot;1-disqus-계정-만들기&quot;&gt;1. Disqus 계정 만들기&lt;/h1&gt;
@@ -1747,9 +1747,9 @@ layout: default_post
  
  <entry>
    <title>Windows Partition Auto Mount in Ubuntu 14.04</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/05/15/Partition-auto-mount/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/05/15/Partition_auto_mount/"/>
    <updated>2016-05-15T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/05/15/Partition-auto-mount</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/05/15/Partition_auto_mount</id>
    <content type="html">&lt;p&gt;윈도우 파티션의 파일시스템은 NTFS(New Technology File System)으로 보통 구성되어 있다. 예전에는 Ubuntu에서 NTFS 시스템을 읽거나 사용하기 어려웠는데 근래에는 Reverse Engineering을 통해 Ubuntu에서도 사용 가능할 수 있게 되었다. 기본적으로 가장 오래된 시스템은 FAT(File Allocate Table)이며 안정성 면에서는 FAT32가 가장 좋다. 하지만 FAT32는 32bit 시스템을 사용하기 떄문에 4Gbyte 이상의 파일을 저장할 수 없다. 왜냐하면 32bit 방식은 표현할 수 있는 주소의 갯수가 2의 32승 = 4.2950e+09 이고  한개의 주소값으로 1Byte를 표현 할 수 있으므로 32bit 시스템으로 표현할 수 있는 최대 메모리는 4.2950e+09 Byte, 약 4GByte이다. 마찬가지로 32bit 운영체제에서 최대 사용가능한 메모리 용량이 4GByte인것도 같은 이유이다. 32bit 시스템에서 4GByte이상의 하드디스크를 사용할 수 있는 것은 하드시스크의 data를 RAM으로 이동 후 처리하기 때문에 가능한 것이다. 이러한 한계 때문에 개발 된 것이 exFAT시스템이다. exFAT시스템은 용량의 제한이 매우 커서 따로 신경쓸 필요가 없다. 하지만 exFAT 시스템으로 설정된 USB 및 디스크를 안전하게 제거하지 않는다거나 여러 경우에 불안한 모습을 보일 때가 있다고 한다. 마지막으로 NTFS 방식은 Windows에서 개발된 방식이기 때문에 블랙박스라던지 기타 디바이스에서 인식이 안되는 문제가 있다고 한다.&lt;/p&gt;
 
 &lt;p&gt;다시한번 정리하면&lt;/p&gt;

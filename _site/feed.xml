@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000http://JinyongJeong.github.io/</link>
     <atom:link href="http://localhost:4000http://JinyongJeong.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 13 Feb 2017 16:38:12 +0900</pubDate>
-    <lastBuildDate>Mon, 13 Feb 2017 16:38:12 +0900</lastBuildDate>
+    <pubDate>Mon, 13 Feb 2017 16:41:39 +0900</pubDate>
+    <lastBuildDate>Mon, 13 Feb 2017 16:41:39 +0900</lastBuildDate>
     <generator>Jekyll v3.4.0</generator>
     
       <item>
@@ -15,8 +15,8 @@
         <description>
 </description>
         <pubDate>Fri, 13 Jan 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM-bayes-model/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM-bayes-model/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM_bayes_model/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM_bayes_model/</guid>
         
         <category>SLAM</category>
         
@@ -260,8 +260,8 @@ make install
 
 </description>
         <pubDate>Mon, 09 Jan 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2017/01/09/pcl-install-with-qt5/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2017/01/09/pcl-install-with-qt5/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2017/01/09/pcl_install_with_qt5/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2017/01/09/pcl_install_with_qt5/</guid>
         
         <category>ubuntu</category>
         
@@ -331,8 +331,8 @@ git config user.name &quot;이름&quot;
 &lt;p&gt;블로그 작성 시 입력한 내용이 예상한대로 동작을 하는지 확인 하기 위해서 매번 github에 push하는 것은 매우 힘든 일이다. 작성을 하는 동시에 바로 확인을 하기 위해서 위에서 언급한 것과 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;를 이용하여 서버를 동작 시킨 후 &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:4000&lt;/code&gt;으로 접속하면 바로 수정된 내용을 확인할 수 있다. 이렇게 수정이 완료된 후 github로 push하면 편하게 포스팅을 수정할 수 있다.&lt;/p&gt;
 </description>
         <pubDate>Sun, 08 Jan 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2017/01/08/jekyll-blog-making-new/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2017/01/08/jekyll-blog-making-new/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2017/01/08/jekyll_blog_making_new/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2017/01/08/jekyll_blog_making_new/</guid>
         
         <category>jekyll</category>
         
@@ -958,8 +958,8 @@ z_2\\
 &lt;p&gt;더 자세한 내용은 &lt;a href=&quot;/Download/SE3/jlblanco2010geometry3d_techrep.pdf&quot;&gt;A tutorial on SE(3) transformation parameterizations and on-manifold optimization&lt;/a&gt; 를 참고하기 바란다.&lt;/p&gt;
 </description>
         <pubDate>Tue, 07 Jun 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/07/se3-so3-transformation/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/07/se3-so3-transformation/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/07/se3_so3_transformation/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/07/se3_so3_transformation/</guid>
         
         <category>math</category>
         
@@ -1318,8 +1318,8 @@ Hope this will be helpful for you!!!&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 06 Jun 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/GRUB-multiboot-repair/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/GRUB-multiboot-repair/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/GRUB_multiboot_repair/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/GRUB_multiboot_repair/</guid>
         
         <category>ubuntu</category>
         
@@ -1345,8 +1345,8 @@ Hope this will be helpful for you!!!&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 06 Jun 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Jekyll-github-blog-math/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Jekyll-github-blog-math/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Jekyll_github_blog_math/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Jekyll_github_blog_math/</guid>
         
         <category>jekyll</category>
         
@@ -1376,8 +1376,8 @@ Hope this will be helpful for you!!!&lt;/p&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 05 Jun 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/05/static-and-extern/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/05/static-and-extern/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/05/static_and_extern/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/05/static_and_extern/</guid>
         
         <category>software</category>
         
@@ -1425,8 +1425,8 @@ Hope this will be helpful for you!!!&lt;/p&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 05 Jun 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/05/DLL-and-LIB/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/05/DLL-and-LIB/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/05/DLL_and_LIB/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/05/DLL_and_LIB/</guid>
         
         <category>software</category>
         
@@ -1531,8 +1531,8 @@ iptables --append FORWARD --in-interface br0 -j ACCEPT
 &lt;p&gt;VPN 연결을 위해 Ubuntu 14.04를 사용하고 있다면, PPTP Advanced Option에서 (use Point to point encryption)을 클릭해야 한다.&lt;/p&gt;
 </description>
         <pubDate>Fri, 03 Jun 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu-VPN-setting/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu-VPN-setting/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu_VPN_setting/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu_VPN_setting/</guid>
         
         <category>ubuntu</category>
         
@@ -1577,8 +1577,8 @@ iptables --append FORWARD --in-interface br0 -j ACCEPT
 
 </description>
         <pubDate>Thu, 02 Jun 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH-keygen-setting/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH-keygen-setting/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH_keygen_setting/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH_keygen_setting/</guid>
         
         <category>ubuntu</category>
         
@@ -1658,8 +1658,8 @@ iptables --append FORWARD --in-interface br0 -j ACCEPT
 
 </description>
         <pubDate>Wed, 01 Jun 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/01/software-license/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/01/software-license/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/01/software_license/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/01/software_license/</guid>
         
         <category>software</category>
         
@@ -1717,8 +1717,8 @@ TGA로 이뤄진 이미지 시퀀스(image sequence)를 ‘타가 시퀀스’�
 &lt;p&gt;앨더스(Aldus)와 마이크로소프트가 스캐너용으로 공동 개발한 비트맵 이미지 파일 컨테이너로 ‘태그드 이미지 파일 포맷(Tagged Image File Format)’의 줄임말이다. 무압축은 물론 다양한 압축률을 선택할 수 있으나 압축 방식을 사용하면 구형 이미지 뷰어에서 정상적으로 인식되지 않는 경우도 있기 때문에 사용에 주의가 필요하다. 포토샵의 PSD처럼 레이어도 지원한다. 등장 시기는 PCX와 비슷하지만 아직까지도 꾸준히 사용되고 있는 규격이다.&lt;/p&gt;
 </description>
         <pubDate>Sun, 29 May 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/29/image-type/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/29/image-type/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/29/image_type/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/29/image_type/</guid>
         
         <category>software</category>
         
@@ -1769,8 +1769,8 @@ layout: default_post
 
 </description>
         <pubDate>Fri, 27 May 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/27/post-source-code/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/27/post-source-code/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/27/post_source_code/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/27/post_source_code/</guid>
         
         <category>jekyll</category>
         
@@ -1847,8 +1847,8 @@ layout: default_post
 
 </description>
         <pubDate>Thu, 19 May 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/19/add-comment-to-post/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/19/add-comment-to-post/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/19/add_comment_to_post/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/19/add_comment_to_post/</guid>
         
         <category>jekyll</category>
         
@@ -1924,8 +1924,8 @@ layout: default_post
 
 </description>
         <pubDate>Sun, 15 May 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/15/Partition-auto-mount/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/15/Partition-auto-mount/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/15/Partition_auto_mount/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/15/Partition_auto_mount/</guid>
         
         <category>ubuntu</category>
         

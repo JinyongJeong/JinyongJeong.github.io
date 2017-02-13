@@ -2,7 +2,7 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
     <url>
-      <loc>http://localhost:4000/2017/01/13/SLAM-bayes-model/</loc>
+      <loc>http://localhost:4000/2017/01/13/SLAM_bayes_model/</loc>
       
         <lastmod>2017-01-13T00:00:00+09:00</lastmod>
       
@@ -34,7 +34,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2017/01/09/pcl-install-with-qt5/</loc>
+      <loc>http://localhost:4000/2017/01/09/pcl_install_with_qt5/</loc>
       
         <lastmod>2017-01-09T00:00:00+09:00</lastmod>
       
@@ -50,7 +50,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2017/01/08/jekyll-blog-making-new/</loc>
+      <loc>http://localhost:4000/2017/01/08/jekyll_blog_making_new/</loc>
       
         <lastmod>2017-01-08T00:00:00+09:00</lastmod>
       
@@ -162,7 +162,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2016/06/07/se3-so3-transformation/</loc>
+      <loc>http://localhost:4000/2016/06/07/se3_so3_transformation/</loc>
       
         <lastmod>2016-06-07T00:00:00+09:00</lastmod>
       
@@ -258,7 +258,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2016/06/06/GRUB-multiboot-repair/</loc>
+      <loc>http://localhost:4000/2016/06/06/GRUB_multiboot_repair/</loc>
       
         <lastmod>2016-06-06T00:00:00+09:00</lastmod>
       
@@ -274,7 +274,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2016/06/06/Jekyll-github-blog-math/</loc>
+      <loc>http://localhost:4000/2016/06/06/Jekyll_github_blog_math/</loc>
       
         <lastmod>2016-06-06T00:00:00+09:00</lastmod>
       
@@ -290,7 +290,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2016/06/05/static-and-extern/</loc>
+      <loc>http://localhost:4000/2016/06/05/static_and_extern/</loc>
       
         <lastmod>2016-06-05T00:00:00+09:00</lastmod>
       
@@ -306,7 +306,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2016/06/05/DLL-and-LIB/</loc>
+      <loc>http://localhost:4000/2016/06/05/DLL_and_LIB/</loc>
       
         <lastmod>2016-06-05T00:00:00+09:00</lastmod>
       
@@ -338,7 +338,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2016/06/03/Ubuntu-VPN-setting/</loc>
+      <loc>http://localhost:4000/2016/06/03/Ubuntu_VPN_setting/</loc>
       
         <lastmod>2016-06-03T00:00:00+09:00</lastmod>
       
@@ -354,7 +354,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2016/06/02/SSH-keygen-setting/</loc>
+      <loc>http://localhost:4000/2016/06/02/SSH_keygen_setting/</loc>
       
         <lastmod>2016-06-02T00:00:00+09:00</lastmod>
       
@@ -370,7 +370,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2016/06/01/software-license/</loc>
+      <loc>http://localhost:4000/2016/06/01/software_license/</loc>
       
         <lastmod>2016-06-01T00:00:00+09:00</lastmod>
       
@@ -386,7 +386,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2016/05/29/image-type/</loc>
+      <loc>http://localhost:4000/2016/05/29/image_type/</loc>
       
         <lastmod>2016-05-29T00:00:00+09:00</lastmod>
       
@@ -402,7 +402,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2016/05/27/post-source-code/</loc>
+      <loc>http://localhost:4000/2016/05/27/post_source_code/</loc>
       
         <lastmod>2016-05-27T00:00:00+09:00</lastmod>
       
@@ -418,7 +418,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2016/05/19/add-comment-to-post/</loc>
+      <loc>http://localhost:4000/2016/05/19/add_comment_to_post/</loc>
       
         <lastmod>2016-05-19T00:00:00+09:00</lastmod>
       
@@ -434,7 +434,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2016/05/15/Partition-auto-mount/</loc>
+      <loc>http://localhost:4000/2016/05/15/Partition_auto_mount/</loc>
       
         <lastmod>2016-05-15T00:00:00+09:00</lastmod>
       
