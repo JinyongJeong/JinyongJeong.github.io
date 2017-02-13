@@ -31,7 +31,7 @@ $$
 P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)}
 $$
 
-$P(A)$ 는 A의 prior로, 사건 B에 대한 어떠한 정보를 알지 못하는 것을 의미한다. $$P(A \mid B)$$ 는 B의 값이 주어진 경우 A의 posterior이다. $$P(B \mid A)$$ 는 A가 주어졌을 때 B의 조건부 확률이다.
+$$P(A)$$ 는 A의 prior로, 사건 B에 대한 어떠한 정보를 알지 못하는 것을 의미한다. $$P(A \mid B)$$ 는 B의 값이 주어진 경우 A의 posterior이다. $$P(B \mid A)$$ 는 A가 주어졌을 때 B의 조건부 확률이다.
 
 bayes 정리의 자세한 내용은 [wiki](https://ko.wikipedia.org/wiki/%EB%B2%A0%EC%9D%B4%EC%A6%88_%EC%A0%95%EB%A6%AC)를 참고한다.
 
