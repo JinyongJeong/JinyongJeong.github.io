@@ -38,3 +38,28 @@ bayes 정리의 자세한 내용은 [wiki](https://ko.wikipedia.org/wiki/%EB%B2%
 ### Recursive bayes filter
 
 위에서 설명한 state estimation은 bayes filter의 과정으로 설명할 수 있으며, 각 step의 state를 반복적으로 계산함으로써 계산할 수 있기 때문에 recursive bayes filter로 부른다. 전체적인 recursive bayes filter의 식은 다음과 같다.
+
+$$
+\begin{aligned}
+bel(x_t) &= p(x_t \mid z_{1:t},u_{1:t}) \\
+       &= \eta p(z_t \mid x_t, z_{1:t-1}, u_{1:t})p(x_t \mid z_{1:t-1},u_{1:t}) \\
+       &= \eta p(z_t \mid x_t)p(x_t \mid z_{1:t-1},u_{1:t}) \\
+       &= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, z_{1:t-1}, u_{1:t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+       &= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+       &= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t-1}) dx_{t-1}\\
+       &= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
+\end{aligned}
+$$
+
+위의 식은 recursive bayes filter를 유도하는 과정을 모두 표현하고 있기 때문에 다소 복잡해 보인다. 우선 전체적인 식을 이해하기 위해서 맨 처음과 맨 마지막 식만을 보면 다음과 같다.
+
+$$
+\begin{aligned}
+bel(x_t)  &= p(x_t \mid z_{1:t},u_{1:t}) \\
+          &= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
+\end{aligned}
+$$
+
+$$bel(x_t)$$ 는 처음부터 현재까지의 observation( $$z$$ )와 control input( $$u$$ )을 알고 있을 때 현재 state( $$x_t$$ )의 확률을 의미한다. 위의 식에서 $$bel(x_t)$$ 의 식은 $$bel(x_{t-1})$$ 의 integral로 표현되어 있기 때문에 만약 $$p(z_t \mid x_t)$$ 와 $$p(x_t \mid x_{t-1}, u_t)$$ 에 대한 정보를 알고 있다면 반복적인 계산을 통해 현재 state의 확률을 계산할 수 있음을 알 수 있다. 이를 Recursive bayes filter라고 한다. Recursive bayes filter는 SLAM 문제를 푸는데 가장 기본적인 식이 되며, Kalman filter의 기본적인 식이다. 다음은 recursive bayes filter의 유도과정을 간단하게 살펴본다. 유도에 관심이 없고 전체적인 흐름만 보고자 한다면 다음 설명은 넘어가도 좋을 것 같다.
+
+#### Recursive bayes filter의 유도과정
