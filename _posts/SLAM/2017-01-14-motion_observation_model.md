@@ -47,9 +47,9 @@ p(x_t \mid x_{t-1}, u_{t})
 $$
 
 Motion model은 control input($$u_t$$)이 이전 state($$x_{t-1}$$)을 현재 state($$x_t$$)로 변화시킬 사후확률(posterior probability)를 의미한다. 실제 로봇의 응용에서 motion model은 크게 2가지로 분류된다.
+
 * odometry-based model
 * velocity-based model
-
 
 odometry model은 로봇 혹은 자동차의 바퀴에 달린 wheel encoder의 센서 데이터를 이용한 모델이며, velocity model은 imu와 같은 관성 센서를 이용한 model이다. velocity model은 wheel encoder와 같은 odometry model을 사용할 수 없을 때 주로 사용하며, odometry model이 velocity model보다 더 정확하 편이다.
 
@@ -77,7 +77,7 @@ $$
 p(z_t \mid x_t) = \prod_{i=1}^{k} p(z_t^i \mid x_t)
 $$
 
-즉 observation은 현재 state에서의 각 센서 데이터들의 확률의 곱으로 표현된다. 
+즉 observation은 현재 state에서의 각 센서 데이터들의 확률의 곱으로 표현된다.
 
 자세한 Motion & Observation model에 대해서는 [Freiburg 강의-bayes filter](https://www.youtube.com/watch?v=5Pu558YtjYM)를 참조하기 바란다.
 
