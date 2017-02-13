@@ -15,9 +15,8 @@ baseurl:             http://JinyongJeong.github.io
 
 sitemap:
   lastmod: 2017-01-13
-  priority: 0.7
-  changefreq: 'daily'
-  exclude: 'yes'
+  priority: 0.5
+  changefreq: 'weekly'
 
 title:               Jinyong Jeong
 
