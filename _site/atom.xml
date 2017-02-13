@@ -4,7 +4,7 @@
  <title>Jinyong Jeong</title>
  <link href="http://localhost:4000http://JinyongJeong.github.io/atom.xml" rel="self"/>
  <link href="http://localhost:4000http://JinyongJeong.github.io/"/>
- <updated>2017-02-13T16:24:33+09:00</updated>
+ <updated>2017-02-13T16:29:02+09:00</updated>
  <id>http://localhost:4000http://JinyongJeong.github.io</id>
  <author>
    <name>Jinyong Jeong</name>
@@ -517,9 +517,9 @@ update-initramfs -u
  
  <entry>
    <title>Ubuntu rsync 오류 및 옵션</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/08/17/rsync-%EC%98%A4%EB%A5%98/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/08/17/rsync_error/"/>
    <updated>2016-08-17T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/08/17/rsync 오류</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/08/17/rsync_error</id>
    <content type="html">&lt;p&gt;rsync와 scp는 원격으로 파일을 복사할때 사용하는 명령어이다.&lt;/p&gt;
 
 &lt;p&gt;내가 주로 사용하는 rsync 명령어 및 옵션은 `rsync -avPh source dest’으로 평소에 사용할 때에는 별 문제가 없다. 하지만 exFAT로 format되어있는 하드디스크로 복사를 하려고 할 때&lt;/p&gt;
@@ -550,9 +550,9 @@ update-initramfs -u
  
  <entry>
    <title>Ubuntu SVN 및 기타 명령어 정리 (IRAP)</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/21/Ubuntu_IRAP_%EA%B8%B0%EB%B3%B8_%EB%AA%85%EB%A0%B9%EC%96%B4/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/21/Ubuntu_IRAP_basic_commend/"/>
    <updated>2016-06-21T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/21/Ubuntu_IRAP_기본_명령어</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/21/Ubuntu_IRAP_basic_commend</id>
    <content type="html">&lt;p&gt;본 포스팅은 한국과학기술원(KAIST)의 &lt;a href=&quot;http://irap.kaist.ac.kr&quot;&gt;IRAP&lt;/a&gt;(Intelligent Robotic Autonomy and Perception) 연구실에서 주로 사용하는 Ubuntu 명령어들을 정리하였다.&lt;/p&gt;
 
 &lt;h2 id=&quot;1-ssh-서버-접속&quot;&gt;1. ssh 서버 접속&lt;/h2&gt;
@@ -735,9 +735,9 @@ sudo ln -s /usr/lib/libGL.so.1 /usr/lib/x86_64-linux-gnu/libGL.so
  
  <entry>
    <title>Ubuntu apt-get 명령어 정리</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/07/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/07/Ubuntu_apt_get_commend/"/>
    <updated>2016-06-07T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/07/Ubuntu_apt_get_명령어</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/07/Ubuntu_apt_get_commend</id>
    <content type="html">&lt;p&gt;apt-get(Advanced Packaging Tool)은 우분투(Ubuntu)를 포함안 데비안(Debian)계열의 리눅스에서 쓰이는 팩키지 관리 명령어 도구입니다. 우분투에는 GUI로 되어 있는시냅틱 꾸러미 관리자도 있기는 하지만 이런 저런 개발관련 패키지를 설치할 때는 커맨드기반인 apt-get이 더 편하기도 합니다. sudo는 superuser권한으로 실행하기 위함입니다.&lt;/p&gt;
 
 &lt;h2 id=&quot;1-패키지-인덱스-인덱스-정보-업데이트&quot;&gt;1. 패키지 인덱스 인덱스 정보 업데이트&lt;/h2&gt;
@@ -984,9 +984,9 @@ COLLECT_GCC_OPTIONS='-v' '-E' '-mtune=generic' '-march=x86-64'
  
  <entry>
    <title>bash shell 환경변수</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/06/bash_shell_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/06/bash_shell_environment_variable/"/>
    <updated>2016-06-06T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/bash_shell_환경변수</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/bash_shell_environment_variable</id>
    <content type="html">&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://seven00.tistory.com/680&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
 
 &lt;p&gt;Bash shell 관련 소개 내용&lt;/p&gt;
@@ -1151,9 +1151,9 @@ syntax on        &quot; 문법 하이라이트 킴&quot;
  
  <entry>
    <title>Ubuntu Gedit 한글 깨짐 수정</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_gedit-%ED%95%9C%EA%B8%80%EA%B9%A8%EC%A7%90-%EC%88%98%EC%A0%95/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_gedit_broken_resolve/"/>
    <updated>2016-06-06T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_gedit 한글깨짐 수정</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_gedit_broken_resolve</id>
    <content type="html">&lt;p&gt;우분투 기본 에디터인 gedit에서 자동 인식되는 인코딩에 cp949 방식을 추가합니다.
 먼저 콘솔에서 dconf-editor를 설치합니다. 있다면 패스합니다.&lt;/p&gt;
 
@@ -1366,9 +1366,9 @@ Hope this will be helpful for you!!!&lt;/p&gt;
  
  <entry>
    <title>Ubuntu VPN server</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu-VPN-server-%EC%84%A4%EC%A0%95/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu_VPN_setting/"/>
    <updated>2016-06-03T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu VPN server 설정</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu_VPN_setting</id>
    <content type="html">&lt;p&gt;VPN(Virtual Private Network)은 IP를 우회할 수 있는 방법중에 하나이며 다양한 방법으로 응용가능하다. 예를들면 학교의 인터넷 망에서 자유롭게 논문을 볼 수 있지만(학교에서는 IEEE등에 논문을 구독할 수 있도록 지불을 했기 때문에) 외부 망에서는 동일하게 논문검색을 할 수 없다(물론 VPN을 이용하지 않고 논문을 검색하는 방법이 있긴 하다). 이럴 때 학교내 학교망에 연결되어 있는 컴퓨터에 VPN 설정을 하고 외부에서 이 컴퓨터 VPN server로 연결하여 외부로 접속을 한면 외부에서는 학교망에서 접속한 것으로 인식하기 때문에 학교내에서 접속한 것과 같은 효과를 볼 수 있다. Ubuntu 14.04에서 VPN server를 설정하는 방법은 다음과 같다.&lt;/p&gt;
 
 &lt;h2 id=&quot;1-pptpd-설치&quot;&gt;1. pptpd 설치&lt;/h2&gt;
@@ -1451,9 +1451,9 @@ iptables --append FORWARD --in-interface br0 -j ACCEPT
  
  <entry>
    <title>SSH keygen 설정</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH-keygen-%EC%84%A4%EC%A0%95/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH-keygen_setting/"/>
    <updated>2016-06-02T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH keygen 설정</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH keygen_setting</id>
    <content type="html">&lt;h1 id=&quot;1-ssh-접속-방법&quot;&gt;1. ssh 접속 방법&lt;/h1&gt;
 
 &lt;p&gt;기본적으로 ssh 접속하는 방법은 다음과 같다&lt;/p&gt;
@@ -1493,9 +1493,9 @@ iptables --append FORWARD --in-interface br0 -j ACCEPT
  
  <entry>
    <title>공개 SW 라이센스(GPL, LGPL, BSD)</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/01/%EA%B3%B5%EA%B0%9CSW%EB%9D%BC%EC%9D%B4%EC%84%BC%EC%8A%A4/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/06/01/software_license/"/>
    <updated>2016-06-01T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/01/공개SW라이센스</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/06/01/software_license</id>
    <content type="html">&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://darkpgmr.tistory.com/89&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
 
 &lt;p&gt;오픈소스를 사용하다보면 GPL, LGPL, BSD, MIT 등 다양한 라이센스가 있는데 이에 대해 알아두어야 할 것 같아서 정리합니다.&lt;/p&gt;
@@ -1570,9 +1570,9 @@ iptables --append FORWARD --in-interface br0 -j ACCEPT
  
  <entry>
    <title>이미지 확장자</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/05/29/%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%99%95%EC%9E%A5%EC%9E%90/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/05/29/image_type/"/>
    <updated>2016-05-29T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/05/29/이미지확장자</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/05/29/image_type</id>
    <content type="html">&lt;p&gt;오디오 컨테이너가 가장 기술적으로 잘 알려진 컨테이너라 하면 이미지 컨테이너는 가장 많이 사용되고 있는 컨테이너일 것이다. 윈도로 대표되는 GUI(Graphic User Interface) 기반의 OS와 웹브라우저 기반 인터넷이 대중화하고 보급되면서 인류의 디지털 라이프는 온갖 종류의 이미지로 채워지게 되었기 때문이다. 이처럼 우리의 생활과 매우 밀접한 존재이기 때문에 단순 소비를 위한 편의성에서는 오디오 컨테이너와 마찬가지로 거의 신경 쓸 필요 없이 일반적으로 사용되는 시스템에서 그대로 사용하면 된다. 하지만 오디오 컨테이너에 비해 사용되는 종류가 압도적으로 다양하며 당연히 이로 인해 호환성이 조금은 떨어지는 것은 사실이다.
 동영상은 비슷한 정지 이미지의 연속이라는 점에서 이미지와 무관할 수 없으며 제한적이나마 이미지 시퀀스란 형태로 서로 호환되기도 하기 때문에 동영상 작업을 하는 작업자라도 정지 이미지에 대해 기본적인 내용은 숙지할 필요가 있다.&lt;/p&gt;
 
@@ -1625,9 +1625,9 @@ TGA로 이뤄진 이미지 시퀀스(image sequence)를 ‘타가 시퀀스’�
  
  <entry>
    <title>Jekyll Markdown에서 HTML소스코드 그대로 포스팅하기</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/05/27/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%8C%80%EB%A1%9C-%ED%8F%AC%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0/"/>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2016/05/27/post_source_code/"/>
    <updated>2016-05-27T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2016/05/27/소스코드 그대로 포스팅하기</id>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2016/05/27/post_source_code</id>
    <content type="html">&lt;p&gt;Jekyll을 이용하여 포스팅을 하면서 코드를 올리는 경우가 종종 있다. C 나 python 혹은 기타 코드를 code block에 넣으면 코드가 그대로 보이지만 HTML을 넣을 경우 실제 데이터로 convert가 되어 표기가 되어 원하는 코드를 재대로 보여줄 수 없다. 이때는 code block에 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;raw&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt; 와 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;endraw&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;를 넣어줌으로써 code의 raw를 변환없이 아래와 같이 포스팅 할 수 있다. 실제 입력 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;/code&gt; 와 &lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt; 사이에는 공백이 없어야 한다.&lt;/p&gt;
 
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;

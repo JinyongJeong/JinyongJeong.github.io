@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000http://JinyongJeong.github.io/</link>
     <atom:link href="http://localhost:4000http://JinyongJeong.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 13 Feb 2017 16:24:33 +0900</pubDate>
-    <lastBuildDate>Mon, 13 Feb 2017 16:24:33 +0900</lastBuildDate>
+    <pubDate>Mon, 13 Feb 2017 16:29:02 +0900</pubDate>
+    <lastBuildDate>Mon, 13 Feb 2017 16:29:02 +0900</lastBuildDate>
     <generator>Jekyll v3.4.0</generator>
     
       <item>
@@ -572,8 +572,8 @@ update-initramfs -u
 &lt;p&gt;&lt;a href=&quot;http://gyus.me/?p=214&quot;&gt;http://gyus.me/?p=214&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 17 Aug 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/08/17/rsync-%EC%98%A4%EB%A5%98/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/08/17/rsync-%EC%98%A4%EB%A5%98/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/08/17/rsync_error/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/08/17/rsync_error/</guid>
         
         <category>ubuntu</category>
         
@@ -761,8 +761,8 @@ sudo ln -s /usr/lib/libGL.so.1 /usr/lib/x86_64-linux-gnu/libGL.so
 
 </description>
         <pubDate>Tue, 21 Jun 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/21/Ubuntu_IRAP_%EA%B8%B0%EB%B3%B8_%EB%AA%85%EB%A0%B9%EC%96%B4/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/21/Ubuntu_IRAP_%EA%B8%B0%EB%B3%B8_%EB%AA%85%EB%A0%B9%EC%96%B4/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/21/Ubuntu_IRAP_basic_commend/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/21/Ubuntu_IRAP_basic_commend/</guid>
         
         <category>ubuntu</category>
         
@@ -850,8 +850,8 @@ sudo ln -s /usr/lib/libGL.so.1 /usr/lib/x86_64-linux-gnu/libGL.so
 &lt;p&gt;apt를 이용해서 설치된 deb패키지는 /var/cache/apt/archive/ 에 설치가 됩니다.&lt;/p&gt;
 </description>
         <pubDate>Tue, 07 Jun 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/07/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/07/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/07/Ubuntu_apt_get_commend/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/07/Ubuntu_apt_get_commend/</guid>
         
         <category>ubuntu</category>
         
@@ -1082,8 +1082,8 @@ $PATH 환경변수에 있는 file들은 어느 위치에서나 실행 가능.&lt
 &lt;p&gt;와 같이 source 명령어를 이용하면 된다.&lt;/p&gt;
 </description>
         <pubDate>Mon, 06 Jun 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/bash_shell_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/bash_shell_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/bash_shell_environment_variable/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/bash_shell_environment_variable/</guid>
         
         <category>ubuntu</category>
         
@@ -1248,8 +1248,8 @@ org -&amp;gt; gnome -&amp;gt; gedit -&amp;gt; preferences -&amp;gt; encodings -&
 &lt;p&gt;이렇게 하면 우분투에서 콘솔이든 UI든지 윈도우에서 작업한 한글 텍스트를 보는데 문제가 없을 것입니다.&lt;/p&gt;
 </description>
         <pubDate>Mon, 06 Jun 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_gedit-%ED%95%9C%EA%B8%80%EA%B9%A8%EC%A7%90-%EC%88%98%EC%A0%95/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_gedit-%ED%95%9C%EA%B8%80%EA%B9%A8%EC%A7%90-%EC%88%98%EC%A0%95/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_gedit_broken_resolve/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_gedit_broken_resolve/</guid>
         
         <category>ubuntu</category>
         
@@ -1531,8 +1531,8 @@ iptables --append FORWARD --in-interface br0 -j ACCEPT
 &lt;p&gt;VPN 연결을 위해 Ubuntu 14.04를 사용하고 있다면, PPTP Advanced Option에서 (use Point to point encryption)을 클릭해야 한다.&lt;/p&gt;
 </description>
         <pubDate>Fri, 03 Jun 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu-VPN-server-%EC%84%A4%EC%A0%95/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu-VPN-server-%EC%84%A4%EC%A0%95/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu_VPN_setting/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu_VPN_setting/</guid>
         
         <category>ubuntu</category>
         
@@ -1577,8 +1577,8 @@ iptables --append FORWARD --in-interface br0 -j ACCEPT
 
 </description>
         <pubDate>Thu, 02 Jun 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH-keygen-%EC%84%A4%EC%A0%95/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH-keygen-%EC%84%A4%EC%A0%95/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH-keygen_setting/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH-keygen_setting/</guid>
         
         <category>ubuntu</category>
         
@@ -1658,8 +1658,8 @@ iptables --append FORWARD --in-interface br0 -j ACCEPT
 
 </description>
         <pubDate>Wed, 01 Jun 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/01/%EA%B3%B5%EA%B0%9CSW%EB%9D%BC%EC%9D%B4%EC%84%BC%EC%8A%A4/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/01/%EA%B3%B5%EA%B0%9CSW%EB%9D%BC%EC%9D%B4%EC%84%BC%EC%8A%A4/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/01/software_license/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/01/software_license/</guid>
         
         <category>software</category>
         
@@ -1717,8 +1717,8 @@ TGA로 이뤄진 이미지 시퀀스(image sequence)를 ‘타가 시퀀스’�
 &lt;p&gt;앨더스(Aldus)와 마이크로소프트가 스캐너용으로 공동 개발한 비트맵 이미지 파일 컨테이너로 ‘태그드 이미지 파일 포맷(Tagged Image File Format)’의 줄임말이다. 무압축은 물론 다양한 압축률을 선택할 수 있으나 압축 방식을 사용하면 구형 이미지 뷰어에서 정상적으로 인식되지 않는 경우도 있기 때문에 사용에 주의가 필요하다. 포토샵의 PSD처럼 레이어도 지원한다. 등장 시기는 PCX와 비슷하지만 아직까지도 꾸준히 사용되고 있는 규격이다.&lt;/p&gt;
 </description>
         <pubDate>Sun, 29 May 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/29/%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%99%95%EC%9E%A5%EC%9E%90/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/29/%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%99%95%EC%9E%A5%EC%9E%90/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/29/image_type/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/29/image_type/</guid>
         
         <category>software</category>
         
@@ -1769,8 +1769,8 @@ layout: default_post
 
 </description>
         <pubDate>Fri, 27 May 2016 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/27/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%8C%80%EB%A1%9C-%ED%8F%AC%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/27/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%8C%80%EB%A1%9C-%ED%8F%AC%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/27/post_source_code/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/27/post_source_code/</guid>
         
         <category>jekyll</category>
         
