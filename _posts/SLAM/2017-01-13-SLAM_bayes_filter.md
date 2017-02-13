@@ -125,7 +125,7 @@ bel(x_t)
 \end{aligned}
 $$
 
-이 과정 또한 Markov assumption으로 $$p(x_{t-1} \mid z_{1:t-1}, u_{1:t})$$ 에서 $$u_t$$는 t-1시점의 state인 $$x_{t-1}$$ 에 형향을 미치지 않기 때문에 제거 될 수 있다.
+이 과정 또한 Markov assumption으로 $$p(x_{t-1} \mid z_{1:t-1}, u_{1:t})$$ 에서 $$u_t$$는 t-1시점의 state인 $$x_{t-1}$$ 에 영향을 미치지 않기 때문에 제거 될 수 있다.
 
 $$
 \begin{aligned}
@@ -136,3 +136,5 @@ bel(x_t)
 $$
 
 따라서 위와 같은 과정을 통해 최종적으로 식은 위와같이 정리되며, recursive bayes filter의 식으로 정리된다.
+
+<본 글을 참조하실 때에는 출처 명시 부탁드립니다.>
