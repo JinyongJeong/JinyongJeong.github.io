@@ -6,17 +6,239 @@
 </description>
     <link>http://localhost:4000http://JinyongJeong.github.io/</link>
     <atom:link href="http://localhost:4000http://JinyongJeong.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 13 Feb 2017 16:48:12 +0900</pubDate>
-    <lastBuildDate>Mon, 13 Feb 2017 16:48:12 +0900</lastBuildDate>
+    <pubDate>Tue, 14 Feb 2017 00:33:24 +0900</pubDate>
+    <lastBuildDate>Tue, 14 Feb 2017 00:33:24 +0900</lastBuildDate>
     <generator>Jekyll v3.4.0</generator>
     
       <item>
-        <title>bayes</title>
-        <description>
+        <title>github blog를 google에서 검색되도록 설정하기</title>
+        <description>&lt;p&gt;이 글은 다음 &lt;a href=&quot;http://dveamer.github.io/homepage/SubmitSitemap.html&quot;&gt;blog&lt;/a&gt;의 글을 참고하였습니다.&lt;/p&gt;
+
+&lt;p&gt;네이버 블로그와 같은 포탈의 블로그 서비스를 사용할 경우 자동으로 검색이 가능하지만, github와 같은 플렛폼을 사용할 경우에는 직접 각 포탈에 검색이 가능하도록 등록을 해 주어야 한다. 이 글에서는 블로그의 글이 google, daum, naver에서 검색 가능하도록 등록하는 방법에 대해서 설명한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-sitemap-생성&quot;&gt;1. sitemap 생성&lt;/h2&gt;
+
+&lt;p&gt;sitemap을 google에 등록해 두면 주기적으로 크롤링을 통해 url을 연결시킨다. 우선 sitemap을 생성하는 방법에 대해서 설명한다. ruby를 통해 jekyll 홈페이지를 만든 경우에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo gem install jekyll-sitemap&lt;/code&gt; 의 명령어를 이용해 플러그인을 사용할 수 있다. 하지만 여기서는 플러그인을 사용하지 않는 방법을 설명한다.&lt;/p&gt;
+
+&lt;p&gt;블로그의 &lt;code class=&quot;highlighter-rouge&quot;&gt;/root&lt;/code&gt; 경로에 &lt;code class=&quot;highlighter-rouge&quot;&gt;/sitemap.xml&lt;/code&gt; 파일을 만들고 아래의 내용을 복사해 넣는다. 반드시 root 디렉토리에 넣어야 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+---
+layout: null
+---
+&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&amp;lt;urlset xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd&quot; xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&amp;gt;
+  {% for post in site.posts %}
+    &amp;lt;url&amp;gt;
+      &amp;lt;loc&amp;gt;{{ site.url }}{{ post.url }}&amp;lt;/loc&amp;gt;
+      {% if post.lastmod == null %}
+        &amp;lt;lastmod&amp;gt;{{ post.date | date_to_xmlschema }}&amp;lt;/lastmod&amp;gt;
+      {% else %}
+        &amp;lt;lastmod&amp;gt;{{ post.lastmod | date_to_xmlschema }}&amp;lt;/lastmod&amp;gt;
+      {% endif %}
+
+      {% if post.sitemap.changefreq == null %}
+        &amp;lt;changefreq&amp;gt;weekly&amp;lt;/changefreq&amp;gt;
+      {% else %}
+        &amp;lt;changefreq&amp;gt;{{ post.sitemap.changefreq }}&amp;lt;/changefreq&amp;gt;
+      {% endif %}
+
+      {% if post.sitemap.priority == null %}
+          &amp;lt;priority&amp;gt;0.5&amp;lt;/priority&amp;gt;
+      {% else %}
+        &amp;lt;priority&amp;gt;{{ post.sitemap.priority }}&amp;lt;/priority&amp;gt;
+      {% endif %}
+
+    &amp;lt;/url&amp;gt;
+  {% endfor %}
+&amp;lt;/urlset&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;git과 commit으로 블로그를 업데이트 후 &lt;code class=&quot;highlighter-rouge&quot;&gt;blog주소/sitemap.xml&lt;/code&gt;로 접속했을 때 아래와 같은 화면이 나와야 정상적으로 sitemap이 등록된 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/images/post/jekyll/google_search/sitemap.png&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;sitemap에는 각 해당 글의 lastmod, sitemap.changefreq, sitemap.prioritye 등의 정보가 설정되는데, 이것은 각 글의 맨 위에 다음과 같이 sitemap의 옵션을 추가해 줌으로써 추가적으로 설정 가능하다. 설정이 없을 때의 default 설정은 &lt;code class=&quot;highlighter-rouge&quot;&gt;sitemap.xml&lt;/code&gt;에 정의되어 있다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+---
+layout: post
+title:  &quot;제목&quot;
+date:   2016-03-14 12:00:00 
+lastmod : 2016-03-15 12:00:00
+sitemap :
+  changefreq : daily
+  priority : 1.0
+---
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;changefreq를 너무 짧게 하면 빈번한 접속으로 안좋은 영향을 미칠 수도 있다고 하니 적당히 하루 혹은 일주일로 하면 좋을 것 같다. 추가적으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;blog주소/sitemap.xml&lt;/code&gt;을 실행했을 때 위와 같이 나오지 않는 경우는 아마 주소링크에 &amp;amp;와 같은 특수기호가 있는 경우가 있을 수 있다. 예를들어 파일의 이름이 URL의 링크 주소가 되는데, 만약 파일이름이 한글일 경우 url의 주소에 %의 기호가 들어가 있다. 이럴경우 xml이 정상적으로 해석하지 못한다. 따라서 최대한 URL의 링크가 되는 파일이름은 영문으로 만들고, 특수기호는 최대한 사용하지 않는 것이 좋다.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-rss-feed-생성&quot;&gt;2. RSS feed 생성&lt;/h2&gt;
+
+&lt;p&gt;Rss feed는 naver와 daum에 등록하기 위함이다. &lt;code class=&quot;highlighter-rouge&quot;&gt;sitemap.xml&lt;/code&gt;과 마찬가지로 root 디렉토리에 &lt;code class=&quot;highlighter-rouge&quot;&gt;/feed.xml&lt;/code&gt;파일을 생성하고 아래의 코드를 복사한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+---
+layout: null
+---
+&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&amp;lt;rss version=&quot;2.0&quot; xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot;&amp;gt;
+  &amp;lt;channel&amp;gt;
+    &amp;lt;title&amp;gt;{{ site.title | xml_escape }}&amp;lt;/title&amp;gt;
+    &amp;lt;description&amp;gt;{{ site.description | xml_escape }}&amp;lt;/description&amp;gt;
+    &amp;lt;link&amp;gt;{{ site.url }}{{ site.baseurl }}/&amp;lt;/link&amp;gt;
+    &amp;lt;atom:link href=&quot;{{ &quot;/feed.xml&quot; | prepend: site.baseurl | prepend: site.url }}&quot; rel=&quot;self&quot; type=&quot;application/rss+xml&quot;/&amp;gt;
+    &amp;lt;pubDate&amp;gt;{{ site.time | date_to_rfc822 }}&amp;lt;/pubDate&amp;gt;
+    &amp;lt;lastBuildDate&amp;gt;{{ site.time | date_to_rfc822 }}&amp;lt;/lastBuildDate&amp;gt;
+    &amp;lt;generator&amp;gt;Jekyll v{{ jekyll.version }}&amp;lt;/generator&amp;gt;
+    {% for post in site.posts limit:30 %}
+      &amp;lt;item&amp;gt;
+        &amp;lt;title&amp;gt;{{ post.title | xml_escape }}&amp;lt;/title&amp;gt;
+        &amp;lt;description&amp;gt;{{ post.content | xml_escape }}&amp;lt;/description&amp;gt;
+        &amp;lt;pubDate&amp;gt;{{ post.date | date_to_rfc822 }}&amp;lt;/pubDate&amp;gt;
+        &amp;lt;link&amp;gt;{{ post.url | prepend: site.baseurl | prepend: site.url }}&amp;lt;/link&amp;gt;
+        &amp;lt;guid isPermaLink=&quot;true&quot;&amp;gt;{{ post.url | prepend: site.baseurl | prepend: site.url }}&amp;lt;/guid&amp;gt;
+        {% for tag in post.tags %}
+        &amp;lt;category&amp;gt;{{ tag | xml_escape }}&amp;lt;/category&amp;gt;
+        {% endfor %}
+        {% for cat in post.categories %}
+        &amp;lt;category&amp;gt;{{ cat | xml_escape }}&amp;lt;/category&amp;gt;
+        {% endfor %}
+      &amp;lt;/item&amp;gt;
+    {% endfor %}
+  &amp;lt;/channel&amp;gt;
+&amp;lt;/rss&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;3-robotstxt-생성&quot;&gt;3. robots.txt 생성&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;robots.txt&lt;/code&gt;파일에 &lt;code class=&quot;highlighter-rouge&quot;&gt;sitemap.xml&lt;/code&gt;파일의 위치를 등록해 두면 검색엔진의 크롤러들이 홈페이지를 크롤링하는데 도움을 주게 된다고 한다. root 디렉토리에 &lt;code class=&quot;highlighter-rouge&quot;&gt;/robots.txt&lt;/code&gt; 파일을 만들고 아래와 같이 입력한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;User-agent: *
+Allow: /
+
+Sitemap: http://jinyongjeong.github.io/sitemap.xml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;User-agent&lt;/code&gt;는 허용할 검색엔진 명을 넣게 된다. 따로 설정하지 않으면(*) 모든 검색엔진을 허용하게 된다. 자세한 내용은 &lt;a href=&quot;http://dveamer.github.io/homepage/SubmitSitemap.html&quot;&gt;http://dveamer.github.io/homepage/SubmitSitemap.html&lt;/a&gt;를 참고한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;4-사이트-등록&quot;&gt;4. 사이트 등록&lt;/h2&gt;
+
+&lt;h3 id=&quot;google-google-search-console등록&quot;&gt;google (google search console등록)&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.google.com/webmasters/#?modal_active=none&quot;&gt;Google Search Console&lt;/a&gt;를 접속한다.&lt;/p&gt;
+
+&lt;p&gt;이 사이트에서 본인의 블로그를 등록해야 google에서 검색이 가능하다. 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;속성추가&lt;/code&gt; 버튼을 눌러 본인의 blog 주소를 입력하여 사이트를 등록한다. 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;크롤링 &amp;gt; sitemaps&lt;/code&gt; 메뉴를 열어 &lt;code class=&quot;highlighter-rouge&quot;&gt;sitemap 추가&lt;/code&gt; 버튼을 눌러 만들어 두었던 &lt;code class=&quot;highlighter-rouge&quot;&gt;sitemap.xml&lt;/code&gt;파일을 제출한다. 
+제출이 완료되면 &lt;code class=&quot;highlighter-rouge&quot;&gt;sitemap.xml&lt;/code&gt;파일이 등록된 것을 확인할 수 있으며 색인이 접수 중임을 알 수 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;naver&quot;&gt;naver&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://webmastertool.naver.com/&quot;&gt;네이버 웹마스터 도구&lt;/a&gt;에 접속한다.&lt;/p&gt;
+
+&lt;p&gt;로그인하여 구글과 비슷하게 블로그 주소를 등록하는 과정을 거친다. 그 후 “사이트 소유 확인”이라는 과정을 거치게 되는데 HTML 파일을 다운받아 블로그의 root에 업로드 하여 확인하는 과정을 거치게 된다. 이 과정을 거치면 google의 analystics와 유사한 기능을 사용할 수 있는 것 같다. 그 다음에 RSS를 등록하는 과정이 필요하다. 왼쪽 메뉴에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;요청 &amp;gt; RSS제출&lt;/code&gt; 을 클릭해서 URL을 포함한 주소인 &lt;code class=&quot;highlighter-rouge&quot;&gt;블로그URL/feed.xml&lt;/code&gt;을 입력한다. 
+추가적으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;요청 &amp;gt; 사이트맵제출&lt;/code&gt;로 들어가서 google과 마찬가지로 &lt;code class=&quot;highlighter-rouge&quot;&gt;블로그URL/sitemap.xml&lt;/code&gt;을 입력해서 sitemap을 등록시켜 준다.&lt;/p&gt;
+
+&lt;h3 id=&quot;daum&quot;&gt;daum&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://register.search.daum.net/index.daum&quot;&gt;DAUM 검색등록&lt;/a&gt;에 접속 후 로그인한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;등록&lt;/code&gt; 탭에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;블로그 RSS등록&lt;/code&gt;을 선택하고 &lt;code class=&quot;highlighter-rouge&quot;&gt;블로그URL&lt;/code&gt;에 본인의 URL을 입력하고 확인버튼을 누른다. 
+이전 블로그에서 보면 &lt;code class=&quot;highlighter-rouge&quot;&gt;feed.xml&lt;/code&gt;파일을 올리는 RSS 부분이 있었는데 지금 확인해보니 URL을 입력하는 창만 뜬다. 
+우선 URL만 등록해보도록 한다.&lt;/p&gt;
+
+&lt;p&gt;위의 과정을 거치고 최종으로 반영되기 까지 어느정도의 시간이 걸린다. 일주일정도 시간이 흐른뒤에 확인해보도록 하자.&lt;/p&gt;
+
 </description>
         <pubDate>Fri, 13 Jan 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM_bayes_model/</link>
-        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM_bayes_model/</guid>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2017/01/13/blog_make_searched/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2017/01/13/blog_make_searched/</guid>
+        
+        <category>jekyll</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>[SLAM] Bayes filter(베이즈 필터)/ motion and observation model</title>
+        <description>&lt;p&gt;&amp;lt;본 글은 University Freiburg의 &lt;a href=&quot;http://ais.informatik.uni-freiburg.de/teaching/ws13/mapping/&quot;&gt;Robot Mapping&lt;/a&gt; 강의를 바탕으로 이해하기 쉽도록 정리하려는 목적으로 작성되었습니다. 개인적인 의견을 포함하여 작성되기 때문에 틀린 부분을 지적해주시면 확인 후 수정토록 하겠습니다.&amp;gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;slamsimultaneous-localization-and-mapping&quot;&gt;SLAM(Simultaneous Localization and Mapping)&lt;/h2&gt;
+
+&lt;p&gt;SLAM은 simultaneous localization and mapping의 줄임말로 위치추정(localization)과 지도생성(mapping)을 동시에 하는 연구분야를 의미한다. 이는 닭이 먼저냐 달걀이 먼저냐의 문제와 비슷하다. 자기의 위치를 추정하기 위해서는 주변환경에 대한 정보가 필요하다. 반면에 로봇이 얻을 수 있는 데이터를 이용해서 지도를 만들기 위해서는 로봇이 자신의 위치가 어디에 있는지를 정확히 알아야 한다. 따라서 위치를 알 수 없으면 지도를 만들 수 없고, 반대로 지도가 없으면 위치를 알 수 없다. 이러한 문제를 풀기 위해서 지도의 생성과 위치 추정을 동시에 수행하는 것이 SLAM이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;state-estimation&quot;&gt;State estimation&lt;/h3&gt;
+
+&lt;p&gt;State estimation은 로봇에 주어지는 입력과, 로봇의 센서로부터 얻어지는 데이터로부터 현재의 로봇의 위치인 state와 주변환경에 대한 지도를 추정 방법이다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;p(\mathbf{x}\mid \mathbf{z}, \mathbf{u})&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(\mathbf{x}\mid \mathbf{z}, \mathbf{u})&lt;/script&gt;
+
+&lt;p&gt;위의 식은 기본적인 state estimation을 의미한다. &lt;code class=&quot;MathJax_Preview&quot;&gt;\mathbf{x}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mathbf{x}&lt;/script&gt; 는 로봇의 위치 및 지도(주변의 land mark들의 위치)를 의미하는 vector이며, &lt;code class=&quot;MathJax_Preview&quot;&gt;\mathbf{z}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mathbf{z}&lt;/script&gt; 는 로봇의 센서로부터 얻어지는 데이터로 observation이라고 부르며, &lt;code class=&quot;MathJax_Preview&quot;&gt;\mathbf{u}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mathbf{u}&lt;/script&gt; 는 센서의 움직임을 제어하는 입력으로 control input이라고 부른다. state estimation은 이러한 control input과 observation의 데이터를 통해 현재의 위치와 지도를 추정한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;bayes-theorem&quot;&gt;bayes theorem&lt;/h3&gt;
+
+&lt;p&gt;베이즈 정리는 확률론과 통계학에서 두 확률변수의 사전확률(prior)과 사후확률(posterior) 사이의 관계를 나타내는 정리이다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)}&lt;/script&gt;
+
+&lt;p&gt;&lt;code class=&quot;MathJax_Preview&quot;&gt;P(A)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;P(A)&lt;/script&gt; 는 A의 prior로, 사건 B에 대한 어떠한 정보를 알지 못하는 것을 의미한다. &lt;code class=&quot;MathJax_Preview&quot;&gt;P(A \mid B)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;P(A \mid B)&lt;/script&gt; 는 B의 값이 주어진 경우 A의 posterior이다. &lt;code class=&quot;MathJax_Preview&quot;&gt;P(B \mid A)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;P(B \mid A)&lt;/script&gt; 는 A가 주어졌을 때 B의 조건부 확률이다.&lt;/p&gt;
+
+&lt;p&gt;bayes 정리의 자세한 내용은 &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EB%B2%A0%EC%9D%B4%EC%A6%88_%EC%A0%95%EB%A6%AC&quot;&gt;wiki&lt;/a&gt;를 참고한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;recursive-bayes-filter&quot;&gt;Recursive bayes filter&lt;/h3&gt;
+
+&lt;p&gt;위에서 설명한 state estimation은 bayes filter의 과정으로 설명할 수 있으며, 각 step의 state를 반복적으로 계산함으로써 계산할 수 있기 때문에 recursive bayes filter로 부른다. 전체적인 recursive bayes filter의 식은 다음과 같다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
+bel(x_t) &amp;amp;= p(x_t \mid z_{1:t},u_{1:t}) \\
+       &amp;amp;= \eta p(z_t \mid x_t, z_{1:t-1}, u_{1:t})p(x_t \mid z_{1:t-1},u_{1:t}) \\
+       &amp;amp;= \eta p(z_t \mid x_t)p(x_t \mid z_{1:t-1},u_{1:t}) \\
+       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, z_{1:t-1}, u_{1:t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t-1}) dx_{t-1}\\
+       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
+\end{aligned}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+bel(x_t) &amp;= p(x_t \mid z_{1:t},u_{1:t}) \\
+       &amp;= \eta p(z_t \mid x_t, z_{1:t-1}, u_{1:t})p(x_t \mid z_{1:t-1},u_{1:t}) \\
+       &amp;= \eta p(z_t \mid x_t)p(x_t \mid z_{1:t-1},u_{1:t}) \\
+       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, z_{1:t-1}, u_{1:t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t-1}) dx_{t-1}\\
+       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;위의 식은 recursive bayes filter를 유도하는 과정을 모두 표현하고 있기 때문에 다소 복잡해 보인다. 우선 전체적인 식을 이해하기 위해서 맨 처음과 맨 마지막 식만을 보면 다음과 같다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
+bel(x_t)  &amp;amp;= p(x_t \mid z_{1:t},u_{1:t}) \\
+          &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
+\end{aligned}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+bel(x_t)  &amp;= p(x_t \mid z_{1:t},u_{1:t}) \\
+          &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;code class=&quot;MathJax_Preview&quot;&gt;bel(x_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;bel(x_t)&lt;/script&gt; 는 처음부터 현재까지의 observation( &lt;code class=&quot;MathJax_Preview&quot;&gt;z&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;z&lt;/script&gt; )와 control input( &lt;code class=&quot;MathJax_Preview&quot;&gt;u&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u&lt;/script&gt; )을 알고 있을 때 현재 state( &lt;code class=&quot;MathJax_Preview&quot;&gt;x_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;x_t&lt;/script&gt; )의 확률을 의미한다. 위의 식에서 &lt;code class=&quot;MathJax_Preview&quot;&gt;bel(x_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;bel(x_t)&lt;/script&gt; 의 식은 &lt;code class=&quot;MathJax_Preview&quot;&gt;bel(x_{t-1})&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;bel(x_{t-1})&lt;/script&gt; 의 integral로 표현되어 있기 때문에 만약 &lt;code class=&quot;MathJax_Preview&quot;&gt;p(z_t \mid x_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;p(z_t \mid x_t)&lt;/script&gt; 와 &lt;code class=&quot;MathJax_Preview&quot;&gt;p(x_t \mid x_{t-1}, u_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;p(x_t \mid x_{t-1}, u_t)&lt;/script&gt; 에 대한 정보를 알고 있다면 반복적인 계산을 통해 현재 state의 확률을 계산할 수 있음을 알 수 있다. 여기서 &lt;code class=&quot;MathJax_Preview&quot;&gt;p(z_t \mid x_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;p(z_t \mid x_t)&lt;/script&gt; 는 현재의 state에서 센서 데이터의 확률인 observation model이며, $$p(x_t \mid x_{t-1}, u_t)$ 은 현재의 control input에 대해 이전 state에서 현재 state로의 update를 나타내는 motion model를 의미한다. 위의 식을 Recursive bayes filter라고 한다. Recursive bayes filter는 SLAM 문제를 푸는데 가장 기본적인 식이 되며, Kalman filter의 기본적인 식이다. 다음은 recursive bayes filter의 유도과정을 간단하게 살펴본다. 유도에 관심이 없고 전체적인 흐름만 보고자 한다면 다음 설명은 넘어가도 좋다.&lt;/p&gt;
+
+&lt;h4 id=&quot;recursive-bayes-filter의-유도과정&quot;&gt;Recursive bayes filter의 유도과정&lt;/h4&gt;
+</description>
+        <pubDate>Fri, 13 Jan 2017 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM_bayes_filter/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM_bayes_filter/</guid>
         
         <category>SLAM</category>
         
@@ -897,7 +1119,7 @@ z_2
 &lt;p&gt;이런 &lt;code class=&quot;MathJax_Preview&quot;&gt;SO(3)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;SO(3)&lt;/script&gt; group은 순수한 rotation만 표현 가능하다. Translation을 표현하기 위해서는 &lt;code class=&quot;MathJax_Preview&quot;&gt;4X4&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;4X4&lt;/script&gt; matrix를 고려해야 하며, 3D point들은 homogeneous coordinate으로 확장해야 한다.(&lt;code class=&quot;MathJax_Preview&quot;&gt;GL(4, \mathbb{R})&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;GL(4, \mathbb{R})&lt;/script&gt;)&lt;/p&gt;
 
 &lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{bmatrix}
-X2\\
+X_2\\
 1
 \end{bmatrix}
 = T \begin{bmatrix}
@@ -905,7 +1127,7 @@ X2\\
                   1
                   \end{bmatrix}&lt;/code&gt;&lt;/pre&gt;
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{bmatrix}
-X2\\
+X_2\\
 1
 \end{bmatrix}
 = T \begin{bmatrix}
@@ -1290,28 +1512,28 @@ To add boot-repair to the repository&lt;/p&gt;
 &lt;p&gt;NOTE: Update the Boot Repair if its newer version is available.
 It will scan the System for few seconds and will show you the options Recommended repair and Create a BootInfo summary. By clicking the Recommended Repair it will start repair the grub. Check the screen shots below.&lt;/p&gt;
 
-&lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;/images/post/boot_repair/1.png&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;/images/post/ubuntu/boot_repair/1.png&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;after waiting for second..&lt;/p&gt;
 
-&lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;/images/post/boot_repair/2.png&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;/images/post/ubuntu/boot_repair/2.png&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Once done click ok and restart your system, your grub should work now. If not run the boot-repair again using live cd / usb. Then follow the steps below.
 Select the Advanced options, In Main options tab check whether the following options are selected or not. If not select it, the options are Reinstall Grub and unhide boot menu for 10 seconds. Check the screen shot below&lt;/p&gt;
 
-&lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;/images/post/boot_repair/3.png&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;/images/post/ubuntu/boot_repair/3.png&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Then select the GRUB locations tab and check the following options are selected or not. The options are OS to boot by default and place grub into, In “OS to boot by default” option choose the OS which you want to be default on boot. Then select the drive where you need to reinstall the grub in “place grub into” option and click apply. Check the screen shots below&lt;/p&gt;
 
-&lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;/images/post/boot_repair/4.png&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;/images/post/ubuntu/boot_repair/4.png&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;and then&lt;/p&gt;
 
-&lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;/images/post/boot_repair/5.png&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;/images/post/ubuntu/boot_repair/5.png&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;waiting for a while&lt;/p&gt;
 
-&lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;/images/post/boot_repair/6.png&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;/images/post/ubuntu/boot_repair/6.png&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Click ok and restart your System. To restore MBR Click Here.
 Hope this will be helpful for you!!!&lt;/p&gt;
@@ -1782,12 +2004,12 @@ layout: default_post
         <description>&lt;p&gt;Jekyll 블로그는 기본적인 layout만을 제공해 주기 때문에 블로그 포스팅에 댓글을 달 수 있도록 만들기 위해서는 추가적인 작업이 필요하다. 댓글창을 만들기 위해 &lt;a href=&quot;https://disqus.com/&quot;&gt;Disqus&lt;/a&gt;를 사용할 것이다.&lt;/p&gt;
 
 &lt;h1 id=&quot;1-disqus-계정-만들기&quot;&gt;1. Disqus 계정 만들기&lt;/h1&gt;
-&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/images/post/add_comment_to_post/fig1.png&quot; width=&quot;500&quot; height=&quot;500px&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/images/post/jekyll/add_comment_to_post/fig1.png&quot; width=&quot;500&quot; height=&quot;500px&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;첫번째로 &lt;a href=&quot;https://disqus.com/&quot;&gt;Disqus&lt;/a&gt;에 접속하여 회원가입 후 등록을 한다. 등록 후 Main 페이지에서 우측 상단의 톱니바퀴를 누르면 나오는 메뉴 중 &lt;code class=&quot;highlighter-rouge&quot;&gt;Setting&lt;/code&gt;으로 이동 후 다시 &lt;code class=&quot;highlighter-rouge&quot;&gt;Add Disqus To Site&lt;/code&gt;로 이동한다. 페이지 이동 후 페이지 가장 아래쪽으로 이동하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;GET STARTED&lt;/code&gt;를 눌러 블로그 명 및 URL을 등록한다.&lt;/p&gt;
 
 &lt;h1 id=&quot;2-universal-code-복사하기&quot;&gt;2. Universal Code 복사하기&lt;/h1&gt;
-&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/images/post/add_comment_to_post/fig2.png&quot; width=&quot;800&quot; height=&quot;500px&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/images/post/jekyll/add_comment_to_post/fig2.png&quot; width=&quot;800&quot; height=&quot;500px&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;등록을 마친 후 Setting의 Installation page로 이동 후 platform을 선택한다. Jekyll에 추가하기 위해서는 Universal code를 선택한다. 이제 1번에 있는 코드를 복사하여 Jekyll의 &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts/post.html&lt;/code&gt; 파일에 추가해준다.&lt;/p&gt;
 
@@ -1843,7 +2065,7 @@ layout: default_post
 
 &lt;p&gt;마지막으로 포스팅을 할 때 포스팅 &lt;code class=&quot;highlighter-rouge&quot;&gt;.md&lt;/code&gt; file의 맨 위에 &lt;code class=&quot;highlighter-rouge&quot;&gt;comments: true&lt;/code&gt; 를 추가해 주면 포스팅에 댓글쓰기가 다음과 같이 활성화 된다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/images/post/add_comment_to_post/fig3.png&quot; width=&quot;800&quot; height=&quot;200px&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/images/post/jekyll/add_comment_to_post/fig3.png&quot; width=&quot;800&quot; height=&quot;200px&quot; /&gt;&lt;/p&gt;
 
 </description>
         <pubDate>Thu, 19 May 2016 00:00:00 +0900</pubDate>

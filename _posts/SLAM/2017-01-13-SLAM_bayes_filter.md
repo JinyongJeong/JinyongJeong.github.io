@@ -60,6 +60,6 @@ bel(x_t)  &= p(x_t \mid z_{1:t},u_{1:t}) \\
 \end{aligned}
 $$
 
-$$bel(x_t)$$ 는 처음부터 현재까지의 observation( $$z$$ )와 control input( $$u$$ )을 알고 있을 때 현재 state( $$x_t$$ )의 확률을 의미한다. 위의 식에서 $$bel(x_t)$$ 의 식은 $$bel(x_{t-1})$$ 의 integral로 표현되어 있기 때문에 만약 $$p(z_t \mid x_t)$$ 와 $$p(x_t \mid x_{t-1}, u_t)$$ 에 대한 정보를 알고 있다면 반복적인 계산을 통해 현재 state의 확률을 계산할 수 있음을 알 수 있다. 이를 Recursive bayes filter라고 한다. Recursive bayes filter는 SLAM 문제를 푸는데 가장 기본적인 식이 되며, Kalman filter의 기본적인 식이다. 다음은 recursive bayes filter의 유도과정을 간단하게 살펴본다. 유도에 관심이 없고 전체적인 흐름만 보고자 한다면 다음 설명은 넘어가도 좋을 것 같다.
+$$bel(x_t)$$ 는 처음부터 현재까지의 observation( $$z$$ )와 control input( $$u$$ )을 알고 있을 때 현재 state( $$x_t$$ )의 확률을 의미한다. 위의 식에서 $$bel(x_t)$$ 의 식은 $$bel(x_{t-1})$$ 의 integral로 표현되어 있기 때문에 만약 $$p(z_t \mid x_t)$$ 와 $$p(x_t \mid x_{t-1}, u_t)$$ 에 대한 정보를 알고 있다면 반복적인 계산을 통해 현재 state의 확률을 계산할 수 있음을 알 수 있다. 여기서 $$p(z_t \mid x_t)$$ 는 현재의 state에서 센서 데이터의 확률인 observation model이며, $$p(x_t \mid x_{t-1}, u_t)$ 은 현재의 control input에 대해 이전 state에서 현재 state로의 update를 나타내는 motion model를 의미한다. 위의 식을 Recursive bayes filter라고 한다. Recursive bayes filter는 SLAM 문제를 푸는데 가장 기본적인 식이 되며, Kalman filter의 기본적인 식이다. 다음은 recursive bayes filter의 유도과정을 간단하게 살펴본다. 유도에 관심이 없고 전체적인 흐름만 보고자 한다면 다음 설명은 넘어가도 좋다.
 
 #### Recursive bayes filter의 유도과정
