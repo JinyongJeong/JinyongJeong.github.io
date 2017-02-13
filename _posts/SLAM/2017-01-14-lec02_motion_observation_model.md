@@ -53,7 +53,7 @@ Motion model은 control input($$u_t$$)이 이전 state($$x_{t-1}$$)을 현재 st
 
 odometry model은 로봇 혹은 자동차의 바퀴에 달린 wheel encoder의 센서 데이터를 이용한 모델이며, velocity model은 imu와 같은 관성 센서를 이용한 model이다. velocity model은 wheel encoder와 같은 odometry model을 사용할 수 없을 때 주로 사용하며, odometry model이 velocity model보다 더 정확한 편이다.
 
-<img align="middle" src="/images/post/SLAM/motion_observation_model/odometry_based.png" width="700">
+<img align="middle" src="/images/post/SLAM/lec02_motion_observation_model/odometry_based.png" width="700">
 
 위의 그림은 motion model에 의한 state의 uncertainty를 나타낸다. 점이 많이 분포되거나, 어두운 부분일 수록 확률이 높은 부분이다. 로봇의 진행방향과 회전방향에 대한 uncertainty의 크기에 따라서 다른 확률 분포를 보인다. 맨 왼쪽의 그림은 고르게 분포되었을 경우이며, 가운데 그림은 진행방향의 uncertainty가 더 큰경우이며 마지막의 오른쪽 그림은 회전방향의 uncertainty가 진행방향보다 큰 경우를 보여주고 있다.
 
