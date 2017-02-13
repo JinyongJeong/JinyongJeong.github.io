@@ -34,7 +34,7 @@ $$
 
 $$
 \begin{bmatrix}
-X2\\
+X_2\\
 1
 \end{bmatrix}
 = T \begin{bmatrix}

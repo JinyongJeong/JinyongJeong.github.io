@@ -21,7 +21,7 @@ State estimation은 로봇에 주어지는 입력과, 로봇의 센서로부터 
 
 $$ p(\mathbf{x}\mid \mathbf{z}, \mathbf{u})$$
 
-위의 식은 기본적인 state estimation을 의미한다. $\mathbf{x}$ 는 로봇의 위치 및 지도(주변의 land mark들의 위치)를 의미하는 vector이며, $\mathbf{z}$ 는 로봇의 센서로부터 얻어지는 데이터로 observation이라고 부르며, $\mathbf{u}$ 는 센서의 움직임을 제어하는 입력으로 control input이라고 부른다. state estimation은 이러한 control input과 observation의 데이터를 통해 현재의 위치와 지도를 추정한다.
+위의 식은 기본적인 state estimation을 의미한다. $$\mathbf{x}$$ 는 로봇의 위치 및 지도(주변의 land mark들의 위치)를 의미하는 vector이며, $$\mathbf{z}$$ 는 로봇의 센서로부터 얻어지는 데이터로 observation이라고 부르며, $$\mathbf{u}$$ 는 센서의 움직임을 제어하는 입력으로 control input이라고 부른다. state estimation은 이러한 control input과 observation의 데이터를 통해 현재의 위치와 지도를 추정한다.
 
 ### bayes theorem
 
@@ -29,10 +29,12 @@ $$ p(\mathbf{x}\mid \mathbf{z}, \mathbf{u})$$
 
 $$
 P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)}
-  $$
+$$
 
-$P(A)$ 는 A의 prior로, 사건 B에 대한 어떠한 정보를 알지 못하는 것을 의미한다. $P(A \mid B)$ 는 B의 값이 주어진 경우 A의 posterior이다. $P(B \mid A)는 A가 주어졌을 때 B의 조건부 확률이다.
+$P(A)$ 는 A의 prior로, 사건 B에 대한 어떠한 정보를 알지 못하는 것을 의미한다. $$P(A \mid B)$$ 는 B의 값이 주어진 경우 A의 posterior이다. $$P(B \mid A)$$ 는 A가 주어졌을 때 B의 조건부 확률이다.
 
 bayes 정리의 자세한 내용은 [wiki](https://ko.wikipedia.org/wiki/%EB%B2%A0%EC%9D%B4%EC%A6%88_%EC%A0%95%EB%A6%AC)를 참고한다.
 
 ### Recursive bayes filter
+
+위에서 설명한 state estimation은 bayes filter의 과정으로 설명할 수 있으며, 각 step의 state를 반복적으로 계산함으로써 계산할 수 있기 때문에 recursive bayes filter로 부른다. 전체적인 recursive bayes filter의 식은 다음과 같다.
