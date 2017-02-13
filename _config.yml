@@ -13,10 +13,6 @@ url:                 http://JinyongJeong.github.io
 # i.e. `http://<username>.github.io`
 baseurl:             http://JinyongJeong.github.io
 
-sitemap:
-  lastmod: 2017-01-13
-  priority: 0.5
-  changefreq: 'weekly'
 
 title:               Jinyong Jeong
 
