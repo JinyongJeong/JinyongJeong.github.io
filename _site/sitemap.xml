@@ -1,452 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-    <url>
-      <loc>http://localhost:4000/2017/01/13/SLAM_bayes_model/</loc>
-      
-        <lastmod>2017-01-13T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-        <priority>1.0</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2017/01/09/subline_text/</loc>
-      
-        <lastmod>2017-01-09T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2017/01/09/pcl-install-with-qt5/</loc>
-      
-        <lastmod>2017-01-09T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2017/01/08/jekyll_blog_making_new/</loc>
-      
-        <lastmod>2017-01-08T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/11/22/ubuntu_graphic_driver_install/</loc>
-      
-        <lastmod>2016-11-22T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/09/19/cuda_setting/</loc>
-      
-        <lastmod>2016-09-19T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/08/26/pycaffe_importerror/</loc>
-      
-        <lastmod>2016-08-26T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/08/17/rsync-%EC%98%A4%EB%A5%98/</loc>
-      
-        <lastmod>2016-08-17T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/06/21/Ubuntu_IRAP_%EA%B8%B0%EB%B3%B8_%EB%AA%85%EB%A0%B9%EC%96%B4/</loc>
-      
-        <lastmod>2016-06-21T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/06/07/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/</loc>
-      
-        <lastmod>2016-06-07T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/06/07/se3_so3_transformation/</loc>
-      
-        <lastmod>2016-06-07T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/06/06/gcc_default_include_path_confirm/</loc>
-      
-        <lastmod>2016-06-06T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/06/06/bash_shell_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98/</loc>
-      
-        <lastmod>2016-06-06T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/06/06/VIM-install_and_setting/</loc>
-      
-        <lastmod>2016-06-06T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/06/06/Ubuntu_korean_setting/</loc>
-      
-        <lastmod>2016-06-06T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/06/06/Ubuntu_gedit-%ED%95%9C%EA%B8%80%EA%B9%A8%EC%A7%90-%EC%88%98%EC%A0%95/</loc>
-      
-        <lastmod>2016-06-06T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/06/06/GRUB-multiboot-repair/</loc>
-      
-        <lastmod>2016-06-06T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/06/06/Jekyll_github_blog_math/</loc>
-      
-        <lastmod>2016-06-06T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/06/05/static_and_extern/</loc>
-      
-        <lastmod>2016-06-05T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/06/05/DLL_and_LIB/</loc>
-      
-        <lastmod>2016-06-05T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/06/04/Ubuntu-and-Window-Keyboard&Mouse-sharing/</loc>
-      
-        <lastmod>2016-06-04T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/06/03/Ubuntu-VPN-server-%EC%84%A4%EC%A0%95/</loc>
-      
-        <lastmod>2016-06-03T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/06/02/SSH-keygen-%EC%84%A4%EC%A0%95/</loc>
-      
-        <lastmod>2016-06-02T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/06/01/%EA%B3%B5%EA%B0%9CSW%EB%9D%BC%EC%9D%B4%EC%84%BC%EC%8A%A4/</loc>
-      
-        <lastmod>2016-06-01T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/05/29/%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%99%95%EC%9E%A5%EC%9E%90/</loc>
-      
-        <lastmod>2016-05-29T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/05/27/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%8C%80%EB%A1%9C-%ED%8F%AC%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0/</loc>
-      
-        <lastmod>2016-05-27T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/05/19/add_comment_to_post/</loc>
-      
-        <lastmod>2016-05-19T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/2016/05/15/Partition_auto_mount/</loc>
-      
-        <lastmod>2016-05-15T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/05/15/Partition_auto_mount/</loc>
+<lastmod>2016-05-15T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/05/19/add_comment_to_post/</loc>
+<lastmod>2016-05-19T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/05/27/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C-%EA%B7%B8%EB%8C%80%EB%A1%9C-%ED%8F%AC%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0/</loc>
+<lastmod>2016-05-27T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/05/29/%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%99%95%EC%9E%A5%EC%9E%90/</loc>
+<lastmod>2016-05-29T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/06/01/%EA%B3%B5%EA%B0%9CSW%EB%9D%BC%EC%9D%B4%EC%84%BC%EC%8A%A4/</loc>
+<lastmod>2016-06-01T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/06/02/SSH-keygen-%EC%84%A4%EC%A0%95/</loc>
+<lastmod>2016-06-02T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/06/03/Ubuntu-VPN-server-%EC%84%A4%EC%A0%95/</loc>
+<lastmod>2016-06-03T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/06/04/Ubuntu-and-Window-Keyboard&Mouse-sharing/</loc>
+<lastmod>2016-06-04T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/06/05/DLL_and_LIB/</loc>
+<lastmod>2016-06-05T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/06/05/static_and_extern/</loc>
+<lastmod>2016-06-05T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/06/06/Jekyll_github_blog_math/</loc>
+<lastmod>2016-06-06T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/06/06/GRUB-multiboot-repair/</loc>
+<lastmod>2016-06-06T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/06/06/Ubuntu_gedit-%ED%95%9C%EA%B8%80%EA%B9%A8%EC%A7%90-%EC%88%98%EC%A0%95/</loc>
+<lastmod>2016-06-06T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/06/06/Ubuntu_korean_setting/</loc>
+<lastmod>2016-06-06T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/06/06/VIM-install_and_setting/</loc>
+<lastmod>2016-06-06T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/06/06/bash_shell_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98/</loc>
+<lastmod>2016-06-06T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/06/06/gcc_default_include_path_confirm/</loc>
+<lastmod>2016-06-06T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/06/07/se3_so3_transformation/</loc>
+<lastmod>2016-06-07T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/06/07/Ubuntu_apt_get_%EB%AA%85%EB%A0%B9%EC%96%B4/</loc>
+<lastmod>2016-06-07T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/06/21/Ubuntu_IRAP_%EA%B8%B0%EB%B3%B8_%EB%AA%85%EB%A0%B9%EC%96%B4/</loc>
+<lastmod>2016-06-21T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/08/17/rsync-%EC%98%A4%EB%A5%98/</loc>
+<lastmod>2016-08-17T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/08/26/pycaffe_importerror/</loc>
+<lastmod>2016-08-26T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/09/19/cuda_setting/</loc>
+<lastmod>2016-09-19T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2016/11/22/ubuntu_graphic_driver_install/</loc>
+<lastmod>2016-11-22T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2017/01/08/jekyll_blog_making_new/</loc>
+<lastmod>2017-01-08T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2017/01/09/pcl-install-with-qt5/</loc>
+<lastmod>2017-01-09T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2017/01/09/subline_text/</loc>
+<lastmod>2017-01-09T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/2017/01/13/SLAM_bayes_model/</loc>
+<lastmod>2017-01-13T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/404.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/tag/IRAP/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/about/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/archive/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/tag/jekyll/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/tag/math/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/tag/post/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/tag/software/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/tag/ubuntu/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/page-2/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/page-3/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/page-4/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/page-5/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/page-6/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/Download/SE3/jlblanco2010geometry3d_techrep.pdf</loc>
+<lastmod>2017-02-08T21:07:50+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/Download/papers/jjeong_2016_urai_aIPM.pdf</loc>
+<lastmod>2017-02-09T14:02:08+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/http://JinyongJeong.github.io/Download/papers/roh_2016_sensors_accurate_mobile_urban_mapping.pdf</loc>
+<lastmod>2017-02-09T14:04:19+09:00</lastmod>
+</url>
 </urlset>
