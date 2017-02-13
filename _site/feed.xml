@@ -6,9 +6,857 @@
 </description>
     <link>http://localhost:4000http://JinyongJeong.github.io/</link>
     <atom:link href="http://localhost:4000http://JinyongJeong.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 13 Feb 2017 16:34:49 +0900</pubDate>
-    <lastBuildDate>Mon, 13 Feb 2017 16:34:49 +0900</lastBuildDate>
+    <pubDate>Mon, 13 Feb 2017 16:38:12 +0900</pubDate>
+    <lastBuildDate>Mon, 13 Feb 2017 16:38:12 +0900</lastBuildDate>
     <generator>Jekyll v3.4.0</generator>
+    
+      <item>
+        <title>bayes</title>
+        <description>
+</description>
+        <pubDate>Fri, 13 Jan 2017 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM-bayes-model/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM-bayes-model/</guid>
+        
+        <category>SLAM</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ubuntu Sublime text 설치하기</title>
+        <description>&lt;h1 id=&quot;sublimetext3&quot;&gt;SublimeText3&lt;/h1&gt;
+
+&lt;h3 id=&quot;1-sublime-text-설치하기&quot;&gt;1. sublime text 설치하기&lt;/h3&gt;
+
+&lt;h5 id=&quot;sublimetext-에서-다운로드-후-설치&quot;&gt;&lt;a href=&quot;http://www.sublimetext.com/&quot;&gt;sublimetext&lt;/a&gt; 에서 다운로드 후 설치&lt;/h5&gt;
+
+&lt;h5 id=&quot;ppa-이용한-설치-방법&quot;&gt;ppa 이용한 설치 방법&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo add-apt-repository ppa:webupd8team/sublime-text-3
+sudo apt-get update
+sudo apt-get install sublime-text-installer
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;2-project-를-위한-패키지-구성&quot;&gt;2. Project 를 위한 패키지 구성&lt;/h3&gt;
+
+&lt;h5 id=&quot;package-control-설치&quot;&gt;Package Control 설치&lt;/h5&gt;
+
+&lt;p&gt;메뉴 View -&amp;gt; Show Consol (Ctrl+`) 실행후 console 창을 열어서 아래의 명령어 입력후 에디터 재시작
+Sublime text 버전에 따라 다르게 입력&lt;/p&gt;
+
+&lt;p&gt;Sublime Text 2&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import urllib2,os; pf='Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), 'wb' ).write( urllib2.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read()); print( 'Please restart Sublime Text to finish installation')
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Sublime Text 3&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;ycmdcompletion-패키지&quot;&gt;YcmdCompletion 패키지&lt;/h4&gt;
+
+&lt;h5 id=&quot;1-ycmdcompletion-설치&quot;&gt;1. YcmdCompletion 설치&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Sublime Text에서 Command Palette (Ctrl+Shift+P)창을 열어서 ‘Package Control : Install Pacakge’ 실행 후 ‘YcmdCompletion’ 찾아서 설치&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;YcmdCompletion은 기본적으로 Ycmd server를 이용해서 code-completion을 수행. ycmd server가 설치 되어있지 않으면 다음 단계로 ycmd 를 설치해야함.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;2-ycmd-server-설치&quot;&gt;2. Ycmd server 설치&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ycmd의 github 원격 저장소를 복제후 submodule 업데이트&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/Valloric/ycmd.git
+cd ycmd
+git submodule update --init --recursive
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ycmd 빌드&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./build.py --all
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;3-ycmdcompletion-설정&quot;&gt;3. YcmdCompletion 설정&lt;/h5&gt;
+
+&lt;h6 id=&quot;hmac-key-생성&quot;&gt;HMAC key 생성&lt;/h6&gt;
+
+&lt;p&gt;Command Pallete (Ctrl+Shift+p) -&amp;gt; Ycmd: Create HMAC keys&lt;/p&gt;
+
+&lt;h6 id=&quot;sublime-text의-ycmd-completion-설정&quot;&gt;Sublime Text의 Ycmd Completion 설정&lt;/h6&gt;
+
+&lt;p&gt;Preferences -&amp;gt; Package Settings -&amp;gt; YcmdCompletion -&amp;gt; Settings - Default 클릭 후 YcmdCompletion.sublime-settings 파일의 주석 처리된 부분을 풀어서 다음과 같이 입력&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;ycmd_server&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://127.0.0.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;ycmd_port&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8080&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;HMAC&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;위에서 생성한 HMAC key&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;use_auto_start_localserver&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;ycmd_path&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/home/USERNAME/ycmd/ycmd&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;languages&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cpp&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;python&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h6 id=&quot;sublime-text의-syntax-specific-추가&quot;&gt;Sublime Text의 Syntax Specific 추가&lt;/h6&gt;
+
+&lt;p&gt;Preferences -&amp;gt; Settings - More -&amp;gt; Syntax Specific - User 클릭 후 C++.sublime-settings에 다음 내용 추가(c++ 프로젝트 혹은 파일을 열었을 때 C++.sublime-settings을 열 수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;auto_complete_selector&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;source - (comment, string.quoted)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;auto_complete_triggers&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;selector&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;source.c++&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;characters&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;selector&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;source.c++&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;characters&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;::&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;selector&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;source.c++&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;characters&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h6 id=&quot;sublime-project-생성하기&quot;&gt;Sublime project 생성하기&lt;/h6&gt;
+&lt;ul&gt;
+  &lt;li&gt;CMake를 이용하는 방법&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd build
+cmake . -G &quot;Sublime Text 2 - Unix Makefiles&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;CMakeLists.txt 를 이용하는 방법&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;project의 root의 CMakeLists.txt에 다음 항목 추가&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;set(CMAKE_EXPORT_COMPILE_COMMANDS &quot;ON&quot;)
+set(CMAKE_GENERATOR &quot;Unix Makefiles&quot; CACHE INTERNAL &quot;&quot; FORCE)
+set(CMAKE_EXTRA_GENERATOR &quot;Sublime Text 2&quot; CACHE INTERNAL &quot;&quot; FORCE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h6 id=&quot;ycmd-default_settingsjson-파일-설정&quot;&gt;Ycmd default_settings.json 파일 설정&lt;/h6&gt;
+
+&lt;p&gt;위에서 복제한 ycmd server directory에서 default_settings.json 파일 내용 중 아래 부분 변경&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &quot;global_ycm_extra_conf&quot;: &quot;/home/ycmd/ycmd/.ycm_extra_conf.py&quot;,
+  &quot;confirm_extra_conf&quot;: 0,
+  &quot;hmac_secret&quot;: &quot;위의 HMAC key 입력&quot;,
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h6 id=&quot;ycm_extra_confpy-파일-설정하기&quot;&gt;&lt;a href=&quot;https://github.com/Valloric/ycmd/blob/master/cpp/ycm/.ycm_extra_conf.py&quot;&gt;.ycm_extra_conf.py&lt;/a&gt; 파일 설정하기&lt;/h6&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;gobal ycm_conf 설정 : ycmd server의 default_settings.json 파일의 “global_ycm_extra_conf” 설정 경로에 위 링크 파일 복사&lt;/li&gt;
+  &lt;li&gt;local ycm_conf 설정 : 해당 프로젝트의 root에 .ycmd_extra_conf.py복사 후 compilation_database_folder 값을 아래와 같이 변경&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compilation_database_folder = os.path.expanduser(&quot;~/projects/naver/build&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h6 id=&quot;ycm-generator-이용해서-ycm_extra_confpy-만들기&quot;&gt;YCM-Generator 이용해서 .ycm_extra_conf.py 만들기&lt;/h6&gt;
+
+&lt;p&gt;YCM-Generator를 github repository로부터 복제&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/rdnetto/YCM-Generator.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;프로젝트 디렉토리에 .ycm_extra_conf.py 만들기&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd YCM-Generator
+./config_gen.py 프로젝트디렉토리
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;위의 프로그램을 수행하면 프로젝트디렉토리의 root에 .ycm_extra_conf.py파일이 생성됨&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 09 Jan 2017 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2017/01/09/subline_text/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2017/01/09/subline_text/</guid>
+        
+        <category>ubuntu</category>
+        
+        <category>IRAP</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>원하는 QT 버전에 맞게 PCL 설치하기</title>
+        <description>&lt;p&gt;원하는 버전의 QT5와 VTK, PCL을 설치하는 방법에 대해 설명한다.&lt;/p&gt;
+
+&lt;p&gt;일반적인 방법으로 PCL을 설치할 경우 PCL의 기본 QT의 경로가 /usr/lib/x86_64-linux-gnu/ 로 잡히게 된다.&lt;/p&gt;
+
+&lt;p&gt;그러나 일반적으로 QT5를 sudo로 설치할 경우 /opt 에 설치되기 때문에 경로를 설정해줘야 한다.&lt;/p&gt;
+
+&lt;p&gt;VTK와 PCL를 제외한 나머지 dependency는 설치 되어 있다고 하자.(openni 등)&lt;/p&gt;
+
+&lt;p&gt;QT5 또한 원하는 버전을 /opt/에 설치한 경우이다.&lt;/p&gt;
+
+&lt;h1 id=&quot;1-vtk-설치&quot;&gt;1. VTK 설치&lt;/h1&gt;
+
+&lt;p&gt;git clone으로 VTK를 다운받아 준다&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/Kitware/VTK.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;그런 다음 build 폴더를 만들어서 build폴더로 이동한 후 다음 옵션으로 cmake해준다. 옵션으로 Qt5의 경로를 지정해준다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd build
+
+cmake -DVTK_QT_VERSION:STRING=5 -DQT_QMAKE_EXECUTABLE:PATH=/opt/Qt5.6.1/5.6/gcc_64/bin/qmake -DVTK_Group_Qt:BOOL=ON -DCMAKE_PREFIX_PATH:PATH=/opt/Qt5.6.1/5.6/gcc_64/lib/cmake -DBUILD_SHARED_LIBS:BOOL=ON ..
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;그다음 설치해준다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;make -j8
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;2-pcl-설치&quot;&gt;2. PCL 설치&lt;/h1&gt;
+
+&lt;p&gt;git 에서 다운받는다&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/PointCloudLibrary/pcl.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;PCL의 qt5 경로를 설정해주기 위해서 cmake file에서 prefix 를 설정한다. /pcl/cmake/pcl_find_qt5.cmake 를 열고 최 상단에 아래의 setting을 추가&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;set(CMAKE_PREFIX_PATH /opt/Qt5.6.1/5.6/gcc_64/lib/cmake)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;이제 build 폴더를 만들고 빌드 후 설치한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir build
+cd build
+cmake ..
+maek -j8
+make install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Mon, 09 Jan 2017 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2017/01/09/pcl-install-with-qt5/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2017/01/09/pcl-install-with-qt5/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Jekyll을 이용하여 Github Blog 만들기</title>
+        <description>&lt;h2 id=&quot;ruby와-jekyll-설치&quot;&gt;Ruby와 Jekyll 설치&lt;/h2&gt;
+&lt;p&gt;Jekyll을 이용하여 github의 Blog를 만들어보도록 하자. 우선 Jekyll을 설치하기 위해서는 ruby를 설치해야 한다. 아래명령어를 이용하여 ruby를 설치한 후 Jekyll을 설치한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get install ruby-full
+sudo gem install jekyll
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Jekyll이 설치되었으면 설치가 잘 되었는지 확인하기 위해 버전을 확인한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll -v
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;각 blog의 종류에 따라 다르지만 아래의 명령어를 통해 추가 패키지를 설치해주자.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo gem install jekyll-sitemap
+sudo gem install jekyll-paginate
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;github의-repository를-생성&quot;&gt;github의 repository를 생성&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.github.com&quot;&gt;Github&lt;/a&gt;으로 접속 후 새로운 repository 생성. &lt;yourname&gt;.github.io 로 repository 생성 후 로컬에서 home folder로 이동하여 repository 복사.&lt;/yourname&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/&amp;lt;yourname&amp;gt;/&amp;lt;yourname&amp;gt;.github.io.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;폴더를  복사 후  그 폴더로 이동한 후 git 을 초기화시킨다. 초기화 시킨 후 git의 폴더에 jekyll의 기본 테마 설치&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git init
+jekyll new . --force 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Jekyll로 생성된 모든 파일을 git에 add해 준 후 commit, push 를 해서 github에 올려준다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add *
+git commit -m &quot;first commit&quot;
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;첫 commit 시에 config 파일에 user.email과 user.name을 등록하라고 나오면&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config user.email &quot;이메일주소&quot;
+git config user.name &quot;이름&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;을 입력하여 이메일과 이름을 등록해 준다.이로써 github에 블로그가 생성되었다!&lt;/p&gt;
+
+&lt;p&gt;git을 clone 받은 후 처음에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;git push -u origin master&lt;/code&gt;를 모두 입력해야 하지만 한번 한 이후에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;git push&lt;/code&gt;만 입력해도 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;blog-작성&quot;&gt;Blog 작성&lt;/h2&gt;
+
+&lt;p&gt;블로그 작성 시 입력한 내용이 예상한대로 동작을 하는지 확인 하기 위해서 매번 github에 push하는 것은 매우 힘든 일이다. 작성을 하는 동시에 바로 확인을 하기 위해서 위에서 언급한 것과 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;를 이용하여 서버를 동작 시킨 후 &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:4000&lt;/code&gt;으로 접속하면 바로 수정된 내용을 확인할 수 있다. 이렇게 수정이 완료된 후 github로 push하면 편하게 포스팅을 수정할 수 있다.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 08 Jan 2017 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2017/01/08/jekyll-blog-making-new/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2017/01/08/jekyll-blog-making-new/</guid>
+        
+        <category>jekyll</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ubuntu NVIDIA Graphic Driver 설치(nouveau kernel 문제 등)</title>
+        <description>&lt;h1 id=&quot;그래픽-드라이버-설치하기&quot;&gt;그래픽 드라이버 설치하기&lt;/h1&gt;
+&lt;p&gt;우분투를 처음 설치하고 나서 NVIDIA 그래픽 드라이버를 설치하는 과정에서 많은 사람들이 다양한 문제를 경험한다.&lt;/p&gt;
+
+&lt;p&gt;우선 NVIDA 홈페이지에 들어가서 본인의 시스템에 맞는 그래픽 드라이버를 최근 3가지 종류를 미리 다운받아 놓는것을 추천한다.&lt;/p&gt;
+
+&lt;h1 id=&quot;1-시스템-재부팅&quot;&gt;1. 시스템 재부팅&lt;/h1&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo reboot
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;명령어를 이용하여 시스템을 재 부팅해준다.&lt;/p&gt;
+
+&lt;h1 id=&quot;2-터미널-모드로-진입&quot;&gt;2. 터미널 모드로 진입&lt;/h1&gt;
+
+&lt;p&gt;로그인 화면이 나타나게 되면 &lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl+alt+F1&lt;/code&gt; 버튼을 눌러 터미널 모드로 진입한다.&lt;/p&gt;
+
+&lt;h1 id=&quot;3-lightdm-끄기&quot;&gt;3. lightdm 끄기&lt;/h1&gt;
+
+&lt;p&gt;NVIDA 드라이버 설치에 앞서 화면출력을 제어하는 Lightdm을 꺼줘야 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo /etc/init.d/lightdm stop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;위의 명령어로 lightdm 을 꺼준다&lt;/p&gt;
+
+&lt;p&gt;참고 페이지
+&lt;a href=&quot;http://askubuntu.com/questions/295772/sudo-service-lightdm-stop-will-go-into-a-blank-screen&quot;&gt;http://askubuntu.com/questions/295772/sudo-service-lightdm-stop-will-go-into-a-blank-screen&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;4-드라이버-설치&quot;&gt;4. 드라이버 설치&lt;/h1&gt;
+
+&lt;p&gt;Download 폴더에 드라이버가 저장되어 있는 경우 해당 폴더로 이동하여 설치한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ./NVIDA*.run
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;그래픽 드라이버 실행 시 관리자 권한으로 실행해야 설치가 된다.&lt;/p&gt;
+
+&lt;p&gt;만약 다운받은 드라이버가 실행파일로 되어 있지 않은 경우&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod 777 ./NVIDIA*.run
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;을 실행하여 실행가능한 파일로 바꿔준다.&lt;/p&gt;
+
+&lt;h1 id=&quot;5-nouveau-끄기&quot;&gt;5. nouveau 끄기&lt;/h1&gt;
+
+&lt;p&gt;경우에 따라서 nouveau kernel이 실행중이라서 설치를 할수 없다는 경고 메세지가 나오는 경우가 있다.&lt;/p&gt;
+
+&lt;p&gt;이런 경우는 아래의 사이트를 참고하자
+&lt;a href=&quot;https://altinukshini.wordpress.com/2011/07/28/how-to-install-nvidia-drivers-in-ubuntu-linux/&quot;&gt;https://altinukshini.wordpress.com/2011/07/28/how-to-install-nvidia-drivers-in-ubuntu-linux/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;우선 &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/modprobe.d/blacklist.conf&lt;/code&gt; 파일을 열어&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;blacklist nouveau
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;를 가장 아래에 추가해준다.&lt;/p&gt;
+
+&lt;p&gt;그다음 다음의 명령어로 nouveau를 비활성화 시킨다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf
+update-initramfs -u
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;여기까지 진행한 후 재부팅하고 다시 sudo 권한으로 그래픽 드라이버를 설치하면 설치가 될 것이다.&lt;/p&gt;
+
+&lt;p&gt;위의 사이트에서는 위에 언급한 과정 말고 다른 부가적인 과정이 서술되어 있으나&lt;/p&gt;
+
+&lt;p&gt;본인은 이정도로도 설치가 되었다. 만약 안된다면 위의 사이트를 좀더 자세히 참고하길 바란다.&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 22 Nov 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/11/22/ubuntu_graphic_driver_install/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/11/22/ubuntu_graphic_driver_install/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>그래픽 카드별 CUDA 및 Opencv 설정</title>
+        <description>&lt;p&gt;현재 github의 fast rcnn 을 사용하면서 부딛히는 문제점들을 정리해본다.&lt;/p&gt;
+
+&lt;p&gt;현재 사용하고 있는 PC는 2대로 한대는 GTX760, 다른 한대는 GTX1060을 사용하고 있는데&lt;/p&gt;
+
+&lt;p&gt;그래픽카드가 다르기 때문에 setting또한 달라서 복잡하다.&lt;/p&gt;
+
+&lt;h1 id=&quot;1-gtx760-pc&quot;&gt;1. GTX760 PC&lt;/h1&gt;
+
+&lt;p&gt;GTX760은 CUDA7.5와 Oepncv 2.4조합으로 잘 세팅이 된다.&lt;/p&gt;
+
+&lt;h1 id=&quot;2-gtx1060-pc&quot;&gt;2. GTX1060 PC&lt;/h1&gt;
+
+&lt;h2 id=&quot;cuda-80&quot;&gt;CUDA 8.0&lt;/h2&gt;
+
+&lt;p&gt;다른 gtx1080을 사용하는 친구는 CUDA7.5로 fast rcnn 및 caffe세팅이 된다는데 나는 계속 오류가 나서 CUDA8.0 RC버전으로 올려서 설치하니까 caffe 오류는 잡을 수 있었다. 하지만 CUDA8.0으로 올리면서 Opencv와의 호환에 문제가 발생한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;opencv30-혹은-31&quot;&gt;OPENCV3.0 혹은 3.1&lt;/h2&gt;
+
+&lt;p&gt;CUDA8.0을 설치하고 Opencv3.0을 build하면 오류가 나는데, opencv에서 graphcut알고리즘이 cudalegacy 모듈을 사용하는데 CUDA8.0에서 이 legacy를 삭제한것 같다. 현재 이 문제는 github의 opencv에는 해결되어 있으므로 github의 opencv를 사용하면 해결된다.&lt;/p&gt;
+
+&lt;p&gt;문제해결 포스팅 관련 URL&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/opencv/opencv/pull/6510&quot;&gt;https://github.com/opencv/opencv/pull/6510&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;문제 해결된 opencv github&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/opencv/opencv&quot;&gt;https://github.com/opencv/opencv&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;추가적인-문제&quot;&gt;추가적인 문제&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-thrust&quot;&gt;1. thrust&lt;/h3&gt;
+
+&lt;p&gt;추가적으로 CUDA8.0RC에 thrust관련 문제가 있다.&lt;/p&gt;
+
+&lt;p&gt;문제해결 포스팅 관련 URL&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/thrust/thrust/issues/800&quot;&gt;https://github.com/thrust/thrust/issues/800&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;thrust github URL&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/thrust/thrust&quot;&gt;https://github.com/thrust/thrust&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 포스팅에 글처럼 github에서 git clone을 받은 후 기존의 &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/cuda8.0/thrust&lt;/code&gt; 를 &lt;code class=&quot;highlighter-rouge&quot;&gt;thrust_old&lt;/code&gt;로 바꾸고 다운받은 &lt;code class=&quot;highlighter-rouge&quot;&gt;thrust&lt;/code&gt;폴더의 링크를 넣어준다.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-opencv30-features2d-error&quot;&gt;2. Opencv3.0 features2D error&lt;/h3&gt;
+
+&lt;p&gt;Opencv3.0 을 build하다보면 features2d.hpp에서 error가 발생한다.&lt;/p&gt;
+
+&lt;p&gt;위의 문제와 관련된 post는 다음에 있다&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/33050599/opencv-3-0-features2d-hpp-error-unknown-algorithminfo&quot;&gt;http://stackoverflow.com/questions/33050599/opencv-3-0-features2d-hpp-error-unknown-algorithminfo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;vector관련 에러는 &lt;code class=&quot;highlighter-rouge&quot;&gt;using std::vector&lt;/code&gt;를 넣어주고&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AlgorithmInfo&lt;/code&gt; 관련 에러는 &lt;code class=&quot;highlighter-rouge&quot;&gt;AlgorithmInfo&lt;/code&gt;를 &lt;code class=&quot;highlighter-rouge&quot;&gt;Algorithm&lt;/code&gt;으로 바꾸어 준다.&lt;/p&gt;
+
+&lt;p&gt;기타 fast rcnn 설정을 위한 참고 URL&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://m.blog.daum.net/goodgodgd/27&quot;&gt;http://m.blog.daum.net/goodgodgd/27&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 19 Sep 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/09/19/cuda_setting/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/09/19/cuda_setting/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Pycaffe importerror문제</title>
+        <description>&lt;p&gt;Pycaffe를 사용하면서 import error를 자주 만나게 되는데&lt;/p&gt;
+
+&lt;p&gt;아무리 구글링을 해도 해결이 안될때가 있다.&lt;/p&gt;
+
+&lt;p&gt;이런 경우는 그냥 python을 이용하는 경우가 아닌 anaconda를 사용하는 경우이다.&lt;/p&gt;
+
+&lt;p&gt;일반적으로 구글링으로 나오는 방법은 python을 이용할 때이기 때문에 다른 방법을 사용해야 한다.&lt;/p&gt;
+
+&lt;p&gt;예를들어 protobuf의 import error가 발생했을 경우&lt;/p&gt;
+
+&lt;p&gt;일반적으로&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install protobuf&lt;/code&gt; 혹은 &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo pip install protobuf&lt;/code&gt;로 설치를 하라고 하지만&lt;/p&gt;
+
+&lt;p&gt;이렇게는 해결되지 않는다.&lt;/p&gt;
+
+&lt;p&gt;이럴때는&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda install protobuf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;로 설치해야 한다.&lt;/p&gt;
+
+&lt;p&gt;sudo로 실행할 경우 conda를 찾을 수 없다고 나온다고 한다.&lt;/p&gt;
+
+&lt;p&gt;protobuf이외에 다른 import 문제도 비슷하게 해결 가능하다.&lt;/p&gt;
+
+&lt;p&gt;참고URL&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jangjy.tistory.com/210&quot;&gt;http://jangjy.tistory.com/210&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 26 Aug 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/08/26/pycaffe_importerror/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/08/26/pycaffe_importerror/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ubuntu rsync 오류 및 옵션</title>
+        <description>&lt;p&gt;rsync와 scp는 원격으로 파일을 복사할때 사용하는 명령어이다.&lt;/p&gt;
+
+&lt;p&gt;내가 주로 사용하는 rsync 명령어 및 옵션은 `rsync -avPh source dest’으로 평소에 사용할 때에는 별 문제가 없다. 하지만 exFAT로 format되어있는 하드디스크로 복사를 하려고 할 때&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;failed to set permissions on 경로 Function not implemented (38)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;이라는 오류가 뜨면서 재대로 복사가 되지 않는다. rsync exFAT로 검색하여 찾은 해결법은 &lt;a href=&quot;http://blog.marcelotmelo.com/linux/ubuntu/rsync-to-an-exfat-partition/&quot;&gt;다음&lt;/a&gt;에서 확인할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;위의 포스트에 따르면 &lt;code class=&quot;highlighter-rouge&quot;&gt;-a&lt;/code&gt; 옵션이 문제가 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-a&lt;/code&gt; 옵션은 &lt;code class=&quot;highlighter-rouge&quot;&gt;-archive&lt;/code&gt;의 옵션으로 rsync를 아카이브 모드로 실행을 하며 [-rlptgoD]의 동작을 한다. 즉 7개의 옵션을 모두 포함하고 있는 옵션이란 뜻이다.&lt;/p&gt;
+
+&lt;p&gt;이때 exFAT로 복사할 때 문제가 되는 부분은 permission과 관련되는 &lt;code class=&quot;highlighter-rouge&quot;&gt;pgo&lt;/code&gt;옵션이다. 따라서 이 3가지 옵션을 제외한 나머지 옵션을 &lt;code class=&quot;highlighter-rouge&quot;&gt;-a&lt;/code&gt; 대신 넣어주면 된다. 즉 &lt;code class=&quot;highlighter-rouge&quot;&gt;rsync -rltDvPh&lt;/code&gt; 이렇게 옵션을 넣어주면 &lt;code class=&quot;highlighter-rouge&quot;&gt;rsync -avPh&lt;/code&gt;에서 위의 3가지 옵션을 제외한 옵션이 된다.&lt;/p&gt;
+
+&lt;p&gt;이렇게 옵션을 바꾸어 주면 문제없이 exFAT format으로도 복사가 잘 된다.&lt;/p&gt;
+
+&lt;p&gt;자세한 rsync 들의 옵션들은 &lt;a href=&quot;http://gyus.me/?p=214&quot;&gt;다음 블로그&lt;/a&gt;에 잘 정리되어 있다.&lt;/p&gt;
+
+&lt;p&gt;참고URL&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://blog.marcelotmelo.com/linux/ubuntu/rsync-to-an-exfat-partition/&quot;&gt;http://blog.marcelotmelo.com/linux/ubuntu/rsync-to-an-exfat-partition/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://gyus.me/?p=214&quot;&gt;http://gyus.me/?p=214&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 17 Aug 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/08/17/rsync_error/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/08/17/rsync_error/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ubuntu SVN 및 기타 명령어 정리 (IRAP)</title>
+        <description>&lt;p&gt;본 포스팅은 한국과학기술원(KAIST)의 &lt;a href=&quot;http://irap.kaist.ac.kr&quot;&gt;IRAP&lt;/a&gt;(Intelligent Robotic Autonomy and Perception) 연구실에서 주로 사용하는 Ubuntu 명령어들을 정리하였다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-ssh-서버-접속&quot;&gt;1. ssh 서버 접속&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh 계정이름@irap.kaist.ac.kr
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;2-데이터-복사&quot;&gt;2. 데이터 복사&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rsync -avPh 계정이름@irap.kaist.ac.kr/경로 복사할local폴더
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;3-svn-check-out&quot;&gt;3. SVN Check out&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svn co svn+ssh://계정이름@irap.kaist.ac.kr/경로/trunk 복사할local폴더
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;4-svn-commit&quot;&gt;4. SVN commit&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svn ci
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;5-svn-서버의-계정명과-컴퓨터-local-이름이-다른경우&quot;&gt;5. SVN 서버의 계정명과 컴퓨터 local 이름이 다른경우&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.ssh&lt;/code&gt; 폴더로 이동한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd ~/.ssh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;config&lt;/code&gt; 파일을 만들고 내용을 추가해준다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;touch config
+vi config
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;아래의 내용 추가&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Host irap.kaist.ac.kr
+User each_user_name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;6-svn-버전관리-예외-처리&quot;&gt;6. SVN 버전관리 예외 처리&lt;/h2&gt;
+
+&lt;p&gt;SVN 폴더내에서 특정 확장자 파일 혹은 특정 파일에 대한 버전관리 예외처리를 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;SVN home 폴더 위치에서 다음의 명령어 실행&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svn propedit svn:ignore .
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;다음을 실행하면 nano editor가 열리며 ignore에 넣을 파일명을 입력할 수 있다. Latex svn의 경우&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;*.aux
+*.log
+*.synctex
+*.bbl
+*.blg
+*.gz
+paper.pdf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;위와 같이 입력해 놓으면 각 확장자 파일과 &lt;code class=&quot;highlighter-rouge&quot;&gt;paper.pdf&lt;/code&gt; 파일은 svn 버전관리에 대해서 예외처리 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;7-svn-로컬-파일-변경-취소&quot;&gt;7. SVN 로컬 파일 변경 취소&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svn revert filename
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;위와 같이 입력하면 local에서의 파일 변경이 취소된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;8-svn-commit시-pdf-파일-binary로-인식-차단&quot;&gt;8. SVN commit시 PDF 파일 binary로 인식 차단&lt;/h2&gt;
+
+&lt;p&gt;svn commit을 하게 되면 각 파일의 수정사항이 svn server에 등록되어 있는 메일로 전달이 되는데 이 과정에서 pdf 파일의 경우 binary로 인식되어 사람이 알아 볼 수 없는 형태로 전달된다. 따라서 commit을 할 때 pdf파일은 binary로 인식되지 않도록 다음 명령어를 이용한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svn propset svn:mime-type application/octet-stream &amp;lt;filename&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;9-svn-tag-하기&quot;&gt;9. SVN tag 하기&lt;/h2&gt;
+
+&lt;p&gt;SVN의 특정 버전을 tag하고 싶을 때는 다음의 명령어를 이용해서 tag를 만든다. 일반 copy를 사용하지 않고 &lt;code class=&quot;highlighter-rouge&quot;&gt;svn copy&lt;/code&gt;를 사용 해야한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svn copy svn+ssh://계정명@irap.kaist.ac.kr/경로/trunk svn+ssh://계정명@irap.kaist.ac.kr/경로/tags/tag명
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;주의해야 할 점은 내 컴퓨터에 있는 폴더가 아닌, 서버에 있는 폴더를 직접 복사한다는 점이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;10-lcm-환경설정&quot;&gt;10. LCM 환경설정&lt;/h2&gt;
+
+&lt;h3 id=&quot;lcm-ttl-설정&quot;&gt;LCM ttl 설정&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo vi /etc/environment
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;/etc 경로의 environment 파일을 열어 다음줄을 추가한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export LCM_DEFAULT_URL=udpm://239.255.76.67:7667?ttl=0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;ttl을 0으로 설정하는 것이며, ttl이 0일 때는 publish된 lcm message가 local computer 내에서만 공유된다. ttl을 1로 설정했을 경우는 외부로 까지 cast 된다.&lt;/p&gt;
+
+&lt;h3 id=&quot;buffer-size-수정&quot;&gt;Buffer size 수정&lt;/h3&gt;
+
+&lt;p&gt;LCM을 이용하여 대용량의 파일을 전송하기 위해서 MAX와 Default buffer 사이즈를 수정한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo vi /etc/sysctl.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;위 파일을 열고 다음을 맨 아래에 추가한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;net.core.rmem_max=20971520
+net.core.rmem_default=20971520
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;각각 buffer 사이즈를 조절하는 것인데, 컴퓨터마다 최대값이 다르기 떄문에 더 높일 수도 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;11-mtu-설정&quot;&gt;11. MTU 설정&lt;/h2&gt;
+
+&lt;p&gt;MTU는 이더넷의 전송 packet의 사이즈이다. MTU 값이 작으면 작은 packet 사이즈로 빠른 속도로 packet을 전송하고, 크면 큰 packet사이즈로 느리게 전송한다. 일반적으로 MTU의 default값은 1500이다.&lt;/p&gt;
+
+&lt;p&gt;현재 연구실에서 센서 시스템에서 많은 데이터를 한번에 받아오는 경우가 많기 때문에 이런 경우에는 MTU값을 늘려주어야 한다. 다음의 명령어를 이용하여 MTU를 늘릴 수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ifconfig eth0 mtu 8000
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ifconfig&lt;/code&gt;를 실행하면 현재 컴퓨터의 이더넷 연결 상태를 확인할 수 있으며 현재 설정되어 있는 MTU값도 확인 가능하다. 하지만 무조건 mtu값이 높은 것이 좋은 것은 아니다. 실제 데이터의 packet 사이즈가 작은데 mtu가 너무 높은 경우 속도가 느려질 수도 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;12-폴더-및-파일-권한-설정&quot;&gt;12. 폴더 및 파일 권한 설정&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chmod 777 filename
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;777은 각각 (소유자,그룹,방문자)의 권한을 설정한다. 순서는 rwx(read,write,execute) 로 7은 111(4+2+1)을 의미한다. 관리자 권한이 필요한 경우에는 앞에 &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt; 를 붙여준다.&lt;/p&gt;
+
+&lt;h2 id=&quot;13-소유자-그룹-설정&quot;&gt;13. 소유자, 그룹 설정&lt;/h2&gt;
+
+&lt;h3 id=&quot;소유자-변경&quot;&gt;소유자 변경&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chown 소유자명 파일명
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;그룹변경&quot;&gt;그룹변경&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chgrp 그룹명 파일명
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;관리자 권한이 필요한 경우에는 앞에 &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt;를 붙인다.&lt;/p&gt;
+
+&lt;h2 id=&quot;14-usrbinld-cannot-find--igl-이라는-에러가-뜰-경우&quot;&gt;14. ‘/usr/bin/ld: cannot find -IGL’ 이라는 에러가 뜰 경우&lt;/h2&gt;
+
+&lt;p&gt;이런 경우는 libGL.so 파일을 재대로 찾지 못하는 경우이다 이런경우는 아래의 명령어로 링크를 다시 걸어준다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo rm /usr/lib/x86_64-linux-gnu/libGL.so 
+sudo ln -s /usr/lib/libGL.so.1 /usr/lib/x86_64-linux-gnu/libGL.so 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Tue, 21 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/21/Ubuntu_IRAP_basic_commend/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/21/Ubuntu_IRAP_basic_commend/</guid>
+        
+        <category>ubuntu</category>
+        
+        <category>IRAP</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ubuntu apt-get 명령어 정리</title>
+        <description>&lt;p&gt;apt-get(Advanced Packaging Tool)은 우분투(Ubuntu)를 포함안 데비안(Debian)계열의 리눅스에서 쓰이는 팩키지 관리 명령어 도구입니다. 우분투에는 GUI로 되어 있는시냅틱 꾸러미 관리자도 있기는 하지만 이런 저런 개발관련 패키지를 설치할 때는 커맨드기반인 apt-get이 더 편하기도 합니다. sudo는 superuser권한으로 실행하기 위함입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-패키지-인덱스-인덱스-정보-업데이트&quot;&gt;1. 패키지 인덱스 인덱스 정보 업데이트&lt;/h2&gt;
+
+&lt;p&gt;apt-get은 인덱스를 가지고 있는데 이 인덱스는/etc/apt/sources.list에 있습니다. 이곳에 저장된 저장소에서 사용할 패키지의 정보를 얻습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;2-설치된-패키지-업그래이드&quot;&gt;2. 설치된 패키지 업그래이드&lt;/h2&gt;
+
+&lt;p&gt;설치되어 있는 패키지를 모두 새버전으로 업그래이드 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;3-의존성검사하며-설치하기&quot;&gt;3. 의존성검사하며 설치하기&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get dist-upgrade
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;4-패키지-설치&quot;&gt;4. 패키지 설치&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install 패키지이름
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;5-패키지-재설치&quot;&gt;5. 패키지 재설치&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get --reinstall install 패키지이름
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;6-패키지-삭제&quot;&gt;6. 패키지 삭제&lt;/h2&gt;
+
+&lt;p&gt;설정파일은 지우지 않음&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get remove 패키지이름
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;7-설정파일까지-모두-지움&quot;&gt;7. 설정파일까지 모두 지움&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get --purge remove 패키지이름
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;8-패키지-소스코드-다운로드&quot;&gt;8. 패키지 소스코드 다운로드&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get source 패키지이름
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;9-위에서-받은-소스코드를-의존성있게-빌드&quot;&gt;9. 위에서 받은 소스코드를 의존성있게 빌드&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get build-dep 패키지이름
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;10-패키지-검색&quot;&gt;10. 패키지 검색&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-cache search 패키지이름
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;11-패키지-정보-보기&quot;&gt;11. 패키지 정보 보기&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-cache show 패키지이름
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;apt를 이용해서 설치된 deb패키지는 /var/cache/apt/archive/ 에 설치가 됩니다.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 07 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/07/Ubuntu_apt_get_commend/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/07/Ubuntu_apt_get_commend/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
     
       <item>
         <title>SE(3) and SO(3) transformation</title>
@@ -114,6 +962,972 @@ z_2\\
         <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/07/se3-so3-transformation/</guid>
         
         <category>math</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>gcc default include path 확인 방법</title>
+        <description>&lt;p&gt;다른 정보들이 더 출력이 되긴 하지만,
+간단히 다음과 같은 명령어를 입력하면 된다. (-x 다음 인자에 c/c++ 입력)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo | gcc -v -x c -E - 
+echo | gcc -v -x c++ -E - 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Ubuntu 14.04에서 테스트 결과는 다음과 같다&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Using built-in specs.
+COLLECT_GCC=gcc
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.1' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.1) 
+COLLECT_GCC_OPTIONS='-v' '-E' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/cc1 -E -quiet -v -imultiarch x86_64-linux-gnu - -mtune=generic -march=x86-64 -fstack-protector -Wformat -Wformat-security
+ignoring nonexistent directory &quot;/usr/local/include/x86_64-linux-gnu&quot;
+ignoring nonexistent directory &quot;/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../x86_64-linux-gnu/include&quot;
+#include &quot;...&quot; search starts here:
+#include &amp;lt;...&amp;gt; search starts here:
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+# 1 &quot;&amp;lt;stdin&amp;gt;&quot;
+# 1 &quot;&amp;lt;built-in&amp;gt;&quot;
+# 1 &quot;&amp;lt;command-line&amp;gt;&quot;
+# 1 &quot;/usr/include/stdc-predef.h&quot; 1 3 4
+# 1 &quot;&amp;lt;command-line&amp;gt;&quot; 2
+# 1 &quot;&amp;lt;stdin&amp;gt;&quot;
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-E' '-mtune=generic' '-march=x86-64'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;위 결과 중에서 다음 부분이 기본 include path가 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;“-v” 옵션으로 인해, 본인이 사용하는 compiler가 어떤 configuration option을 통해 Build 되었는지, Thread model이 무엇인지 등의 부가 정보들이 훨씬 많이 나오는데, 너무 길어서 대부분 생략하고, 원하는 내용이 포함된 부분만 발췌했다.&lt;/p&gt;
+
+&lt;p&gt;한번쯤 실행해 보고, 나머지 부분도 알아두면 좋은 정보들이 많다.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 06 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/gcc_default_include_path_confirm/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/gcc_default_include_path_confirm/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>bash shell 환경변수</title>
+        <description>&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://seven00.tistory.com/680&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;Bash shell 관련 소개 내용&lt;/p&gt;
+
+&lt;h2 id=&quot;환경변수란&quot;&gt;환경변수란?&lt;/h2&gt;
+
+&lt;p&gt;OS레벨에서 “자주사용하는” 또는 “필요한 변수들을 미리 선언해 놓은 것
+이 환경변수의 리스트를 보기 위해서는 export라는 명령어를 쓴다.
+1개의 환경변수를 보기 위해서는 echo $환경변수(ex: echo $PATH)
+$PATH 환경변수에 있는 file들은 어느 위치에서나 실행 가능.&lt;/p&gt;
+
+&lt;h2 id=&quot;환경변수-설정-방법&quot;&gt;환경변수 설정 방법&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-export-명령어를-통해-실행&quot;&gt;1. export 명령어를 통해 실행&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export PATH=$PATH:$JAVA_HOME/bin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;하지만 이 방법은 재부팅 시엔 초기화됨&lt;/p&gt;
+
+&lt;h3 id=&quot;2-bashrc-file-설정을-수정&quot;&gt;2. .bashrc file 설정을 수정&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vi ~/.bashrc&lt;/code&gt; 로 file을 연후&lt;/p&gt;
+
+&lt;p&gt;아래쪽에&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export PATH=&quot;$PATH:/usr/프로그램 경로/bin&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;를 추가해준다&lt;/p&gt;
+
+&lt;p&gt;$PATH: 를 앞에 추가해 준 것은 기존 PATH 환경변수 뒤에 내용을 추가한다는 의미&lt;/p&gt;
+
+&lt;p&gt;이부분을 빼먹으면 기존 설정은 삭제된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;환경변수-적용&quot;&gt;환경변수 적용&lt;/h2&gt;
+
+&lt;p&gt;컴퓨터 재시작을 하거나 또는&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;source .bashrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;와 같이 source 명령어를 이용하면 된다.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 06 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/bash_shell_environment_variable/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/bash_shell_environment_variable/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>vim install and setting</title>
+        <description>&lt;p&gt;vim에 관련하여 &lt;a href=&quot;http://www.joinc.co.kr/w/Site/Vim/Documents/UsedVim#AEN18&quot;&gt;다음&lt;/a&gt; 블로그에 가면 자세한 정보를 얻을 수 있다.&lt;/p&gt;
+
+&lt;p&gt;vim은 우분투에서 사용되는 vi 에디터에 설정을 더하여 보다 편리하게 사용할 수 있도록 해주는 에디터입니다.&lt;/p&gt;
+
+&lt;p&gt;우선 vim을 설치해주셔야 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo apt-get install vim
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;예전에 제가 겪었던 오류사항중에 우분투를 처음 설치하고 바로 vim을 설치하려는 경우, 우분투 저장소 업데이트가 되지 않아서 vim 패키지를 찾지 못하는 오류가 있었던 적이 있습니다.&lt;/p&gt;
+
+&lt;p&gt;만약 vim 패키지를 찾을 수 없다. 라는 오류가 뜨신다면&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo apt-get update
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;위의 명령어를 먼저 수행해 주시길 바랍니다.
+설치가 완료되었으면 vim 설정을 해줘야합니다.
+vim에는 정말 다양한 설정들이 많지만, 우선 제가 사용하는 것들만 소개해 드리겠습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ vi ~/.vimrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;위의 명령어를 입력하여 vim 설정파일을 열어줍니다. 아마 처음에는 아무것도 없을 텐데, i 키를 누르고 아래 보이는 설정파일들을 입력하도록 합시다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;set number            &quot; line 표시를 해줍니다.
+set ai                    &quot; auto indent
+set si                    &quot; smart indent
+set cindent            &quot; c style indent
+set shiftwidth=4      &quot; shift를 4칸으로 ( &amp;gt;, &amp;gt;&amp;gt;, &amp;lt;, &amp;lt;&amp;lt; 등의 명령어)
+set tabstop=4         &quot; tab을 4칸으로
+set ignorecase      &quot; 검색시 대소문자 구별하지않음
+set hlsearch         &quot; 검색시 하이라이트(색상 강조)
+set expandtab       &quot; tab 대신 띄어쓰기로
+set background=dark  &quot; 검정배경을 사용할 때, (이 색상에 맞춰 문법 하이라이트 색상이 달라집니다.)
+set nocompatible   &quot; 방향키로 이동가능
+set fileencodings=utf-8,euc-kr    &quot; 파일인코딩 형식 지정
+set bs=indent,eol,start    &quot; backspace 키 사용 가능
+set history=1000    &quot; 명령어에 대한 히스토리를 1000개까지
+set ruler              &quot; 상태표시줄에 커서의 위치 표시
+set nobackup      &quot; 백업파일을 만들지 않음
+set title               &quot; 제목을 표시
+set showmatch    &quot; 매칭되는 괄호를 보여줌
+set nowrap         &quot; 자동 줄바꿈 하지 않음
+set wmnu           &quot; tab 자동완성시 가능한 목록을 보여줌
+syntax on        &quot; 문법 하이라이트 킴&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;참조: “는 주석의 의미입니다.&lt;/p&gt;
+
+&lt;p&gt;입력이 끝나고 저장하고 나오시면 이제 코드가 바뀌어있는걸 볼 수 있습니다.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 06 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/VIM-install_and_setting/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/VIM-install_and_setting/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ubuntu 한글 키보드 설정</title>
+        <description>&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://blog.daum.net/bagjunggyu/154&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://blog.daum.net/bagjunggyu/154&quot;&gt;여기&lt;/a&gt;에서 한글 설정 및 다양한 Ubuntu 설정에 대한 내용을 찾을 수 있다.&lt;/p&gt;
+
+&lt;h1 id=&quot;ubuntu-1404-한글-설정uim&quot;&gt;Ubuntu 14.04 한글 설정(uim)&lt;/h1&gt;
+
+&lt;p&gt;uim은 지금까지 알려진 한글 입력기 중에서 쓰기 가장 무난한 입력기입니다. 다만, Qt5 어플 (포커스 라이터 1.5 -  Focuswriter 1.5 등)에서 한글 입력이 제대로 되지 않습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-설치하기&quot;&gt;1. 설치하기&lt;/h2&gt;
+
+&lt;p&gt;터미널에서 설치하실 분들은 아래 명령어를 이용하세요&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install uim uim-byeoru 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;소프트웨어 센터를 이용하실 분들은  uim 이라고 검색하시면 나옵니다. 
+설치하신 후에, 이번엔 uim-byeoru를 검색하셔서 설치합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-구성키-설정-하기&quot;&gt;2. 구성키 설정 하기&lt;/h2&gt;
+
+&lt;p&gt;노트북을 사용하는 경우 구성키 설정으르 추가로 해줘야 한다. 그렇지 않으면 한/영 키가 왼쪽 alt키로 인식되기 때문이다. Desktop 사용자는 두번째 단계를 건너서 세번째로 바로 가셔도 좋습니다.&lt;/p&gt;
+
+&lt;p&gt;노트북사용자는 시스템설정(system setting)-키보드(keyboard)-바로가기(shortcuts) 로 들어갑니다.&lt;/p&gt;
+
+&lt;p&gt;첫번째로 Launchers(가장 위) 메뉴에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;key to show the HUD&lt;/code&gt; 키를 &lt;code class=&quot;highlighter-rouge&quot;&gt;Alt L&lt;/code&gt; 로 변경해 줍니다.&lt;/p&gt;
+
+&lt;p&gt;원래 &lt;code class=&quot;highlighter-rouge&quot;&gt;Alt L&lt;/code&gt; 로 되어 있는 경우는 넘어갑니다.&lt;/p&gt;
+
+&lt;p&gt;두번쨰로 Typing(자판입력) 탭에서 Compose Key(구성키)를 &lt;code class=&quot;highlighter-rouge&quot;&gt;Right Alt&lt;/code&gt;로 변경해 줍니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-uim-설정&quot;&gt;3. uim 설정&lt;/h2&gt;
+
+&lt;p&gt;uim 이라고 검색하셔서 설정 도구를 실행하세요&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Global setting(전체적인 설정)에서 Specify default IM(디폴트 입력기)를 체크 후 Byeoru(벼루)로 설정합니다.&lt;/li&gt;
+  &lt;li&gt;그리고, Byeoru key bindings1(벼루키 설정 1)에서 on/off를 원하시는 키를 지정합니다. 보통 한글 변환이기 때문에 한/영 키로 설정합니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;Edit..&lt;/code&gt; 를 눌러 원하는 키를 &lt;code class=&quot;highlighter-rouge&quot;&gt;Grab..&lt;/code&gt; 하신 후 추가해 줍니다.&lt;/li&gt;
+  &lt;li&gt;system setting(시스템 설정) - Language Support(언어 지원)을 실행해서, 키보드 입력기를 uim으로 설정한 후  로그아웃 &amp;amp; 로그인 하시면 됩니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Mon, 06 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_korean_setting/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_korean_setting/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ubuntu Gedit 한글 깨짐 수정</title>
+        <description>&lt;p&gt;우분투 기본 에디터인 gedit에서 자동 인식되는 인코딩에 cp949 방식을 추가합니다.
+먼저 콘솔에서 dconf-editor를 설치합니다. 있다면 패스합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo apt-get install dconf-editor
+$ dconf-editor
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;창이 하나 뜨면 윈도우즈 레지스트리처럼 아래 경로로 따라갑니다.
+org -&amp;gt; gnome -&amp;gt; gedit -&amp;gt; preferences -&amp;gt; encodings -&amp;gt; auto-detected&lt;/p&gt;
+
+&lt;p&gt;여기에 UHC라는 값을 추가 합니다. UHC(Unified Hangul Code)는 cp949와 동일한 통합 한글 코드를 의미합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;'UTF-8', 'UHC', 'CURRENT', 'ISO-8859-15', 'EUC-KR', 'UTF-16'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;그리고 창을 찾고 해당 파일을 열어보시면 한글이 깨끗하게 열리는 것을 볼 수 있습니다.
+혹시 dconf-editor가 안될 때는 콘솔에서 gsettings로 한번에 설정값을 변경할 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ gsettings set org.gnome.gedit.preferences.encodings auto-detected &quot;['UTF-8', 'UHC', 'CURRENT', 'ISO-8859-15', 'EUC-KR', 'UTF-16']&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;그리고 값 확인은 인자를 get으로 주면 값을 확인할 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ gsettings get org.gnome.gedit.preferences.encodings auto-detected
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;‘UTF-8’, ‘UHC’, ‘CURRENT’, ‘ISO-8859-15’, ‘EUC-KR’, ‘UTF-16’   &amp;lt;==현재 시스템에 설정된 값 확인&lt;/p&gt;
+
+&lt;p&gt;이렇게 하면 우분투에서 콘솔이든 UI든지 윈도우에서 작업한 한글 텍스트를 보는데 문제가 없을 것입니다.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 06 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_gedit_broken_resolve/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Ubuntu_gedit_broken_resolve/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>GRUB multiboot repair(멀티부팅 재설치)</title>
+        <description>&lt;p&gt;멀티부팅을 위한 Rrub 재설치 방법&lt;/p&gt;
+
+&lt;p&gt;To Reinstall Grub
+You need to have Ubuntu Live CD or Live USB. Normal session can be used to repair the grub. Boot using your Ubuntu Live CD or Live USB, while booting choose Try Ubuntu.
+Once booted then open a terminal, and run the following command one by one to install the boot repair.
+To add boot-repair to the repository&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo add-apt-repository ppa:yannubuntu/boot-repair
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;To Update your repository&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;To install boot-repair&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install -y boot-repair
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Once Installation complete run boot-repair on terminal by typing the following command or select it by System-&amp;gt;Aministration-&amp;gt;Boot Repair.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;boot-repair
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;NOTE: Update the Boot Repair if its newer version is available.
+It will scan the System for few seconds and will show you the options Recommended repair and Create a BootInfo summary. By clicking the Recommended Repair it will start repair the grub. Check the screen shots below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;/images/post/boot_repair/1.png&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;after waiting for second..&lt;/p&gt;
+
+&lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;/images/post/boot_repair/2.png&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Once done click ok and restart your system, your grub should work now. If not run the boot-repair again using live cd / usb. Then follow the steps below.
+Select the Advanced options, In Main options tab check whether the following options are selected or not. If not select it, the options are Reinstall Grub and unhide boot menu for 10 seconds. Check the screen shot below&lt;/p&gt;
+
+&lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;/images/post/boot_repair/3.png&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then select the GRUB locations tab and check the following options are selected or not. The options are OS to boot by default and place grub into, In “OS to boot by default” option choose the OS which you want to be default on boot. Then select the drive where you need to reinstall the grub in “place grub into” option and click apply. Check the screen shots below&lt;/p&gt;
+
+&lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;/images/post/boot_repair/4.png&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;and then&lt;/p&gt;
+
+&lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;/images/post/boot_repair/5.png&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;waiting for a while&lt;/p&gt;
+
+&lt;p&gt;&lt;img align=&quot;left&quot; src=&quot;/images/post/boot_repair/6.png&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Click ok and restart your System. To restore MBR Click Here.
+Hope this will be helpful for you!!!&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 06 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/GRUB-multiboot-repair/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/GRUB-multiboot-repair/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Jekyll&amp;github blog에서 latex 문법 사용하기</title>
+        <description>&lt;p&gt;Markdown을 이용하여 글을 작성하는 것은 직관적이면서도 편리한 방법이다. 하지만 markdown만으로는 수학 수식을 입력하기 쉽지 않기 때문에 다양한 플러그인을 사용해야 한다. 그중에서 latex을 사용하기 위한 방법을 소개한다.&lt;/p&gt;
+
+&lt;p&gt;자세한 내용은 &lt;a href=&quot;http://www.dianacai.com/blog/2015/09/12/making-blog/&quot;&gt;여기&lt;/a&gt;를 참고.&lt;/p&gt;
+
+&lt;h2 id=&quot;mathjax&quot;&gt;MathJax&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/head.html&lt;/code&gt; 파일에 &lt;code class=&quot;highlighter-rouge&quot;&gt;MathJax&lt;/code&gt;를 추가해 줌으로써 latex을 이용하여 수학 공식을 작성할 수 있다. &lt;code class=&quot;highlighter-rouge&quot;&gt;head.html&lt;/code&gt;파일의 맨 위쪽에 다음의 code를 추가한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&amp;gt;
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;그리고 Matxjax가 정상적으로 동작하기 위해서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;파일에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;markdown: kramdown&lt;/code&gt; 으로 되어 있어야 한다. 기본적으로 github &amp;amp; jekyll 에서는 기본적으로 kramdown으로 되어 있을 것이다.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 06 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Jekyll-github-blog-math/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/06/Jekyll-github-blog-math/</guid>
+        
+        <category>jekyll</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Static 변수와 Extern변수</title>
+        <description>&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://thrillfighter.tistory.com/255&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;Static과 Extern의 개념 정리에 도움이 될듯 하다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;a.h 라는 헤더파일이 main.cpp와 a.cpp에서 include 되어 있고 a.h에 int a=3; 이라는 변수가 전역으로 선언 되어 있을 경우 object file을 잘 생성이 되나 링크시 에러가 발생하며, a라는 전역변수가 프로그램 내에서 두번 중복되기 때문이다. 이를 방지하기 위해서는 전역변수를 지역변수로 만드는 것이다.(함수외부에 변수를 선언하면 전역적 특징을 갖게 된다.)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;함수 선언에 static이 붙어 static int a=3; 이 되면 main.cpp와 a.cpp는 같은 a.h를 include하지만 static 이기 때문에 각 cpp파일에서 사용하는 a는 각각의 지역변수가 되어 따로 존재하게 된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;각 cpp파일에서 동일한 a를 사용할 목적이라면?
+-&amp;gt; 각 cpp파일에 int a = 3; 이라고 선언 후 헤더(h)파일에 extern int a; 라고 선언하면 된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;자세한 내용은 &lt;a href=&quot;http://thrillfighter.tistory.com/255&quot;&gt;다음&lt;/a&gt;의 포스팅을 참고하자.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 05 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/05/static-and-extern/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/05/static-and-extern/</guid>
+        
+        <category>software</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>DLL파일과 LIB파일 차이</title>
+        <description>&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://it4all.tistory.com/16&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;라이브러리 만드는 이유는 소스의 외부 유출 없이, 자신이 만든 모듈을 외부와 공유하기 위해서다. 또한 미리 컴파일 되어 있어서 컴파일 시간도 단축된다.
+이때 라이브러리는 동적 라이브러리와 정적 라이브러리가 있는데, 각각의 특징을 살펴보자.
+아래의 특징을 보고 동적 라이브러리와 정적 라이브러리 중 어느 것을 사용할 지를 결정하면 된다.&lt;/p&gt;
+
+&lt;h1 id=&quot;1-동적-라이브러리dynamic-link-library&quot;&gt;1. 동적 라이브러리(Dynamic Link Library)&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로그램 실행 시 필요시만 외부 DLL 파일에서 함수를 참조&lt;/li&gt;
+  &lt;li&gt;프로그램 실행 시 프로그램 로딩 시간이 단축&lt;/li&gt;
+  &lt;li&gt;함수 업그레이드 시 해당 DLL만 수정 배포한다&lt;/li&gt;
+  &lt;li&gt;소스 외부 유출 방지 효과&lt;/li&gt;
+  &lt;li&gt;실행 파일 만들때 필요한 파일: &lt;em&gt;.h,&lt;/em&gt;.lib (*.dll 참조 용)&lt;/li&gt;
+  &lt;li&gt;프로그램 실행할 할 때 필요한 파일: *.dll (배포할 때 *.dll 필요)&lt;/li&gt;
+  &lt;li&gt;dll 제작 시 lib도 같이 생성됨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;2-정적-라이브러리static-link-library&quot;&gt;2. 정적 라이브러리(Static Link Library)&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;필요한 함수를 프로그램 코드에 붙여 프로그램 자체에서 참조&lt;/li&gt;
+  &lt;li&gt;프로그램 실행 후 빠른 처리시간&lt;/li&gt;
+  &lt;li&gt;프로그램 실행 파일만 있으면 실행(하나의 파일만 있으면 됨)&lt;/li&gt;
+  &lt;li&gt;소스 외부 유출 방지 효과&lt;/li&gt;
+  &lt;li&gt;실행 파일 만들때 필요한 파일: &lt;em&gt;.h,&lt;/em&gt;.lib (별도의 *.dll 필요 없음)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;따라서 실행파일 자체의 크기를 비교하면 정적라이브러리를 포함한 프로그램의 크기가 더 크다.&lt;/p&gt;
+
+&lt;h3 id=&quot;참조-사이트&quot;&gt;참조 사이트&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://wolfsi.egloos.com/2302024&quot;&gt;http://wolfsi.egloos.com/2302024&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.naver.com/PostView.nhn?blogId=clover6652&amp;amp;logNo=100063061060&quot;&gt;http://blog.naver.com/PostView.nhn?blogId=clover6652&amp;amp;logNo=100063061060&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://jym2568.egloos.com/1186568&quot;&gt;http://jym2568.egloos.com/1186568&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.naver.com/PostView.nhn?blogId=ssib0228&amp;amp;logNo=110013563400&amp;amp;redirect=Dlog&amp;amp;widgetTypeCall=true&quot;&gt;http://blog.naver.com/PostView.nhn?blogId=ssib0228&amp;amp;logNo=110013563400&amp;amp;redirect=Dlog&amp;amp;widgetTypeCall=true&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 05 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/05/DLL-and-LIB/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/05/DLL-and-LIB/</guid>
+        
+        <category>software</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ubuntu and Window Keyboard&amp;Mouse sharing(Synergy)</title>
+        <description>&lt;p&gt;Synergy는 두 컴퓨터를 인터넷망으로 연결하여 Input device를 공유하도록 하는 프로그램이다. 이 프로그램의 장점은 윈도우와 리눅스에서 동시에 사용 가능하다는 점이다. 즉 데스크탑 한대(리눅스)와 노트북(윈도우)를 한개의 Input device로 control이 가능하다. 즉, 윈도우로 사용 가능한 여유분의 노트북이 있다면 리눅스에 kakao talk을 설치하려고 삽질하는 노력을 하지 않아도 된다는 뜻이다.&lt;/p&gt;
+
+&lt;p&gt;현재 Synergy는 유료프로그램으로 전환 되었으나 1.4.18버전을 사용한다면(구버전) 무료로 사용 가능하다. 최신 무료버전을 다운받고 싶으면 &lt;a href=&quot;http://storycompiler.tistory.com/37&quot;&gt;여기&lt;/a&gt;의 포스팅을 참고한다. 참고로 뒤에 얘기하지만 포스팅을 쓰고 있는 현 시점에 Synergy 1.4.18버전은 한글입력 문제를 위한 패치를 1.4.10버전에 비해 구하기 쉽지 않다.&lt;/p&gt;
+
+&lt;p&gt;현재 구성되어 있는 시스템은 리눅스(서버), 윈도우(클라이언트)인데 접속은 잘 되지만 윈도우에서 한글이 안되는 문제가 발생한다. 이 문제는 서버의 문제가 아닌 클라이언트 쪽의 문제이다. 아무리 찾아도 1.4.18버전의 한글 패치 버전을 찾기 힘들다. 직접 빌드를 해도 되지만 한글 패치가 있는 버전으로 내려서 설치하였다. 찾아보니 1.4.10버전의 한글패치가 가장 많은 듯 하여 1.4.10버전으로 설치하고 패치까지 완료하니 정상작동된다. 한글패치 파일을 클라이언트쪽(윈도우)의 경로에 붙여넣어준다. 보통 C:\Program Files\Synergy 이다. 자세한 내용은 &lt;a href=&quot;http://blog.shgeum.com/entry/Synergy-1410-x86-x64-%ED%95%9C%EA%B8%80-%ED%8C%A8%EC%B9%98&quot;&gt;다음&lt;/a&gt; 포스팅을 참고한다. 이 글을 보는 분들을 위해 synergy 1.4.10 window(64bit), ubuntu(64bit), 그리고 한글 패치파일 총 3개 파일 첨부한다.리눅스 파일을 설치할 때 오류가 뜨는데 무시하고 설치하니 잘 동작한다. &lt;a href=&quot;/Download/Synergy/1.4.10.zip&quot;&gt;여기&lt;/a&gt;에서 파일을 다운 받을 수 있다.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 04 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/04/Ubuntu_and_Window_Keyboard_Mouse_sharing/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/04/Ubuntu_and_Window_Keyboard_Mouse_sharing/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ubuntu VPN server</title>
+        <description>&lt;p&gt;VPN(Virtual Private Network)은 IP를 우회할 수 있는 방법중에 하나이며 다양한 방법으로 응용가능하다. 예를들면 학교의 인터넷 망에서 자유롭게 논문을 볼 수 있지만(학교에서는 IEEE등에 논문을 구독할 수 있도록 지불을 했기 때문에) 외부 망에서는 동일하게 논문검색을 할 수 없다(물론 VPN을 이용하지 않고 논문을 검색하는 방법이 있긴 하다). 이럴 때 학교내 학교망에 연결되어 있는 컴퓨터에 VPN 설정을 하고 외부에서 이 컴퓨터 VPN server로 연결하여 외부로 접속을 한면 외부에서는 학교망에서 접속한 것으로 인식하기 때문에 학교내에서 접속한 것과 같은 효과를 볼 수 있다. Ubuntu 14.04에서 VPN server를 설정하는 방법은 다음과 같다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-pptpd-설치&quot;&gt;1. pptpd 설치&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install pptpd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;2-etcpptpdconf-파일-수정&quot;&gt;2. /etc/pptpd.conf 파일 수정&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/pptpd.conf&lt;/code&gt; 파일을 다음과 같이 설정한다. 이 아이피는 본인의 IP와는 상관없이 설정한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;localiip 10.0.01
+remoteip 10.0.0.100-200
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;3-dns-서버-추가&quot;&gt;3. DNS 서버 추가&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/ppp/pptpd-options&lt;/code&gt; 에 다음을 추가한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ms-dns 8.8.8.8
+ms-dns 8.8.4.4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;4-ip-forwarding을-활성화&quot;&gt;4. IP forwarding을 활성화&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo vim /etc/sysctl.conf&lt;/code&gt; 로 config 파일을 열고 다음을 활성화(uncomment) 시킨다(주석을 제거 하라는 의미).&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;net.ipv4.ip_forward = 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;5-변경-저장&quot;&gt;5. 변경 저장&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sysctl -p /etc/sysctl.config
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;6-vpn-user-등록&quot;&gt;6. VPN user 등록&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/ppp/chap-secrets&lt;/code&gt;을 열어 다음과 같이 user를 등록해 준다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Secrets for authentication using CHAP
+# client    server  secret          IP addresses
+username    pptpd    password              *
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;IP addresses에는 그냥 *를 입력한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;7-재-시작&quot;&gt;7. 재 시작&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;service pptpd restart&lt;/code&gt;를 입력하여 재 시작한다.&lt;/p&gt;
+
+&lt;p&gt;설정 상태는 &lt;code class=&quot;highlighter-rouge&quot;&gt;ifconfig&lt;/code&gt;를 입력하여 확인 할 수 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;8-iptable-변경&quot;&gt;8. iptable 변경&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;iptables-save &amp;gt; ~/iptables.save&lt;/code&gt;를 입력하여 iptable을 백업한다.  그 다음으로 변경된 iptable을 기본 인터페이스로 사용하기 위해 다음을 입력한다(sudo로 입력해야 할 수도 있다.)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables -t nat -A POSTROUTING -o br0 -j MASQUERADE
+iptables --table nat --append POSTROUTING --out-interface ppp0 -j MASQUERADE
+iptables -I INPUT -s 10.0.0.0/8 -i ppp0 -j ACCEPT
+iptables --append FORWARD --in-interface br0 -j ACCEPT
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;이 설정을 reboot 후에도 유지하기 위해서 다음을 입력한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install iptables-persistent
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;9-옵션-설정&quot;&gt;9. 옵션 설정&lt;/h2&gt;
+
+&lt;p&gt;VPN 연결을 위해 Ubuntu 14.04를 사용하고 있다면, PPTP Advanced Option에서 (use Point to point encryption)을 클릭해야 한다.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 03 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu-VPN-setting/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/03/Ubuntu-VPN-setting/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>SSH keygen 설정</title>
+        <description>&lt;h1 id=&quot;1-ssh-접속-방법&quot;&gt;1. ssh 접속 방법&lt;/h1&gt;
+
+&lt;p&gt;기본적으로 ssh 접속하는 방법은 다음과 같다&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh user@hostname.example.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;위의 명령어로 ssh 접속을 했을 경우 접속 시 마다 password를 물어보게 된다. 만약 &lt;code class=&quot;highlighter-rouge&quot;&gt;.sh&lt;/code&gt; 스크립트를 작성해서 어떤 동작을 시키려고 하거나 매번 접속할 때마다 password를 입력하는 것이 번거로울 때 ssh key를 생성하여 등록해 놓으면 매번 입력할 필요가 없다.&lt;/p&gt;
+
+&lt;h1 id=&quot;2-ssh-key-생성&quot;&gt;2. ssh key 생성&lt;/h1&gt;
+
+&lt;p&gt;ssh key를 생성하기 위해서는 다음의 명령어를 입력한다&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;명령을 입력 후 파일 명 및 몇가지 질문을 할 것인데 모두 디폴트로 설정하고 넘어가면 &lt;code class=&quot;highlighter-rouge&quot;&gt;/home/username/.ssh/id_rsa&lt;/code&gt; 파일이 생성된다. 위의 파일을 열어보면 ssh의 key가 생성된 것을 확인할 수 있다.&lt;/p&gt;
+
+&lt;h1 id=&quot;3-ssh-key-copy&quot;&gt;3. ssh key copy&lt;/h1&gt;
+
+&lt;p&gt;이렇게 생성된 ssh key를 ssh 서버에 복사해야 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-copy-id user@hostname.example.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;copy명령어를 입력하면 password를 물어볼 것인데, 이때 정확한 password를 입력하면 ssh key가 서버로 복사된다. 복사가 정상적으로 이루어 졌다면, 다음 접속부터는 비밀번호를 다시 물어보지 않을 것이다.&lt;/p&gt;
+
+&lt;h1 id=&quot;4-agent-admitted-failure-to-sign-using-the-key-error&quot;&gt;4. “Agent admitted failure to sign using the key” Error&lt;/h1&gt;
+
+&lt;p&gt;만약 ssh key 등록 후 ssh 접속 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;Agent admitted failure to sign using the key&lt;/code&gt; 의 error가 발생하며 password를 물어볼 경우 &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh-add&lt;/code&gt; 명령어를 통해 ssh key를 ssh agent로 load 함으로써 고칠 수 있다.&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 02 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH-keygen-setting/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/02/SSH-keygen-setting/</guid>
+        
+        <category>ubuntu</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>공개 SW 라이센스(GPL, LGPL, BSD)</title>
+        <description>&lt;p&gt;&amp;lt;본 포스팅은 &lt;a href=&quot;http://darkpgmr.tistory.com/89&quot;&gt;다음&lt;/a&gt;을 참고하였습니다&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;오픈소스를 사용하다보면 GPL, LGPL, BSD, MIT 등 다양한 라이센스가 있는데 이에 대해 알아두어야 할 것 같아서 정리합니다.&lt;/p&gt;
+
+&lt;p&gt;대부분의 라이센스는 &lt;a href=&quot;https://en.wikipedia.org/wiki/Comparison_of_free_and_open-source_software_licenses&quot;&gt;wiki&lt;/a&gt;에 표로 정리되어 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://choosealicense.com/licenses/&quot;&gt;이 사이트&lt;/a&gt;에는 조금 더 보기 편하게 정리되어 있습니다.&lt;/p&gt;
+
+&lt;p&gt;관련 링크&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;GPL 전문(한국어 번역본): &lt;a href=&quot;http://korea.gnu.org/documents/copyleft/gpl.ko.html&quot;&gt;http://korea.gnu.org/documents/copyleft/gpl.ko.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;GPL FAQ(한국어 번역본): &lt;a href=&quot;http://www.gnu.org/licenses/gpl-faq.ko.htm&quot;&gt;http://www.gnu.org/licenses/gpl-faq.ko.htm&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;LGPL 전문(한국어 번역본): &lt;a href=&quot;http://korea.gnu.org/people/chsong/copyleft/lgpl.ko.html&quot;&gt;http://korea.gnu.org/people/chsong/copyleft/lgpl.ko.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;KLDP 오픈소스 SW 라이센스 가이드: &lt;a href=&quot;http://wiki.kldp.org/wiki.php/OpenSourceLicenseGuide&quot;&gt;http://wiki.kldp.org/wiki.php/OpenSourceLicenseGuide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;GLP/LGPL 전문은 읽어봐도 내용이 어려워서 무슨 말인지 알기가 쉽지 않네요. 하지만 KLDP 가이드를 보면 여러 오픈소스 SW 라이센스(GPL/LGPL/BSD 등)들이 잘 비교 정리되어 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-gnu-gplgeneral-public-license&quot;&gt;1. GNU GPL(General Public License)&lt;/h2&gt;
+
+&lt;p&gt;GPL은 Free Software Foundation(FSF)에서 만든 Free 소프트웨어 라이센스로 1989년 1차 버전, 1991년 2차 버전, 2007년 3차 버전까지 발표되었습니다.&lt;/p&gt;
+
+&lt;p&gt;기본적으로 어떤 프로그램을 개발할 때, GPL 코드를 일부라도 사용하게 되면 그 프로그램은 GPL이 됩니다. GPL을 가진 프로그램을 유료로 판매하는 것은 가능하지만, 반드시 전체 소스코드는 무료로 공개해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;GPL 코드를 사용한 SW를 내부적인(개인, 기관, 단체 등) 목적으로만 사용할 때에는 소스코드를 공개할 필요가 없지만 어떤 형태로든(유료든 무료든) 외부에 공표/배포할 때에는 전체 소스코드를 공개해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어, GPL 코드를 수정하거나 일부 사용하여 프로그램을 개발했습니다. 이제 개발된 프로그램을 개인적으로 혹은 기관, 단쳬 내부적으로만 사용하자고 하면 코드를 공개할 의무는 없으며 그냥 사용하면 됩니다. 그런데 이 프로그램을 외부에 공개하거나 판매하고자 할 경우에는 반드시 GPL 규정에 따라서 프로그램의 전체 소스코드를 무료로 공개해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;전체 소스코드를 무료로 공개하면서 프로그램을 유료로 판매하는 것이 얼핏 이해가 안가지만, 개발자가 아닌 일반 소비자 입장에서는 충분히 구매할 수 있다고 생각됩니다. 그리고 기관 등에 프로그램을 판매할 때에는 단순한 소스코드가 아닌 시스템 구축, 관리, 유지보수 등 토탈 솔루션을 판매한다고 생각할 수 있습니다. 이러한 것들은 아무리 소스가 공개되어 있어도 비전문가가 하기 힘든 일이기 때문입니다.&lt;/p&gt;
+
+&lt;p&gt;그런데, 코드를 공개하면 다른 개발자가 이를 기반으로 좀더 개선된 버전의 제품을 개발하여 판매할 수도 있을 것입니다. 일견 억울할 수도 있겠네요..&lt;/p&gt;
+
+&lt;p&gt;GPL 관련하여 한가지 햇갈리기 쉬운 점이 있는데, 그건 자신이 개발한 SW에서 GPL 코드를 일부만 사용한 경우입니다.&lt;/p&gt;
+
+&lt;p&gt;GPL 전문에 보면, ‘만일 배포하고자 하는 프로그램의 특정 부분이 GPL 코드로부터 파생된 것이 아닌 독립적인 저작물일 경우에는 독립 저작물 모듈의 개별적인 배포에는 GPL이 적용되지 아니한다 (즉, 코드를 공개할 필요가 없다). 하지만 프로그램을 전체(GPL코드에서 파생된 모듈 + 독립 저작물 모듈)적으로 배포할 때에는 GLP을 따라야 한다.’ 고 되어 있습니다.&lt;/p&gt;
+
+&lt;p&gt;결론적으로, ‘GPL과 관련되지 아니한 부분만 독립적으로 팔거나 배포하는 경우는 관계가 없다. 하지만 GPL 코드를 일부라도 사용한 프로그램 전체를 배포할 때에는 GPL을 적용(즉, 프로그램의 전체 소스코드 공개)해야 한다’는 말이겠네요.. 상당히 강도가 세군요..&lt;/p&gt;
+
+&lt;p&gt;기타 세부적인 내용에 대해서는 GPL 전문과 GPL FAQ를 참조하시면 좋습니다. 특히 GPL FAQ를 읽어보면 GPL을 이해하는데 도움이 많이 됩니다.&lt;/p&gt;
+
+&lt;p&gt;GPL 전문에 있는 ‘보통의 소프트웨어 라이센스들이 SW에 대한 공유와 수정의 자유를 제한하려는 목적을 가진 반면에 GPL은 공유와 수정의 자유를 보장하기 위한 규정이다’라는 말이 꽤나 인상적이네요..&lt;/p&gt;
+
+&lt;h2 id=&quot;2-gnu-lgpllesser-general-public-license&quot;&gt;2. GNU LGPL(Lesser General Public License)&lt;/h2&gt;
+
+&lt;p&gt;LGPL은 GPL보다는 훨씬 완화된(lesser) 조건의 공개 소프트웨어 라이센스입니다.&lt;/p&gt;
+
+&lt;p&gt;가장 큰 차이점은 LGPL 코드를 정적(static) 또는 동적(dynamic) 라이브러리로 사용한 프로그램을 개발하여 판매/배포할 경우에 프로그램의 소스코드를 공개하지 않아도 된다는 점입니다. LGPL 코드를 사용했음을 명시만 하면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;단, LGPL 코드를 단순히 이용하는 것이 아니라 이를 수정한 또는 이로부터 파생된 라이브러리를 개발하여 배포하는 경우에는 전체 코드를 공개해야 합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-bsd-berkeley-software-distribution-license&quot;&gt;3. BSD (Berkeley Software Distribution) License&lt;/h2&gt;
+
+&lt;p&gt;소스코드 공개의 의무가 없으며 상용(상업적) 소프트웨어에서도 무제한 사용 가능한 라이센스라고 하는데.. 그렇다면 아무런 제한이 없는 라이센스라는 의미겠네요.&lt;/p&gt;
+
+&lt;p&gt;참고로 OpenCV는 BSD 라이센스를 따릅니다. GPL 정신에는 맞지 않겠지만 쓰는 사람 입장에서는 정말 편하네요..&lt;/p&gt;
+
+&lt;h2 id=&quot;4-mit-license&quot;&gt;4. MIT License&lt;/h2&gt;
+
+&lt;p&gt;MIT license는 copyright와 license에 대한 정보만 표기하면 자유롭게 사용할 수 있는 라이센스인데, 상업적인사용, 배포, 수정 및 개인적인 사용이 모두 가능합니다. BSD와 MIT는 매우 유사한 조건이라고 볼 수 있을 것 같습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;gnu&quot;&gt;GNU&lt;/h2&gt;
+
+&lt;p&gt;문득 GNU는 무엇의 약자일까? 하는 궁금증이 생겨서 같이 찾아보았습니다.&lt;/p&gt;
+
+&lt;p&gt;“GNU’s Not Unix”의 약자라는군요. gnu는 unix가 아니다..
+이런 것을 재귀약자라고 한다네요.
+참고로 아프리카 영양중에 gnu(누~ 라고 발음)라는 것이 있는데, 이것과 구분하여 GNU는 ‘그누~’라고 발음한답니다. 그리고 &lt;a href=&quot;http://www.gnu.org/&quot;&gt;GNU 홈페이지&lt;/a&gt;에 가보면 이 영양 머리모양을 마크로 하고 있음을 알 수 있습니다.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 01 Jun 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/06/01/software-license/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/06/01/software-license/</guid>
+        
+        <category>software</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>이미지 확장자</title>
+        <description>&lt;p&gt;오디오 컨테이너가 가장 기술적으로 잘 알려진 컨테이너라 하면 이미지 컨테이너는 가장 많이 사용되고 있는 컨테이너일 것이다. 윈도로 대표되는 GUI(Graphic User Interface) 기반의 OS와 웹브라우저 기반 인터넷이 대중화하고 보급되면서 인류의 디지털 라이프는 온갖 종류의 이미지로 채워지게 되었기 때문이다. 이처럼 우리의 생활과 매우 밀접한 존재이기 때문에 단순 소비를 위한 편의성에서는 오디오 컨테이너와 마찬가지로 거의 신경 쓸 필요 없이 일반적으로 사용되는 시스템에서 그대로 사용하면 된다. 하지만 오디오 컨테이너에 비해 사용되는 종류가 압도적으로 다양하며 당연히 이로 인해 호환성이 조금은 떨어지는 것은 사실이다.
+동영상은 비슷한 정지 이미지의 연속이라는 점에서 이미지와 무관할 수 없으며 제한적이나마 이미지 시퀀스란 형태로 서로 호환되기도 하기 때문에 동영상 작업을 하는 작업자라도 정지 이미지에 대해 기본적인 내용은 숙지할 필요가 있다.&lt;/p&gt;
+
+&lt;h1 id=&quot;비트맵-이미지와-벡터-이미지&quot;&gt;비트맵 이미지와 벡터 이미지&lt;/h1&gt;
+
+&lt;p&gt;비트맵 이미지(bitmap image)는 전체 그림을 구성하는 픽셀 데이터의 배열을 통해 이미지를 형성 및 저장하는 방식으로, 대부분의 디지털 이미지가 사용하는 방식이다. 하지만 본래 규정된 크기 이상으로 확대하면 곡선과 대각선에서 앨리아싱(aliasing)이라 불리는 계단 현상이 일어날 수 있다. 반면 벡터 이미지(vector image)는 기준점에서 수학적인 벡터 좌표법으로 이미지를 형성 및 저장하는 방식으로, 수학적 계산에 근거한 상대좌표 데이터이기 때문에 확대 및 축소를 해도 이미지가 깨지는 현상이 없다. 하지만 이러한 특징 때문에 실사 사진에는 적합하지 못하다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-ai&quot;&gt;1. AI&lt;/h2&gt;
+
+&lt;p&gt;가장 대표적인 벡터 드로잉 소프트웨어인 어도비 일러스트레이터(Adobe Illustrator)에서 사용하는 벡터 이미지를 저장하기 위한 파일 컨테이너로 ‘어도비 일러스트레이터’의 머리글자다. 대다수의 이미지 파일 컨테이너가 비트맵 방식인 것에 비해 상대적으로 그 사용량이 적은 벡터 방식이기 때문에 지원하는 하드웨어와 소프트웨어 역시 상대적으로 적다.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-bmp&quot;&gt;2. BMP&lt;/h2&gt;
+
+&lt;p&gt;마이크로소프트에서 개발한 무손실 비트맵(bitmap) 이미지 파일 컨테이너로 윈도 시스템에서 주로 사용된다. 주로 반복 문자열 제거라는 압축 기법을 이용한 무손실 압축 상태로 사용되기 때문에 압축 효율은 그리 높지 못하다. 당연히 이미지 크기에 비해 용량이 매우 큰 편이라는 단점이 있지만 반대로 호환성은 매우 높다.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-gif&quot;&gt;3. GIF&lt;/h2&gt;
+
+&lt;p&gt;1987년 컴퓨서브(CompuServe)에서 발표한 무손실 압축, 인덱스 컬러 기반의 비트맵 이미지 파일 컨테이너로 그래픽스 인터체인지 포맷(Graphics Interchange Format)의 줄임말이다. 지원 가능한 색상이 최대 256색으로 제한되기 때문에 사진과 같이 색상이 많은 이미지가 원 소스인 경우 색상 부분에서 심각한 손실이 발생할 수 있기 때문에 권장하지 않는다. ‘애니메이션 GIF(Animation GIF)’로 만들면 동영상으로도 만들 수 있지만 오디오는 지원하지 않는다. GIF89a 형식은 단색 알파채널(alpha channel)을 지원하기 때문에 투명 배경을 지원한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;4-jpg-jpeg-jpe-jfif&quot;&gt;4. JPG, JPEG, JPE, JFIF&lt;/h2&gt;
+
+&lt;p&gt;합동사진전문가단체(JPEG, Joint Photographic Exports Group)에서 지정한 정지화상을 위한 표준으로 용량대비 화질이 뛰어나다. 현재 가장 많은 분야에서 가장 많이 사용되고 있는 손실 압축 기반의 비트맵 이미지 파일 컨테이너로 RGB 신호를 그대로 사용하지 않고 비디오에서 많이 사용하는 YCbCr 방식으로 변환해 처리하는 것이 특징이다. 하지만 이러한 특성 때문에 화질 설정을 최대치로 설정해도 RGB와 YCbCr를 오가며 변환하는 과정에서 미미하지만 이미지 손상이 발생하며 수정을 반복하면 할수록 화질 손상이 증폭된다는 단점이 있기 때문에 작업용으로 사용할 때는 주의해야만 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;5-jp2-j2c&quot;&gt;5. JP2, J2C&lt;/h2&gt;
+
+&lt;p&gt;JPEG보다 화질과 압축률을 모두 향상시키는 것은 물론 JPEG에서 불가능했던 무손실 압축도 지원하는 개량형인 JPEG2000이 사용하는 파일 컨테이너지로 웨이블릿 변환이란 기술을 사용한다. 기술적으로는 많은 발전을 이루었으나 지원하는 장비와 소프트웨어는 적은 상황이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;6-pcx&quot;&gt;6. PCX&lt;/h2&gt;
+
+&lt;p&gt;제트소프트(Zsoft)에서 개발한 무손실 압축 비트맵 이미지 파일 컨테이너로 도스(DOS) 기반의 페인트브러시(Paint Brush)라는 비트맵 이미지 제작 소프트웨어에서 작업한 이미지를 저장하기 위해 만들어졌다. PCX(Personal Computer eXchange)는 주로 인덱스 컬러 모드로 사용되지만 트루 컬러 모드도 지원한다. 도스와 윈도 95가 주로 사용되던 무렵까지 높은 호환성을 바탕으로 많이 사용되었으나 인터넷이 대중화되는 시점을 기준으로 뒤 이어 나온 GIF와 JPEG, PNG에 밀려 지금은 거의 사용되지 않는다.&lt;/p&gt;
+
+&lt;h2 id=&quot;7-png&quot;&gt;7. PNG&lt;/h2&gt;
+
+&lt;p&gt;PNG(Portable Network Graphics)는 W3C(World Wide Web Consortium)에서 GIF의 법적인 문제와 단점을 극복하기 개발된 무손실 압축 비트맵 이미지 파일 컨테이너로 트루 컬러와 8비트 알파채널을 지원하면서 대부분 GIF보다 좋은 압축률을 보여 준다. 하지만 GIF처럼 애니메이션은 지원하지 않는다. 무손실 압축을 사용하기 때문에 JPEG보다는 압축 효율이 나쁘기 때문에 일반적으로 더 큰 용량을 갖게 된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;8-psd&quot;&gt;8. PSD&lt;/h2&gt;
+
+&lt;p&gt;어도비 포토샵(Adobe Photoshop)에서 사용하는 비트맵 이미지 파일 컨테이너로 ‘포토샵 도큐멘트(photoshop document)’의 줄임말이다. 마스크(mask), 레이어(layer)와 알파채널 등 이미지 파일로서는 매우 다양한 기능들을 지원하면서 무손실 압축을 사용한다. 대신 그만큼 용량이 크기 때문에 최종본이 아닌 작업이 진행되고 있는 데이터의 저장용으로 주로 사용한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;9-tga-taga&quot;&gt;9. TGA, TAGA&lt;/h2&gt;
+
+&lt;p&gt;트루비전(Truevision)에서 개발한 무손실 압축 기반의 비트맵 이미지 파일 컨테이너로 알파채널도 지원해 자막파일과 동영상 프레임을 각각의 연속된 이미지 파일로 만들어 사용하는 이미지 시퀀스에서 많이 사용된다.
+TGA로 이뤄진 이미지 시퀀스(image sequence)를 ‘타가 시퀀스’라고 부른다. 타가(TARGA)는 ‘트루비전 어드밴스드 래스터 그래픽스 어댑터(Truevision advanced raster graphics adapter)’의 줄임말이다. 압축률은 그리 좋지 못해서 저장용량을 많이 차지하지만 맥, 윈도, 리눅스는 물론 매우 다양한 OS에서 사용할 수 있기 때문에 거의 모든 컴퓨터 기반의 영상 장비에서 지원한다는 장점이 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;10-tif&quot;&gt;10. TIF&lt;/h2&gt;
+
+&lt;p&gt;앨더스(Aldus)와 마이크로소프트가 스캐너용으로 공동 개발한 비트맵 이미지 파일 컨테이너로 ‘태그드 이미지 파일 포맷(Tagged Image File Format)’의 줄임말이다. 무압축은 물론 다양한 압축률을 선택할 수 있으나 압축 방식을 사용하면 구형 이미지 뷰어에서 정상적으로 인식되지 않는 경우도 있기 때문에 사용에 주의가 필요하다. 포토샵의 PSD처럼 레이어도 지원한다. 등장 시기는 PCX와 비슷하지만 아직까지도 꾸준히 사용되고 있는 규격이다.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 29 May 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/29/image-type/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/29/image-type/</guid>
+        
+        <category>software</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Jekyll Markdown에서 HTML소스코드 그대로 포스팅하기</title>
+        <description>&lt;p&gt;Jekyll을 이용하여 포스팅을 하면서 코드를 올리는 경우가 종종 있다. C 나 python 혹은 기타 코드를 code block에 넣으면 코드가 그대로 보이지만 HTML을 넣을 경우 실제 데이터로 convert가 되어 표기가 되어 원하는 코드를 재대로 보여줄 수 없다. 이때는 code block에 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;raw&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt; 와 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;endraw&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;를 넣어줌으로써 code의 raw를 변환없이 아래와 같이 포스팅 할 수 있다. 실제 입력 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;/code&gt; 와 &lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt; 사이에는 공백이 없어야 한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+---
+layout: default_post
+---
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;article&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemscope&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemtype=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schema.org/BlogPosting&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;header&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-header single-post-header&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;background-image:url('{{ site.url }}{{ page.image }}')&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-title single-post-title&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;name headline&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ page.title }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-meta single-post-meta&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;time&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;datetime=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ page.date | date_to_xmlschema }}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;datePublished&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ page.date | date_to_long_string }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/time&amp;gt;&lt;/span&gt;
+        •
+        {% assign words = page.content | number_of_words %}
+        {% if words &lt;span class=&quot;nt&quot;&gt;&amp;lt; 360&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%}&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;min&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%}&lt;/span&gt;
+          &lt;span class=&quot;err&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;words&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;divided_by:180&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;}}&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mins&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;endif&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%}&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;read&lt;/span&gt;
+      &lt;span class=&quot;err&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrapper&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;single-post-summary&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;&amp;lt;code&amp;gt;&lt;/span&gt; {{ page.summary }} &lt;span class=&quot;nt&quot;&gt;&amp;lt;/code&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-content single-post-content&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;articleBody&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;&amp;lt;code&amp;gt;&lt;/span&gt; {{ content }} &lt;span class=&quot;nt&quot;&gt;&amp;lt;/code&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    {% if page.comments %}
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;--&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;your&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;here&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    {% endif %}
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/article&amp;gt;&lt;/span&gt;
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Fri, 27 May 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/27/post-source-code/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/27/post-source-code/</guid>
+        
+        <category>jekyll</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Jekyll에 댓글 추가하기(Disqus)</title>
+        <description>&lt;p&gt;Jekyll 블로그는 기본적인 layout만을 제공해 주기 때문에 블로그 포스팅에 댓글을 달 수 있도록 만들기 위해서는 추가적인 작업이 필요하다. 댓글창을 만들기 위해 &lt;a href=&quot;https://disqus.com/&quot;&gt;Disqus&lt;/a&gt;를 사용할 것이다.&lt;/p&gt;
+
+&lt;h1 id=&quot;1-disqus-계정-만들기&quot;&gt;1. Disqus 계정 만들기&lt;/h1&gt;
+&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/images/post/add_comment_to_post/fig1.png&quot; width=&quot;500&quot; height=&quot;500px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;첫번째로 &lt;a href=&quot;https://disqus.com/&quot;&gt;Disqus&lt;/a&gt;에 접속하여 회원가입 후 등록을 한다. 등록 후 Main 페이지에서 우측 상단의 톱니바퀴를 누르면 나오는 메뉴 중 &lt;code class=&quot;highlighter-rouge&quot;&gt;Setting&lt;/code&gt;으로 이동 후 다시 &lt;code class=&quot;highlighter-rouge&quot;&gt;Add Disqus To Site&lt;/code&gt;로 이동한다. 페이지 이동 후 페이지 가장 아래쪽으로 이동하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;GET STARTED&lt;/code&gt;를 눌러 블로그 명 및 URL을 등록한다.&lt;/p&gt;
+
+&lt;h1 id=&quot;2-universal-code-복사하기&quot;&gt;2. Universal Code 복사하기&lt;/h1&gt;
+&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/images/post/add_comment_to_post/fig2.png&quot; width=&quot;800&quot; height=&quot;500px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;등록을 마친 후 Setting의 Installation page로 이동 후 platform을 선택한다. Jekyll에 추가하기 위해서는 Universal code를 선택한다. 이제 1번에 있는 코드를 복사하여 Jekyll의 &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts/post.html&lt;/code&gt; 파일에 추가해준다.&lt;/p&gt;
+
+&lt;h1 id=&quot;3-layoutposthtml-및-config-파일-수정&quot;&gt;3. Layout/post.html 및 config 파일 수정&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts/post.html&lt;/code&gt; 파일을 열고 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;article&amp;gt;&lt;/code&gt; 블락 사이에 복사한 내용을 아래 코드에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;insert your code&amp;gt;&lt;/code&gt; 부분에 넣어준다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+---
+layout: default_post
+---
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;article&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemscope&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemtype=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schema.org/BlogPosting&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;header&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-header single-post-header&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;background-image:url('{{ site.url }}{{ page.image }}')&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-title single-post-title&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;name headline&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ page.title }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-meta single-post-meta&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;time&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;datetime=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ page.date | date_to_xmlschema }}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;datePublished&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ page.date | date_to_long_string }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/time&amp;gt;&lt;/span&gt;
+        •
+        {% assign words = page.content | number_of_words %}
+        {% if words &lt;span class=&quot;nt&quot;&gt;&amp;lt; 360&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%}&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;min&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%}&lt;/span&gt;
+          &lt;span class=&quot;err&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;words&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;divided_by:180&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;}}&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mins&lt;/span&gt;
+        &lt;span class=&quot;err&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;endif&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%}&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;read&lt;/span&gt;
+      &lt;span class=&quot;err&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrapper&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;single-post-summary&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;&amp;lt;code&amp;gt;&lt;/span&gt; {{ page.summary }} &lt;span class=&quot;nt&quot;&gt;&amp;lt;/code&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-content single-post-content&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;articleBody&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;&amp;lt;code&amp;gt;&lt;/span&gt; {{ content }} &lt;span class=&quot;nt&quot;&gt;&amp;lt;/code&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    {% if page.comments %}
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;--&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;your&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;here&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    {% endif %}
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/article&amp;gt;&lt;/span&gt;
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;포스팅에서 comment활성화 여부를 설정하기 위해서 위의 예의 주석으로 되어 있는 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;page.comments&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;endif&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt; 이 부분을 추가해준다. 추가할 때 앞 뒤로 중괄호({})를 넣어준다. 다음으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; 파일을 열어 마지막에 다음의 코드를 추가한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;disqus_shortname: myblog(등록한 본인 블로그 이름)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;4-post에-명령-추가&quot;&gt;4. Post에 명령 추가&lt;/h1&gt;
+
+&lt;p&gt;마지막으로 포스팅을 할 때 포스팅 &lt;code class=&quot;highlighter-rouge&quot;&gt;.md&lt;/code&gt; file의 맨 위에 &lt;code class=&quot;highlighter-rouge&quot;&gt;comments: true&lt;/code&gt; 를 추가해 주면 포스팅에 댓글쓰기가 다음과 같이 활성화 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/images/post/add_comment_to_post/fig3.png&quot; width=&quot;800&quot; height=&quot;200px&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 19 May 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/19/add-comment-to-post/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/19/add-comment-to-post/</guid>
+        
+        <category>jekyll</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Windows Partition Auto Mount in Ubuntu 14.04</title>
+        <description>&lt;p&gt;윈도우 파티션의 파일시스템은 NTFS(New Technology File System)으로 보통 구성되어 있다. 예전에는 Ubuntu에서 NTFS 시스템을 읽거나 사용하기 어려웠는데 근래에는 Reverse Engineering을 통해 Ubuntu에서도 사용 가능할 수 있게 되었다. 기본적으로 가장 오래된 시스템은 FAT(File Allocate Table)이며 안정성 면에서는 FAT32가 가장 좋다. 하지만 FAT32는 32bit 시스템을 사용하기 떄문에 4Gbyte 이상의 파일을 저장할 수 없다. 왜냐하면 32bit 방식은 표현할 수 있는 주소의 갯수가 2의 32승 = 4.2950e+09 이고  한개의 주소값으로 1Byte를 표현 할 수 있으므로 32bit 시스템으로 표현할 수 있는 최대 메모리는 4.2950e+09 Byte, 약 4GByte이다. 마찬가지로 32bit 운영체제에서 최대 사용가능한 메모리 용량이 4GByte인것도 같은 이유이다. 32bit 시스템에서 4GByte이상의 하드디스크를 사용할 수 있는 것은 하드시스크의 data를 RAM으로 이동 후 처리하기 때문에 가능한 것이다. 이러한 한계 때문에 개발 된 것이 exFAT시스템이다. exFAT시스템은 용량의 제한이 매우 커서 따로 신경쓸 필요가 없다. 하지만 exFAT 시스템으로 설정된 USB 및 디스크를 안전하게 제거하지 않는다거나 여러 경우에 불안한 모습을 보일 때가 있다고 한다. 마지막으로 NTFS 방식은 Windows에서 개발된 방식이기 때문에 블랙박스라던지 기타 디바이스에서 인식이 안되는 문제가 있다고 한다.&lt;/p&gt;
+
+&lt;p&gt;다시한번 정리하면&lt;/p&gt;
+
+&lt;p&gt;FAT32 : 안전성에서는 가장 좋음, 저장 용량의 한계가 있음&lt;/p&gt;
+
+&lt;p&gt;exFAT : 안정성이 떨어짐, 저장용량의 한계는 없음&lt;/p&gt;
+
+&lt;p&gt;NTFS: 확장성이 떨어짐&lt;/p&gt;
+
+&lt;p&gt;따라서 디스크 포멧 시 본인의 맞는 방식에 맞춰서 사용하면 된다. 기본적으로 Windows가 설치된 디스크는 NTFS 방식으로 되어 있기 때문에, 윈도우가 설치된 디스크를 Ubuntu에 자동으로 mount 시키기 위해서는 다음과 같은 절차가 필요하다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-directory-생성&quot;&gt;1. directory 생성&lt;/h2&gt;
+
+&lt;p&gt;우선 원하는 위치에 directory를 설정한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mkdir /media/win
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;2-fstab-file수정&quot;&gt;2. fstab file수정&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc&lt;/code&gt; 경로의 fstab file을 수정한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo gedit /etc/fstab
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;우선 fstab file을 열고 다음을 추가한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;UUID=16D219F9D219DE35 /media/win ntfs auto,defaults,rw 0 2
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;또는&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/dev/sda1 /media/win ntfs-3g auto,defaults,rw 0 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;위의 두가지 방식으로 설정 가능하다(device 이름 혹은 UUID)&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/media/win&lt;/code&gt; : mount 위치&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ntfs-3g&lt;/code&gt; : file type&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rw&lt;/code&gt; : read and write&lt;/p&gt;
+
+&lt;p&gt;fstab까지 설정이 완료 후 재부팅하면 windows의 파티션이 자동으로 mount되는 것을 확인 가능하다.&lt;/p&gt;
+
+&lt;h2 id=&quot;추가&quot;&gt;추가&lt;/h2&gt;
+
+&lt;p&gt;어느순간 잘 되다가 윈도우 파티션을 mount할 수 없다고 뜨는 경우가 있다. 이런경우는 종종 윈도우가 정상적으로 종료되지 않았을 경우이기 때문에 윈도우로 갔다가 돌아오면 정상적으로 mount가 되는데, 한번씩 윈도우 파티션이 hibernated 파티션이라고 뜨면서 안되는 경우가 있다. 이런경우에는 윈도우를 켰다가 끄고 재 접속을 해도 auto mount가 되지 않는다. 이런경우는 위의 설정은 변경하지 않고 아래의 명령어를 이용하여 hibernated를 풀어주면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mount -t ntfs-3g -o remove_hiberfile /dev/sda1 /media/win
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;그래도 안되는 경우에는 Window에서 hibernate 옵션을 강제로 꺼준다. 윈도우를 키고 cmd 창을 관리자 모드로 실행 시킨 후 다음 명령어를 실행시킨다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;powercfg -h off
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Sun, 15 May 2016 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000http://JinyongJeong.github.io/2016/05/15/Partition-auto-mount/</link>
+        <guid isPermaLink="true">http://localhost:4000http://JinyongJeong.github.io/2016/05/15/Partition-auto-mount/</guid>
+        
+        <category>ubuntu</category>
         
         
       </item>
