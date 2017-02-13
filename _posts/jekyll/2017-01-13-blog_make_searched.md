@@ -57,9 +57,10 @@ git과 commit으로 블로그를 업데이트 후 `blog주소/sitemap.xml`로 �
 
 <img align="middle" src="/images/post/jekyll/google_search/sitemap.png" width="500">
 
-sitemap에는 각 해당 글의 lastmod, sitemap.changefreq, sitemap.priority를 표시해 놓는데, 이것은 각 글의 맨 위에 다음과 같이 sitemap의 옵션을 추가해 주면 된다. 
+sitemap에는 각 해당 글의 lastmod, sitemap.changefreq, sitemap.prioritye 등의 정보가 설정되는데, 이것은 각 글의 맨 위에 다음과 같이 sitemap의 옵션을 추가해 줌으로써 추가적으로 설정 가능하다. 설정이 없을 때의 default 설정은 `sitemap.xml`에 정의되어 있다. 
 
 ```
+{%raw%}
 ---
 layout: post
 title:  "제목"
@@ -69,9 +70,10 @@ sitemap :
   changefreq : daily
   priority : 1.0
 ---
+{%endraw%}
 ```
 
-changefreq를 너무 짧게 하면 빈번한 접속으로 안좋은 영향을 미칠 수도 있다고 하니 적당히 하루 혹은 일주일로 하면 좋을 것 같다. 추가적으로 `blog주소/sitemap.xml`을 실행했을 때 위와 같이 나오지 않는 경우는 아마 주소링크에 &와 같은 특수기호가 있는 경우가 있을 수 있다. 예를들어 파일의 이름이 url의 링크 주소가 되는데, 만약 파일이름이 한글일 경우 url의 주소에 %의 기호가 들어가 있다. 이럴경우 xml이 정상적으로 해석하지 못한다. 따라서 최대한 url의 링크가 되는 파일이름은 영문으로 만들고, 특수기호는 최대한 사용하지 않는 것이 좋다. 
+changefreq를 너무 짧게 하면 빈번한 접속으로 안좋은 영향을 미칠 수도 있다고 하니 적당히 하루 혹은 일주일로 하면 좋을 것 같다. 추가적으로 `blog주소/sitemap.xml`을 실행했을 때 위와 같이 나오지 않는 경우는 아마 주소링크에 &와 같은 특수기호가 있는 경우가 있을 수 있다. 예를들어 파일의 이름이 URL의 링크 주소가 되는데, 만약 파일이름이 한글일 경우 url의 주소에 %의 기호가 들어가 있다. 이럴경우 xml이 정상적으로 해석하지 못한다. 따라서 최대한 URL의 링크가 되는 파일이름은 영문으로 만들고, 특수기호는 최대한 사용하지 않는 것이 좋다. 
 
 ## 2. RSS feed 생성
 
@@ -130,7 +132,8 @@ Sitemap: http://jinyongjeong.github.io/sitemap.xml
 
 ### google (google search console등록)
 
-[Google Search COnsole](https://www.google.com/webmasters/#?modal_active=none)를 접속한다. 
+[Google Search Console](https://www.google.com/webmasters/#?modal_active=none)를 접속한다. 
+
 이 사이트에서 본인의 블로그를 등록해야 google에서 검색이 가능하다. 
 `속성추가` 버튼을 눌러 본인의 blog 주소를 입력하여 사이트를 등록한다. 
 `크롤링 > sitemaps` 메뉴를 열어 `sitemap 추가` 버튼을 눌러 만들어 두었던 `sitemap.xml`파일을 제출한다. 
@@ -140,15 +143,17 @@ Sitemap: http://jinyongjeong.github.io/sitemap.xml
 ### naver
 
 [네이버 웹마스터 도구](http://webmastertool.naver.com/)에 접속한다. 
+
 로그인하여 구글과 비슷하게 블로그 주소를 등록하는 과정을 거친다. 그 후 "사이트 소유 확인"이라는 과정을 거치게 되는데 HTML 파일을 다운받아 블로그의 root에 업로드 하여 확인하는 과정을 거치게 된다. 이 과정을 거치면 google의 analystics와 유사한 기능을 사용할 수 있는 것 같다. 그 다음에 RSS를 등록하는 과정이 필요하다. 왼쪽 메뉴에서 `요청 > RSS제출` 을 클릭해서 URL을 포함한 주소인 `블로그URL/feed.xml`을 입력한다. 
 추가적으로 `요청 > 사이트맵제출`로 들어가서 google과 마찬가지로 `블로그URL/sitemap.xml`을 입력해서 sitemap을 등록시켜 준다. 
 
 ### daum
 
 [DAUM 검색등록](https://register.search.daum.net/index.daum)에 접속 후 로그인한다. 
+
 `등록` 탭에서 `블로그 RSS등록`을 선택하고 `블로그URL`에 본인의 URL을 입력하고 확인버튼을 누른다. 
 이전 블로그에서 보면 `feed.xml`파일을 올리는 RSS 부분이 있었는데 지금 확인해보니 URL을 입력하는 창만 뜬다. 
 우선 URL만 등록해보도록 한다. 
 
-
+위의 과정을 거치고 최종으로 반영되기 까지 어느정도의 시간이 걸린다. 일주일정도 시간이 흐른뒤에 확인해보도록 하자. 
 
