@@ -12,7 +12,7 @@ sitemap :
 
 **본 글은 University Freiburg의 [Robot Mapping](http://ais.informatik.uni-freiburg.de/teaching/ws13/mapping/) 강의를 바탕으로 이해하기 쉽도록 정리하려는 목적으로 작성되었습니다. 개인적인 의견을 포함하여 작성되기 때문에 틀린 부분을 지적해주시면 확인 후 수정토록 하겠습니다.**
 
-이번 글에서는 SLAM의 framework에서 중요한 Motion model과 Observation model에 대해서 설명한다. 이전 post([bayes filter](http://jinyongjeong.github.io/2017/01/13/SLAM_bayes_filter/))에서 설명한 것 처럼 SLAM은 다음과 같이 recursive bayes filter의 식으로 표현할 수 있다.
+이번 글에서는 SLAM의 framework에서 중요한 Motion model과 Observation model에 대해서 설명한다. 이전 post([bayes filter](http://jinyongjeong.github.io/2017/01/13/lec01_SLAM_bayes_filter/))에서 설명한 것 처럼 SLAM은 다음과 같이 recursive bayes filter의 식으로 표현할 수 있다.
 
 $$
 \begin{aligned}
@@ -51,7 +51,7 @@ Motion model은 control input($$u_t$$)이 이전 state($$x_{t-1}$$)을 현재 st
 * odometry-based model
 * velocity-based model
 
-odometry model은 로봇 혹은 자동차의 바퀴에 달린 wheel encoder의 센서 데이터를 이용한 모델이며, velocity model은 imu와 같은 관성 센서를 이용한 model이다. velocity model은 wheel encoder와 같은 odometry model을 사용할 수 없을 때 주로 사용하며, odometry model이 velocity model보다 더 정확하 편이다.
+odometry model은 로봇 혹은 자동차의 바퀴에 달린 wheel encoder의 센서 데이터를 이용한 모델이며, velocity model은 imu와 같은 관성 센서를 이용한 model이다. velocity model은 wheel encoder와 같은 odometry model을 사용할 수 없을 때 주로 사용하며, odometry model이 velocity model보다 더 정확한 편이다.
 
 <img align="middle" src="/images/post/SLAM/motion_observation_model/odometry_based.png" width="700">
 
