@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[SLAM] Bayes filter(베이즈 필터)/ motion and observation model'
+title: '[SLAM] Bayes filter(베이즈 필터)'
 tags: [SLAM]
 description: >
-  SLAM framework에서 Bayes filter와 motion, observation model에 대한 설명.
+  SLAM framework에서 Bayes filter에 대한 설명.
 sitemap :
   changefreq : weekly
   priority : 1.0
@@ -63,3 +63,76 @@ $$
 $$bel(x_t)$$ 는 처음부터 현재까지의 observation( $$z$$ )와 control input( $$u$$ )을 알고 있을 때 현재 state( $$x_t$$ )의 확률을 의미한다. 위의 식에서 $$bel(x_t)$$ 의 식은 $$bel(x_{t-1})$$ 의 integral로 표현되어 있기 때문에 만약 $$p(z_t \mid x_t)$$ 와 $$p(x_t \mid x_{t-1}, u_t)$$ 에 대한 정보를 알고 있다면 반복적인 계산을 통해 현재 state의 확률을 계산할 수 있음을 알 수 있다. 여기서 $$p(z_t \mid x_t)$$ 는 현재의 state에서 센서 데이터의 확률인 observation model이며, $$p(x_t \mid x_{t-1}, u_t)$ 은 현재의 control input에 대해 이전 state에서 현재 state로의 update를 나타내는 motion model를 의미한다. 위의 식을 Recursive bayes filter라고 한다. Recursive bayes filter는 SLAM 문제를 푸는데 가장 기본적인 식이 되며, Kalman filter의 기본적인 식이다. 다음은 recursive bayes filter의 유도과정을 간단하게 살펴본다. 유도에 관심이 없고 전체적인 흐름만 보고자 한다면 다음 설명은 넘어가도 좋다.
 
 #### Recursive bayes filter의 유도과정
+
+$$
+\begin{aligned}
+bel(x_t) &= p(x_t \mid z_{1:t},u_{1:t}) \\
+\end{aligned}
+$$
+
+control input과 observation을 알고 있을 때 현재 state의 확률을 의미하는 belief의 정의
+
+$$
+\begin{aligned}
+bel(x_t) &= p(x_t \mid z_{1:t},u_{1:t}) \\
+       &= \eta p(z_t \mid x_t, z_{1:t-1}, u_{1:t})p(x_t \mid z_{1:t-1},u_{1:t}) \\
+\end{aligned}
+$$
+
+기본적인 bayes rule이다. 현재 시점 t의 observation은 현재의 state에서 얻어진 data이므로 따로 분리하여 위와 같이 정의한다. $$p(x_t \mid z_{1:t-1},u_{1:t})$$ 는 t시점까지의 control input, 그리고 t-1시점 까지의 observation을 알고 있을 때의 현재 시점 t의 state, $$p(z_t \mid x_t, z_{1:t-1}, u_{1:t})$$ 는 현재 state에서 얻어진 observation의 확률이다. $$\eta$$ 는 normalize term이다.
+
+$$
+\begin{aligned}
+bel(x_t)
+       &= \eta p(z_t \mid x_t, z_{1:t-1}, u_{1:t})p(x_t \mid z_{1:t-1},u_{1:t}) \\
+       &= \eta p(z_t \mid x_t)p(x_t \mid z_{1:t-1},u_{1:t}) \\
+\end{aligned}
+$$
+
+Markov Assumption은 현재의 state는 바로 이전 state에 의해서만 영향을 받는다는 것이다. 즉 이전 state를 결정하기 위한 데이터들은 알지 못해도 이전 state만 알고 있다면 현재 state를 결정할 수 있다는 것이다. Markov assumtion에 의해 $$p(z_t \mid x_t, z_{1:t-1}, u_{1:t})$$ 는 $$p(z_t \mid x_t)$$로 표현 할 수 있다. 왜냐하면 현재의 observation은 현재의 state인 $$x_t$$에만 영향을 받으며, $$z_{1:t-1}$$ 와 $$u_{1:t}$$는 현재 state $$x_t$$에만 영향을 미치기 때문이다.
+
+$$
+\begin{aligned}
+bel(x_t)
+       &= \eta p(z_t \mid x_t)p(x_t \mid z_{1:t-1},u_{1:t}) \\
+       &= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, z_{1:t-1}, u_{1:t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+\end{aligned}
+$$
+
+다음 식은 total probability(전체확률) 법칙에 의해 위와같이 전개된다. 전체확률 법칙은 간단하게 표현하면 다음과 같다.
+
+$$
+P(A) = \int_B P(A \mid B)P(B) dB
+$$
+
+즉 A는 $$x_t$$ 이며, B는 $$x_{t-1}$$ 이다.
+
+$$
+\begin{aligned}
+bel(x_t)
+       &= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, z_{1:t-1}, u_{1:t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+       &= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+\end{aligned}
+$$
+
+위 과정은 앞에서 설명한 Markov assumtion에 의해서 $$x_t$$ 에 영향을 미치는 $$x_{t-1}$$ 과 $$u_t$$만 남기고 정리된다.
+
+$$
+\begin{aligned}
+bel(x_t)
+       &= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+       &= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t-1}) dx_{t-1}\\
+\end{aligned}
+$$
+
+이 과정 또한 Markov assumption으로 $$p(x_{t-1} \mid z_{1:t-1}, u_{1:t})$$ 에서 $$u_t$$는 t-1시점의 state인 $$x_{t-1}$$ 에 형향을 미치지 않기 때문에 제거 될 수 있다.
+
+$$
+\begin{aligned}
+bel(x_t)
+       &= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t-1}) dx_{t-1}\\
+       &= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
+\end{aligned}
+$$
+
+따라서 위와 같은 과정을 통해 최종적으로 식은 위와같이 정리되며, recursive bayes filter의 식으로 정리된다.
