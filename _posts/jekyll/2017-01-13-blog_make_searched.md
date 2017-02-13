@@ -55,7 +55,7 @@ layout: null
 
 git과 commit으로 블로그를 업데이트 후 `blog주소/sitemap.xml`로 접속했을 때 아래와 같은 화면이 나와야 정상적으로 sitemap이 등록된 것이다. 
 
-<img align="middle" src="/images/post/jekyll/google_search/sitemap.png" width="600">
+<img align="middle" src="/images/post/jekyll/google_search/sitemap.png" width="700">
 
 sitemap에는 각 해당 글의 lastmod, sitemap.changefreq, sitemap.prioritye 등의 정보가 설정되는데, 이것은 각 글의 맨 위에 다음과 같이 sitemap의 옵션을 추가해 줌으로써 추가적으로 설정 가능하다. 설정이 없을 때의 default 설정은 `sitemap.xml`에 정의되어 있다. 
 
