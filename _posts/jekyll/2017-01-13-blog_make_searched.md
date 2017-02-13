@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'github blog를 google에서 검색되게 만들기'
+title: 'github blog를 google에서 검색되도록 설정하기'
 tags: [jekyll]
 description: >
   github io와 같은 개인 블로그를 google과 naver, 그리고 daum과 같은 포탈사이트에서 검색 가능하도록 만드는 방법
@@ -20,6 +20,7 @@ sitemap을 google에 등록해 두면 주기적으로 크롤링을 통해 url을
 블로그의 `/root` 경로에 `/sitemap.xml` 파일을 만들고 아래의 내용을 복사해 넣는다. 반드시 root 디렉토리에 넣어야 한다. 
 
 ```
+{%raw%}
 ---
 layout: null
 ---
@@ -49,6 +50,7 @@ layout: null
     </url>
   {% endfor %}
 </urlset>
+{%endraw%}
 ```
 
 git과 commit으로 블로그를 업데이트 후 `blog주소/sitemap.xml`로 접속했을 때 아래와 같은 화면이 나와야 정상적으로 sitemap이 등록된 것이다. 
@@ -76,6 +78,7 @@ changefreq를 너무 짧게 하면 빈번한 접속으로 안좋은 영향을 �
 Rss feed는 naver와 daum에 등록하기 위함이다. `sitemap.xml`과 마찬가지로 root 디렉토리에 `/feed.xml`파일을 생성하고 아래의 코드를 복사한다. 
 
 ```
+{%raw%}
 ---
 layout: null
 ---
@@ -106,6 +109,7 @@ layout: null
     {% endfor %}
   </channel>
 </rss>
+{%endraw%}
 ```
 
 ## 3. robots.txt 생성
