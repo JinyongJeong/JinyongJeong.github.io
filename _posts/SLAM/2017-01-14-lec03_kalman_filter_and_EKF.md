@@ -38,8 +38,37 @@ Bayes filter에 대한 자세한 설명은 [이전의 글](http://jinyongjeong.g
 
 ### Gaussian 분포
 
+* Gaussian distribution (normal distribution)
+
+$$
+p(x) = \frac{1}{\sqrt{2\sigma^2 \pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+$$
+
+
+* Multi variable Gaussian distribution
+
+$$
+p(\mathbf{x}) = \frac{1}{\sqrt{det(2\pi \Sigma)}}e^{-\frac{1}{2}(\mathbf{x}-\mu)^T\Sigma^{-1}(\mathbf{x}-\mu)}
+$$
+
+Gaussian 분포는 single variable과 multi variable의 Gaussian 분포로 표현할 수 있으며, SLAM에서는 Vector를 이용하여 로봇의 상태(state), 센서 입력, 관찰 값 등을 표현하므로 multi variable의 Gaussian을 많이 사용한다. 따라서 Multi variable의 Gaussian 식은 숙지해 두도록 하자.
 
 ### 선형 모델에서 Gaussian uncertainty의 propagation
+
+
+
+$$
+Y = AX
+$$
+
+$$
+X \sim N(\mu_x,\Sigma_x)
+$$
+
+$$
+Y \sim N(A \mu_x,A \Sigma_x A^T)
+$$
+
 
 ### Kalman Filter (KF)
 
