@@ -32,7 +32,7 @@ Bayes filter에 대한 자세한 설명은 [이전의 글](http://jinyongjeong.g
 
 * Kalman filter는 로봇의 state를 추정하기 위해 가장 흔히 사용되는 방법이며, Bayes filter이다. 즉 control input에 의한 prediction 단계와, 센서의 observation를 이용한 correction의 두 단계로 나누어 진다.
 
-* KF (Kalman Filter)와 EKF (Extended Kalman Filter)는 공통적으로 Gaussian 분포를 가정한다. 즉, 위의 Bayes filter는 모든 확률분포에 대한 식이며, 그 중에서 KF와 EKF는 모든 분포(control input, observation 등)의 분포를 gaussian으로 가정한다.
+* KF (Kalman Filter)와 EKF (Extended Kalman Filter)는 공통적으로 Gaussian 분포를 가정한다. 즉, 위의 Bayes filter는 모든 확률분포에 대한 식이며, 그 중에서 KF와 EKF는 모든 분포(control input, observation 등)를 gaussian으로 가정한다.
 
 * KF는 선형 Gaussian 모델의 경우이며, EKF는 비선형 Gaussian 모델이다.
 
