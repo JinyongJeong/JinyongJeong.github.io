@@ -22,7 +22,7 @@ paginate_path:       '/page-:num/'
 
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
 description:         >
-   Various subjects such as ubuntu, computer vision algorithm will be posted in this blog. This blog is to remember what I studied.
+   This blog is to remember what I studied.
 # The tags listed as entries in the sidebar
 sidebar_tags:        [post, SLAM, ubuntu, jekyll, software, math, IRAP]
 
