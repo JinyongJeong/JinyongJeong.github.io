@@ -97,7 +97,7 @@ $$
 
 ### Observation model
 
-비선형 observation model을 EKF에 적용해 보기 위해서 가상의 로봇이용한다. 이 로봇은 3개의 센서를 갖고 있다. 첫번째 센서는 로봇의 위치에서 부터 landmark까지의 euclidean distance를 측정할 수 있다. 두번째, 세번째 센서는 landmark까지의 x방향의 거리와 y방향의 거리를 각각 측정할 수 있다. 로봇의 state는 $$\mathbf{\bar{x}_t} = \begin{bmatrix} \bar{x}_t \\ \bar{y}_t \\ \bar{\theta}_t \end{bmatrix}$$로 표시하며, landmark의 위치는 $$ \mathbf{m} = \begin{bmatrix} m_x\\m_y \end{bmatrix}$$라고 하자. 이때의 각 센서의 데이터입력 $$\mathbf{z}$$는 다음과 같다.
+비선형 observation model을 EKF에 적용해 보기 위해서 가상의 로봇을 이용한다. 이 로봇은 3개의 센서를 갖고 있다. 첫번째 센서는 로봇의 위치에서 부터 landmark까지의 euclidean distance를 측정할 수 있다. 두번째, 세번째 센서는 landmark까지의 x방향의 거리와 y방향의 거리를 각각 측정할 수 있다. 로봇의 state는 $$\mathbf{\bar{x}_t} = \begin{bmatrix} \bar{x}_t \\ \bar{y}_t \\ \bar{\theta}_t \end{bmatrix}$$로 표시하며, landmark의 위치는 $$ \mathbf{m} = \begin{bmatrix} m_x\\m_y \end{bmatrix}$$라고 하자. 이때의 각 센서의 데이터입력 $$\mathbf{z}$$는 다음과 같다.
 
 $$
 \mathbf{z_t} =
@@ -124,7 +124,7 @@ H_t = \frac{\partial \mathbf{z_t}}{\partial \mathbf{\bar{x}_t}} =
 $$
 
 따라서 위에서 계산한 Jacobian $$H_t$$를 이용하여 EKF의 correction step을 수행할 수 있다.
-Observation model에서 $$Q_t$$는 measurement 노이즈로, 데이터를 얻는 센서의 부정확성으로 인해 발생한다. 따라서 observation model에서 $$Q_t$$는 센서의 uncertainty자체를 의미한다. 이제 Jacobian $$H_t$$를 이용하여 EKF의 correction step을 수행하면 된다. 추가적으로 Jacobian matrix는 선형화 포인트에서만 유효하기 때문에 매 step마다 다시 계산해 주어야 한다는 점을 기억해야 한다.
+Observation model에서 $$Q_t$$는 measurement 노이즈로, 데이터를 얻는 센서의 부정확성으로 인해 발생한다. 따라서 observation model에서 $$Q_t$$는 센서의 uncertainty자체를 의미한다. 추가적으로 Jacobian matrix는 선형화 포인트에서만 유효하기 때문에 매 step마다 다시 계산해 주어야 한다는 점을 기억해야 한다.
 
 다음 글은 EKF를 이용한 SLAM에 대해서 설명한다.
 
