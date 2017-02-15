@@ -167,7 +167,7 @@ $$
 
 
 <figure>
-<p style="text-align: center: font-size: 10pt;">
+<p text-align=center>
 <img align="middle" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/kalman_fig.png" width="700">
 <caption>Kalman filter example</caption>
 </p>
