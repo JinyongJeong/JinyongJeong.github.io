@@ -109,9 +109,21 @@ z_t &= C_t x_t + \delta_t
  * $$C_t$$ : 현재 로봇의 상태를 나타내는 state($$x_t$$)와 센서의 관측 정보(observation)이 어떤 관계인지를 나타내는 k x n matrix.
  * $$\epsilon_t, \delta_t$$ : 평균이 0이며 covariance가 각각 $$R_t, Q_t$$인 확률변수이며, process noise와 measurement noise를 의미한다.
 
+여기서 구별해야 할 점은 $$R_t$$는 input의 noise가 아닌 process의 noise이다. $$R_t$$는 control input에서 들어오는 Gaussian noise가 한번의 선형 변환을 거친 전체 state인 $$x_t$$의 noise 이므로 process noise라고 부른다. 이때 control input인 $$u_t$$의 covariance는 $$M_t$$라고 표기한다.
 
+위의 선형 모델을 이용한 motion model과 observation model은 다음과 같다.
 
+* Motion model
 
+$$
+p(x_t \mid u_t, x_{t-1}) = \frac{1}{\sqrt{det(2\pi R_t)}}e^{-\frac{1}{2}(x_t-A_t x_{t-1} - B_t u_t)^TR_t^{-1}(x_t-A_t x_{t-1} - B_t u_t)}
+$$
+
+* Observation model
+
+$$
+p(z_t \mid x_t) = \frac{1}{\sqrt{det(2\pi Q_t)}}e^{-\frac{1}{2}(z_t-C_t x_{t})^T Q_t^{-1}(z_t-C_t x_{t})}
+$$
 
 
 
