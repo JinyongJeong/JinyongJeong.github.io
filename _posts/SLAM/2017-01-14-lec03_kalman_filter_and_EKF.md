@@ -251,6 +251,40 @@ $$
 
 왼쪽그림은 입력의 분산(variance)가 큰 경우를 보여주며, 오른쪽 그림은 분산이 작은 경우를 보여준다. 분산이 큰 경우 실제 비선형 함수 출력의 평균값과 선형화를 통해 계산된 평균값의 차이가 큰 것을 알 수 있다. 반면 분산이 작은 경우는 선형화를 통해 계산된 평균값이 실제 평균값과 유사함을 알 수 있다. 따라서 선형화 시 선형화 지점으로 부터 멀수록(분산이 클수록) 실제 함수를 반영하지 못한다.
 
+##### EKF algorithm
 
+선형화된 motion 모델과 observation 모델을 이용한 bayes filter는 다음과 같다.
+
+* linearized prediction model
+
+$$
+p(x_t \mid u_t, x_{t-1}) \approx \frac{1}{\sqrt{det(2\pi R_t)}}e^{-\frac{1}{2}(x_t-g(u_t, \mu_{t-1}) - G_t(x_{t-1} - \mu_{t-1}))^TR_t^{-1}(x_t-g(u_t, \mu_{t-1}) - G_t(x_{t-1} - \mu_{t-1}))}
+$$
+
+* linearized correction model
+
+$$
+p(z_t \mid x_t) \approx \frac{1}{\sqrt{det(2\pi Q_t)}}e^{-\frac{1}{2}(z_t-h(\bar{\mu_t})-H_t (x_t-\bar{\mu_t}))^T Q_t^{-1}(z_t-h(\bar{\mu_t})-H_t (x_t-\bar{\mu_t}))}
+$$
+
+KF와 마찬가지로 $$R_t, Q_t$$는 process noise와 measurement noise이다. EKF 알고리즘은 다음과 같다.
+
+$$
+\begin{aligned}
+1: & Extended Kalman filter(\mu_{t-1}, \Sigma_{t-1}, u_t, z_t)\\
+&[Prediction step]\\
+2: & \ \ \bar{\mu}_t = g(u_t, \mu_{t-1})\\
+3: &\ \ \bar{\Sigma_t} = G_t \Sigma_{t-1} G_t^T + R_t\\
+&[Correction step]\\
+4: &\ \ K_t = \bar{\Sigma_t}H_t^T(H_t \bar{\Sigma_t}H_t^T + Q_t)^{-1}\\
+5: &\ \ \mu_t = \bar{\mu_t} + K_t(z_t - h(\bar{\mu_t}))\\
+6: &\ \ \Sigma_t = (I - K_t C_t)\bar{\Sigma_t}\\
+7: &\ \ return \ \ \mu_t, \Sigma_t\\
+\end{aligned}
+$$
+
+EKF 알고리즘과 KF 알고리즘의 차이는 KF에서 선형함수를 통해 평균($$\mu$$)를 구하는 2,5번 식에서 선형함수 대신 비선형 함수가 사용되었다. 그리고 3,4번 식에서 선형함수의 $$A_t, C_t$$ Matrix는 Jacobian matrix인 $$G_t, H_t$$로 수정되었다. 여기서 $$R_t$$는 process noise이며, control input의 covariance matrix가 $$M_t$$일 때 $$R_t = P_t M_t P_t^T$$이다. 여기서 $$P_t$$는 $$g(u_t,\mu_{t-1})$$를 control input인 $$u_t$$로 편미분한 Jacobian이다.
+
+여기까지 EKF에 대한 설명을 마친다. 다음 글에서는 EKF의 실제 예를 설명한다. 
 
 **본 글을 참조하실 때에는 출처 명시 부탁드립니다.**
