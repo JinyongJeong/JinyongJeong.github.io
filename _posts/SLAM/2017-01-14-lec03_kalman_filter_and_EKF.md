@@ -169,7 +169,7 @@ Correction 단계에서는 새로운 변수인 K(Kalman gain)이 추가된다. K
 
 <img align="middle" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/kalman_fig.png" width="700">
 
-위 그림은 Kalman filter의 과정을 그림으로 표현하였다. 빨간색은 그래프는 motion model에 의해 계산된
+위 그림은 Kalman filter의 과정을 그림으로 표현하였다. 빨간색은 그래프는 prediction step에서 계산한 state의 Gaussian, 초록색은 observation으로 추정한 state의 Gaussian 분포이다. Kalman filter algorithm의 계산에 의해 두 Gaussian분포는 파란색의 최종 Gaussian 분포로 state가 결정된다. 이때 초록색 Gaussian의 variance가 빨간색보다 작기 때문에, 최종 결과는 measurement에 더욱 dominant하다.
 
 ### Extended Kalman Filter (EKF)
 
