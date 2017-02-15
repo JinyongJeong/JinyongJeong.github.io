@@ -21,7 +21,7 @@ Robot의 Motion model은 크게 두가지로 나뉜다.
 * Odometry-based model
 * Velocity-based model
 
-이 글에서는 velocity-based model을 이용하여 설명한다. 아래 그림은 velocity-based model을 의미한다. $$x,y,\theta$$는 로봇의 x,y좌표 및 방향을 의미하며, 로봇의 선속도는 $$v$$, 각속도는 $$\omega$$이다.
+이 글에서는 velocity-based model을 이용하여 설명한다. 아래 그림은 velocity-based model을 보여준다. $$x,y,\theta$$는 로봇의 x,y좌표 및 방향을 의미하며, 로봇의 선속도는 $$v$$, 각속도는 $$\omega$$이다.
 
 <img align="middle" src="/images/post/SLAM/lec04_EKF_example/velocity_model.png" width="100%">
 
@@ -124,7 +124,7 @@ H_t = \frac{\partial \mathbf{z_t}}{\partial \mathbf{\bar{x}_t}} =
 $$
 
 따라서 위에서 계산한 Jacobian $$H_t$$를 이용하여 EKF의 correction step을 수행할 수 있다.
-Observation model에서 $$Q_t$$는 measurement 노이즈로, 데이터를 얻는 센서의 부정확성으로 인해 발생한다. 따라서 observation model에서 $$Q_t$$는 센서의 uncertainty자체를 의미한다. 이제 Jacobian $$H_t$$를 이용하여 EKF의 correction step을 수행하면 된다. 추가적으로 Jacobian matrix는 선형화 포인트에서만 유효하기 때문에 매 step마다 다시 계산해 주어야 한다는 점을 기억해야 한다. 
+Observation model에서 $$Q_t$$는 measurement 노이즈로, 데이터를 얻는 센서의 부정확성으로 인해 발생한다. 따라서 observation model에서 $$Q_t$$는 센서의 uncertainty자체를 의미한다. 이제 Jacobian $$H_t$$를 이용하여 EKF의 correction step을 수행하면 된다. 추가적으로 Jacobian matrix는 선형화 포인트에서만 유효하기 때문에 매 step마다 다시 계산해 주어야 한다는 점을 기억해야 한다.
 
 다음 글은 EKF를 이용한 SLAM에 대해서 설명한다.
 
