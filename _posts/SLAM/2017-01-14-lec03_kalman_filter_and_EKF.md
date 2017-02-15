@@ -51,24 +51,45 @@ $$
 p(\mathbf{x}) = \frac{1}{\sqrt{det(2\pi \Sigma)}}e^{-\frac{1}{2}(\mathbf{x}-\mu)^T\Sigma^{-1}(\mathbf{x}-\mu)}
 $$
 
-Gaussian 분포는 single variable과 multi variable의 Gaussian 분포로 표현할 수 있으며, SLAM에서는 Vector를 이용하여 로봇의 상태(state), 센서 입력, 관찰 값 등을 표현하므로 multi variable의 Gaussian을 많이 사용한다. 따라서 Multi variable의 Gaussian 식은 숙지해 두도록 하자.
+Gaussian 분포는 single variable과 multi variable의 Gaussian 분포로 표현할 수 있으며, SLAM에서는 Vector를 이용하여 로봇의 상태(state), 센서 입력, 관찰 값 등을 표현하므로 multi variable의 Gaussian을 많이 사용한다. 따라서 Multi variable의 Gaussian 식은 숙지하는 것이 좋다.
 
-### 선형 모델에서 Gaussian uncertainty의 propagation
+### 선형 모델에서 Gaussian 분포의 변환 (Linear transformation of Gaussian distribution)
 
-
-
-$$
-Y = AX
-$$
+가장 기본적인 선형 모델은 다음과 같다.
 
 $$
-X \sim N(\mu_x,\Sigma_x)
+Y = AX+B
 $$
 
+이 때, 확률변수 X가 Gaussian 분포를 갖고 있으며 다음과 같을 때,
+
 $$
-Y \sim N(A \mu_x,A \Sigma_x A^T)
+X \sim \mathcal{N}(\mu_x,\Sigma_x)
 $$
 
+선형 변환 후의 확률변수인 Y의 분포는 다음과 같다.
+
+$$
+Y \sim \mathcal{N}(A \mu_x+B,A \Sigma_x A^T)
+$$
+
+##### 유도과정
+
+X의 평균인 $$\mu_x$$ 는 선형 변환에 의해서 $$A\mu_x+B$$가 되는 것은 직관적으로 이해 할 수 있다. 그렇다면 covariance matrix은 어떻게 유도가 될까? 우선 covariance matrix의 정의로 부터 시작한다.
+
+$$
+\begin{aligned}
+\Sigma_y &= E((y-\mu_y)(y-\mu_y)^T)\\
+         &= E((y-(A\mu_x+B))(y-(A\mu_x+B))^T)\\
+         &= E(((AX+B)-(A\mu_x+B))((AX+B)-(A\mu_x+B))^T)\\
+         &= E([A(X-\mu_x)][A(X-\mu_x)]^T)\\
+         &= E(A(X-\mu_x)(X-\mu_x)^TA^T)\\
+         &= AE((X-\mu_x)(X-\mu_x)^T)A^T\\
+         &= A \Sigma_x A^T
+\end{aligned}
+$$
+
+위의 유도처럼 Gaussian 분포의 선형변환에서의 covariance는 covariance의 정의로부터 $$\Sigma_y = A \Sigma_x A^T$$ 로 정의된다. 이 관계는 Kalman filter 뿐만 아니라 Gaussian을 사용하는 여러 분야에서 자주 사용되므로 기억해 두는것이 좋다.
 
 ### Kalman Filter (KF)
 
