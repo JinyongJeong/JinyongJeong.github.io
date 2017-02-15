@@ -155,9 +155,11 @@ $$
 \end{aligned}
 $$
 
+위 식은 Kalman filter algorithm을 보여주고 있다.
+
 <figure>
 <img align="middle" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/kalman_fig.png" width="700">
-<figcaption>Kalman filter example</figcaption>
+<figcaption align="center">Kalman filter example</figcaption>
 </figure>
 
 
