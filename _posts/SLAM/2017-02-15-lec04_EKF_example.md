@@ -89,8 +89,11 @@ V_t = \frac{\partial g(u_t,\mu_{t-1})}{\partial \mathbf{u_{t}}} =
 \end{pmatrix}
 $$
 
+따라서 위에서 계산한 Jacobian matrix을 이용하여 EKF의 prediction step을 다음과 같이 계산할 수 있다.
 
-
+$$
+\bar{\Sigma_t} = G_t \Sigma_{t-1} G_t^T + V_t M_t V_t^T = G_t \Sigma_{t-1} G_t^T + R_t
+$$
 
 ### Observation model
 
