@@ -285,6 +285,6 @@ $$
 
 EKF 알고리즘과 KF 알고리즘의 차이는 KF에서 선형함수를 통해 평균($$\mu$$)를 구하는 2,5번 식에서 선형함수 대신 비선형 함수가 사용되었다. 그리고 3,4번 식에서 선형함수의 $$A_t, C_t$$ Matrix는 Jacobian matrix인 $$G_t, H_t$$로 수정되었다. 여기서 $$R_t$$는 process noise이며, control input의 covariance matrix가 $$M_t$$일 때 $$R_t = P_t M_t P_t^T$$이다. 여기서 $$P_t$$는 $$g(u_t,\mu_{t-1})$$를 control input인 $$u_t$$로 편미분한 Jacobian이다.
 
-여기까지 EKF에 대한 설명을 마친다. 다음 글에서는 EKF의 실제 예를 설명한다. 
+여기까지 EKF에 대한 설명을 마친다. 다음 글에서는 실제 robot의 모델을 통해 EKF를 이해해보자.
 
 **본 글을 참조하실 때에는 출처 명시 부탁드립니다.**
