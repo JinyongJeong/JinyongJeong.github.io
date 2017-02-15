@@ -176,13 +176,21 @@ Correction 단계에서는 새로운 변수인 K(Kalman gain)이 추가된다. K
 
 
 
-<div style="width:45%; float:left; margin-right:10px;">
+<div style="width:40%; float:left; margin-right:3px;">
 <img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/linear.png">
 </div>
-<div style="width:52%; float:left;">
-<img align="right" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/non_linear.png">
+<div style="width:58%; float:left;">
+<img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/non_linear.png">
 </div><div style="clear:both;"></div>
 
-
+<div style="width:32%; float:left; margin-right:3px;">
+<img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/linear.png">
+</div>
+<div style="width:32%; float:left; margin-right:3px;">
+<img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/linear.png">
+</div>
+<div style="width:32%; float:left;">
+<img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/non_linear.png">
+</div><div style="clear:both;"></div>
 
 **본 글을 참조하실 때에는 출처 명시 부탁드립니다.**
