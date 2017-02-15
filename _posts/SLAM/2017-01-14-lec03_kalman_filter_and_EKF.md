@@ -93,6 +93,28 @@ $$
 
 ### Kalman Filter (KF)
 
+* Kalman filter는 선형 모델(Linear model)에서 uncertainty의 분포를 Gaussian으로 가정하였을 때의 solution이다.
+* Kalman filter는 motion 모델과 observation 모델을 선형으로 가정한다.
+* 노이즈는 평균(mean)이 0인 Gaussian 분포로 가정한다.
+
+ $$
+\begin{aligned}
+x_t &= A_t x_{t-1} + B_t u_t + \epsilon_t\\
+z_t &= C_t x_t + \delta_t
+\end{aligned}
+ $$
+
+ * $$A_t$$ : control input($$u_t$$)과 노이즈($$\epsilon_t$$)가 없을 때 t-1와 t의 state가 어떻게 관계되어 있는지를 의미하는 n x n matrix.
+ * $$B_t$$ : control input($$u_t$$)이 어떻게 state 변화에 영향을 미치는지를 나타내는 n x l matrix.
+ * $$C_t$$ : 현재 로봇의 상태를 나타내는 state($$x_t$$)와 센서의 관측 정보(observation)이 어떤 관계인지를 나타내는 k x n matrix.
+ * $$\epsilon_t, \delta_t$$ : 평균이 0이며 covariance가 각각 $$R_t, Q_t$$인 확률변수이며, process noise와 measurement noise를 의미한다.
+
+
+
+
+
+
+
 ### Extended Kalman Filter (EKF)
 
 
