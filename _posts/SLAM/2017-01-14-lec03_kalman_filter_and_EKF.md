@@ -186,7 +186,7 @@ z_t &= h(x_t) + \delta_t            &\leftarrow &z_t = C_t x_t + \delta_t
 \end{aligned}
 $$
 
-하지만 motion 모델과 observation 모델을 비선형으로 확장한 경우 문제가 발생한다. 다음 그림은 이러한 문제르르 보여준다.
+하지만 motion 모델과 observation 모델을 비선형으로 확장한 경우 문제가 발생한다. 다음 그림은 이러한 문제를 보여준다.
 
 <div style="width:43%; float:left; margin-right:3px;">
 <img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/linear.png">
@@ -196,6 +196,39 @@ $$
 </div><div style="clear:both;"></div>
 
 많은 문제에서 Gaussian 분포를 사용하는 이유는 평균(mean)과 분산(variance) 두개의 파라미터로 분포를 표현함과 동시에 데이터들의 분포를 정확히 반영할 수 있기 때문이다. 따라서 반복적인 계산을 통해 state를 추정하는 문제에서 입력이 Gaussian 분포일 때 출력 또한 Gaussian 분포이여야 한다. 왼쪽 그림은 선형 시스템에서의 입력과 출력을 보여준다. 선형 시스템이기 때문에 입력이 Gaussian 분포일 때 출력 또한 Gaussian 분포가 된다. 하지만 오른쪽 그림과 같이 비선형 시스템의 경우, 입력은 Gaussian 분포이지만 시스템의 비선형성에 의해 출력은 Gaussian 분포가 아니다. 따라서 이런 경우 출력을 평균과 분산으로 표현 할 수 없다. 이러한 문제를 풀기 위해서는 비선형함수를 선형화(Linearization) 시키는 과정이 필요하다.
+
+##### 선형화(Linearization)
+
+EKF에서 비선형 함수를 선형화 시키기 위해서는 1차 Taylor 근사법(First order Talyer Expansion)을 사용한다. 선형 근사화된 model은 다음과 같다.
+
+* Motion model
+
+$$
+g(u_t, x_{t-1}) \approx g(u_t,\mu_{t-1}) + \frac{\partial g(u_t, \mu_{t-1})}{\partial x_{t-1}}(x_{t-1} - \mu_{t-1})
+$$
+
+* Observation model
+
+$$
+h(x_t) \approx h(\bar{\mu_t}) + \frac{\partial h(\bar{\mu_t})}{\partial x_t} (x_t - \bar{\mu_t})
+$$
+
+이떄 비선형 함수들을 state로 편미분하여 matrix를 생성하는데 이 matrix를 **Jacobian** 이라고 부르며, 두 matrix는 $$G_t = \frac{\partial g(u_t, \mu_{t-1})}{\partial x_{t-1}}$$, $$H_t = \frac{\partial h(\bar{\mu_t})}{\partial x_t}$$로 표기한다.
+
+##### Jacobian matrix
+
+* Jacobian matrix는 non-square matrix이다.
+* 비선형 함수 vector가 $$g(x)$$일 때 Jacobian은 다음과 같이 계산된다.
+
+%%
+g(x) =
+\begin{bmatrix}
+g_1(x)\\
+g_2(x)\\
+\vdots\\
+g_m(x)\\
+\end{bmatrix}
+$$
 
 <div style="width:48%; float:left; margin-right:3px;">
 <img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/large_variance.png">
