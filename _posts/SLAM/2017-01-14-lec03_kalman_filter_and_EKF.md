@@ -125,6 +125,40 @@ $$
 p(z_t \mid x_t) = \frac{1}{\sqrt{det(2\pi Q_t)}}e^{-\frac{1}{2}(z_t-C_t x_{t})^T Q_t^{-1}(z_t-C_t x_{t})}
 $$
 
+Motion model은 prediction step에서, observation model은 correction step에 적용된다.
+
+* Prediction step
+
+$$
+\overline{bel}(x_t) = \int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}
+$$
+
+* Correction step
+
+$$
+bel(x_t) = \eta p(z_t \mid x_t)\overline{bel}(x_t)
+$$
+
+t-1에서의 state의 확률은 motion model에 의해 t의 state의 확률이 결정되며(prediction step), prediction step에서 계산된 t에서의 state의 확률은 observation model에 의해서 보정된다. 이와같은 bayes filter식은 여러 확률 모델 분포를 모두 포함하고 있는 식이며, 그 중에서 모든 확률 분포를 Gaussian 확률 분포로 가정하는 모델이 Kalman filter이다. Gaussian으로 확률분포를 표현할 때, 간단히 평균(mean, $$\mu$$)와 분산(variance, $$\Sigma$$)으로 표현하기 때문에 두개의 파라미터만으로 분포를 표현할 수 있는 장점이 있다. Kalman filter 알고리즘은 다음과 같다.
+
+$$
+\begin{aligned}
+1: & Kalman filter(\mu_{t-1}, \Sigma_{t-1}, u_t, z_t)\\
+&[Prediction step]\\
+2: & \ \ \bar{\mu}_t = A_t \mu_{t-1} + B_t u_t\\
+3: &\ \ \bar{\Sigma_t} = A_t \Sigma_{t-1} A_t^T + R_t\\
+&[Correction step]\\
+4: &\ \ K_t = \bar{\Sigma_t}C_t^T(C_t \bar{\Sigma_t}C_t^T + Q_t)^{-1}\\
+5: &\ \ \mu_t = \bar{\mu_t} + K_t(z_t - C_t \bar{\mu_t})\\
+6: &\ \ \Sigma_t = (I - K_t C_t)\bar{\Sigma_t}\\
+7: &\ \ return \mu_t, \Sigma_t\\
+\end{aligned}
+$$
+
+<figure>
+<img align="middle" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/kalman_fig.png" width="700">
+<figcaption>Kalman filter example</figcaption>
+</figure>
 
 
 ### Extended Kalman Filter (EKF)
