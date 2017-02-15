@@ -159,16 +159,17 @@ $$
 
 * Prediction step (Kalman filter)
 
-첫번째 prediction 단계는 복잡하지 않다. 직관적으로 t-1의 평균은 motion model을 통해 t의 평균으로 계산되어 진다(1). 이때 $$\mu, \Sigma$$에 붙어있는 bar($$\bar{\mu}, \bar{\Sigma}$$)는 prediction step임을 의미한다. 그 다음으로 covariance는 위에서 설명한 Gaussian linear transformation의 의해 계산되어 진다. 이때 $$R_t$$는 process noise 이며, control input($$u_t$$)의 covariance가 $$M_t$$일 때 $$R_t = B_t M_t B_t^T$$이다. 일반적인 로봇시스템이나 자동차 시스템에서 control input은 wheel encoder로 부터 얻어지는 odometry 정보를 많이 이용하며, encoder 센서의 uncertainty가 $$M_t$$가 된다.
+첫번째 prediction 단계는 복잡하지 않다. 직관적으로 t-1의 평균은 motion model을 통해 t의 평균으로 계산되어 진다(1). 이때 $$\mu, \Sigma$$에 붙어있는 bar($$\bar{\mu}, \bar{\Sigma}$$)는 prediction step임을 의미한다. 그 다음으로 covariance는 위에서 설명한 Gaussian linear transformation의 의해 계산되어 진다(3). 이때 $$R_t$$는 process noise 이며, control input($$u_t$$)의 covariance가 $$M_t$$일 때 $$R_t = B_t M_t B_t^T$$이다. 일반적인 로봇시스템이나 자동차 시스템에서 control input은 wheel encoder로 부터 얻어지는 odometry 정보를 많이 이용하며, encoder 센서의 uncertainty가 $$M_t$$가 된다.
 
 * Correction step (Kalman filter)
 
-Correction 단계에서는 새로운 변수인 K(Kalman gain)이 추가된다. K는 
+Correction 단계에서는 새로운 변수인 K(Kalman gain)이 추가된다. K는 현재 관측 데이터($$z_t$$)의 정확도에 따라 predicted state와 관측된 state(observation model을 이용하여 관측값으로부터 추정된 state)의 보정 비율을 결정하는 역활을 한다. 이때 $$Q_t$$가 observation의 covariance이다. 5번 식에서 $$z_t - C_t\bar{\mu_t}$$는 현재 실제로 관측된 데이터($$z_t$$)와 현재 위치로 예상되는 위치($$\bar{\mu_t}$$)에서 기대되는 관측값($$C_t\bar{\mu_t}$$)과의 차이를 Kalman gain(K)와의 곱을 더해줌으로써, 최종 Gaussian의 평균을 계산한다. 예를들면, 우리의 로봇은 로봇의 위치에서 부터 주변 lanemark까지의 거리를 측정할 수 있는 로봇이라고 하자. 만약 encoder data와 motion model에 의해서 예상되는 로봇의 위치를 알고 있고, 주변의 lanemark의 위치를 이미 알고 있을 때, 예상되는 lanemark까지의 거리를 계산할 수 있다. 만약 이 예상되는 거리가 10M인데, 실제 lanemark까지의 거리가 9M로 측정이 된다면, 두 값이 오차인 1M는 odometry sensor로 부터 발생한 것일 수 도 있고, 거리를 측정하는 센서로 부터 발생한 것일 수도 있다. 이때 Kalman gain은 10M와 9M중 어느 데이터를 더 신뢰할지를 결정하는 파라미터로 볼 수 있다.
 
+조금 더 쉽게 이해하기 위해 observation의 covariance인 $$Q_t$$가 무한대라고 해보자. covariance가 무한대라는 의미는 거리측정 센서로부터 얻어진 데이터는 전혀 신뢰 할 수 없다는 것을 의미한다. 이때 K는 0이 되며, $$\mu_t = \bar{\mu_t}$$가 된다. 즉, 관측된 센서 데이터는 신뢰할 수 없으므로, 예측된 로봇의 위치를 전적으로 신뢰하겠다는 것이다. 반대로 $$Q_t$$가 0라고 해보자. Covariance가 0이라는 의미는 센서 데이터를 100% 신뢰할 수 있음을 의미한다. 따라서 $$Q_t$$가 0이라면 $$K = C_t^{-1}$$이 되며, 5번식은 $$\mu_t = C_t^{-1} z_t$$가 된다. 즉 로봇의 거리 측정센서로 부터 얻어진 데이터($$z_t$$)를 전적으로 신뢰하여, 이로부터 로봇의 state를 추정하겠다는 의미이다. 6번식 covariace를 계산하는 부분도 이와 마찬가지로 $$Q_t$$가 무한대 일때는 최종 covariace는 prediction의 covariance를 그대로 사용하며, $$Q_t$$가 0일때는 관측데이터가 100%신뢰할 수 있음을 의미하므로 covariace는 0이 된다.
 
 <img align="middle" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/kalman_fig.png" width="700">
 
-
+위 그림은 Kalman filter의 과정을 그림으로 표현하였다. 빨간색은 그래프는 motion model에 의해 계산된 
 
 ### Extended Kalman Filter (EKF)
 
