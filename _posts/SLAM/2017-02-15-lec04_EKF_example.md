@@ -56,7 +56,7 @@ x_{t}\\y_{t}\\ \theta_{t}
 =
 \begin{bmatrix}
 x_{t-1} - \frac{v_t}{\omega_t} \sin \theta_{t-1} + \frac{v_t}{\omega_t}\sin(\theta_{t-1} + \omega_t\vartriangle t)\\
-y_{t-1} - \frac{v_t}{\omega_t} \cos \theta_{t-1} - \frac{v_t}{\omega_t}\cos(\theta_{t-1} + \omega_t\vartriangle t)\\
+y_{t-1} + \frac{v_t}{\omega_t} \cos \theta_{t-1} - \frac{v_t}{\omega_t}\cos(\theta_{t-1} + \omega_t\vartriangle t)\\
 \theta_{t-1} + \omega_t \vartriangle t
 \end{bmatrix} + \mathcal{N}(0,R_t)
 $$
@@ -69,8 +69,25 @@ $$
 \mathbf{x_t} = G_t \mathbf{x_{t-1}} + V_t \mathbf{u_t}
 $$
 
-위 식에서 $$G_t, V_t$$는 각각 $$x_{t-1}$$와 $$u_t$$로 편미분을 통해 계산한 Jacobian matrix이다.
+위 식에서 $$G_t, V_t$$는 각각 $$\mathbf{x_{t-1}}$$와 $$\mathbf{u_t}$$로 편미분을 통해 계산한 Jacobian matrix이다.
 
+$$
+G_t = \frac{\partial g(u_t,\mu_{t-1})}{\partial \mathbf{x_{t-1}}} =
+\begin{pmatrix}
+1 & 0 & -\frac{v_t}{\omega_t}\cos \theta_{t-1} + \frac{v_t}{\omega_t}\cos(\theta_{t-1}+\omega_t \vartriangle t)\\
+0 & 1 & -\frac{v_t}{\omega_t}\sin \theta_{t-1} + \frac{v_t}{\omega_t}\sin(\theta_{t-1}+\omega_t \vartriangle t)\\
+0 & 0 & 1
+\end{pmatrix}
+$$
+
+$$
+V_t = \frac{\partial g(u_t,\mu_{t-1})}{\partial \mathbf{u_{t}}} =
+\begin{pmatrix}
+\frac{-\sin \theta_{t-1} + \sin (\theta_{t-1}+\omega_t \vartriangle t)}{\omega_t} & \frac{v_t(\sin \theta_{t-1} - \sin (\theta_{t-1}+\omega_t \vartriangle t))}{\omega_t^2} + \frac{v_t \vartriangle t \cos (\theta_{t-1} + \omega_t \vartriangle t)}{\omega_t}\\
+\frac{\cos \theta_{t-1} - \cos (\theta_{t-1}+\omega_t \vartriangle t)}{\omega_t} &
+\frac{v_t(-\cos \theta_{t-1} + \cos (\theta_{t-1}+\omega_t \vartriangle t))}{\omega_t^2} + \frac{v_t \vartriangle t \sin (\theta_{t-1} + \omega_t \vartriangle t)}{\omega_t}
+\end{pmatrix}
+$$
 
 
 
