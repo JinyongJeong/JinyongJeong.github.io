@@ -176,21 +176,21 @@ Correction 단계에서는 새로운 변수인 K(Kalman gain)이 추가된다. K
 
 
 
-<div style="width:40%; float:left; margin-right:3px;">
+<div style="width:43%; float:left; margin-right:3px;">
 <img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/linear.png">
 </div>
-<div style="width:58%; float:left;">
+<div style="width:54%; float:left;">
 <img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/non_linear.png">
 </div><div style="clear:both;"></div>
 
 <div style="width:32%; float:left; margin-right:3px;">
-<img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/linear.png">
+<img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/normal_variance.png">
 </div>
 <div style="width:32%; float:left; margin-right:3px;">
-<img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/linear.png">
+<img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/large_variance.png">
 </div>
 <div style="width:32%; float:left;">
-<img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/non_linear.png">
+<img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/small_variance.png">
 </div><div style="clear:both;"></div>
 
 **본 글을 참조하실 때에는 출처 명시 부탁드립니다.**
