@@ -151,15 +151,24 @@ $$
 4: &\ \ K_t = \bar{\Sigma_t}C_t^T(C_t \bar{\Sigma_t}C_t^T + Q_t)^{-1}\\
 5: &\ \ \mu_t = \bar{\mu_t} + K_t(z_t - C_t \bar{\mu_t})\\
 6: &\ \ \Sigma_t = (I - K_t C_t)\bar{\Sigma_t}\\
-7: &\ \ return \mu_t, \Sigma_t\\
+7: &\ \ return \ \ \mu_t, \Sigma_t\\
 \end{aligned}
 $$
 
-위 식은 Kalman filter algorithm을 보여주고 있다.
+위 식은 Kalman filter algorithm을 보여주고 있다. Kalman filter는 bayes filter이기 때문에 prediction과 correction의 두 단계로 이루어 지며, 다소 복잡해 보이지만 한단계씩 이해하면 어렵지 않다.
+
+* Prediction step (Kalman filter)
+
+
+
+* Correction step (Kalman filter)
+
+
 
 <figure>
+<p style="text-align: center: font-size: 10pt;">
 <img align="middle" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/kalman_fig.png" width="700">
-<figcaption align="center">Kalman filter example</figcaption>
+<caption>Kalman filter example</caption>
 </figure>
 
 
