@@ -173,8 +173,20 @@ Correction 단계에서는 새로운 변수인 K(Kalman gain)이 추가된다. K
 
 ### Extended Kalman Filter (EKF)
 
+* KF와 마찬가지로 노이즈는 평균(mean)이 0인 Gaussian 분포로 가정한다.
+* KF와의 차이점은 motion 모델과 observation 모델을 선형으로 가정하지 않고 비선형 함수로 확장한 것이다.
+* 거의 대부분의 실제 시스템은 비선형이다.
 
+Extended Kalman Filter는 아래와 같이 기존 KF의 선형 모델을 비선형 함수인 $$g(u_t,x_{t-1})$$와 $$h(x_t)$$로 바꿈으로써 비선형으로 확장한 모델이다.
 
+$$
+\begin{aligned}
+x_t &= g(u_t, x_{t-1}) + \epsilon_t &\leftarrow &x_t = A_t x_{t-1} + B_t u_t + \epsilon_t\\
+z_t &= h(x_t) + \delta_t            &\leftarrow &z_t = C_t x_t + \delta_t
+\end{aligned}
+$$
+
+하지만 motion 모델과 observation 모델을 비선형으로 확장한 경우 문제가 발생한다. 다음 그림은 이러한 문제르르 보여준다.
 
 <div style="width:43%; float:left; margin-right:3px;">
 <img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/linear.png">
@@ -183,6 +195,7 @@ Correction 단계에서는 새로운 변수인 K(Kalman gain)이 추가된다. K
 <img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/non_linear.png">
 </div><div style="clear:both;"></div>
 
+많은 문제에서 Gaussian 분포를 사용하는 이유는 평균(mean)과 분산(variance) 두개의 파라미터로 분포를 표현함과 동시에 데이터들의 분포를 정확히 반영할 수 있기 때문이다. 따라서 반복적인 계산을 통해 state를 추정하는 문제에서 입력이 Gaussian 분포일 때 출력 또한 Gaussian 분포이여야 한다. 왼쪽 그림은 선형 시스템에서의 입력과 출력을 보여준다. 선형 시스템이기 때문에 입력이 Gaussian 분포일 때 출력 또한 Gaussian 분포가 된다. 하지만 오른쪽 그림과 같이 비선형 시스템의 경우, 입력은 Gaussian 분포이지만 시스템의 비선형성에 의해 출력은 Gaussian 분포가 아니다. 따라서 이런 경우 출력을 평균과 분산으로 표현 할 수 없다. 이러한 문제를 풀기 위해서는 비선형함수를 선형화(Linearization) 시키는 과정이 필요하다.
 
 <div style="width:48%; float:left; margin-right:3px;">
 <img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/large_variance.png">
