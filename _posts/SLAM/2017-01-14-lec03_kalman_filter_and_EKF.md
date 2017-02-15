@@ -159,19 +159,15 @@ $$
 
 * Prediction step (Kalman filter)
 
-
-
+첫번째 prediction 단계는 복잡하지 않다. 직관적으로 t-1의 평균은 motion model을 통해 t의 평균으로 계산되어 진다(1). 이때 $$\mu, \Sigma$$에 붙어있는 bar($$\bar{\mu}, \bar{\Sigma}$$)는 prediction step임을 의미한다. 그 다음으로 covariance는 위에서 설명한 Gaussian linear transformation의 의해 계산되어 진다. 이때 $$R_t$$는 process noise 이며, control input($$u_t$$)의 covariance가 $$M_t$$일 때 $$R_t = B_t M_t B_t^T$$이다. 일반적인 로봇시스템이나 자동차 시스템에서 control input은 wheel encoder로 부터 얻어지는 odometry 정보를 많이 이용하며, encoder 센서의 uncertainty가 $$M_t$$가 된다.
 
 * Correction step (Kalman filter)
 
+Correction 단계에서는 새로운 변수인 K(Kalman gain)이 추가된다. K는 
 
 
-<figure>
-<p text-align=center>
 <img align="middle" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/kalman_fig.png" width="700">
-<caption>Kalman filter example</caption>
-</p>
-</figure>
+
 
 
 ### Extended Kalman Filter (EKF)
