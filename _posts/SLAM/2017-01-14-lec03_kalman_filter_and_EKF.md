@@ -183,13 +183,11 @@ Correction 단계에서는 새로운 변수인 K(Kalman gain)이 추가된다. K
 <img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/non_linear.png">
 </div><div style="clear:both;"></div>
 
-<div style="width:32%; float:left; margin-right:3px;">
-<img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/normal_variance.png">
-</div>
-<div style="width:32%; float:left; margin-right:3px;">
+
+<div style="width:48%; float:left; margin-right:3px;">
 <img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/large_variance.png">
 </div>
-<div style="width:32%; float:left;">
+<div style="width:48%; float:left;">
 <img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/small_variance.png">
 </div><div style="clear:both;"></div>
 
