@@ -218,17 +218,28 @@ $$
 ##### Jacobian matrix
 
 * Jacobian matrix는 non-square matrix이다.
-* 비선형 함수 vector가 $$g(x)$$일 때 Jacobian은 다음과 같이 계산된다.
+* 비선형 함수 vector가 $$g(x)$$일 때 Jacobian $$G_x$$는 다음과 같이 계산된다.
 
-%%
+$$
 g(x) =
 \begin{bmatrix}
 g_1(x)\\
 g_2(x)\\
 \vdots\\
-g_m(x)\\
+g_m(x)
 \end{bmatrix}
 $$
+
+$$
+G_x =
+\begin{bmatrix}
+\frac{\partial g_1}{\partial x_1} & \frac{\partial g_1}{\partial x_2} & \cdots & \frac{\partial g_1}{\partial x_n}\\
+\frac{\partial g_2}{\partial x_1} & \frac{\partial g_2}{\partial x_2} & \cdots & \frac{\partial g_2}{\partial x_n}\\
+\vdots & \vdots & & \vdots\\
+\frac{\partial g_m}{\partial x_1} & \frac{\partial g_m}{\partial x_2} & \cdots & \frac{\partial g_m}{\partial x_n}
+\end{bmatrix}
+$$
+
 
 <div style="width:48%; float:left; margin-right:3px;">
 <img align="left" src="/images/post/SLAM/lec03_kalman_filter_and_EKF/large_variance.png">
