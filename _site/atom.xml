@@ -4,13 +4,786 @@
  <title>Jinyong Jeong</title>
  <link href="http://localhost:4000http://JinyongJeong.github.io/atom.xml" rel="self"/>
  <link href="http://localhost:4000http://JinyongJeong.github.io/"/>
- <updated>2017-02-14T00:33:24+09:00</updated>
+ <updated>2017-02-16T11:28:28+09:00</updated>
  <id>http://localhost:4000http://JinyongJeong.github.io</id>
  <author>
    <name>Jinyong Jeong</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>[SLAM] Extended Kalman Filter(EKF) 예제</title>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2017/02/15/lec04_EKF_example/"/>
+   <updated>2017-02-15T00:00:00+09:00</updated>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2017/02/15/lec04_EKF_example</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;본 글은 University Freiburg의 &lt;a href=&quot;http://ais.informatik.uni-freiburg.de/teaching/ws13/mapping/&quot;&gt;Robot Mapping&lt;/a&gt; 강의를 바탕으로 이해하기 쉽도록 정리하려는 목적으로 작성되었습니다. 개인적인 의견을 포함하여 작성되기 때문에 틀린 내용이 있을 수도 있습니다. 틀린 부분은 지적해주시면 확인 후 수정하겠습니다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;이번 글에서는 이전 글에서 설명한 Extended Kalman Filter(EKF)를 실제 모델을 이용해서 설명한다. 이전 글을 통해 EKF의 선형화 과정과 bayes filter 과정을 이해했지만 실제 어떻게 적용을 하는지에 대해서는 이해가 잘 되지 않을 수 있다. 이 글에서는 velocity motion model과 observation model을 이용하여 EKF과정을 설명한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;motion-model&quot;&gt;Motion model&lt;/h3&gt;
+
+&lt;p&gt;Robot의 Motion model은 크게 두가지로 나뉜다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Odometry-based model&lt;/li&gt;
+  &lt;li&gt;Velocity-based model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이 글에서는 velocity-based model을 이용하여 설명한다. 아래 그림은 velocity-based model을 보여준다. &lt;code class=&quot;MathJax_Preview&quot;&gt;x,y,\theta&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;x,y,\theta&lt;/script&gt;는 로봇의 x,y좌표 및 방향을 의미하며, 로봇의 선속도는 &lt;code class=&quot;MathJax_Preview&quot;&gt;v&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;v&lt;/script&gt;, 각속도는 &lt;code class=&quot;MathJax_Preview&quot;&gt;\omega&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\omega&lt;/script&gt;이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/images/post/SLAM/lec04_EKF_example/velocity_model.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이때 로봇의 상태(state)는 &lt;code class=&quot;MathJax_Preview&quot;&gt;\mathbf{x_t} = \begin{bmatrix} x \\ y \\ \theta \end{bmatrix}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mathbf{x_t} = \begin{bmatrix} x \\ y \\ \theta \end{bmatrix}&lt;/script&gt;이며, control input은 &lt;code class=&quot;MathJax_Preview&quot;&gt;u_t = \begin{bmatrix} v \\ \omega \end{bmatrix}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u_t = \begin{bmatrix} v \\ \omega \end{bmatrix}&lt;/script&gt;이다. 실제 로봇을 이동시키기 위해서는 모터를 구동시켜야 하기 때문에 로봇에 들어가는 실제 입력은 모터를 구동하기 위한 제어값이다. 하지만 여기서 control input은 로봇이 얼마나 이동했는지를 측정하기 위한 센서값을 의미한다. Velocity-based model에서 motion model은 다음과 같다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{bmatrix}
+x_{t}\\y_{t}\\ \theta_{t}
+\end{bmatrix}
+=
+\begin{bmatrix}
+x_{t-1} - \frac{\hat{v_t}}{\hat{\omega_t}} \sin \theta_{t-1} + \frac{\hat{v_t}}{\hat{\omega_t}}\sin(\theta_{t-1} + \hat{\omega_t}\vartriangle t)\\
+y_{t-1} - \frac{\hat{v_t}}{\hat{\omega_t}} \cos \theta_{t-1} - \frac{\hat{v_t}}{\hat{\omega_t}}\cos(\theta_{t-1} + \hat{\omega_t}\vartriangle t)\\
+\theta_{t-1} + \hat{\omega_t} \vartriangle t
+\end{bmatrix}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{bmatrix}
+x_{t}\\y_{t}\\ \theta_{t}
+\end{bmatrix}
+=
+\begin{bmatrix}
+x_{t-1} - \frac{\hat{v_t}}{\hat{\omega_t}} \sin \theta_{t-1} + \frac{\hat{v_t}}{\hat{\omega_t}}\sin(\theta_{t-1} + \hat{\omega_t}\vartriangle t)\\
+y_{t-1} - \frac{\hat{v_t}}{\hat{\omega_t}} \cos \theta_{t-1} - \frac{\hat{v_t}}{\hat{\omega_t}}\cos(\theta_{t-1} + \hat{\omega_t}\vartriangle t)\\
+\theta_{t-1} + \hat{\omega_t} \vartriangle t
+\end{bmatrix}&lt;/script&gt;
+
+&lt;p&gt;즉 velocity-based model은 비선형 함수로 정의된다. 위 식에서 &lt;code class=&quot;MathJax_Preview&quot;&gt;\hat{}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\hat{}&lt;/script&gt;은 노이즈를 포함한 control input을 의미한다. control input의 covariance가 &lt;code class=&quot;MathJax_Preview&quot;&gt;M_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;M_t&lt;/script&gt;일 때 다음과 같이 노이즈를 분리할 수 있다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{bmatrix} \hat{v} \\ \hat{\omega} \end{bmatrix}
+=
+\begin{bmatrix} v \\ \omega \end{bmatrix}+\mathcal{N}(0,M_t)&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{bmatrix} \hat{v} \\ \hat{\omega} \end{bmatrix}
+=
+\begin{bmatrix} v \\ \omega \end{bmatrix}+\mathcal{N}(0,M_t)&lt;/script&gt;
+
+&lt;p&gt;따라서 노이즈 항을 따로 분리하면 다음과 같이 다시 쓸 수 있다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{bmatrix}
+x_{t}\\y_{t}\\ \theta_{t}
+\end{bmatrix}
+=
+\begin{bmatrix}
+x_{t-1} - \frac{v_t}{\omega_t} \sin \theta_{t-1} + \frac{v_t}{\omega_t}\sin(\theta_{t-1} + \omega_t\vartriangle t)\\
+y_{t-1} + \frac{v_t}{\omega_t} \cos \theta_{t-1} - \frac{v_t}{\omega_t}\cos(\theta_{t-1} + \omega_t\vartriangle t)\\
+\theta_{t-1} + \omega_t \vartriangle t
+\end{bmatrix} + \mathcal{N}(0,R_t)&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{bmatrix}
+x_{t}\\y_{t}\\ \theta_{t}
+\end{bmatrix}
+=
+\begin{bmatrix}
+x_{t-1} - \frac{v_t}{\omega_t} \sin \theta_{t-1} + \frac{v_t}{\omega_t}\sin(\theta_{t-1} + \omega_t\vartriangle t)\\
+y_{t-1} + \frac{v_t}{\omega_t} \cos \theta_{t-1} - \frac{v_t}{\omega_t}\cos(\theta_{t-1} + \omega_t\vartriangle t)\\
+\theta_{t-1} + \omega_t \vartriangle t
+\end{bmatrix} + \mathcal{N}(0,R_t)&lt;/script&gt;
+
+&lt;p&gt;여기서 &lt;code class=&quot;MathJax_Preview&quot;&gt;R_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;R_t&lt;/script&gt;는 process noise로 control input의 uncertainty에 의해 발생하며, &lt;code class=&quot;MathJax_Preview&quot;&gt;R_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;R_t&lt;/script&gt;에 대해서는 뒤에서 다시 자세히 설명한다.&lt;/p&gt;
+
+&lt;p&gt;이제 motion model을 알고 있으므로 앞에서 설명한 Jacobian matrix를 이용하여 선형화된 model을 계산할 수 있다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\mathbf{x_t} = G_t \mathbf{x_{t-1}} + V_t \mathbf{u_t}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{x_t} = G_t \mathbf{x_{t-1}} + V_t \mathbf{u_t}&lt;/script&gt;
+
+&lt;p&gt;위 식에서 &lt;code class=&quot;MathJax_Preview&quot;&gt;G_t, V_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;G_t, V_t&lt;/script&gt;는 각각 &lt;code class=&quot;MathJax_Preview&quot;&gt;\mathbf{x_{t-1}}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mathbf{x_{t-1}}&lt;/script&gt;와 &lt;code class=&quot;MathJax_Preview&quot;&gt;\mathbf{u_t}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mathbf{u_t}&lt;/script&gt;로 편미분을 통해 계산한 Jacobian matrix이다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;G_t = \frac{\partial g(u_t,\mu_{t-1})}{\partial \mathbf{x_{t-1}}} =
+\begin{pmatrix}
+1 &amp;amp; 0 &amp;amp; -\frac{v_t}{\omega_t}\cos \theta_{t-1} + \frac{v_t}{\omega_t}\cos(\theta_{t-1}+\omega_t \vartriangle t)\\
+0 &amp;amp; 1 &amp;amp; -\frac{v_t}{\omega_t}\sin \theta_{t-1} + \frac{v_t}{\omega_t}\sin(\theta_{t-1}+\omega_t \vartriangle t)\\
+0 &amp;amp; 0 &amp;amp; 1
+\end{pmatrix}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+G_t = \frac{\partial g(u_t,\mu_{t-1})}{\partial \mathbf{x_{t-1}}} =
+\begin{pmatrix}
+1 &amp; 0 &amp; -\frac{v_t}{\omega_t}\cos \theta_{t-1} + \frac{v_t}{\omega_t}\cos(\theta_{t-1}+\omega_t \vartriangle t)\\
+0 &amp; 1 &amp; -\frac{v_t}{\omega_t}\sin \theta_{t-1} + \frac{v_t}{\omega_t}\sin(\theta_{t-1}+\omega_t \vartriangle t)\\
+0 &amp; 0 &amp; 1
+\end{pmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;V_t = \frac{\partial g(u_t,\mu_{t-1})}{\partial \mathbf{u_{t}}} =
+\begin{pmatrix}
+\frac{-\sin \theta_{t-1} + \sin (\theta_{t-1}+\omega_t \vartriangle t)}{\omega_t} &amp;amp; \frac{v_t(\sin \theta_{t-1} - \sin (\theta_{t-1}+\omega_t \vartriangle t))}{\omega_t^2} + \frac{v_t \vartriangle t \cos (\theta_{t-1} + \omega_t \vartriangle t)}{\omega_t}\\
+\frac{\cos \theta_{t-1} - \cos (\theta_{t-1}+\omega_t \vartriangle t)}{\omega_t} &amp;amp;
+\frac{v_t(-\cos \theta_{t-1} + \cos (\theta_{t-1}+\omega_t \vartriangle t))}{\omega_t^2} + \frac{v_t \vartriangle t \sin (\theta_{t-1} + \omega_t \vartriangle t)}{\omega_t}
+\end{pmatrix}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+V_t = \frac{\partial g(u_t,\mu_{t-1})}{\partial \mathbf{u_{t}}} =
+\begin{pmatrix}
+\frac{-\sin \theta_{t-1} + \sin (\theta_{t-1}+\omega_t \vartriangle t)}{\omega_t} &amp; \frac{v_t(\sin \theta_{t-1} - \sin (\theta_{t-1}+\omega_t \vartriangle t))}{\omega_t^2} + \frac{v_t \vartriangle t \cos (\theta_{t-1} + \omega_t \vartriangle t)}{\omega_t}\\
+\frac{\cos \theta_{t-1} - \cos (\theta_{t-1}+\omega_t \vartriangle t)}{\omega_t} &amp;
+\frac{v_t(-\cos \theta_{t-1} + \cos (\theta_{t-1}+\omega_t \vartriangle t))}{\omega_t^2} + \frac{v_t \vartriangle t \sin (\theta_{t-1} + \omega_t \vartriangle t)}{\omega_t}
+\end{pmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;따라서 위에서 계산한 Jacobian matrix을 이용하여 EKF의 prediction step을 다음과 같이 계산할 수 있다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\bar{\Sigma_t} = G_t \Sigma_{t-1} G_t^T + V_t M_t V_t^T = G_t \Sigma_{t-1} G_t^T + R_t&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\bar{\Sigma_t} = G_t \Sigma_{t-1} G_t^T + V_t M_t V_t^T = G_t \Sigma_{t-1} G_t^T + R_t&lt;/script&gt;
+
+&lt;h3 id=&quot;observation-model&quot;&gt;Observation model&lt;/h3&gt;
+
+&lt;p&gt;비선형 observation model을 EKF에 적용해 보기 위해서 가상의 로봇을 이용한다. 이 로봇은 3개의 센서를 갖고 있다. 첫번째 센서는 로봇의 위치에서 부터 landmark까지의 euclidean distance를 측정할 수 있다. 두번째, 세번째 센서는 landmark까지의 x방향의 거리와 y방향의 거리를 각각 측정할 수 있다. 로봇의 state는 &lt;code class=&quot;MathJax_Preview&quot;&gt;\mathbf{\bar{x}_t} = \begin{bmatrix} \bar{x}_t \\ \bar{y}_t \\ \bar{\theta}_t \end{bmatrix}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mathbf{\bar{x}_t} = \begin{bmatrix} \bar{x}_t \\ \bar{y}_t \\ \bar{\theta}_t \end{bmatrix}&lt;/script&gt;로 표시하며, landmark의 위치는 &lt;code class=&quot;MathJax_Preview&quot;&gt;\mathbf{m} = \begin{bmatrix} m_x\\m_y \end{bmatrix}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mathbf{m} = \begin{bmatrix} m_x\\m_y \end{bmatrix}&lt;/script&gt;라고 하자. 이때의 각 센서의 데이터입력 &lt;code class=&quot;MathJax_Preview&quot;&gt;\mathbf{z}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mathbf{z}&lt;/script&gt;는 다음과 같다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\mathbf{z_t} =
+\begin{bmatrix}
+z_1\\z_2\\z_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+\sqrt{(m_x - x_t)^2+(m_y - y_t)^2}\\
+m_x - x_t\\
+m_y - y_t
+\end{bmatrix}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{z_t} =
+\begin{bmatrix}
+z_1\\z_2\\z_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+\sqrt{(m_x - x_t)^2+(m_y - y_t)^2}\\
+m_x - x_t\\
+m_y - y_t
+\end{bmatrix}&lt;/script&gt;
+
+&lt;p&gt;따라서 위 비선형 observation model을 선형화 하기 위해서 Jacobian을 구하면 다음과 같다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;H_t = \frac{\partial \mathbf{z_t}}{\partial \mathbf{\bar{x}_t}} =
+\begin{pmatrix}
+\frac{-m_x+\bar{x}_t}{\sqrt{(m_x-\bar{x}_t)^2 + (m_y-\bar{y}_t)^2}} &amp;amp; \frac{-m_y+\bar{y}_t}{\sqrt{(m_x-\bar{x}_t)^2 + (m_y-\bar{y}_t)^2}} &amp;amp; 0 \\
+-1 &amp;amp; 0 &amp;amp; 0 \\
+0 &amp;amp; -1 &amp;amp; 0
+\end{pmatrix}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+H_t = \frac{\partial \mathbf{z_t}}{\partial \mathbf{\bar{x}_t}} =
+\begin{pmatrix}
+\frac{-m_x+\bar{x}_t}{\sqrt{(m_x-\bar{x}_t)^2 + (m_y-\bar{y}_t)^2}} &amp; \frac{-m_y+\bar{y}_t}{\sqrt{(m_x-\bar{x}_t)^2 + (m_y-\bar{y}_t)^2}} &amp; 0 \\
+-1 &amp; 0 &amp; 0 \\
+0 &amp; -1 &amp; 0
+\end{pmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;따라서 위에서 계산한 Jacobian &lt;code class=&quot;MathJax_Preview&quot;&gt;H_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;H_t&lt;/script&gt;를 이용하여 EKF의 correction step을 수행할 수 있다.
+Observation model에서 &lt;code class=&quot;MathJax_Preview&quot;&gt;Q_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;Q_t&lt;/script&gt;는 measurement 노이즈로, 데이터를 얻는 센서의 부정확성으로 인해 발생한다. 따라서 observation model에서 &lt;code class=&quot;MathJax_Preview&quot;&gt;Q_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;Q_t&lt;/script&gt;는 센서의 uncertainty자체를 의미한다. 추가적으로 Jacobian matrix는 선형화 포인트에서만 유효하기 때문에 매 step마다 다시 계산해 주어야 한다는 점을 기억해야 한다.&lt;/p&gt;
+
+&lt;p&gt;다음 글은 EKF를 이용한 SLAM에 대해서 설명한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;본 글을 참조하실 때에는 출처 명시 부탁드립니다.&lt;/strong&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>[SLAM] Kalman filter and EKF(Extended Kalman Filter)</title>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2017/02/14/lec03_kalman_filter_and_EKF/"/>
+   <updated>2017-02-14T00:00:00+09:00</updated>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2017/02/14/lec03_kalman_filter_and_EKF</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;본 글은 University Freiburg의 &lt;a href=&quot;http://ais.informatik.uni-freiburg.de/teaching/ws13/mapping/&quot;&gt;Robot Mapping&lt;/a&gt; 강의를 바탕으로 이해하기 쉽도록 정리하려는 목적으로 작성되었습니다. 개인적인 의견을 포함하여 작성되기 때문에 틀린 내용이 있을 수도 있습니다. 틀린 부분은 지적해주시면 확인 후 수정하겠습니다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;이번 글에서는 Kalman filter와 Kalman filter의 확장판인 EKF(Extended Kalman Filter)에 대해서 설명한다. 앞의 글에서 설명한 Bayes filter는 로봇의 상태(state)를 추정하기 위한 방법 중에 한가지 이며, 예측(prediction)단계와 보정(correction)단계의 두 단계로 나뉘어 진다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Prediction step&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\overline{bel}(x_t) = \int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\overline{bel}(x_t) = \int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Correction step&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;bel(x_t) = \eta p(z_t \mid x_t)\overline{bel}(x_t)&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;bel(x_t) = \eta p(z_t \mid x_t)\overline{bel}(x_t)&lt;/script&gt;
+
+&lt;p&gt;Bayes filter에 대한 자세한 설명은 &lt;a href=&quot;http://jinyongjeong.github.io/2017/01/14/lec02_motion_observation_model/&quot;&gt;이전의 글&lt;/a&gt;을 참고하기 바란다.&lt;/p&gt;
+
+&lt;h3 id=&quot;kalman-filter--ekf-extended-kalman-filter&quot;&gt;Kalman Filter &amp;amp; EKF (Extended Kalman Filter)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Kalman filter는 로봇의 state를 추정하기 위해 가장 흔히 사용되는 방법이며, Bayes filter이다. 즉 control input에 의한 prediction 단계와, 센서의 observation를 이용한 correction의 두 단계로 나누어 진다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;KF (Kalman Filter)와 EKF (Extended Kalman Filter)는 공통적으로 Gaussian 분포를 가정한다. 즉, 위의 Bayes filter는 모든 확률분포에 대한 식이며, 그 중에서 KF와 EKF는 모든 분포(control input, observation 등)를 gaussian으로 가정한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;KF는 선형 Gaussian 모델의 경우이며, EKF는 비선형 Gaussian 모델이다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;gaussian-분포&quot;&gt;Gaussian 분포&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Gaussian distribution (normal distribution)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;p(x) = \frac{1}{\sqrt{2\sigma^2 \pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(x) = \frac{1}{\sqrt{2\sigma^2 \pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Multi variable Gaussian distribution&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;p(\mathbf{x}) = \frac{1}{\sqrt{det(2\pi \Sigma)}}e^{-\frac{1}{2}(\mathbf{x}-\mu)^T\Sigma^{-1}(\mathbf{x}-\mu)}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(\mathbf{x}) = \frac{1}{\sqrt{det(2\pi \Sigma)}}e^{-\frac{1}{2}(\mathbf{x}-\mu)^T\Sigma^{-1}(\mathbf{x}-\mu)}&lt;/script&gt;
+
+&lt;p&gt;Gaussian 분포는 single variable과 multi variable의 Gaussian 분포로 표현할 수 있으며, SLAM에서는 Vector를 이용하여 로봇의 상태(state), 센서 입력, 관찰 값 등을 표현하므로 multi variable의 Gaussian을 많이 사용한다. 따라서 Multi variable의 Gaussian 식은 숙지하는 것이 좋다.&lt;/p&gt;
+
+&lt;h3 id=&quot;선형-모델에서-gaussian-분포의-변환-linear-transformation-of-gaussian-distribution&quot;&gt;선형 모델에서 Gaussian 분포의 변환 (Linear transformation of Gaussian distribution)&lt;/h3&gt;
+
+&lt;p&gt;가장 기본적인 선형 모델은 다음과 같다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;Y = AX+B&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Y = AX+B&lt;/script&gt;
+
+&lt;p&gt;이 때, 확률변수 X가 Gaussian 분포를 갖고 있으며 다음과 같을 때,&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;X \sim \mathcal{N}(\mu_x,\Sigma_x)&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;X \sim \mathcal{N}(\mu_x,\Sigma_x)&lt;/script&gt;
+
+&lt;p&gt;선형 변환 후의 확률변수인 Y의 분포는 다음과 같다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;Y \sim \mathcal{N}(A \mu_x+B,A \Sigma_x A^T)&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Y \sim \mathcal{N}(A \mu_x+B,A \Sigma_x A^T)&lt;/script&gt;
+
+&lt;h5 id=&quot;유도과정&quot;&gt;유도과정&lt;/h5&gt;
+
+&lt;p&gt;X의 평균인 &lt;code class=&quot;MathJax_Preview&quot;&gt;\mu_x&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mu_x&lt;/script&gt; 는 선형 변환에 의해서 &lt;code class=&quot;MathJax_Preview&quot;&gt;A\mu_x+B&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;A\mu_x+B&lt;/script&gt;가 되는 것은 직관적으로 이해 할 수 있다. 그렇다면 covariance matrix은 어떻게 유도가 될까? 우선 covariance matrix의 정의로 부터 시작한다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
+\Sigma_y &amp;amp;= E((y-\mu_y)(y-\mu_y)^T)\\
+         &amp;amp;= E((y-(A\mu_x+B))(y-(A\mu_x+B))^T)\\
+         &amp;amp;= E(((AX+B)-(A\mu_x+B))((AX+B)-(A\mu_x+B))^T)\\
+         &amp;amp;= E([A(X-\mu_x)][A(X-\mu_x)]^T)\\
+         &amp;amp;= E(A(X-\mu_x)(X-\mu_x)^TA^T)\\
+         &amp;amp;= AE((X-\mu_x)(X-\mu_x)^T)A^T\\
+         &amp;amp;= A \Sigma_x A^T
+\end{aligned}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+\Sigma_y &amp;= E((y-\mu_y)(y-\mu_y)^T)\\
+         &amp;= E((y-(A\mu_x+B))(y-(A\mu_x+B))^T)\\
+         &amp;= E(((AX+B)-(A\mu_x+B))((AX+B)-(A\mu_x+B))^T)\\
+         &amp;= E([A(X-\mu_x)][A(X-\mu_x)]^T)\\
+         &amp;= E(A(X-\mu_x)(X-\mu_x)^TA^T)\\
+         &amp;= AE((X-\mu_x)(X-\mu_x)^T)A^T\\
+         &amp;= A \Sigma_x A^T
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;위의 유도처럼 Gaussian 분포의 선형변환에서의 covariance는 covariance의 정의로부터 &lt;code class=&quot;MathJax_Preview&quot;&gt;\Sigma_y = A \Sigma_x A^T&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\Sigma_y = A \Sigma_x A^T&lt;/script&gt; 로 정의된다. 이 관계는 Kalman filter 뿐만 아니라 Gaussian을 사용하는 여러 분야에서 자주 사용되므로 기억해 두는것이 좋다.&lt;/p&gt;
+
+&lt;h3 id=&quot;kalman-filter-kf&quot;&gt;Kalman Filter (KF)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Kalman filter는 선형 모델(Linear model)에서 uncertainty의 분포를 Gaussian으로 가정하였을 때의 solution이다.&lt;/li&gt;
+  &lt;li&gt;Kalman filter는 motion 모델과 observation 모델을 선형으로 가정한다.&lt;/li&gt;
+  &lt;li&gt;노이즈는 평균(mean)이 0인 Gaussian 분포로 가정한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
+x_t &amp;amp;= A_t x_{t-1} + B_t u_t + \epsilon_t\\
+z_t &amp;amp;= C_t x_t + \delta_t
+\end{aligned}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+x_t &amp;= A_t x_{t-1} + B_t u_t + \epsilon_t\\
+z_t &amp;= C_t x_t + \delta_t
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;MathJax_Preview&quot;&gt;A_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;A_t&lt;/script&gt; : control input(&lt;code class=&quot;MathJax_Preview&quot;&gt;u_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u_t&lt;/script&gt;)과 노이즈(&lt;code class=&quot;MathJax_Preview&quot;&gt;\epsilon_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\epsilon_t&lt;/script&gt;)가 없을 때 t-1와 t의 state가 어떻게 관계되어 있는지를 의미하는 n x n matrix.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;MathJax_Preview&quot;&gt;B_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;B_t&lt;/script&gt; : control input(&lt;code class=&quot;MathJax_Preview&quot;&gt;u_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u_t&lt;/script&gt;)이 어떻게 state 변화에 영향을 미치는지를 나타내는 n x l matrix.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;MathJax_Preview&quot;&gt;C_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;C_t&lt;/script&gt; : 현재 로봇의 상태를 나타내는 state(&lt;code class=&quot;MathJax_Preview&quot;&gt;x_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;x_t&lt;/script&gt;)와 센서의 관측 정보(observation)이 어떤 관계인지를 나타내는 k x n matrix.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;MathJax_Preview&quot;&gt;\epsilon_t, \delta_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\epsilon_t, \delta_t&lt;/script&gt; : 평균이 0이며 covariance가 각각 &lt;code class=&quot;MathJax_Preview&quot;&gt;R_t, Q_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;R_t, Q_t&lt;/script&gt;인 확률변수이며, process noise와 measurement noise를 의미한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;여기서 구별해야 할 점은 &lt;code class=&quot;MathJax_Preview&quot;&gt;R_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;R_t&lt;/script&gt;는 input의 noise가 아닌 process의 noise이다. &lt;code class=&quot;MathJax_Preview&quot;&gt;R_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;R_t&lt;/script&gt;는 control input에서 들어오는 Gaussian noise가 한번의 선형 변환을 거친 전체 state인 &lt;code class=&quot;MathJax_Preview&quot;&gt;x_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;x_t&lt;/script&gt;의 noise 이므로 process noise라고 부른다. 이때 control input인 &lt;code class=&quot;MathJax_Preview&quot;&gt;u_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u_t&lt;/script&gt;의 covariance는 &lt;code class=&quot;MathJax_Preview&quot;&gt;M_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;M_t&lt;/script&gt;라고 표기한다.&lt;/p&gt;
+
+&lt;p&gt;위의 선형 모델을 이용한 motion model과 observation model은 다음과 같다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Motion model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;p(x_t \mid u_t, x_{t-1}) = \frac{1}{\sqrt{det(2\pi R_t)}}e^{-\frac{1}{2}(x_t-A_t x_{t-1} - B_t u_t)^TR_t^{-1}(x_t-A_t x_{t-1} - B_t u_t)}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(x_t \mid u_t, x_{t-1}) = \frac{1}{\sqrt{det(2\pi R_t)}}e^{-\frac{1}{2}(x_t-A_t x_{t-1} - B_t u_t)^TR_t^{-1}(x_t-A_t x_{t-1} - B_t u_t)}&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Observation model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;p(z_t \mid x_t) = \frac{1}{\sqrt{det(2\pi Q_t)}}e^{-\frac{1}{2}(z_t-C_t x_{t})^T Q_t^{-1}(z_t-C_t x_{t})}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(z_t \mid x_t) = \frac{1}{\sqrt{det(2\pi Q_t)}}e^{-\frac{1}{2}(z_t-C_t x_{t})^T Q_t^{-1}(z_t-C_t x_{t})}&lt;/script&gt;
+
+&lt;p&gt;Motion model은 prediction step에서, observation model은 correction step에 적용된다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Prediction step&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\overline{bel}(x_t) = \int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\overline{bel}(x_t) = \int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Correction step&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;bel(x_t) = \eta p(z_t \mid x_t)\overline{bel}(x_t)&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;bel(x_t) = \eta p(z_t \mid x_t)\overline{bel}(x_t)&lt;/script&gt;
+
+&lt;p&gt;t-1에서의 state의 확률은 motion model에 의해 t의 state의 확률이 결정되며(prediction step), prediction step에서 계산된 t에서의 state의 확률은 observation model에 의해서 보정된다. 이와같은 bayes filter식은 여러 확률 모델 분포를 모두 포함하고 있는 식이며, 그 중에서 모든 확률 분포를 Gaussian 확률 분포로 가정하는 모델이 Kalman filter이다. Gaussian으로 확률분포를 표현할 때, 간단히 평균(mean, &lt;code class=&quot;MathJax_Preview&quot;&gt;\mu&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mu&lt;/script&gt;)와 분산(variance, &lt;code class=&quot;MathJax_Preview&quot;&gt;\Sigma&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\Sigma&lt;/script&gt;)으로 표현하기 때문에 두개의 파라미터만으로 분포를 표현할 수 있는 장점이 있다. Kalman filter 알고리즘은 다음과 같다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
+1: &amp;amp; Kalman filter(\mu_{t-1}, \Sigma_{t-1}, u_t, z_t)\\
+&amp;amp;[Prediction step]\\
+2: &amp;amp; \ \ \bar{\mu}_t = A_t \mu_{t-1} + B_t u_t\\
+3: &amp;amp;\ \ \bar{\Sigma_t} = A_t \Sigma_{t-1} A_t^T + R_t\\
+&amp;amp;[Correction step]\\
+4: &amp;amp;\ \ K_t = \bar{\Sigma_t}C_t^T(C_t \bar{\Sigma_t}C_t^T + Q_t)^{-1}\\
+5: &amp;amp;\ \ \mu_t = \bar{\mu_t} + K_t(z_t - C_t \bar{\mu_t})\\
+6: &amp;amp;\ \ \Sigma_t = (I - K_t C_t)\bar{\Sigma_t}\\
+7: &amp;amp;\ \ return \ \ \mu_t, \Sigma_t\\
+\end{aligned}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+1: &amp; Kalman filter(\mu_{t-1}, \Sigma_{t-1}, u_t, z_t)\\
+&amp;[Prediction step]\\
+2: &amp; \ \ \bar{\mu}_t = A_t \mu_{t-1} + B_t u_t\\
+3: &amp;\ \ \bar{\Sigma_t} = A_t \Sigma_{t-1} A_t^T + R_t\\
+&amp;[Correction step]\\
+4: &amp;\ \ K_t = \bar{\Sigma_t}C_t^T(C_t \bar{\Sigma_t}C_t^T + Q_t)^{-1}\\
+5: &amp;\ \ \mu_t = \bar{\mu_t} + K_t(z_t - C_t \bar{\mu_t})\\
+6: &amp;\ \ \Sigma_t = (I - K_t C_t)\bar{\Sigma_t}\\
+7: &amp;\ \ return \ \ \mu_t, \Sigma_t\\
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;위 식은 Kalman filter algorithm을 보여주고 있다. Kalman filter는 bayes filter이기 때문에 prediction과 correction의 두 단계로 이루어 지며, 다소 복잡해 보이지만 한단계씩 이해하면 어렵지 않다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Prediction step (Kalman filter)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;첫번째 prediction 단계는 복잡하지 않다. 직관적으로 t-1의 평균은 motion model을 통해 t의 평균으로 계산되어 진다(2). 이때 &lt;code class=&quot;MathJax_Preview&quot;&gt;\mu, \Sigma&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mu, \Sigma&lt;/script&gt;에 붙어있는 bar(&lt;code class=&quot;MathJax_Preview&quot;&gt;\bar{\mu}, \bar{\Sigma}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\bar{\mu}, \bar{\Sigma}&lt;/script&gt;)는 prediction step임을 의미한다. 그 다음으로 covariance는 위에서 설명한 Gaussian linear transformation의 의해 계산되어 진다(3). 이때 &lt;code class=&quot;MathJax_Preview&quot;&gt;R_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;R_t&lt;/script&gt;는 process noise 이며, control input(&lt;code class=&quot;MathJax_Preview&quot;&gt;u_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u_t&lt;/script&gt;)의 covariance가 &lt;code class=&quot;MathJax_Preview&quot;&gt;M_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;M_t&lt;/script&gt;일 때 &lt;code class=&quot;MathJax_Preview&quot;&gt;R_t = B_t M_t B_t^T&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;R_t = B_t M_t B_t^T&lt;/script&gt;이다. 일반적인 로봇시스템이나 자동차 시스템에서 control input은 wheel encoder로 부터 얻어지는 odometry 정보를 많이 이용하며, encoder 센서의 uncertainty가 &lt;code class=&quot;MathJax_Preview&quot;&gt;M_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;M_t&lt;/script&gt;가 된다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Correction step (Kalman filter)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Correction 단계에서는 새로운 변수인 K(Kalman gain)이 추가된다. K는 현재 관측 데이터(&lt;code class=&quot;MathJax_Preview&quot;&gt;z_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;z_t&lt;/script&gt;)의 정확도에 따라 predicted state와 관측된 state(observation model을 이용하여 관측값으로부터 추정된 state)의 보정 비율을 결정하는 역활을 한다. 이때 &lt;code class=&quot;MathJax_Preview&quot;&gt;Q_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;Q_t&lt;/script&gt;가 observation의 covariance이다. 5번 식에서 (&lt;code class=&quot;MathJax_Preview&quot;&gt;z_t - C_t\bar{\mu_t}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;z_t - C_t\bar{\mu_t}&lt;/script&gt;)는 현재 실제로 관측된 데이터(&lt;code class=&quot;MathJax_Preview&quot;&gt;z_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;z_t&lt;/script&gt;)와 현재 위치로 예상되는 위치(&lt;code class=&quot;MathJax_Preview&quot;&gt;\bar{\mu_t}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\bar{\mu_t}&lt;/script&gt;)에서 기대되는 관측값(&lt;code class=&quot;MathJax_Preview&quot;&gt;C_t\bar{\mu_t}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;C_t\bar{\mu_t}&lt;/script&gt;)과의 차이를 Kalman gain(K)의 크기만큼 보정함으로써, 최종 Gaussian의 평균을 계산한다. 쉬운 이해를 돕기 위해 예를 들어보자. 우리의 로봇은 로봇의 위치에서 부터 주변 lanemark까지의 거리를 측정할 수 있는 로봇이라고 하자. 만약 encoder data와 motion model에 의해서 예상되는 로봇의 위치를 알고 있고, 주변의 lanemark의 위치를 이미 알고 있을 때, 예상되는 lanemark까지의 거리를 계산할 수 있다. 만약 이 예상되는 거리가 10m인데, 실제 lanemark까지의 거리가 9m로 측정이 된다면, 두 값이 오차인 1m는 odometry sensor로 부터 발생한 것일 수 도 있고, 거리를 측정하는 센서로 부터 발생한 것일 수도 있다. 이때 Kalman gain은 10m와 9m중 어느 데이터를 더 신뢰할지를 결정하는 파라미터로 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;조금 더 쉽게 이해하기 위해 observation의 covariance인 &lt;code class=&quot;MathJax_Preview&quot;&gt;Q_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;Q_t&lt;/script&gt;가 무한대라고 해보자. covariance가 무한대라는 의미는 거리측정 센서로부터 얻어진 데이터는 전혀 신뢰 할 수 없다는 것을 의미한다. 이때 K는 0이 되며, &lt;code class=&quot;MathJax_Preview&quot;&gt;\mu_t = \bar{\mu_t}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mu_t = \bar{\mu_t}&lt;/script&gt;가 된다. 즉, 관측된 센서 데이터는 신뢰할 수 없으므로, 예측된 로봇의 위치를 전적으로 신뢰하겠다는 것이다. 반대로 &lt;code class=&quot;MathJax_Preview&quot;&gt;Q_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;Q_t&lt;/script&gt;가 0라고 해보자. Covariance가 0이라는 의미는 센서 데이터를 100% 신뢰할 수 있음을 의미한다. 따라서 &lt;code class=&quot;MathJax_Preview&quot;&gt;Q_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;Q_t&lt;/script&gt;가 0이라면 &lt;code class=&quot;MathJax_Preview&quot;&gt;K = C_t^{-1}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;K = C_t^{-1}&lt;/script&gt;이 되며, 5번식은 &lt;code class=&quot;MathJax_Preview&quot;&gt;\mu_t = C_t^{-1} z_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mu_t = C_t^{-1} z_t&lt;/script&gt;가 된다. 즉 로봇의 거리 측정센서로 부터 얻어진 데이터(&lt;code class=&quot;MathJax_Preview&quot;&gt;z_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;z_t&lt;/script&gt;)를 전적으로 신뢰하여, 이로부터 로봇의 state를 추정하겠다는 의미이다. 6번식 covariace를 계산하는 부분도 이와 마찬가지로 &lt;code class=&quot;MathJax_Preview&quot;&gt;Q_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;Q_t&lt;/script&gt;가 무한대 일때는 최종 covariace는 prediction의 covariance를 그대로 사용하며, &lt;code class=&quot;MathJax_Preview&quot;&gt;Q_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;Q_t&lt;/script&gt;가 0일때는 관측데이터가 100%신뢰할 수 있음을 의미하므로 covariace는 0이 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/images/post/SLAM/lec03_kalman_filter_and_EKF/kalman_fig.png&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 그림은 Kalman filter의 과정을 그림으로 표현하였다. 빨간색은 그래프는 prediction step에서 계산한 state의 Gaussian, 초록색은 observation으로 추정한 state의 Gaussian 분포이다. Kalman filter algorithm의 계산에 의해 두 Gaussian분포는 파란색의 최종 Gaussian 분포로 state가 결정된다. 이때 초록색 Gaussian의 variance가 빨간색보다 작기 때문에, 최종 결과는 measurement에 더욱 dominant하다.&lt;/p&gt;
+
+&lt;h3 id=&quot;extended-kalman-filter-ekf&quot;&gt;Extended Kalman Filter (EKF)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;KF와 마찬가지로 노이즈는 평균(mean)이 0인 Gaussian 분포로 가정한다.&lt;/li&gt;
+  &lt;li&gt;KF와의 차이점은 motion 모델과 observation 모델을 선형으로 가정하지 않고 비선형 함수로 확장한 것이다.&lt;/li&gt;
+  &lt;li&gt;거의 대부분의 실제 시스템은 비선형이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Extended Kalman Filter는 아래와 같이 기존 KF의 선형 모델을 비선형 함수인 &lt;code class=&quot;MathJax_Preview&quot;&gt;g(u_t,x_{t-1})&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;g(u_t,x_{t-1})&lt;/script&gt;와 &lt;code class=&quot;MathJax_Preview&quot;&gt;h(x_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;h(x_t)&lt;/script&gt;로 바꿈으로써 비선형으로 확장한 모델이다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
+x_t &amp;amp;= g(u_t, x_{t-1}) + \epsilon_t &amp;amp;\leftarrow &amp;amp;x_t = A_t x_{t-1} + B_t u_t + \epsilon_t\\
+z_t &amp;amp;= h(x_t) + \delta_t            &amp;amp;\leftarrow &amp;amp;z_t = C_t x_t + \delta_t
+\end{aligned}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+x_t &amp;= g(u_t, x_{t-1}) + \epsilon_t &amp;\leftarrow &amp;x_t = A_t x_{t-1} + B_t u_t + \epsilon_t\\
+z_t &amp;= h(x_t) + \delta_t            &amp;\leftarrow &amp;z_t = C_t x_t + \delta_t
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;하지만 motion 모델과 observation 모델을 비선형으로 확장한 경우 문제가 발생한다. 다음 그림은 이러한 문제를 보여준다.&lt;/p&gt;
+
+&lt;div style=&quot;width:43%; float:left; margin-right:3px;&quot;&gt;
+&lt;img align=&quot;left&quot; src=&quot;/images/post/SLAM/lec03_kalman_filter_and_EKF/linear.png&quot; /&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:54%; float:left;&quot;&gt;
+&lt;img align=&quot;left&quot; src=&quot;/images/post/SLAM/lec03_kalman_filter_and_EKF/non_linear.png&quot; /&gt;
+&lt;/div&gt;
+&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;많은 문제에서 Gaussian 분포를 사용하는 이유는 평균(mean)과 분산(variance) 두개의 파라미터로 분포를 표현함과 동시에 데이터들의 분포를 정확히 반영할 수 있기 때문이다. 따라서 반복적인 계산을 통해 state를 추정하는 문제에서 입력이 Gaussian 분포일 때 출력 또한 Gaussian 분포이여야 한다. 왼쪽 그림은 선형 시스템에서의 입력과 출력을 보여준다. 선형 시스템이기 때문에 입력이 Gaussian 분포일 때 출력 또한 Gaussian 분포가 된다. 하지만 오른쪽 그림과 같이 비선형 시스템의 경우, 입력은 Gaussian 분포이지만 시스템의 비선형성에 의해 출력은 Gaussian 분포가 아니다. 따라서 이런 경우 출력을 평균과 분산으로 표현 할 수 없다. 이러한 문제를 풀기 위해서는 비선형함수를 선형화(Linearization) 시키는 과정이 필요하다.&lt;/p&gt;
+
+&lt;h5 id=&quot;선형화linearization&quot;&gt;선형화(Linearization)&lt;/h5&gt;
+
+&lt;p&gt;EKF에서 비선형 함수를 선형화 시키기 위해서는 1차 Taylor 근사법(First order Talyer Expansion)을 사용한다. 선형 근사화된 model은 다음과 같다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Motion model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;g(u_t, x_{t-1}) \approx g(u_t,\mu_{t-1}) + \frac{\partial g(u_t, \mu_{t-1})}{\partial x_{t-1}}(x_{t-1} - \mu_{t-1})&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;g(u_t, x_{t-1}) \approx g(u_t,\mu_{t-1}) + \frac{\partial g(u_t, \mu_{t-1})}{\partial x_{t-1}}(x_{t-1} - \mu_{t-1})&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Observation model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;h(x_t) \approx h(\bar{\mu_t}) + \frac{\partial h(\bar{\mu_t})}{\partial x_t} (x_t - \bar{\mu_t})&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;h(x_t) \approx h(\bar{\mu_t}) + \frac{\partial h(\bar{\mu_t})}{\partial x_t} (x_t - \bar{\mu_t})&lt;/script&gt;
+
+&lt;p&gt;이떄 비선형 함수들을 state로 편미분하여 matrix를 생성하는데 이 matrix를 &lt;strong&gt;Jacobian&lt;/strong&gt; 이라고 부르며, 두 matrix는 &lt;code class=&quot;MathJax_Preview&quot;&gt;G_t = \frac{\partial g(u_t, \mu_{t-1})}{\partial x_{t-1}}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;G_t = \frac{\partial g(u_t, \mu_{t-1})}{\partial x_{t-1}}&lt;/script&gt;, &lt;code class=&quot;MathJax_Preview&quot;&gt;H_t = \frac{\partial h(\bar{\mu_t})}{\partial x_t}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;H_t = \frac{\partial h(\bar{\mu_t})}{\partial x_t}&lt;/script&gt;로 표기한다.&lt;/p&gt;
+
+&lt;h5 id=&quot;jacobian-matrix&quot;&gt;Jacobian matrix&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Jacobian matrix는 non-square matrix이다.&lt;/li&gt;
+  &lt;li&gt;비선형 함수 vector가 &lt;code class=&quot;MathJax_Preview&quot;&gt;g(x)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;g(x)&lt;/script&gt;일 때 Jacobian &lt;code class=&quot;MathJax_Preview&quot;&gt;G_x&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;G_x&lt;/script&gt;는 다음과 같이 계산된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;g(x) =
+\begin{bmatrix}
+g_1(x)\\
+g_2(x)\\
+\vdots\\
+g_m(x)
+\end{bmatrix}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;g(x) =
+\begin{bmatrix}
+g_1(x)\\
+g_2(x)\\
+\vdots\\
+g_m(x)
+\end{bmatrix}&lt;/script&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;G_x =
+\begin{bmatrix}
+\frac{\partial g_1}{\partial x_1} &amp;amp; \frac{\partial g_1}{\partial x_2} &amp;amp; \cdots &amp;amp; \frac{\partial g_1}{\partial x_n}\\
+\frac{\partial g_2}{\partial x_1} &amp;amp; \frac{\partial g_2}{\partial x_2} &amp;amp; \cdots &amp;amp; \frac{\partial g_2}{\partial x_n}\\
+\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots\\
+\frac{\partial g_m}{\partial x_1} &amp;amp; \frac{\partial g_m}{\partial x_2} &amp;amp; \cdots &amp;amp; \frac{\partial g_m}{\partial x_n}
+\end{bmatrix}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+G_x =
+\begin{bmatrix}
+\frac{\partial g_1}{\partial x_1} &amp; \frac{\partial g_1}{\partial x_2} &amp; \cdots &amp; \frac{\partial g_1}{\partial x_n}\\
+\frac{\partial g_2}{\partial x_1} &amp; \frac{\partial g_2}{\partial x_2} &amp; \cdots &amp; \frac{\partial g_2}{\partial x_n}\\
+\vdots &amp; \vdots &amp; &amp; \vdots\\
+\frac{\partial g_m}{\partial x_1} &amp; \frac{\partial g_m}{\partial x_2} &amp; \cdots &amp; \frac{\partial g_m}{\partial x_n}
+\end{bmatrix} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;아래 그림은 Talyer 근사화를 통해 선형화를 하였을 때의 특징을 보여준다.&lt;/p&gt;
+
+&lt;div style=&quot;width:48%; float:left; margin-right:3px;&quot;&gt;
+&lt;img align=&quot;left&quot; src=&quot;/images/post/SLAM/lec03_kalman_filter_and_EKF/large_variance.png&quot; /&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width:48%; float:left;&quot;&gt;
+&lt;img align=&quot;left&quot; src=&quot;/images/post/SLAM/lec03_kalman_filter_and_EKF/small_variance.png&quot; /&gt;
+&lt;/div&gt;
+&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;왼쪽그림은 입력의 분산(variance)가 큰 경우를 보여주며, 오른쪽 그림은 분산이 작은 경우를 보여준다. 분산이 큰 경우 실제 비선형 함수 출력의 평균값과 선형화를 통해 계산된 평균값의 차이가 큰 것을 알 수 있다. 반면 분산이 작은 경우는 선형화를 통해 계산된 평균값이 실제 평균값과 유사함을 알 수 있다. 따라서 선형화 시 선형화 지점으로 부터 멀수록(분산이 클수록) 실제 함수를 반영하지 못한다.&lt;/p&gt;
+
+&lt;h5 id=&quot;ekf-algorithm&quot;&gt;EKF algorithm&lt;/h5&gt;
+
+&lt;p&gt;선형화된 motion 모델과 observation 모델을 이용한 bayes filter는 다음과 같다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;linearized prediction model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;p(x_t \mid u_t, x_{t-1}) \approx \frac{1}{\sqrt{det(2\pi R_t)}}e^{-\frac{1}{2}(x_t-g(u_t, \mu_{t-1}) - G_t(x_{t-1} - \mu_{t-1}))^TR_t^{-1}(x_t-g(u_t, \mu_{t-1}) - G_t(x_{t-1} - \mu_{t-1}))}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(x_t \mid u_t, x_{t-1}) \approx \frac{1}{\sqrt{det(2\pi R_t)}}e^{-\frac{1}{2}(x_t-g(u_t, \mu_{t-1}) - G_t(x_{t-1} - \mu_{t-1}))^TR_t^{-1}(x_t-g(u_t, \mu_{t-1}) - G_t(x_{t-1} - \mu_{t-1}))}&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;linearized correction model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;p(z_t \mid x_t) \approx \frac{1}{\sqrt{det(2\pi Q_t)}}e^{-\frac{1}{2}(z_t-h(\bar{\mu_t})-H_t (x_t-\bar{\mu_t}))^T Q_t^{-1}(z_t-h(\bar{\mu_t})-H_t (x_t-\bar{\mu_t}))}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(z_t \mid x_t) \approx \frac{1}{\sqrt{det(2\pi Q_t)}}e^{-\frac{1}{2}(z_t-h(\bar{\mu_t})-H_t (x_t-\bar{\mu_t}))^T Q_t^{-1}(z_t-h(\bar{\mu_t})-H_t (x_t-\bar{\mu_t}))}&lt;/script&gt;
+
+&lt;p&gt;KF와 마찬가지로 &lt;code class=&quot;MathJax_Preview&quot;&gt;R_t, Q_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;R_t, Q_t&lt;/script&gt;는 process noise와 measurement noise이다. EKF 알고리즘은 다음과 같다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
+1: &amp;amp; Extended Kalman filter(\mu_{t-1}, \Sigma_{t-1}, u_t, z_t)\\
+&amp;amp;[Prediction step]\\
+2: &amp;amp; \ \ \bar{\mu}_t = g(u_t, \mu_{t-1})\\
+3: &amp;amp;\ \ \bar{\Sigma_t} = G_t \Sigma_{t-1} G_t^T + R_t\\
+&amp;amp;[Correction step]\\
+4: &amp;amp;\ \ K_t = \bar{\Sigma_t}H_t^T(H_t \bar{\Sigma_t}H_t^T + Q_t)^{-1}\\
+5: &amp;amp;\ \ \mu_t = \bar{\mu_t} + K_t(z_t - h(\bar{\mu_t}))\\
+6: &amp;amp;\ \ \Sigma_t = (I - K_t C_t)\bar{\Sigma_t}\\
+7: &amp;amp;\ \ return \ \ \mu_t, \Sigma_t\\
+\end{aligned}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+1: &amp; Extended Kalman filter(\mu_{t-1}, \Sigma_{t-1}, u_t, z_t)\\
+&amp;[Prediction step]\\
+2: &amp; \ \ \bar{\mu}_t = g(u_t, \mu_{t-1})\\
+3: &amp;\ \ \bar{\Sigma_t} = G_t \Sigma_{t-1} G_t^T + R_t\\
+&amp;[Correction step]\\
+4: &amp;\ \ K_t = \bar{\Sigma_t}H_t^T(H_t \bar{\Sigma_t}H_t^T + Q_t)^{-1}\\
+5: &amp;\ \ \mu_t = \bar{\mu_t} + K_t(z_t - h(\bar{\mu_t}))\\
+6: &amp;\ \ \Sigma_t = (I - K_t C_t)\bar{\Sigma_t}\\
+7: &amp;\ \ return \ \ \mu_t, \Sigma_t\\
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;EKF 알고리즘과 KF 알고리즘의 차이는 KF에서 선형함수를 통해 평균(&lt;code class=&quot;MathJax_Preview&quot;&gt;\mu&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mu&lt;/script&gt;)를 구하는 2,5번 식에서 선형함수 대신 비선형 함수가 사용되었다. 그리고 3,4번 식에서 선형함수의 &lt;code class=&quot;MathJax_Preview&quot;&gt;A_t, C_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;A_t, C_t&lt;/script&gt; Matrix는 Jacobian matrix인 &lt;code class=&quot;MathJax_Preview&quot;&gt;G_t, H_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;G_t, H_t&lt;/script&gt;로 수정되었다. 여기서 &lt;code class=&quot;MathJax_Preview&quot;&gt;R_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;R_t&lt;/script&gt;는 process noise이며, control input의 covariance matrix가 &lt;code class=&quot;MathJax_Preview&quot;&gt;M_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;M_t&lt;/script&gt;일 때 &lt;code class=&quot;MathJax_Preview&quot;&gt;R_t = V_t M_t V_t^T&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;R_t = V_t M_t V_t^T&lt;/script&gt;이다. 여기서 &lt;code class=&quot;MathJax_Preview&quot;&gt;V_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;V_t&lt;/script&gt;는 &lt;code class=&quot;MathJax_Preview&quot;&gt;g(u_t,\mu_{t-1})&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;g(u_t,\mu_{t-1})&lt;/script&gt;를 control input인 &lt;code class=&quot;MathJax_Preview&quot;&gt;u_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u_t&lt;/script&gt;로 편미분한 Jacobian이다.&lt;/p&gt;
+
+&lt;p&gt;여기까지 EKF에 대한 설명을 마친다. 다음 글에서는 실제 robot의 모델을 통해 EKF를 이해해보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;본 글을 참조하실 때에는 출처 명시 부탁드립니다.&lt;/strong&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>[SLAM] Motion &amp; Observation model</title>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2017/02/14/lec02_motion_observation_model/"/>
+   <updated>2017-02-14T00:00:00+09:00</updated>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2017/02/14/lec02_motion_observation_model</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;본 글은 University Freiburg의 &lt;a href=&quot;http://ais.informatik.uni-freiburg.de/teaching/ws13/mapping/&quot;&gt;Robot Mapping&lt;/a&gt; 강의를 바탕으로 이해하기 쉽도록 정리하려는 목적으로 작성되었습니다. 개인적인 의견을 포함하여 작성되기 때문에 틀린 내용이 있을 수도 있습니다. 틀린 부분은 지적해주시면 확인 후 수정하겠습니다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;이번 글에서는 SLAM의 framework에서 중요한 Motion model과 Observation model에 대해서 설명한다. 이전 post(&lt;a href=&quot;http://jinyongjeong.github.io/2017/01/13/lec01_SLAM_bayes_filter/&quot;&gt;bayes filter&lt;/a&gt;)에서 설명한 것 처럼 SLAM은 다음과 같이 recursive bayes filter의 식으로 표현할 수 있다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
+bel(x_t)  &amp;amp;= p(x_t \mid z_{1:t},u_{1:t}) \\
+          &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
+\end{aligned}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+bel(x_t)  &amp;= p(x_t \mid z_{1:t},u_{1:t}) \\
+          &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;bayes filter식은 &lt;strong&gt;prediction step&lt;/strong&gt; 과 &lt;strong&gt;correction step&lt;/strong&gt; 으로 나눌 수 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;prediction-step&quot;&gt;prediction step&lt;/h3&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\overline{bel}(x_t) = \int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\overline{bel}(x_t) = \int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}&lt;/script&gt;
+
+&lt;p&gt;&lt;code class=&quot;MathJax_Preview&quot;&gt;\overline{bel}(x_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\overline{bel}(x_t)&lt;/script&gt; 는 prediction 단계의 state를 나타낸다. prediction step은 control input 데이터(&lt;code class=&quot;MathJax_Preview&quot;&gt;u_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u_t&lt;/script&gt;)와 이전 step의 로봇의 state에 대한 데이터(&lt;code class=&quot;MathJax_Preview&quot;&gt;x_{t-1}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;x_{t-1}&lt;/script&gt;)를 이용하여 현재의 로봇 state(&lt;code class=&quot;MathJax_Preview&quot;&gt;x_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;x_t&lt;/script&gt;)의 확률을 추정하는 과정이다. 이 과정에서 &lt;code class=&quot;MathJax_Preview&quot;&gt;p(x_t \mid x_{t-1}, u_{t})&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;p(x_t \mid x_{t-1}, u_{t})&lt;/script&gt; 는 입력(&lt;code class=&quot;MathJax_Preview&quot;&gt;u_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u_t&lt;/script&gt;)에 의한 로봇의 움직임을 추정하여 현재의 state의 확률을 계산하는 model이기 때문에 &lt;strong&gt;Motion model&lt;/strong&gt; 이라고 부른다.&lt;/p&gt;
+
+&lt;h3 id=&quot;correction-step&quot;&gt;correction step&lt;/h3&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;bel(x_t) = \eta p(z_t \mid x_t)\overline{bel}(x_t)&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;bel(x_t) = \eta p(z_t \mid x_t)\overline{bel}(x_t)&lt;/script&gt;
+
+&lt;p&gt;Correction step은 prediction step에서 예상한 로봇의 위치를 보정하는 단계이다. 즉, input data(&lt;code class=&quot;MathJax_Preview&quot;&gt;u_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u_t&lt;/script&gt;)를 이용하여 현재의 로봇의 위치를 예측하고, 그 위치에서 얻어진 센서 데이터(&lt;code class=&quot;MathJax_Preview&quot;&gt;z_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;z_t&lt;/script&gt;)로 부터 예측된 로봇의 위치를 보정하는 단계이다.
+이때 &lt;code class=&quot;MathJax_Preview&quot;&gt;p(z_t \mid x_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;p(z_t \mid x_t)&lt;/script&gt; 는 &lt;strong&gt;observation model&lt;/strong&gt; 이라 하며, 현재 예측한 state(&lt;code class=&quot;MathJax_Preview&quot;&gt;x_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;x_t&lt;/script&gt;)에서 실제 얻어진 센서 데이터(&lt;code class=&quot;MathJax_Preview&quot;&gt;z_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;z_t&lt;/script&gt;)가 얻어질 확률을 의미한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;motion-model&quot;&gt;Motion model&lt;/h3&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;p(x_t \mid x_{t-1}, u_{t})&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(x_t \mid x_{t-1}, u_{t})&lt;/script&gt;
+
+&lt;p&gt;Motion model은 control input(&lt;code class=&quot;MathJax_Preview&quot;&gt;u_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u_t&lt;/script&gt;)이 이전 state(&lt;code class=&quot;MathJax_Preview&quot;&gt;x_{t-1}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;x_{t-1}&lt;/script&gt;)을 현재 state(&lt;code class=&quot;MathJax_Preview&quot;&gt;x_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;x_t&lt;/script&gt;)로 변화시킬 사후확률(posterior probability)를 의미한다. 실제 로봇의 응용에서 motion model은 크게 2가지로 분류된다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;odometry-based model&lt;/li&gt;
+  &lt;li&gt;velocity-based model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;odometry model은 로봇 혹은 자동차의 바퀴에 달린 wheel encoder의 센서 데이터를 이용한 모델이며, velocity model은 imu와 같은 관성 센서를 이용한 model이다. velocity model은 wheel encoder와 같은 odometry model을 사용할 수 없을 때 주로 사용하며, odometry model이 velocity model보다 더 정확한 편이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img align=&quot;middle&quot; src=&quot;/images/post/SLAM/lec02_motion_observation_model/odometry_based.png&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 그림은 motion model에 의한 state의 uncertainty를 나타낸다. 점이 많이 분포되거나, 어두운 부분일 수록 확률이 높은 부분이다. 로봇의 진행방향과 회전방향에 대한 uncertainty의 크기에 따라서 다른 확률 분포를 보인다. 맨 왼쪽의 그림은 고르게 분포되었을 경우이며, 가운데 그림은 진행방향의 uncertainty가 더 큰경우이며 마지막의 오른쪽 그림은 회전방향의 uncertainty가 진행방향보다 큰 경우를 보여주고 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;observation-model&quot;&gt;Observation model&lt;/h3&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;p(z_t \mid x_t)&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(z_t \mid x_t)&lt;/script&gt;
+
+&lt;p&gt;observation model은 현재 state에서의 센서 데이터의 확률을 의미한다. 로봇 분야에서 많이 사용하는 Laser Scanner데이터를 이용하여 model을 표현하면 다음과 같다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\mathbf{z_t} = \{z_t^1,...,z_t^k\}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{z_t} = \{z_t^1,...,z_t^k\}&lt;/script&gt;
+
+&lt;p&gt;&lt;code class=&quot;MathJax_Preview&quot;&gt;\mathbf{z_t}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mathbf{z_t}&lt;/script&gt; 는 각 laser scan 데이터의 그룹을 나타내는 vector이며, &lt;code class=&quot;MathJax_Preview&quot;&gt;z_t^1&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;z_t^1&lt;/script&gt; ~ &lt;code class=&quot;MathJax_Preview&quot;&gt;z_t^k&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;z_t^k&lt;/script&gt;는 t 시점에서의 각 scan 데이터를 의미한다. 따라서 최종 observation model은 다음과 같이 표현된다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;p(z_t \mid x_t) = \prod_{i=1}^{k} p(z_t^i \mid x_t)&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(z_t \mid x_t) = \prod_{i=1}^{k} p(z_t^i \mid x_t)&lt;/script&gt;
+
+&lt;p&gt;즉 observation은 현재 state에서의 각 센서 데이터들의 확률의 곱으로 표현된다.&lt;/p&gt;
+
+&lt;p&gt;자세한 Motion &amp;amp; Observation model에 대해서는 &lt;a href=&quot;https://www.youtube.com/watch?v=5Pu558YtjYM&quot;&gt;Freiburg 강의-bayes filter&lt;/a&gt;를 참조하기 바란다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;본 글을 참조하실 때에는 출처 명시 부탁드립니다.&lt;/strong&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>[SLAM] Bayes filter(베이즈 필터)</title>
+   <link href="http://localhost:4000http://JinyongJeong.github.io/2017/02/13/lec01_SLAM_bayes_filter/"/>
+   <updated>2017-02-13T00:00:00+09:00</updated>
+   <id>http://localhost:4000http://JinyongJeong.github.io/2017/02/13/lec01_SLAM_bayes_filter</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;본 글은 University Freiburg의 &lt;a href=&quot;http://ais.informatik.uni-freiburg.de/teaching/ws13/mapping/&quot;&gt;Robot Mapping&lt;/a&gt; 강의를 바탕으로 이해하기 쉽도록 정리하려는 목적으로 작성되었습니다. 개인적인 의견을 포함하여 작성되기 때문에 틀린 내용이 있을 수도 있습니다. 틀린 부분은 지적해주시면 확인 후 수정하겠습니다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;slamsimultaneous-localization-and-mapping&quot;&gt;SLAM(Simultaneous Localization and Mapping)&lt;/h2&gt;
+
+&lt;p&gt;SLAM은 simultaneous localization and mapping의 줄임말로 위치추정(localization)과 지도생성(mapping)을 동시에 하는 연구분야를 의미한다. 이는 닭이 먼저냐 달걀이 먼저냐의 문제와 비슷하다. 자기의 위치를 추정하기 위해서는 주변환경에 대한 정보가 필요하다. 반면에 로봇이 얻을 수 있는 데이터를 이용해서 지도를 만들기 위해서는 로봇이 자신의 위치가 어디에 있는지를 정확히 알아야 한다. 따라서 위치를 알 수 없으면 지도를 만들 수 없고, 반대로 지도가 없으면 위치를 알 수 없다. 이러한 문제를 풀기 위해서 지도의 생성과 위치 추정을 동시에 수행하는 것이 SLAM이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;state-estimation&quot;&gt;State estimation&lt;/h3&gt;
+
+&lt;p&gt;State estimation은 로봇에 주어지는 입력과, 로봇의 센서로부터 얻어지는 데이터로부터 현재의 로봇의 위치인 state와 주변환경에 대한 지도를 추정 방법이다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;p(\mathbf{x}\mid \mathbf{z}, \mathbf{u})&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(\mathbf{x}\mid \mathbf{z}, \mathbf{u})&lt;/script&gt;
+
+&lt;p&gt;위의 식은 기본적인 state estimation을 의미한다. &lt;code class=&quot;MathJax_Preview&quot;&gt;\mathbf{x}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mathbf{x}&lt;/script&gt; 는 로봇의 위치 및 지도(주변의 land mark들의 위치)를 의미하는 vector이며, &lt;code class=&quot;MathJax_Preview&quot;&gt;\mathbf{z}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mathbf{z}&lt;/script&gt; 는 로봇의 센서로부터 얻어지는 데이터로 observation이라고 부르며, &lt;code class=&quot;MathJax_Preview&quot;&gt;\mathbf{u}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mathbf{u}&lt;/script&gt; 는 센서의 움직임을 제어하는 입력으로 control input이라고 부른다. state estimation은 이러한 control input과 observation의 데이터를 통해 현재의 위치와 지도를 추정한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;bayes-theorem&quot;&gt;bayes theorem&lt;/h3&gt;
+
+&lt;p&gt;베이즈 정리는 확률론과 통계학에서 두 확률변수의 사전확률(prior)과 사후확률(posterior) 사이의 관계를 나타내는 정리이다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)}&lt;/script&gt;
+
+&lt;p&gt;&lt;code class=&quot;MathJax_Preview&quot;&gt;P(A)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;P(A)&lt;/script&gt; 는 A의 prior로, 사건 B에 대한 어떠한 정보를 알지 못하는 것을 의미한다. &lt;code class=&quot;MathJax_Preview&quot;&gt;P(A \mid B)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;P(A \mid B)&lt;/script&gt; 는 B의 값이 주어진 경우 A의 posterior이다. &lt;code class=&quot;MathJax_Preview&quot;&gt;P(B \mid A)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;P(B \mid A)&lt;/script&gt; 는 A가 주어졌을 때 B의 조건부 확률이다.&lt;/p&gt;
+
+&lt;p&gt;bayes 정리의 자세한 내용은 &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EB%B2%A0%EC%9D%B4%EC%A6%88_%EC%A0%95%EB%A6%AC&quot;&gt;wiki&lt;/a&gt;를 참고한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;recursive-bayes-filter&quot;&gt;Recursive bayes filter&lt;/h3&gt;
+
+&lt;p&gt;위에서 설명한 state estimation은 bayes filter의 과정으로 설명할 수 있으며, 각 step의 state를 반복적으로 계산함으로써 계산할 수 있기 때문에 recursive bayes filter로 부른다. 전체적인 recursive bayes filter의 식은 다음과 같다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
+bel(x_t) &amp;amp;= p(x_t \mid z_{1:t},u_{1:t}) \\
+       &amp;amp;= \eta p(z_t \mid x_t, z_{1:t-1}, u_{1:t})p(x_t \mid z_{1:t-1},u_{1:t}) \\
+       &amp;amp;= \eta p(z_t \mid x_t)p(x_t \mid z_{1:t-1},u_{1:t}) \\
+       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, z_{1:t-1}, u_{1:t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t-1}) dx_{t-1}\\
+       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
+\end{aligned}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+bel(x_t) &amp;= p(x_t \mid z_{1:t},u_{1:t}) \\
+       &amp;= \eta p(z_t \mid x_t, z_{1:t-1}, u_{1:t})p(x_t \mid z_{1:t-1},u_{1:t}) \\
+       &amp;= \eta p(z_t \mid x_t)p(x_t \mid z_{1:t-1},u_{1:t}) \\
+       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, z_{1:t-1}, u_{1:t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t-1}) dx_{t-1}\\
+       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;위의 식은 recursive bayes filter를 유도하는 과정을 모두 표현하고 있기 때문에 다소 복잡해 보인다. 우선 전체적인 식을 이해하기 위해서 맨 처음과 맨 마지막 식만을 보면 다음과 같다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
+bel(x_t)  &amp;amp;= p(x_t \mid z_{1:t},u_{1:t}) \\
+          &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
+\end{aligned}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+bel(x_t)  &amp;= p(x_t \mid z_{1:t},u_{1:t}) \\
+          &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;code class=&quot;MathJax_Preview&quot;&gt;bel(x_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;bel(x_t)&lt;/script&gt; 는 처음부터 현재까지의 observation( &lt;code class=&quot;MathJax_Preview&quot;&gt;z&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;z&lt;/script&gt; )와 control input( &lt;code class=&quot;MathJax_Preview&quot;&gt;u&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u&lt;/script&gt; )을 알고 있을 때 현재 state( &lt;code class=&quot;MathJax_Preview&quot;&gt;x_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;x_t&lt;/script&gt; )의 확률을 의미한다. 위의 식에서 &lt;code class=&quot;MathJax_Preview&quot;&gt;bel(x_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;bel(x_t)&lt;/script&gt; 의 식은 &lt;code class=&quot;MathJax_Preview&quot;&gt;bel(x_{t-1})&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;bel(x_{t-1})&lt;/script&gt; 의 integral로 표현되어 있기 때문에 만약 &lt;code class=&quot;MathJax_Preview&quot;&gt;p(z_t \mid x_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;p(z_t \mid x_t)&lt;/script&gt; 와 &lt;code class=&quot;MathJax_Preview&quot;&gt;p(x_t \mid x_{t-1}, u_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;p(x_t \mid x_{t-1}, u_t)&lt;/script&gt; 에 대한 정보를 알고 있다면 반복적인 계산을 통해 현재 state의 확률을 계산할 수 있음을 알 수 있다. 여기서 &lt;code class=&quot;MathJax_Preview&quot;&gt;p(z_t \mid x_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;p(z_t \mid x_t)&lt;/script&gt; 는 현재의 state에서 센서 데이터의 확률인 observation model이며, &lt;code class=&quot;MathJax_Preview&quot;&gt;p(x_t \mid x_{t-1}, u_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;p(x_t \mid x_{t-1}, u_t)&lt;/script&gt; 은 현재의 control input에 대해 이전 state에서 현재 state로의 update를 나타내는 motion model를 의미한다. 위의 식을 Recursive bayes filter라고 한다. Recursive bayes filter는  Kalman filter의 기본이 되는 식이다. 다음은 recursive bayes filter의 유도과정을 간단하게 살펴본다. 유도에 관심이 없고 전체적인 흐름만 보고자 한다면 다음 설명은 넘어가도 좋다.&lt;/p&gt;
+
+&lt;h4 id=&quot;recursive-bayes-filter의-유도과정&quot;&gt;Recursive bayes filter의 유도과정&lt;/h4&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
+bel(x_t) &amp;amp;= p(x_t \mid z_{1:t},u_{1:t}) \\
+\end{aligned}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+bel(x_t) &amp;= p(x_t \mid z_{1:t},u_{1:t}) \\
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;control input과 observation을 알고 있을 때 현재 state의 확률을 의미하는 belief의 정의&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
+bel(x_t) &amp;amp;= p(x_t \mid z_{1:t},u_{1:t}) \\
+       &amp;amp;= \eta p(z_t \mid x_t, z_{1:t-1}, u_{1:t})p(x_t \mid z_{1:t-1},u_{1:t}) \\
+\end{aligned}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+bel(x_t) &amp;= p(x_t \mid z_{1:t},u_{1:t}) \\
+       &amp;= \eta p(z_t \mid x_t, z_{1:t-1}, u_{1:t})p(x_t \mid z_{1:t-1},u_{1:t}) \\
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;기본적인 bayes rule이다. 현재 시점 t의 observation은 현재의 state에서 얻어진 data이므로 따로 분리하여 위와 같이 정의한다. &lt;code class=&quot;MathJax_Preview&quot;&gt;p(x_t \mid z_{1:t-1},u_{1:t})&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;p(x_t \mid z_{1:t-1},u_{1:t})&lt;/script&gt; 는 t시점까지의 control input, 그리고 t-1시점 까지의 observation을 알고 있을 때의 현재 시점 t의 state, &lt;code class=&quot;MathJax_Preview&quot;&gt;p(z_t \mid x_t, z_{1:t-1}, u_{1:t})&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;p(z_t \mid x_t, z_{1:t-1}, u_{1:t})&lt;/script&gt; 는 현재 state에서 얻어진 observation의 확률이다. &lt;code class=&quot;MathJax_Preview&quot;&gt;\eta&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\eta&lt;/script&gt; 는 normalize term이다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
+bel(x_t)
+       &amp;amp;= \eta p(z_t \mid x_t, z_{1:t-1}, u_{1:t})p(x_t \mid z_{1:t-1},u_{1:t}) \\
+       &amp;amp;= \eta p(z_t \mid x_t)p(x_t \mid z_{1:t-1},u_{1:t}) \\
+\end{aligned}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+bel(x_t)
+       &amp;= \eta p(z_t \mid x_t, z_{1:t-1}, u_{1:t})p(x_t \mid z_{1:t-1},u_{1:t}) \\
+       &amp;= \eta p(z_t \mid x_t)p(x_t \mid z_{1:t-1},u_{1:t}) \\
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Markov Assumption은 현재의 state는 바로 이전 state에 의해서만 영향을 받는다는 것이다. 즉 이전 state를 결정하기 위한 데이터들은 알지 못해도 이전 state만 알고 있다면 현재 state를 결정할 수 있다는 것이다. Markov assumtion에 의해 &lt;code class=&quot;MathJax_Preview&quot;&gt;p(z_t \mid x_t, z_{1:t-1}, u_{1:t})&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;p(z_t \mid x_t, z_{1:t-1}, u_{1:t})&lt;/script&gt; 는 &lt;code class=&quot;MathJax_Preview&quot;&gt;p(z_t \mid x_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;p(z_t \mid x_t)&lt;/script&gt;로 표현 할 수 있다. 왜냐하면 현재의 observation은 현재의 state인 &lt;code class=&quot;MathJax_Preview&quot;&gt;x_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;x_t&lt;/script&gt;에만 영향을 받으며, &lt;code class=&quot;MathJax_Preview&quot;&gt;z_{1:t-1}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;z_{1:t-1}&lt;/script&gt; 와 &lt;code class=&quot;MathJax_Preview&quot;&gt;u_{1:t}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u_{1:t}&lt;/script&gt;는 현재 state &lt;code class=&quot;MathJax_Preview&quot;&gt;x_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;x_t&lt;/script&gt;에만 영향을 미치기 때문이다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
+bel(x_t)
+       &amp;amp;= \eta p(z_t \mid x_t)p(x_t \mid z_{1:t-1},u_{1:t}) \\
+       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, z_{1:t-1}, u_{1:t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+\end{aligned}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+bel(x_t)
+       &amp;= \eta p(z_t \mid x_t)p(x_t \mid z_{1:t-1},u_{1:t}) \\
+       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, z_{1:t-1}, u_{1:t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;다음 식은 total probability(전체확률) 법칙에 의해 위와같이 전개된다. 전체확률 법칙은 간단하게 표현하면 다음과 같다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;P(A) = \int_B P(A \mid B)P(B) dB&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P(A) = \int_B P(A \mid B)P(B) dB&lt;/script&gt;
+
+&lt;p&gt;즉 A는 &lt;code class=&quot;MathJax_Preview&quot;&gt;x_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;x_t&lt;/script&gt; 이며, B는 &lt;code class=&quot;MathJax_Preview&quot;&gt;x_{t-1}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;x_{t-1}&lt;/script&gt; 이다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
+bel(x_t)
+       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, z_{1:t-1}, u_{1:t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+\end{aligned}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+bel(x_t)
+       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, z_{1:t-1}, u_{1:t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;위 과정은 앞에서 설명한 Markov assumtion에 의해서 &lt;code class=&quot;MathJax_Preview&quot;&gt;x_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;x_t&lt;/script&gt; 에 영향을 미치는 &lt;code class=&quot;MathJax_Preview&quot;&gt;x_{t-1}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;x_{t-1}&lt;/script&gt; 과 &lt;code class=&quot;MathJax_Preview&quot;&gt;u_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u_t&lt;/script&gt;만 남기고 정리된다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
+bel(x_t)
+       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t-1}) dx_{t-1}\\
+\end{aligned}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+bel(x_t)
+       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
+       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t-1}) dx_{t-1}\\
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;이 과정 또한 Markov assumption으로 &lt;code class=&quot;MathJax_Preview&quot;&gt;p(x_{t-1} \mid z_{1:t-1}, u_{1:t})&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;p(x_{t-1} \mid z_{1:t-1}, u_{1:t})&lt;/script&gt; 에서 &lt;code class=&quot;MathJax_Preview&quot;&gt;u_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u_t&lt;/script&gt;는 t-1시점의 state인 &lt;code class=&quot;MathJax_Preview&quot;&gt;x_{t-1}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;x_{t-1}&lt;/script&gt; 에 영향을 미치지 않기 때문에 제거 될 수 있다.&lt;/p&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
+bel(x_t)
+       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t-1}) dx_{t-1}\\
+       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
+\end{aligned}&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{aligned}
+bel(x_t)
+       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t-1}) dx_{t-1}\\
+       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
+\end{aligned} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;따라서 위와 같은 과정을 통해 최종적으로 식은 위와같이 정리되며, recursive bayes filter의 식으로 정리된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;본 글을 참조하실 때에는 출처 명시 부탁드립니다.&lt;/strong&gt;&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>github blog를 google에서 검색되도록 설정하기</title>
@@ -163,79 +936,6 @@ Sitemap: http://jinyongjeong.github.io/sitemap.xml
 
 &lt;p&gt;위의 과정을 거치고 최종으로 반영되기 까지 어느정도의 시간이 걸린다. 일주일정도 시간이 흐른뒤에 확인해보도록 하자.&lt;/p&gt;
 
-</content>
- </entry>
- 
- <entry>
-   <title>[SLAM] Bayes filter(베이즈 필터)/ motion and observation model</title>
-   <link href="http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM_bayes_filter/"/>
-   <updated>2017-01-13T00:00:00+09:00</updated>
-   <id>http://localhost:4000http://JinyongJeong.github.io/2017/01/13/SLAM_bayes_filter</id>
-   <content type="html">&lt;p&gt;&amp;lt;본 글은 University Freiburg의 &lt;a href=&quot;http://ais.informatik.uni-freiburg.de/teaching/ws13/mapping/&quot;&gt;Robot Mapping&lt;/a&gt; 강의를 바탕으로 이해하기 쉽도록 정리하려는 목적으로 작성되었습니다. 개인적인 의견을 포함하여 작성되기 때문에 틀린 부분을 지적해주시면 확인 후 수정토록 하겠습니다.&amp;gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;slamsimultaneous-localization-and-mapping&quot;&gt;SLAM(Simultaneous Localization and Mapping)&lt;/h2&gt;
-
-&lt;p&gt;SLAM은 simultaneous localization and mapping의 줄임말로 위치추정(localization)과 지도생성(mapping)을 동시에 하는 연구분야를 의미한다. 이는 닭이 먼저냐 달걀이 먼저냐의 문제와 비슷하다. 자기의 위치를 추정하기 위해서는 주변환경에 대한 정보가 필요하다. 반면에 로봇이 얻을 수 있는 데이터를 이용해서 지도를 만들기 위해서는 로봇이 자신의 위치가 어디에 있는지를 정확히 알아야 한다. 따라서 위치를 알 수 없으면 지도를 만들 수 없고, 반대로 지도가 없으면 위치를 알 수 없다. 이러한 문제를 풀기 위해서 지도의 생성과 위치 추정을 동시에 수행하는 것이 SLAM이다.&lt;/p&gt;
-
-&lt;h3 id=&quot;state-estimation&quot;&gt;State estimation&lt;/h3&gt;
-
-&lt;p&gt;State estimation은 로봇에 주어지는 입력과, 로봇의 센서로부터 얻어지는 데이터로부터 현재의 로봇의 위치인 state와 주변환경에 대한 지도를 추정 방법이다.&lt;/p&gt;
-
-&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;p(\mathbf{x}\mid \mathbf{z}, \mathbf{u})&lt;/code&gt;&lt;/pre&gt;
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(\mathbf{x}\mid \mathbf{z}, \mathbf{u})&lt;/script&gt;
-
-&lt;p&gt;위의 식은 기본적인 state estimation을 의미한다. &lt;code class=&quot;MathJax_Preview&quot;&gt;\mathbf{x}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mathbf{x}&lt;/script&gt; 는 로봇의 위치 및 지도(주변의 land mark들의 위치)를 의미하는 vector이며, &lt;code class=&quot;MathJax_Preview&quot;&gt;\mathbf{z}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mathbf{z}&lt;/script&gt; 는 로봇의 센서로부터 얻어지는 데이터로 observation이라고 부르며, &lt;code class=&quot;MathJax_Preview&quot;&gt;\mathbf{u}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\mathbf{u}&lt;/script&gt; 는 센서의 움직임을 제어하는 입력으로 control input이라고 부른다. state estimation은 이러한 control input과 observation의 데이터를 통해 현재의 위치와 지도를 추정한다.&lt;/p&gt;
-
-&lt;h3 id=&quot;bayes-theorem&quot;&gt;bayes theorem&lt;/h3&gt;
-
-&lt;p&gt;베이즈 정리는 확률론과 통계학에서 두 확률변수의 사전확률(prior)과 사후확률(posterior) 사이의 관계를 나타내는 정리이다.&lt;/p&gt;
-
-&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)}&lt;/code&gt;&lt;/pre&gt;
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)}&lt;/script&gt;
-
-&lt;p&gt;&lt;code class=&quot;MathJax_Preview&quot;&gt;P(A)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;P(A)&lt;/script&gt; 는 A의 prior로, 사건 B에 대한 어떠한 정보를 알지 못하는 것을 의미한다. &lt;code class=&quot;MathJax_Preview&quot;&gt;P(A \mid B)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;P(A \mid B)&lt;/script&gt; 는 B의 값이 주어진 경우 A의 posterior이다. &lt;code class=&quot;MathJax_Preview&quot;&gt;P(B \mid A)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;P(B \mid A)&lt;/script&gt; 는 A가 주어졌을 때 B의 조건부 확률이다.&lt;/p&gt;
-
-&lt;p&gt;bayes 정리의 자세한 내용은 &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EB%B2%A0%EC%9D%B4%EC%A6%88_%EC%A0%95%EB%A6%AC&quot;&gt;wiki&lt;/a&gt;를 참고한다.&lt;/p&gt;
-
-&lt;h3 id=&quot;recursive-bayes-filter&quot;&gt;Recursive bayes filter&lt;/h3&gt;
-
-&lt;p&gt;위에서 설명한 state estimation은 bayes filter의 과정으로 설명할 수 있으며, 각 step의 state를 반복적으로 계산함으로써 계산할 수 있기 때문에 recursive bayes filter로 부른다. 전체적인 recursive bayes filter의 식은 다음과 같다.&lt;/p&gt;
-
-&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
-bel(x_t) &amp;amp;= p(x_t \mid z_{1:t},u_{1:t}) \\
-       &amp;amp;= \eta p(z_t \mid x_t, z_{1:t-1}, u_{1:t})p(x_t \mid z_{1:t-1},u_{1:t}) \\
-       &amp;amp;= \eta p(z_t \mid x_t)p(x_t \mid z_{1:t-1},u_{1:t}) \\
-       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, z_{1:t-1}, u_{1:t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
-       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
-       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t-1}) dx_{t-1}\\
-       &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
-\end{aligned}&lt;/code&gt;&lt;/pre&gt;
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{aligned}
-bel(x_t) &amp;= p(x_t \mid z_{1:t},u_{1:t}) \\
-       &amp;= \eta p(z_t \mid x_t, z_{1:t-1}, u_{1:t})p(x_t \mid z_{1:t-1},u_{1:t}) \\
-       &amp;= \eta p(z_t \mid x_t)p(x_t \mid z_{1:t-1},u_{1:t}) \\
-       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, z_{1:t-1}, u_{1:t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
-       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t}) dx_{t-1}\\
-       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t})p(x_{t-1} \mid z_{1:t-1}, u_{1:t-1}) dx_{t-1}\\
-       &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
-\end{aligned} %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;위의 식은 recursive bayes filter를 유도하는 과정을 모두 표현하고 있기 때문에 다소 복잡해 보인다. 우선 전체적인 식을 이해하기 위해서 맨 처음과 맨 마지막 식만을 보면 다음과 같다.&lt;/p&gt;
-
-&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\begin{aligned}
-bel(x_t)  &amp;amp;= p(x_t \mid z_{1:t},u_{1:t}) \\
-          &amp;amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
-\end{aligned}&lt;/code&gt;&lt;/pre&gt;
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{aligned}
-bel(x_t)  &amp;= p(x_t \mid z_{1:t},u_{1:t}) \\
-          &amp;= \eta p(z_t \mid x_t)\int_{x_{t-1}}p(x_t \mid x_{t-1}, u_{t}) bel(x_{t-1}) dx_{t-1}\\
-\end{aligned} %]]&gt;&lt;/script&gt;
-
-&lt;p&gt;&lt;code class=&quot;MathJax_Preview&quot;&gt;bel(x_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;bel(x_t)&lt;/script&gt; 는 처음부터 현재까지의 observation( &lt;code class=&quot;MathJax_Preview&quot;&gt;z&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;z&lt;/script&gt; )와 control input( &lt;code class=&quot;MathJax_Preview&quot;&gt;u&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u&lt;/script&gt; )을 알고 있을 때 현재 state( &lt;code class=&quot;MathJax_Preview&quot;&gt;x_t&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;x_t&lt;/script&gt; )의 확률을 의미한다. 위의 식에서 &lt;code class=&quot;MathJax_Preview&quot;&gt;bel(x_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;bel(x_t)&lt;/script&gt; 의 식은 &lt;code class=&quot;MathJax_Preview&quot;&gt;bel(x_{t-1})&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;bel(x_{t-1})&lt;/script&gt; 의 integral로 표현되어 있기 때문에 만약 &lt;code class=&quot;MathJax_Preview&quot;&gt;p(z_t \mid x_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;p(z_t \mid x_t)&lt;/script&gt; 와 &lt;code class=&quot;MathJax_Preview&quot;&gt;p(x_t \mid x_{t-1}, u_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;p(x_t \mid x_{t-1}, u_t)&lt;/script&gt; 에 대한 정보를 알고 있다면 반복적인 계산을 통해 현재 state의 확률을 계산할 수 있음을 알 수 있다. 여기서 &lt;code class=&quot;MathJax_Preview&quot;&gt;p(z_t \mid x_t)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;p(z_t \mid x_t)&lt;/script&gt; 는 현재의 state에서 센서 데이터의 확률인 observation model이며, $$p(x_t \mid x_{t-1}, u_t)$ 은 현재의 control input에 대해 이전 state에서 현재 state로의 update를 나타내는 motion model를 의미한다. 위의 식을 Recursive bayes filter라고 한다. Recursive bayes filter는 SLAM 문제를 푸는데 가장 기본적인 식이 되며, Kalman filter의 기본적인 식이다. 다음은 recursive bayes filter의 유도과정을 간단하게 살펴본다. 유도에 관심이 없고 전체적인 흐름만 보고자 한다면 다음 설명은 넘어가도 좋다.&lt;/p&gt;
-
-&lt;h4 id=&quot;recursive-bayes-filter의-유도과정&quot;&gt;Recursive bayes filter의 유도과정&lt;/h4&gt;
 </content>
  </entry>
  
