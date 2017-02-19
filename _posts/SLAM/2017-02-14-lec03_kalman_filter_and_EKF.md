@@ -143,7 +143,7 @@ t-1에서의 state의 확률은 motion model에 의해 t의 state의 확률이 �
 
 $$
 \begin{aligned}
-1: & Kalman filter(\mu_{t-1}, \Sigma_{t-1}, u_t, z_t)\\
+1: & \text{Kalman filter}(\mu_{t-1}, \Sigma_{t-1}, u_t, z_t)\\
 &[Prediction step]\\
 2: & \ \ \bar{\mu}_t = A_t \mu_{t-1} + B_t u_t\\
 3: &\ \ \bar{\Sigma_t} = A_t \Sigma_{t-1} A_t^T + R_t\\
@@ -151,7 +151,7 @@ $$
 4: &\ \ K_t = \bar{\Sigma_t}C_t^T(C_t \bar{\Sigma_t}C_t^T + Q_t)^{-1}\\
 5: &\ \ \mu_t = \bar{\mu_t} + K_t(z_t - C_t \bar{\mu_t})\\
 6: &\ \ \Sigma_t = (I - K_t C_t)\bar{\Sigma_t}\\
-7: &\ \ return \ \ \mu_t, \Sigma_t\\
+7: &\ \ \text{return} \ \ \mu_t, \Sigma_t\\
 \end{aligned}
 $$
 
@@ -271,7 +271,7 @@ KF와 마찬가지로 $$R_t, Q_t$$는 process noise와 measurement noise이다. 
 
 $$
 \begin{aligned}
-1: & Extended Kalman filter(\mu_{t-1}, \Sigma_{t-1}, u_t, z_t)\\
+1: & \text{Extended Kalman filter}(\mu_{t-1}, \Sigma_{t-1}, u_t, z_t)\\
 &[Prediction step]\\
 2: & \ \ \bar{\mu}_t = g(u_t, \mu_{t-1})\\
 3: &\ \ \bar{\Sigma_t} = G_t \Sigma_{t-1} G_t^T + R_t\\
@@ -279,7 +279,7 @@ $$
 4: &\ \ K_t = \bar{\Sigma_t}H_t^T(H_t \bar{\Sigma_t}H_t^T + Q_t)^{-1}\\
 5: &\ \ \mu_t = \bar{\mu_t} + K_t(z_t - h(\bar{\mu_t}))\\
 6: &\ \ \Sigma_t = (I - K_t C_t)\bar{\Sigma_t}\\
-7: &\ \ return \ \ \mu_t, \Sigma_t\\
+7: &\ \ \text{return} \ \ \mu_t, \Sigma_t\\
 \end{aligned}
 $$
 
