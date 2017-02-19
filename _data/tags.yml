@@ -13,7 +13,7 @@
 
 post:
   name: All post
-  image: /public/img/6.jpg
+  image: /public/img/3.jpg
   color: '#949667'
   description: >
     This blog is to remember what I studied.

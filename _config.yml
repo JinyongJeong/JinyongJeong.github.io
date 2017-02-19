@@ -27,7 +27,7 @@ description:         >
 sidebar_tags:        [post, SLAM, ubuntu, jekyll, software, math, IRAP]
 
 # Fallback image and color if not overwritten for tag or post
-image:                /public/img/6.jpg
+image:                /public/img/3.jpg
 color:               '#A85641'
 
 # Fonts
