@@ -307,11 +307,15 @@ $$
 * SEIF는 계산량의 이점을 위해 근사화를 하였기 때문에 EKF에 비해 덜 정확하다.
 
 <img align="middle" src="/images/post/SLAM/lec09_SEIF_SLAM/comp_time_landmark.png" width="100%">
+landmark의 갯수가 증가(matrix 크기 증가)함에 따른 계산시간의 변화를 보여준다. SEIF는 크게 변하지 않지만 EKF는 계산시간이 크게 증가한다.
 <img align="middle" src="/images/post/SLAM/lec09_SEIF_SLAM/comp_byte_landmark.png" width="100%">
+landmark의 갯수 증가에 따른 메모리 크기변화를 보여준다. SEIF는 선형적으로 증가하지만 EKF는 quadratic하게 증가한다.
 <img align="middle" src="/images/post/SLAM/lec09_SEIF_SLAM/comp_error_landmark.png" width="100%">
+landmark의 갯수 증가에 따른 error를 보여준다. 근사화를 하였기 때문에 SEIF가 EKF에 비해 error는 높다.
 <img align="middle" src="/images/post/SLAM/lec09_SEIF_SLAM/update_time_feature.png" width="100%">
+Active landmark의 갯수에 따른 update 시간을 비교하였다. Active landmark의 갯수가 적을수록 계산시간은 빨라진다.
 <img align="middle" src="/images/post/SLAM/lec09_SEIF_SLAM/error_feature.png" width="100%">
-
+Active landmark의 갯수에 따른 error의 변화를 보여준다. Active landmark의 갯수가 적을수록 error는 증가한다.
 
 
 SEIF에 대해서 이해가 잘 되지 않거나 조금 더 깊이 보고 싶으시면 Thrun교수님의 논문인
