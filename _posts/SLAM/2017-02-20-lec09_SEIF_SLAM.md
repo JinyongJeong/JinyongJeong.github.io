@@ -197,17 +197,120 @@ Optimization 방법으로 mean값을 구하는 과정에서, 로봇의 위치와
 
 ## SEIF sparsification
 
+마지막은 Information matrix의 sparsification 과정이다. sparsification은 matrix의 non-zero off-diagonal의 수가 일정하게 유지되도록, 즉 sparse matrix가 유지되도록 만드는 과정이다. SEIF의 이전 step에서 constant computation을 보장하기 위한 조건이 information matrix의 sparseness이었으므로 이 과정이 꼭 필요하다.
 
+Sparsification은 [SEIF](http://jinyongjeong.github.io/2017/02/19/lec08_SEIF/)에서 언급했던것 처럼 로봇과 landmark간의 link을 제거함으로써(conditional independence하다고 가정함으로써) non-zero off-diagonal의 수를 유지하는 것이다.
 
+[SEIF](http://jinyongjeong.github.io/2017/02/19/lec08_SEIF/)에 설명한 것 처럼 lanmark는 2가지 종류로 분류할 수 있다. 현재 관측하거나 관측하고 있다고 생각하는 landmark(즉, direct link가 있는)는 active landmark이며, direct link가 없는 landmark를 passive landmark라고 한다.
 
+sparsification 과정을 위해서 landmark를 다시 3가지로 분류한다. $$m^{+}$$는 현재 active landmark이며
+계속 active landmark이다. $$m^0$$는 현재는 active landmark이지만 passive landmark로 만들 대상이다. $$m^-$$는 현재도 passive landmark이며 계속 passive landmark이다.
 
+$$
+\begin{aligned}
+p(x_t,m \mid z^t, u^t) &= p(x_t, m^+, m^0, m^- \mid z^t, u^t)\\
+                       &= p(x_t \mid m^+, m^0, m^-, z^t, u^t)p(m^+, m^0, m^- \mid z^t, u^t)\\
+                       &= p(x_t \mid m^+, m^0, m^- = 0, z^t, u^t)p(m^+, m^0, m^- \mid z^t, u^t)
+\end{aligned}
+$$
 
+위 식에서 마지막 단계에서 우리가 만약에 $$m^+$$과 $$m^0$$에 대해서 알고있다면 $$x_t$$는 $$m^-$$에 independent하다는 사실을 이용하였다. 따라서 $$m^-$$의 값을 임의의 값으로 설정할 수 있으며, 여기서는 단순하게 0으로 설정하였다. 이제 위 식으로 부터 $$m^0$$를 제거함으로써 근사화 시킬 수 있다. passive landmark가 되는 $$x^0$$는 이제 로봇의 위치인 $$x_t$$와 independent하기 때문에 제거 가능하다.
 
+$$
+\begin{aligned}
+\tilde{p}(x_t,m \mid z^t, u^t) &= p(x_t \mid m^+, m^- = 0, z^t, u^t)p(m^0, m^+, m^- \mid z^t, u^t) \\
+                              &= \frac{p(x_t, m^+ \mid m^- = 0, z^t, u^t)}{p(m^+ \mid m^- = 0, z^t, u^t)}p(m^0, m^+, m^- \mid z^t, u^t)
+\end{aligned}
+$$
 
+$$\tilde{}$$는 sparsification을 통해 근사화를 했음을 의미한다. 이제 $$\tilde{p}(x_t,m \mid z^t, u^t)$$의 information matrix를 계산하는 과정이 sparsification 과정을 의미한다.
 
+$$
+\begin{aligned}
+\Omega_t &= \text{information matrix of } p(x_t, m^+, m^0, m^- \mid z^t, u^t) \\
+\Omega_t' &=  \text{information matrix of } p(x_t, m^+, m^0, \mid m^- = 0, z^t, u^t)
+\end{aligned}
+$$
 
+맨 먼저 $$\Omega_t'$$를 계산하는 것으로 시작한다. bayes rule을 이용하여 전개하면 다음과 같다.
 
+p(x_t, m^+, m^0, \mid m^- = 0, z^t, u^t) = \frac{p(x_t, m^+, m^0, m^- \mid z^t, u^t)}{p(m^- = 0 \mid z^t, u^t)}
+$$
 
+따라서 $$\Omega_t'$$는 $$p(x_t, m^+, m^0, m^- \mid z^t, u^t)$$의 information matrix에서 $$m^-$$에 해당하는 information 항을 0으로 만든 information matrix이다(information form을 이용한 Gaussian 분포 식을 생각하자). 이 matrix를 projection matrix $$S$$를 이용하여 표현하면 다음과 같다.
+
+$$
+\Omega_t' = S_{x,m^+,m^0}S_{x,m^+,m^0}^T \Omega_t S_{x,m^+,m^0} S_{x,m^+,m^0}^T
+$$
+
+여기서 Projection marix는 남기고자 하는 부분이 identity로 구성된 matrix이다. 예를들어 로봇의 포즈와 첫번째 landmark만 남기고 모두 0으로 만드는 projection matrix는 다음과 같다.
+
+$$
+S_{x,m1} = \begin{bmatrix} I_3 & 0 & 0 & \cdots & 0\\0 & I_2 & 0 & \cdots & 0
+\end{bmatrix}^T
+$$
+
+따라서 $$\Omega_t'$$을 계산함으로써 $$m^-$$에 해당하는 row와 column은 0이 된다. 이 부분이 잘 이해가 되지 않는다면 matlab을 이용해서 계산해보면 쉽게 이해할 수 있다.
+
+이제 $$\Omega_t$$와 $$\Omega_t'$$을 이용하여
+$$
+\begin{aligned}
+\tilde{p}(x_t,m \mid z^t, u^t) &= \frac{p(x_t, m^+ \mid m^- = 0, z^t, u^t)}{p(m^+ \mid m^- = 0, z^t, u^t)}p(m^0, m^+, m^- \mid z^t, u^t)
+\end{aligned}
+$$
+을 구성하는 각 항의 information matrix를 구해본다.
+
+$$
+\begin{aligned}
+\Omega_t^1 &= \text{information matrix of } p(x_t, m^+ \mid m^- = 0, z^t, u^t) \\
+\Omega_t^2 &=  \text{information matrix of } p(m^+ \mid m^- = 0, z^t, u^t) \\
+\Omega_t^3 &=  \text{information matrix of } p(m^0, m^+, m^- \mid z^t, u^t)
+\end{aligned}
+$$
+
+각 information matrix는 information form의 marginalization을 이용하여 계산한다. information form의 marginalization은 [EIF](http://jinyongjeong.github.io/2017/02/19/lec07_EIF/)에 정리되어 있다. 이를 통해 각각의 information matrix를 계산하면 다음과 같다.
+
+$$
+\begin{aligned}
+\Omega_t^1 & = \Omega_t' - \Omega_t' S_{m^0}(S_{m^0}^T \Omega_t' S_{m^0})^{-1}S_{m^0}^T \Omega_t'\\
+\Omega_t^2 & = \Omega_t' - \Omega_t' S_{x_t, m^0}(S_{x_t, m^0}^T \Omega_t' S_{x_t, m^0})^{-1}S_{x_t, m^0}^T \Omega_t'\\
+\Omega_t^3 & = \Omega_t - \Omega_t S_{x_t}(S_{x_t}^T \Omega_t S_{x_t})^{-1}S_{x_t}^T \Omega_t\\
+\end{aligned}
+$$
+
+이제 계산된 information matrix를 이용하여 sparsification 된 information matrix를 계산할 수 있다.
+
+$$
+\begin{aligned}
+\tilde{\Omega}_t &= \Omega_t^1 - \Omega_t^2 + \Omega_t^3\\
+                 &=\Omega_t - \Omega_t' S_{m^0}(S_{m^0}^T \Omega_t' S_{m^0})^{-1}S_{m^0}^T \Omega_t' \\
+                 & \ \ + \Omega_t' S_{x_t, m^0}(S_{x_t, m^0}^T \Omega_t' S_{x_t, m^0})^{-1}S_{x_t, m^0}^T \Omega_t' \\
+                 & \ \ - \Omega_t S_{x_t}(S_{x_t}^T \Omega_t S_{x_t})^{-1}S_{x_t}^T \Omega_t
+\end{aligned}
+$$
+
+이제 sparsification을 통해 근사화된 information matrix가 계산되었다. 이제 information vector를 계산해야 되는데 다음과 같이 간단하게 계산할 수 있다.
+
+$$
+\begin{aligned}
+\tilde{\xi}_t &= \mu_t^T \tilde{\Omega}_t\\
+              &= \mu_t^T(\Omega_t - \Omega_t +  \tilde{\Omega}_t)\\
+              &= \mu_t^T\Omega_t + \mu_t^T(\tilde{\Omega}_t - \Omega_t )\\
+              &= \xi_t + \mu_t^T(\tilde{\Omega}_t - \Omega_t )
+\end{aligned}
+$$
+
+## SEIF SLAM vs EKF SLAM
+
+* SEIF는 roughly constant time complexity, EKF는 quadratic complexity
+* SEIF는 linear memory complexity, EKF는 quadratic memory complexity
+* SEIF는 계산량의 이점을 위해 근사화를 하였기 때문에 EKF에 비해 덜 정확하다.
+
+<img align="middle" src="/images/post/SLAM/lec09_SEIF_SLAM/comp_time_landmark.png" width="100%">
+<img align="middle" src="/images/post/SLAM/lec09_SEIF_SLAM/comp_byte_landmark.png" width="100%">
+<img align="middle" src="/images/post/SLAM/lec09_SEIF_SLAM/comp_error_landmark.png" width="100%">
+<img align="middle" src="/images/post/SLAM/lec09_SEIF_SLAM/update_time_feature.png" width="100%">
+<img align="middle" src="/images/post/SLAM/lec09_SEIF_SLAM/error_feature.png" width="100%">
 
 
 
