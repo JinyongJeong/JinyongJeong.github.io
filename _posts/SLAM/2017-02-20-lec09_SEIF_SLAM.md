@@ -161,7 +161,7 @@ EKF는 correction step의 계산량이 많지만, EIF는 prediction step의 계�
 
 <img align="left" src="/images/post/SLAM/lec09_SEIF_SLAM/measurement1.png" width="100%">
 <img align="left" src="/images/post/SLAM/lec09_SEIF_SLAM/measurement2.png" width="100%">
-<img align="left" src="/images/post/SLAM/lec09_SEIF_SLAM/measurement3.png" width="85%"></div><div style="clear:both;"></div>
+<img align="left" src="/images/post/SLAM/lec09_SEIF_SLAM/measurement3.png" width="85%"><div style="clear:both;"></div>
 
 SEIF의 measurement update과정은 EKF와 대부분 동일하다. SEIF에서 바뀐 부분은 information vector와 matrix를 계산하는 12, 13번 과정이다. 큰 matrix의 inverse와 같은 많은 계산량을 요구하는 부분이 없기 때문에 constant computation time을 보장한다($$Q_t^{-1}$$는 observation의 noise로 matrix의 크기가 작으며 미리 계산할 수 있는 matrix이다). 위의 계산과정이 이해가 되지 않는다면 이전 글인 [EKF SLAM](http://jinyongjeong.github.io/2017/02/16/lec05_EKF_SLAM/)을 참고하기 바란다.
 
