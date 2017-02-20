@@ -191,9 +191,9 @@ $$
 \end{aligned}
 $$
 
-SEIF의 이전 두 단계에서 information matrix와 vector를 계산하였기 때문에 이를 이용하여 Gaussian 분포를 표현할 수 있다. 이 Gaussian의 분포에서 mean값은 함수의 최대값을 갖는 위치 이므로 위와 같이 optimization 방법으로 mean값을 계산한다. 최대값을 계산하기 위해서 함수를 미분하여 미분값이 0이 되는 $$\mu$$를 구하면 된다.
+SEIF의 이전 두 단계에서 information matrix와 vector를 계산하였기 때문에 이를 이용하여 Gaussian 분포를 표현할 수 있다. 이 Gaussian의 분포에서 mean값은 함수의 최대값을 갖는 위치 이므로 위와 같이 optimization 방법으로 mean값을 계산하는데, 함수를 미분하여 미분값이 0이 되는 $$\mu$$를 구하면 된다.
 
-따라서 위의 방법으로 mean값을 구하는 과정에서 로봇의 위치와 active landmark의 mean값만을 구함으로써 더 효율적으로 계산 가능하고, constant computation을 보장할 수 있다.
+Optimization 방법으로 mean값을 구하는 과정에서, 로봇의 위치와 active landmark의 mean값만을 구함으로써 더 효율적으로 계산 가능하고, constant computation을 보장할 수 있다.
 
 ## SEIF sparsification
 
