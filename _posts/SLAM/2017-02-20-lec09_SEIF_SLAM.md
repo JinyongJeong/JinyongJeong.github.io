@@ -157,6 +157,11 @@ Information vector를 계산하기 위해 사용되는 값들의 대부분이 In
 
 ## SEIF measurement update(correction step)
 
+EKF는 correction step의 계산량이 많지만, EIF는 prediction step의 계산량이 많다. 따라서 SEIF도 correction의 계산량은 많지 않다. SEIF의 measurement update과정은 다음과 같다.
+
+<img align="left" src="/images/post/SLAM/lec09_SEIF_SLAM/measurement1.png" width="100%">
+<img align="left" src="/images/post/SLAM/lec09_SEIF_SLAM/measurement2.png" width="100%">
+<img align="left" src="/images/post/SLAM/lec09_SEIF_SLAM/measurement3.png" width="85%">
 
 
 
