@@ -53,7 +53,7 @@ $$
 
 편의를 위하여 vector와 matrix를 $$\delta, \triangle$$로 표현한다.
 
-그럼 prediction step에서의 information matrix를 계산하기 위해 EKF의 5번 식에서 부터 계산을 시작하자.
+Prediction step에서의 information matrix를 계산하기 위해 EKF의 5번 식에서 부터 계산을 시작한다.
 
 $$
 \begin{aligned}
@@ -63,7 +63,7 @@ $$
 \end{aligned}
 $$
 
-우리가 최종적으로 계산하고자 하는 information matrix는 위와 같이 계산할 수 있다. prediction step에서 가장 큰 계산량을 차지하는 부분이 $$\Omega_{t-1}^{-1}$$을 계산하여 $$\bar{\Omega}_t$$를 계산하는 과정이다. 따라서 $$\bar{\Omega}_t$$의 계산량을 줄여야 한다. 여기서 $$\Phi_t$$는 다음같이 정의된다.
+우리가 최종적으로 계산하고자 하는 information matrix는 위와 같이 계산할 수 있다. prediction step에서 가장 큰 계산량을 차지하는 부분은 $$\Omega_{t-1}^{-1}$$을 계산하여 $$\bar{\Omega}_t$$를 계산하는 과정이다. 여기서 $$\Phi_t$$는 다음같이 정의된다.
 
 $$
 \begin{aligned}
@@ -82,8 +82,8 @@ $$
 \end{aligned}
 $$
 
-이제 우리가 prediction step에서 구하고자 하는 information matrix를 계산하는 식을 자세히 들여다 보도록 하자. $$F_x$$는 $$3\times3$$ block을 제외하고는 전부 0인 matrix이다.그리고 inverse 계산을 해야하는 $${R_t^{x}}^{-1}+F_x \Phi_t F_x^T$$는 $$3\times3$$ matrix이므로 연산량이 많지 않다. 따라서 만약
-<font color='blue'> $$\Phi_t$$의 computation time이 constant하다면 전체 process의 computation time도 constant해 진다. </font>
+이제 우리가 prediction step에서 구하고자 하는 information matrix를 계산하는 식을 자세히 들여다 보도록 하자. $$F_x$$는 $$3\times3$$ block을 제외하고는 전부 0인 matrix이다. 그리고 inverse 계산을 해야하는 $${R_t^{x}}^{-1}+F_x \Phi_t F_x^T$$는 $$3\times3$$ matrix이므로 연산량이 많지 않다. 따라서 만약
+$$\Phi_t$$의 computation time이 constant하다면 전체 process의 computation time도 constant해 진다.
 
 그러면 이제 $$\Phi_t$$의 계산과정을 들여다 보도록 하자.
 
@@ -135,7 +135,7 @@ $$
 
 여기서 $$\lambda_t$$는 일정개수의 요소들만 non-zero의 값을 갖는 matrix이다.
 
-따라서 <font color='blue'> $$G_t^{-1}$$의 계산속도가 constant하고 information matrix가 sparse하므로 $$\Phi_t$$의 계산속도는 constant하며, $$\Phi_t$$의 계산속도가 constant하므로 최종적으로 prediction step의 information matrix 계산량도 constant하다. </font>
+따라서 $$G_t^{-1}$$의 계산속도가 constant하고 information matrix가 sparse하므로 $$\Phi_t$$의 계산속도는 constant하며, $$\Phi_t$$의 계산속도가 constant하므로 최종적으로 prediction step의 information matrix 계산량도 constant하다.
 
 위에서 설명한 대로 일정한 계산속도를 유지하며 information matrix를 계산하는 과정을 정리하면 다음과 같다.
 
