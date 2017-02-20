@@ -234,6 +234,7 @@ $$
 
 맨 먼저 $$\Omega_t'$$를 계산하는 것으로 시작한다. bayes rule을 이용하여 전개하면 다음과 같다.
 
+$$
 p(x_t, m^+, m^0, \mid m^- = 0, z^t, u^t) = \frac{p(x_t, m^+, m^0, m^- \mid z^t, u^t)}{p(m^- = 0 \mid z^t, u^t)}
 $$
 
