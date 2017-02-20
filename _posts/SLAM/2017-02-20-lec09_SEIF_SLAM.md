@@ -14,14 +14,15 @@ sitemap :
 이번 글에서는 이전 글에서 설명한 Sparse Extended Information Filter(SEIF) SLAM의 과정을 차근차근 한단계씩 이해해 보려고 한다. SEIF에 대해서 설명한 [이전 글](http://jinyongjeong.github.io/2017/02/19/lec08_SEIF/)에서 언급했듯이 SEIF는 적은 갯수의 큰 값을 갖는 information matrix의 sparsification과정을 통해 filter의 일정한 계산속도(constant computation time)를 보장하는 방법이다. SEIF의 과정은 전체적으로 개념은 EIF와 유사하나, 각 단계마다 계산량을 줄이기위한, 즉 일정한 계산속도를 보장하기 위한 테크닉이 들어있다. 이는 large scale의 환경에서 SLAM을 구현하기 위한 꼭 필요한 테크닉이므로 정확히 이해하고 넘어가는 것이 좋다.
 
 SEIF는 크게 4개의 과정으로 나뉘어 진다.
+
 $$
 \begin{aligned}
 & \text{SEIF SLAM}(\xi_{t-1}, \Omega_{t-1}, \mu_{t-1}, u_t, z_t)\\
-1: & \bar{\xi}_t, \bar{\Omega}_t, \bar{\mu}_t = \text{SEIF motion update}(\xi_{t-1}, \Omega_{t-1},\mu_{t-1}, u_t)\\
-2: & \xi_t, \Omega_t = \text{SEIF measurement update}(\bar{\xi}_t, \bar{\Omega}_t, \bar{\mu}_t, z_t)\\
-3: & \mu_t = \text{SEIF updated state estimate}(\xi_t, \Omega_t, \bar{\mu}_t)\\
-4: & \tilde{\xi}_t, \tilde{\Omega}_t = \text{SEIF sparsification}(\xi_t, \Omega_t, \mu_t)\\
-5: & \text{return} \ \ \tilde{\xi}_t, \tilde{\Omega}_t, \mu_t
+1: \ \ & \bar{\xi}_t, \bar{\Omega}_t, \bar{\mu}_t = \text{SEIF motion update}(\xi_{t-1}, \Omega_{t-1},\mu_{t-1}, u_t)\\
+2: \ \ & \xi_t, \Omega_t = \text{SEIF measurement update}(\bar{\xi}_t, \bar{\Omega}_t, \bar{\mu}_t, z_t)\\
+3: \ \ & \mu_t = \text{SEIF updated state estimate}(\xi_t, \Omega_t, \bar{\mu}_t)\\
+4: \ \ & \tilde{\xi}_t, \tilde{\Omega}_t = \text{SEIF sparsification}(\xi_t, \Omega_t, \mu_t)\\
+5: \ \ & \text{return} \ \ \tilde{\xi}_t, \tilde{\Omega}_t, \mu_t
 \end{aligned}
 $$
 
@@ -44,7 +45,7 @@ $$
 * 목적: 이전에 iteration에서 추정된 $$\xi_{t-1}, \Omega_{t-1}, \mu_{t-1}$$와 control input을 이용하여 $$\bar{\xi}_{t-1}, \bar{\Omega}_{t-1}, \bar{\mu}_{t-1}$$를 계산한다.
 * 방법: Information matrix의 sparseness를 활용하여 효율적으로 계산한다. Information matrix가 제한된 수의 non-zero off-diagonal을 갖는 sparse matrix로 가정한다.
 
-<img align="middle" src="/images/post/SLAM/lec09_SEIF_SLAM/EKF1.png" width="100%">
+<img align="middle" src="/images/post/SLAM/lec09_SEIF_SLAM/EKF.png" width="100%">
 
 우선 EKF SLAM에서 prediction 단계를 다시 보도록 하자. velocity-based model의 경우 위와같이 정의할 수 있다.
 
