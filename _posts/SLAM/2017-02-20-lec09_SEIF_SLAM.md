@@ -153,9 +153,10 @@ $$
 
 Information vector를 계산하기 위해 사용되는 값들의 대부분이 Information matrix를 구할 때 계산된 값들이며, inverse의 계산이 없기 때문에 계산량이 크지 않다.
 
-따라서 위의 방법을 통해 SEIF의 prediction step에서 constant computation time으로 information vector와 information matrix를 계산할 수 있음을 증명하였다.
+따라서 SEIF의 prediction step에서 information matrix가 sparse 할 때, constant computation time으로 information vector와 information matrix를 계산할 수 있음을 증명하였다.
 
 ## SEIF measurement update(correction step)
+
 
 
 
