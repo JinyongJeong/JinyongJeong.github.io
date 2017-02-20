@@ -167,8 +167,32 @@ SEIF의 measurement update과정은 EKF와 대부분 동일하다. SEIF에서 �
 
 ## SEIF updated state estimate
 
+SEIF의 세번째 단계는 state의 평균값(mean, $$\mu_{t}$$)을 계산하는 과정이다. 계산된 평균값은 다음의 과정에서 사용된다.
 
+* Motion model의 선형화
+* Measurement model의 선형화
+* Sparsification 단계
 
+이전 두 단계에서 information vector와 matrix를 계산하였기 때문에 mean값을 쉽게 계산할 수 있다.
+
+$$
+\mu = \Omega^{-1} \xi
+$$
+
+하지만 이와 같이 단순한 정의에 의해서 계산하게 되면 한가지 문제가 발생한다. $$\Omega$$는 매우 큰 matrix이므로 이 matrix의 inverse과정은 매우 많은 계산량을 요구한다.
+
+따라서 mean값을 계산하기 위해 optimization 방법으로 접근한다.
+
+$$
+\begin{aligned}
+\hat{\mu} &= \text{argmax} \ \ p(\mu)\\
+          &= \text{argmax}_{\mu} \ \ exp(-\frac{1}{2} \mu^T\Omega\mu + \xi^T\mu)
+\end{aligned}
+$$
+
+SEIF의 이전 두 단계에서 information matrix와 vector를 계산하였기 때문에 이를 이용하여 Gaussian 분포를 표현할 수 있다. 이 Gaussian의 분포에서 mean값은 함수의 최대값을 갖는 위치 이므로 위와 같이 optimization 방법으로 mean값을 계산한다. 최대값을 계산하기 위해서 함수를 미분하여 미분값이 0이 되는 $$\mu$$를 구하면 된다.
+
+따라서 위의 방법으로 mean값을 구하는 과정에서 로봇의 위치와 active landmark의 mean값만을 구함으로써 더 효율적으로 계산 가능하고, constant computation을 보장할 수 있다.
 
 ## SEIF sparsification
 
