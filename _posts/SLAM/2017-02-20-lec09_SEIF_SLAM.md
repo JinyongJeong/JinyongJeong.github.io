@@ -79,6 +79,7 @@ $$
 \bar{\Omega}_t  &= [\Phi_t^{-1} + R_t]^{-1}\\
                 &= [\Phi_t^{-1} + F_x^TR_t^x F_x]^{-1}\\
                 &= \Phi_t - \Phi_t F_x^T({R_t^{x}}^{-1}+F_x \Phi_t F_x^T)^{-1} F_x \Phi_t\\
+                &= \Phi_t - \kappa_t
 \end{aligned}
 $$
 
@@ -201,7 +202,7 @@ Optimization 방법으로 mean값을 구하는 과정에서, 로봇의 위치와
 
 Sparsification은 [SEIF](http://jinyongjeong.github.io/2017/02/19/lec08_SEIF/)에서 언급했던것 처럼 로봇과 landmark간의 link을 제거함으로써(conditional independence하다고 가정함으로써) non-zero off-diagonal의 수를 유지하는 것이다.
 
-[SEIF](http://jinyongjeong.github.io/2017/02/19/lec08_SEIF/)에 설명한 것 처럼 lanmark는 2가지 종류로 분류할 수 있다. 현재 관측하거나 관측하고 있다고 생각하는 landmark(즉, direct link가 있는)는 active landmark이며, direct link가 없는 landmark를 passive landmark라고 한다.
+[SEIF](http://jinyongjeong.github.io/2017/02/19/lec08_SEIF/)에 설명한 것 처럼 landmark는 2가지 종류로 분류할 수 있다. 현재 관측하거나 관측하고 있다고 생각하는 landmark(즉, direct link가 있는)는 active landmark이며, direct link가 없는 landmark를 passive landmark라고 한다.
 
 sparsification 과정을 위해서 landmark를 다시 3가지로 분류한다. $$m^{+}$$는 현재 active landmark이며
 계속 active landmark이다. $$m^0$$는 현재는 active landmark이지만 passive landmark로 만들 대상이다. $$m^-$$는 현재도 passive landmark이며 계속 passive landmark이다.
