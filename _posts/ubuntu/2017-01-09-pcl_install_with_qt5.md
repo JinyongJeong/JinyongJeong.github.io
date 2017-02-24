@@ -17,6 +17,8 @@ VTK와 PCL를 제외한 나머지 dependency는 설치 되어 있다고 하자.(
 
 QT5 또한 원하는 버전을 /opt/에 설치한 경우이다.
 
+아직 PCL dependency를 설치하지 않았다면 [이 블로그](https://github.com/hsean/Capstone-44-Object-Segmentation/wiki/PCL-1.8:-Ubuntu-14.04-Installation-Guide)를 참고하자.
+
 # 1. VTK 설치
 
 git clone으로 VTK를 다운받아 준다
