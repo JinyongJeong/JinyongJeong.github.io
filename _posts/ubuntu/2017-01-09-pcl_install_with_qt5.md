@@ -68,7 +68,7 @@ set(CMAKE_PREFIX_PATH /opt/Qt5.6.1/5.6/gcc_64/lib/cmake)
 mkdir build
 cd build
 cmake ..
-maek -j8
+make -j8
 make install
 ```
 
