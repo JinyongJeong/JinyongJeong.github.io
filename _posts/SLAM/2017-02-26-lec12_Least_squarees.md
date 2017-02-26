@@ -69,13 +69,74 @@ $$
 
 Optimization 방법으로 최적의 로봇 state($$\mathbf{x}* $$)를 구하는 순서는 다음과 같다.
 
-1. 선형화
-2. 1차미분
-3. 0이되는값
-4. 수렴
-5. 반복
-6. 수렴
-7.
+1. 현재의 state를 기준으로 error term($$\mathbf{e(x)}$$)의 선형화
+2. 선화된 error term으로 계산되는 squared error function($e_i(\mathbf{x})$)의 1차 미분계산
+3. squared error function은 quadratic form이므로 1차 미분값이 0이 되는 점이 최소값이므로 미분값이 0인 solution을 계산
+4. 계산된 solution을 이용하여 state를 update
+5. 위의 과정을 수렴할 때까지 반복
+
+위의 과정을 통해 iterative하게 optimal한 state를 계산할 수 있다. 각 단계의 과정을 자세히 살펴보도록 하자.
+
+#### 1. Error term의 선형화
+
+vector의 형태를 갖는 error term은 현재 measurement와 예상되는 measurement의 차이이다.
+
+$$
+\mathbf{e}_i(\mathbf{x}) = \mathbf{z}_i - f_i(\mathbf{x})
+$$
+
+이때 $$f_i(\mathbf{x})$$는 observation model로 많은 경우에 비선형형태를 갖는다. observation model에 대해 익숙하지 않다면 이전 글인 [motion model and observation model](http://jinyongjeong.github.io/2017/02/14/lec02_motion_observation_model/)을 참고하기 바란다. 따라서 식을 풀기 위해서는 현재 state기준으로 선형화를 수행한다. 선형화 방법으로는 EKF와 마찬가지로 Tayor expansion방법을 사용한다.
+
+$$
+\begin{aligned}
+\mathbf{e}_i(\mathbf{x}+\triangle\mathbf{x}) &\approx \mathbf{e}_i(\mathbf{x}) + \mathbf{J}_i(\mathbf{x})((\mathbf{x}+\triangle \mathbf{x})-\mathbf{x})\\
+&= \mathbf{e}_i(\mathbf{x}) + \mathbf{J}_i(\mathbf{x})\triangle \mathbf{x}
+\end{aligned}
+$$
+
+위 식에서 $$\mathbf{x}$$는 initialize의 기준이 되는 현재 state를 의미하며 $$\mathbf{x} = (\mathbf{x}_1, \mathbf{x}_2, \cdots, \mathbf{x}_n)$$이다. 이때 Jacobian $$\mathbf{J}_i$$는 다음과 같다.
+
+$$
+\mathbf{J}_i(x) = \begin{pmatrix} \frac{\partial f_1(x)}{\partial x_1} & \frac{\partial f_1(x)}{\partial x_2} & \cdots & \frac{\partial f_1(x)}{\partial x_n} \\
+\frac{\partial f_2(x)}{\partial x_1} & \frac{\partial f_2(x)}{\partial x_2} & \cdots & \frac{\partial f_2(x)}{\partial x_n} \\
+\cdots & \cdots & \cdots & \cdots \\
+\frac{\partial f_m(x)}{\partial x_1} & \frac{\partial f_m(x)}{\partial x_2} & \cdots & \frac{\partial f_m(x)}{\partial x_n}
+\end{pmatrix}
+$$
+
+#### 2. Squared Error 계산
+
+이제 위에서 선형화한 error term을 이용하여 squared error를 계산해보자.
+
+$$
+\begin{aligned}
+e_i(\mathbf{x}+\triangle\mathbf{x}) & =
+\mathbf{e}_i^T(\mathbf{x}+\triangle\mathbf{x}) \mathbf{\Omega}_i \mathbf{e}_i(\mathbf{x}+\triangle\mathbf{x})\\
+&\approx (\mathbf{e}_i(\mathbf{x}) + \mathbf{J}_i(\mathbf{x})\triangle \mathbf{x})^T \mathbf{\Omega}_i (\mathbf{e}_i(\mathbf{x}) + \mathbf{J}_i(\mathbf{x})\triangle \mathbf{x})\\
+&= \mathbf{e}_i^T \mathbf{\Omega}_i \mathbf{e}_i + \mathbf{e}_i^T \mathbf{\Omega}_i \mathbf{J}_i \triangle \mathbf{x} +  \triangle \mathbf{x}^T \mathbf{J}_i^T  \mathbf{\Omega}_i \mathbf{e}_i + \triangle \mathbf{x}^T \mathbf{J}_i^T  \mathbf{\Omega}_i \mathbf{J}_i \triangle \mathbf{x}\\
+&= \mathbf{e}_i^T \mathbf{\Omega}_i \mathbf{e}_i + 2 \mathbf{e}_i^T \mathbf{\Omega}_i \mathbf{J}_i \triangle \mathbf{x} + \triangle \mathbf{x}^T \mathbf{J}_i^T  \mathbf{\Omega}_i \mathbf{J}_i \triangle \mathbf{x}\\
+&= c_i + 2 \mathbf{b}_i^T \triangle \mathbf{x} + \triangle \mathbf{x}^T \mathbf{H}_i \triangle \mathbf{x}
+\end{aligned}
+$$
+
+계산된 squared error는 위와 같으며, 마지막 식에서 $$c_i, \mathbf{b}_i, \mathbf{H}_i$$는 다음과 같다.
+
+* $$c_i = \mathbf{e}_i^T \mathbf{\Omega}_i \mathbf{e}_i$$
+* $$\mathbf{b}_i = \mathbf{e}_i^T \mathbf{\Omega}_i \mathbf{J}_i $$
+* $$\mathbf{H}_i = \mathbf{J}_i^T  \mathbf{\Omega}_i \mathbf{J}_i $$
+
+즉 H는 선형화 후의 information matrix로 Gaussian covariance matrix의 선형화 후의 형태와 같다.
+
+그렇다면 이제 squared error function의 마지막 식을 살펴보자.
+
+$$
+\begin{aligned}
+e_i(\mathbf{x}+\triangle\mathbf{x})
+&= c_i + 2 \mathbf{b}_i^T \triangle \mathbf{x} + \triangle \mathbf{x}^T \mathbf{H}_i \triangle \mathbf{x}
+\end{aligned}
+$$
+
+위의 식은 $$\triangle \mathbf{x}$$에 대해서 quadratic한 형태를 띄고 있다. quadratic form은 일반 2차방정식의 형태와 유사하다. 즉, 함수의 최대 혹은 최대값은 함수의 미분이 0이 되는 지점을 계산함으로써 계산할 수 있다.
 
 
 
