@@ -177,6 +177,39 @@ $$
 
 <img align="middle" src="/images/post/SLAM/lec13_least_square_SLAM/algorithm.png" width="100%">
 
+## Example of Pose graph
+
+이해를 돕기위해 graph의 optimization과정을 통한 state update과정의 예를 통해 설명할 것이다.
+
+<img align="middle" src="/images/post/SLAM/lec13_least_square_SLAM/example.png" width="100%">
+
+위 그림과 같이 현재 2개의 state가 있으며, 센서를 통해 측정한 두 node 사이의 odometry정보는 1이다. 처음에는 모든 state의 값을 모르기 때문에 모두 0으로 설정한다.
+
+$$
+\begin{aligned}
+\mathbf{x} &= \begin{pmatrix} 0 & 0 \end{pmatrix}^T\\
+\mathbf{z}_{12} &= 1\\
+\mathbf{\Omega} &= 2\\
+\mathbf{e}_{12} &= \mathbf{z}_{12} -(x_2 - x_1) = 1-(0-0) = 1\\
+\mathbf{J}_{12} &= \begin{pmatrix}1 -1\end{pmatrix}^T\\
+\mathbf{b}_{12} &= \mathbf{e}_{12}^T \mathbf{\Omega}_{12} \mathbf{J}_{12} = \begin{pmatrix} 2 & -2 \end{pmatrix}\\
+\mathbf{H}_{12} &= \mathbf{J}_{12}^T \mathbf{\Omega} \mathbf{J}_{12} = \begin{pmatrix} 2 & -2 \\ -2 & 2\end{pmatrix}\\
+\triangle \mathbf{x} &= -\mathbf{H}_{12}^{-1} b_{12}
+\end{aligned}
+$$
+
+센서 measurement의 information은 2로 설정하였다. state update를 위해 $$\mathbf{b}, \mathbf{H}$$를 계산하였다. 이때 $$\triangle\mathbf{x}$$를 계산하기 위해서는 $$\mathbf{H}$$의 inverse를 계산해야 하지만 현재 $$det(\mathbf{H})$$는 0이므로 계산할 수 없다. 이것은 모든 node의 uncertainty가 같아 graph가 floating상태이기 때문이다. 이를 해결하기 위해서 첫번째 node를 고정(fix)시켜 줘야한다. 이를 위해 첫번째 node의 uncertainty를 낮춰준다(즉, information을 더해서 크게 해준다).
+
+$$
+\begin{aligned}
+\mathbf{H} &= \begin{pmatrix} 2 & -2 \\ -2 & 2 \end{pmatrix} + \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}\\
+\triangle \mathbf{x} &= -\mathbf{H}^{-1} b_{12}\\
+\triangle \mathbf{x} &= \begin{pmatrix} 0 & 1 \end{pmatrix}^T
+\end{aligned}
+$$
+
+따라서 error를 최소화 하는 state의 변화량은 $$\begin{pmatrix} 0 & 1 \end{pmatrix}^T$$가 되며 state를 업데이트하면 최종적으로 $$\mathbf{x} = \mathbf{x} + \triangle \mathbf{x} = \begin{pmatrix} 0 & 1 \end{pmatrix}^T$$가 된다.
+
 
 
 **본 글을 참조하실 때에는 출처 명시 부탁드립니다.**
