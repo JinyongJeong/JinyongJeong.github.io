@@ -3,7 +3,7 @@ layout: post
 title: '[SLAM] Particle Filter and Monte Carlo Localization'
 tags: [SLAM]
 description: >
-  Particle Filter를 이용한 localization을 설명한다..
+  Particle Filter를 이용한 localization을 설명한다.
 sitemap :
   changefreq : weekly
   priority : 1.0
