@@ -93,7 +93,7 @@ Graph optimization식을 전체 state를 표현하는 $$\mathbf{x}$$를 이용�
 $$
 \begin{aligned}
 x*&=\text{argmin}_{\mathbf{x}} \sum_{ij} \mathbf{e}_{ij}^T(\mathbf{x}_i,\mathbf{x}_j) \mathbf{\Omega}_{ij} \mathbf{e}_{ij}(\mathbf{x}_i,\mathbf{x}_j)\\
-&=\text{argmin}_{\mathbf{x}} \sum_i \mathbf{e}_i^T(\mathbf{x}) \mathbf{\Omega}_i \mathbf{e}_i(\mathbf{x})
+&=\text{argmin}_{\mathbf{x}} \sum_k \mathbf{e}_k^T(\mathbf{x}) \mathbf{\Omega}_k \mathbf{e}_k(\mathbf{x})
 \end{aligned}
 $$
 
@@ -104,8 +104,78 @@ $$
 \end{pmatrix}
 $$
 
+[이전 글](http://jinyongjeong.github.io/2017/02/26/lec12_Least_squarees/)에서 설명한 것처럼 error function을 선형화하면 Jacobian으로 표현할 수 있다.
+
+$$
+\begin{aligned}
+\mathbf{e}_{ij}(\mathbf{x}+\triangle\mathbf{x}) &\approx
+\mathbf{e}_{ij}(\mathbf{x}) + \mathbf{J}_{ij}(\mathbf{x})\triangle \mathbf{x}
+\end{aligned}
+$$
+
+선형화된 error function $$\mathbf{e}_{ij}$$는 state vector의 $$\mathbf{x}_i$$와 $$\mathbf{x}_j$$에만 관련이 있으므로 Jacobian은 sparse matrix가 된다.
+
+$$
+\frac{\partial \mathbf{e}_{ij}(\mathbf{x})}{\partial \mathbf{x}} = \begin{pmatrix}
+0 & \cdots & \frac{\partial \mathbf{e}_{ij}(\mathbf{x}_i)}{\partial \mathbf{x}_i} & \cdots && \frac{\partial \mathbf{e}_{ij}(\mathbf{x}_j)}{\partial \mathbf{x}_j} & \cdots & 0
+\end{pmatrix}
+$$
+
+$$
+\mathbf{J}_{ij} = \begin{pmatrix} 0 & \cdots & \mathbf{A}_{ij} & \cdots & \mathbf{B}_{ij} & \cdots & 0)
+\end{pmatrix}
+$$
+
+<img align="middle" src="/images/post/SLAM/lec13_least_square_SLAM/jacobian.png" width="100%">
+
+[이전 글](http://jinyongjeong.github.io/2017/02/26/lec12_Least_squarees/)에서 optimization 과정을 통해서 최적화된 $$\mathbf{x}^* $$를 계산하였는데, 이를 계산하기 위해서는 $$\mathbf{b}^T$$와 $$\mathbf{H}$$를 계산해야 한다.
+
+$$
+\begin{aligned}
+\mathbf{b}^T &= \sum_{ij} \mathbf{e}_{ij}^T \mathbf{\Omega}_{ij} \mathbf{J}_{ij}\\
+\mathbf{H} &= \sum_{ij} \mathbf{J}_{ij}^T  \mathbf{\Omega}_{ij} \mathbf{J}_{ij}
+\end{aligned}
+$$
+
+Jacobian matrix $$\mathbf{J}_{ij}$$가 sparse matrix이기 때문에 information matrix인 $$\mathbf{H}$$도 sparse matrix가 된다. Jacobian matrix의 sparse함이 각 파라미터에 어떻게 영향을 미치는지 그림으로 보자.
+
+<img align="middle" src="/images/post/SLAM/lec13_least_square_SLAM/jacobian_effect.png" width="100%">
 
 
+<img align="middle" src="/images/post/SLAM/lec13_least_square_SLAM/jacobian_effect2.png" width="100%">
+
+위 그림에서 볼 수 있듯이 Jacobian이 sparse하기 때문에 information matrix인 $$\mathbf{H}$$도 sparse해 짐을 알 수 있다. 식으로 표현하면 다음과 같다.
+
+$$
+\begin{aligned}
+\mathbf{b}_{ij}^T &=  \mathbf{e}_{ij}^T \mathbf{\Omega}_{ij} \mathbf{J}_{i}\\
+&=  \mathbf{e}_{ij}^T \mathbf{\Omega}_{ij} \begin{pmatrix} 0 & \cdots & \mathbf{A}_{ij} & \cdots & \mathbf{B}_{ij} & \cdots & 0
+\end{pmatrix}\\
+&=   \begin{pmatrix} 0 & \cdots & \mathbf{e}_{ij}^T \mathbf{\Omega}_{ij}\mathbf{A}_{ij} & \cdots & \mathbf{e}_{ij}^T \mathbf{\Omega}_{ij}\mathbf{B}_{ij} & \cdots & 0
+\end{pmatrix}\\
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\mathbf{H}_{ij} &= \mathbf{J}_{ij}^T  \mathbf{\Omega}_{ij} \mathbf{J}_{ij}\\
+&= \begin{pmatrix} 0 & \cdots & \mathbf{A}_{ij} & \cdots & \mathbf{B}_{ij} & \cdots & 0
+\end{pmatrix}^T \mathbf{\Omega}_{ij} \begin{pmatrix} 0 & \cdots & \mathbf{A}_{ij} & \cdots & \mathbf{B}_{ij} & \cdots & 0
+\end{pmatrix}\\
+&=
+\begin{pmatrix}
+0 & \cdots & \cdots & \cdots & \cdots &\cdots & 0\\
+0 & \cdots & \mathbf{A}_{ij}^T \mathbf{\Omega}_{ij}\mathbf{A}_{ij} & \cdots &  \mathbf{A}_{ij}^T \mathbf{\Omega}_{ij}\mathbf{B}_{ij} & \cdots & 0\\
+0 & \cdots & \cdots & \cdots & \cdots &\cdots & 0\\
+0 & \cdots &  \mathbf{B}_{ij}^T \mathbf{\Omega}_{ij}\mathbf{A}_{ij} & \cdots & \mathbf{B}_{ij}^T \mathbf{\Omega}_{ij}\mathbf{B}_{ij} & \cdots & 0\\
+ 0 & \cdots & \cdots & \cdots & \cdots &\cdots & 0
+\end{pmatrix}
+\end{aligned}
+$$
+
+위에서 설명한 과정을 통해서 최적의 $$\mathbf{x}$$를 계산하는 과정을 정리하면 다음과 같다.
+
+<img align="middle" src="/images/post/SLAM/lec13_least_square_SLAM/algorithm.png" width="100%">
 
 
 
