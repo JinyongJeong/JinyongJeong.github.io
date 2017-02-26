@@ -144,7 +144,7 @@ $$
 $$
 \begin{aligned}
 \mathbf{b}^T &= \sum_i \mathbf{e}_i^T \mathbf{\Omega}_i \mathbf{J}_i\\
-\mathbf{H}^T &= \sum_i \mathbf{J}_i^T  \mathbf{\Omega}_i \mathbf{J}_i
+\mathbf{H} &= \sum_i \mathbf{J}_i^T  \mathbf{\Omega}_i \mathbf{J}_i
 \end{aligned}
 $$
 
