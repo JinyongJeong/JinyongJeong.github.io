@@ -138,7 +138,7 @@ e_i(\mathbf{x}+\triangle\mathbf{x})
 \end{aligned}
 $$
 
-위의 식은 $$\triangle \mathbf{x}$$에 대해서 quadratic한 형태를 띄고 있다. quadratic form은 일반 2차방정식의 형태와 유사하다. 즉, 함수의 최대 혹은 최대값은 함수의 미분이 0이 되는 지점을 계산함으로써 계산할 수 있다.
+위의 식은 $$\triangle \mathbf{x}$$에 대해서 quadratic한 형태를 띄고 있다. quadratic form은 일반 2차방정식의 형태로 생각할 수 있다. 즉, 함수의 최대 혹은 최대값은 함수의 미분이 0이 되는 지점을 계산함으로써 계산할 수 있다.
 
 
 
