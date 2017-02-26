@@ -210,5 +210,55 @@ $$
 위와 같이 quadratic form을 계산함으로써 optimization 문제를 해결하는 방법을 *Gauss-Newtom optimization* 이라고 한다.
 
 
+### Least square와 Gaussian의 관계
+
+위에서 least square의 계산과정은 모두 설명하였다. Least square문제는 아래의 식을 품으로써 최적의 state를 계산하였다.
+
+$$
+\begin{aligned}
+x*
+&=\text{argmin}_{\mathbf{x}} \sum_i \mathbf{e}_i^T(\mathbf{x}) \mathbf{\Omega}_i \mathbf{e}_i(\mathbf{x})
+\end{aligned}
+$$
+
+하지만 왜 이런 형태의 식을 만들어서 풀게 되었을까? 이것은 Gaussian 분포와 관계가 있다. Bayes filter의 posterior의 식은 다음과 같다.
+
+$$
+p(x_{0:t} \mid z_{1:t}, u_{1:t}) = \eta p(x_0) \prod_t [p(x_t \mid x_{t-1}, u_t)p(z_t \mid x_t)]
+$$
+
+여기서 prior와, motion model 그리고 observation model은 모두 gaussian 분포를 따른다. 따라서 log likelihood를 계산하면 다음과 같다.
+
+$$
+log p(x_{0:t} \mid z_{1:t}, u_{1:t}) = \text{const.} +  log p(x_0) +  \sum_t [log p(x_t \mid x_{t-1}, u_t)+ log p(z_t \mid x_t)]
+$$
+
+여기서 모든 확률은 Gaussian 분포를 따르는데, Gaussian 분포의 log는 다음과 같다.
+
+$$
+log \mathcal{N}(x,\mu,\Sigma) = \text{const.} -\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu)
+$$
+
+계산된 Gaussian의 log형태가 매우 익숙하다. 위의 형태는 우리가 최적화에 사용하였던 함수와 같은 형태임을 알수 있다. 따라서 posterior를 error function으로 표현하면 다음과 같다.
+
+$$
+\begin{aligned}
+log p(x_{0:t} \mid z_{1:t}, u_{1:t}) &= \text{const.} +  log p(x_0) +  \sum_t [log p(x_t \mid x_{t-1}, u_t)+ log p(z_t \mid x_t)]\\
+&= \text{const.} - \frac{1}{2} e_p(\mathbf{x}) -\frac{1}{2} \sum_t [e_{u_t}(\mathbf{x})+e_{z_t}(\mathbf{x})]
+\end{aligned}
+$$
+
+따라서, posterior의 최대값을 찾는 문제는 error function의 최소값을 찾는 문제가 된다.
+
+$$
+\begin{aligned}
+argmax \ \ log p(x_{0:t} \mid z_{1:t}, u_{1:t})
+&= argmin \ \ e_p(\mathbf{x})+ \sum_t [e_{u_t}(\mathbf{x})+e_{z_t}(\mathbf{x})]
+\end{aligned}
+$$
+
+이러한 Gaussian과의 관계에 의해서 위에서와 같이 error function이 정의됨을 기억하자.
+
+
 
 **본 글을 참조하실 때에는 출처 명시 부탁드립니다.**
