@@ -210,6 +210,6 @@ $$
 
 따라서 error를 최소화 하는 state의 변화량은 $$\begin{pmatrix} 0 & 1 \end{pmatrix}^T$$가 되며 state를 업데이트하면 최종적으로 $$\mathbf{x} = \mathbf{x} + \triangle \mathbf{x} = \begin{pmatrix} 0 & 1 \end{pmatrix}^T$$가 된다.
 
-
+이번 글에서는 pose graph SLAM에 대해서 설명하였다. 다음 글에서는 landmark가 있을 때의 graph SLAM에 대해서 설명하도록 한다. 
 
 **본 글을 참조하실 때에는 출처 명시 부탁드립니다.**
