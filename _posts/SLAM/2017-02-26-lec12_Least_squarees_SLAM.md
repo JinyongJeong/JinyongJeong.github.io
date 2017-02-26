@@ -76,6 +76,34 @@ Graph를 구성하는 노드 $$\mathbf{x}_i$$와 $$\mathbf{x}_{i+1}$$ 사이에�
 
 <img align="middle" src="/images/post/SLAM/lec13_least_square_SLAM/pose_graph.png" width="100%">
 
+$$\mathbf{x}_i$$와 $$\mathbf{x}_j$$는 현재 graph에서 두 node의 위치이다. $$<\mathbf{z}_{ij},\Omega_{ij}>$$는 $$\mathbf{x}_i$$의 위치에서 센서를 이용하여 측정한 $$\mathbf{x}_j$$의 위치이다. 센서로 측정한 node의 위치와 현재 graph상의 위치의 차이를 $$\mathbf{e}_{ij}$$로 표현한다. Graph optimization은 이러한 error를 최소화 시키는 graph를 계산하는 것이다. Graph optimization을 계산하는 과정은 이전 글인 [least square](http://jinyongjeong.github.io/2017/02/26/lec12_Least_squarees/)을 참고하기 바란다. 여기서 $$\Omega_{ij}$$가 센서 measurement의 information matrix임을 기억하자.
+
+Error function ($$\mathbf{e}_{ij}(\mathbf{x}_i, \mathbf{x}_j)$$) homogeneous coordinate로 표현하면 다음과 같이 표현할 수 있다.
+
+$$
+\mathbf{e}_{ij}(\mathbf{x}_i, \mathbf{x}_j) = \text{t2v}(\mathbf{Z}_{ij}^{-1}(\mathbf{X}_i^{-1}\mathbf{X}_j))
+$$
+
+homogeneous coordinate은 로봇의 translation과 rotation을 하나의 matrix로 표현하는 방법으로 [SE(3) and SO(3)](http://jinyongjeong.github.io/2016/06/07/se3_so3_transformation/)를 참고하자.
+
+위 식에서 $$\mathbf{Z}_{ij}$$는 i에서 바라본 j의 measurement이며, $$\mathbf{X}_i^{-1}\mathbf{X}_j$$는 현재 graph에서 i를 기준으로 j의 위치를 의미한다. t2v함수는 homogeneous coordinate를 vector form으로 바꾸는 transform 함수이다.
+
+Graph optimization식을 전체 state를 표현하는 $$\mathbf{x}$$를 이용하여 표현하면 다음과 같다.
+
+$$
+\begin{aligned}
+x*&=\text{argmin}_{\mathbf{x}} \sum_{ij} \mathbf{e}_{ij}^T(\mathbf{x}_i,\mathbf{x}_j) \mathbf{\Omega}_{ij} \mathbf{e}_{ij}(\mathbf{x}_i,\mathbf{x}_j)\\
+&=\text{argmin}_{\mathbf{x}} \sum_i \mathbf{e}_i^T(\mathbf{x}) \mathbf{\Omega}_i \mathbf{e}_i(\mathbf{x})
+\end{aligned}
+$$
+
+여기서 state vector $$\mathbf{x}$$는 graph의 node가 각각의 block을 구성하는 vector이다.
+
+$$
+\mathbf{x}^T = \begin{pmatrix}\mathbf{x}_1^T & \mathbf{x}_2^T & \cdots & \mathbf{x}_n^T
+\end{pmatrix}
+$$
+
 
 
 
