@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[SLAM] Least Squares (최소자승법)'
+title: '[SLAM] Least Squares SLAM'
 tags: [SLAM]
 description: >
-  Graph SLAM의 접근방법인 least square 방법에 대해서 설명한다. 
+  Graph SLAM에 대해서 설명한다.
 sitemap :
   changefreq : weekly
   priority : 1.0
