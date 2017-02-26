@@ -67,10 +67,10 @@ $$
 위 식에서 각 element들에 대해서는 error function에서 설명했다. 이 식을 보고 넘어갈 때 각 항들의 dimension이 어떻게 되는지 확인하고 넘어가도록 하자. 만약 센서 measurement의 dimension이 n일 때 $$\mathbf{e}_i$$는 $$n\times1$$, $$\mathbf{\Omega}_i$$는 $$n\times n$$의 dimension을 갖는다.
 위와 같은 optimization 문제는 복잡하며, closed form(미지수의 해가 수식으로 정리되는 형태)이 아니기 때문에 수학적인 접근방법으로 해를 구한다.
 
-Optimization 방법으로 최적의 로봇 state($$\mathbf{x}* $$)를 구하는 순서는 다음과 같다.
+Optimization 방법으로 최적의 로봇 state($$\mathbf{x}^* $$)를 구하는 순서는 다음과 같다.
 
 1. 현재의 state를 기준으로 error term($$\mathbf{e(x)}$$)의 선형화
-2. 선화된 error term으로 계산되는 squared error function($e_i(\mathbf{x})$)의 1차 미분계산
+2. 선화된 error term으로 계산되는 squared error function($$e_i(\mathbf{x})$$)의 1차 미분계산
 3. squared error function은 quadratic form이므로 1차 미분값이 0이 되는 점이 최소값이므로 미분값이 0인 solution을 계산
 4. 계산된 solution을 이용하여 state를 update
 5. 위의 과정을 수렴할 때까지 반복
@@ -121,13 +121,15 @@ $$
 
 계산된 squared error는 위와 같으며, 마지막 식에서 $$c_i, \mathbf{b}_i, \mathbf{H}_i$$는 다음과 같다.
 
-* $$c_i = \mathbf{e}_i^T \mathbf{\Omega}_i \mathbf{e}_i$$
-* $$\mathbf{b}_i = \mathbf{e}_i^T \mathbf{\Omega}_i \mathbf{J}_i $$
-* $$\mathbf{H}_i = \mathbf{J}_i^T  \mathbf{\Omega}_i \mathbf{J}_i $$
+$$
+\begin{aligned}
+c_i &= \mathbf{e}_i^T \mathbf{\Omega}_i \mathbf{e}_i\\
+\mathbf{b}_i &= \mathbf{e}_i^T \mathbf{\Omega}_i \mathbf{J}_i\\
+\mathbf{H}_i &= \mathbf{J}_i^T  \mathbf{\Omega}_i \mathbf{J}_i
+\end{aligned}
+$$
 
-즉 H는 선형화 후의 information matrix로 Gaussian covariance matrix의 선형화 후의 형태와 같다.
-
-그렇다면 이제 squared error function의 마지막 식을 살펴보자.
+$$\mathbf{H}_i$$는 선형화 후의 information matrix이다. 그렇다면 이제 squared error function의 마지막 식을 살펴보자.
 
 $$
 \begin{aligned}
