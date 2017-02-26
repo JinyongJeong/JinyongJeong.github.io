@@ -124,22 +124,90 @@ $$
 $$
 \begin{aligned}
 c_i &= \mathbf{e}_i^T \mathbf{\Omega}_i \mathbf{e}_i\\
-\mathbf{b}_i &= \mathbf{e}_i^T \mathbf{\Omega}_i \mathbf{J}_i\\
+\mathbf{b}_i^T &= \mathbf{e}_i^T \mathbf{\Omega}_i \mathbf{J}_i\\
 \mathbf{H}_i &= \mathbf{J}_i^T  \mathbf{\Omega}_i \mathbf{J}_i
 \end{aligned}
 $$
 
-$$\mathbf{H}_i$$는 선형화 후의 information matrix이다. 그렇다면 이제 squared error function의 마지막 식을 살펴보자.
+$$\mathbf{H}_i$$는 선형화 후의 information matrix이다.
+
+위에서 계산된 $$e_i(\mathbf{x}+\triangle\mathbf{x})$$는 1개의 measurement에 대한 error function이므로 모든 measurement에 대한 error function은 다음과 같다.
 
 $$
 \begin{aligned}
-e_i(\mathbf{x}+\triangle\mathbf{x})
-&= c_i + 2 \mathbf{b}_i^T \triangle \mathbf{x} + \triangle \mathbf{x}^T \mathbf{H}_i \triangle \mathbf{x}
+F(\mathbf{x}+\triangle \mathbf{x}) &\approx \sum_i (c_i + 2 \mathbf{b}_i^T \triangle \mathbf{x} + \triangle \mathbf{x}^T \mathbf{H}_i)\triangle \mathbf{x}\\
+&= \sum_i c_i + 2 (\sum_i \mathbf{b}_i^T) \triangle \mathbf{x} + \triangle \mathbf{x}^T (\sum_i \mathbf{H}_i) \triangle \mathbf{x}\\
+&= c + 2 \mathbf{b}^T \triangle \mathbf{x} + \triangle \mathbf{x}^T \mathbf{H} \triangle \mathbf{x}
 \end{aligned}
 $$
 
-위의 식은 $$\triangle \mathbf{x}$$에 대해서 quadratic한 형태를 띄고 있다. quadratic form은 일반 2차방정식의 형태로 생각할 수 있다. 즉, 함수의 최대 혹은 최대값은 함수의 미분이 0이 되는 지점을 계산함으로써 계산할 수 있다.
+$$
+\begin{aligned}
+\mathbf{b}^T &= \sum_i \mathbf{e}_i^T \mathbf{\Omega}_i \mathbf{J}_i\\
+\mathbf{H}^T &= \sum_i \mathbf{J}_i^T  \mathbf{\Omega}_i \mathbf{J}_i
+\end{aligned}
+$$
 
+그렇다면 이제 squared error function의 마지막 식을 살펴보자.
+
+$$
+\begin{aligned}
+F(\mathbf{x}+\triangle \mathbf{x}) &\approx
+c + 2 \mathbf{b}^T \triangle \mathbf{x} + \triangle \mathbf{x}^T \mathbf{H} \triangle \mathbf{x}
+\end{aligned}
+$$
+
+위의 식은 $$\triangle \mathbf{x}$$에 대해서 quadratic한 형태를 띄고 있다. quadratic form은 일반 2차방정식의 형태로 생각할 수 있다. 즉, 함수의 극대 혹은 극소값은 함수의 미분이 0이 되는 지점을 계산함으로써 계산할 수 있다.
+
+그럼 이제 위의 식의 1차 미분을 계산한다. 일반적으로 quadratic form의 미분은 다음과 같다(matrix cookbook, section 2.2.4참고).
+
+$$
+\begin{aligned}
+f(x) &= \mathbf{x}^T\mathbf{H}\mathbf{x} + \mathbf{b}^T\mathbf{x}\\
+\frac{\partial f}{\partial x} &= (\mathbf{H} + \mathbf{H}^T)\mathbf{x} +\mathbf{b}
+\end{aligned}
+$$
+
+따라서 함수의 1차 미분은 다음과 같다.
+
+$$
+\frac{\partial F(\mathbf{x}+\triangle \mathbf{x})}{\partial \triangle \mathbf{x}} = 2 \mathbf{b} + 2 \mathbf{H}\triangle \mathbf{x}
+$$
+
+#### 3. global error function의 최소값 계산
+
+2번단계에서 global error function의 1차 미분값을 계산하였다. global error function은 quadratic form이므로 미분값이 0인 지점이 함수의 극대 혹은 극소값이다. 우리가 계산하고 있는 least square의 목적은 error를 최소로 만드는 state를 계산하는 것이므로 계속해서 error function의 최소값을 찾아 나간다. 최소값을 찾기 위하여 미분값을 0으로 만드는 $$\mathbf{x}$$를 계산한다.
+
+$$
+\frac{\partial F(\mathbf{x}+\triangle \mathbf{x})}{\partial \triangle \mathbf{x}} = 2 \mathbf{b} + 2 \mathbf{H}\triangle \mathbf{x} = 0
+$$
+
+따라서 optimal한 state는 다음과 같다.
+
+$$
+\triangle \mathbf{x}^* = -\mathbf{H}^{-1}\mathbf{b}
+$$
+
+이때 $$\mathbf{H}$$는 크기가 큰 matrix이므로 inverse를 계산 시 많은 계산이 소요된다. 이러한 문제를 해결하기 위해서 Cholesky factorization, 혹은 QR decomposition과 같은 방법을 사용한다. Cholesky factorization은 matrix $$\mathbf{H}$$를 하 삼각행렬(lower triangular matrix)의 곱으로 표현하는 방법이다($$\mathbf{H}= \mathbf{L}\mathbf{L}^T$$). Triangular matrix는 일반 matrix에 비해 inverse의 계산이 간단하므로 이렇게 분해함으로써 inverse를 더 빠르게 계산할 수 있다.
+
+$$
+\begin{aligned}
+\triangle \mathbf{x}^* &= -\mathbf{H}^{-1}\mathbf{b}\\
+&= -\mathbf{L}^{-T}\mathbf{L}^{-1}\mathbf{b}
+\end{aligned}
+$$
+
+#### 4. State update
+
+3번 과정에서 global error function을 최소로 만드는 state인 $$\triangle \mathbf{x}$$를 계산하였다. 이제 이 결과를 이용하여 state를 update한다.
+
+$$
+\mathbf{x} = \mathbf{x} + \triangle \mathbf{x}
+$$
+
+업데이트 완료되면 업데이트된 state를 기준으로 다시 선형화를 하여 위 과정을 반복한다. 여러번 반복함으로써 계속 최적화된 state로 업데이트하고, state가 수렴하면 계산을 중지하고 optimization과정을 종료한다.
+
+위와 같이 quadratic form을 계산함으로써 optimization 문제를 해결하는 방법을 *Gauss-Newtom optimization* 이라고 한다.
 
 
 
