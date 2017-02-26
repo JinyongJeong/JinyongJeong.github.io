@@ -30,7 +30,8 @@ Graph-based SLAM은 로봇의 위치와 움직임을 graph처럼 node와 edge로
 
 아래의 youtube 동영상은 pose graph SLAM을 이용한 SLAM의 예이다.
 
-<iframe width="1280" height="720" src="https://youtu.be/JLjFxDMovnc" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="480" height="360" src="https://youtu.be/JLjFxDMovnc" frameborder="0" allowfullscreen> </iframe>
 
 동영상에서 차량이 움직이는 경로의 실선은 constraint이며, 실선 중간에 생성되는 네모는 graph의 node이다. 위 application은 도로 상의 marking정보를 이용하여 장소를 인식하고 non-successive node사이의 constraint를 추가함으로써 odometry의 error를 보정한다. 동영상에서 이러한 constraint를 추가함으로써 계속적으로 graph가 최적화 되는 모습을 볼 수 있다.
 
