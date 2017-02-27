@@ -187,7 +187,7 @@ $$
 
 <img align="middle" src="/images/post/SLAM/lec13_least_square_SLAM/algorithm.png" width="100%">
 
-위에서 설명한 과정을 통해 모든 measurement에 대한 information matrix($$\mathbf{H}$$)와 $$\mathbf{b}$$를 계산하고, 두 값을 이용하여 state의 변화량인 $$\triangle \mathbf{x}$$를 계산한다($$\triangle \mathbf{x} = -\mathbf{H}^{-1}\mathbf{b}$$). $$\mathbf{H}$$는 크기가 큰 matrix이므로 inverse과정이 높은 계산량을 요구하므로, 이를 쉽게 계산하기 위해서 Cholesky factorization 방법을 사용한다([이전 글](http://jinyongjeong.github.io/2017/02/26/lec12_Least_squarees/) 참고).이제 계산된 변화량을 이용하여 state를 업데이트하고($$\mathbf{x} = \mathbf{x}+\triangle \mathbf{x}$$) state가 수렴할 때 까지 반복하여 최적화된 state를 계산한다.
+위에서 설명한 과정을 통해 모든 measurement에 대한 information matrix($$\mathbf{H}$$)와 $$\mathbf{b}$$를 계산하고, 두 값을 이용하여 state의 변화량인 $$\triangle \mathbf{x}$$를 계산한다($$\triangle \mathbf{x} = -\mathbf{H}^{-1}\mathbf{b}$$). $$\mathbf{H}$$는 크기가 큰 matrix이므로 inverse과정이 높은 계산량을 요구하므로, 이를 쉽게 계산하기 위해서 Cholesky factorization 방법을 사용한다([이전 글](http://jinyongjeong.github.io/2017/02/26/lec12_Least_squarees/) 참고). 이제 계산된 변화량을 이용하여 state를 업데이트하고($$\mathbf{x} = \mathbf{x}+\triangle \mathbf{x}$$) state가 수렴할 때 까지 반복하여 최적화된 state를 계산한다.
 
 ## Example of Pose graph
 
@@ -222,8 +222,6 @@ $$
 
 따라서 error를 최소화 하는 state의 변화량은 $$\begin{pmatrix} 0 & 1 \end{pmatrix}^T$$가 되며 state를 업데이트하면 최종적으로 $$\mathbf{x} = \mathbf{x} + \triangle \mathbf{x} = \begin{pmatrix} 0 & 1 \end{pmatrix}^T$$가 된다.
 
-이번 글에서는 pose graph SLAM에 대해서 설명하였다. 다음 글에서는 landmark가 있을 때의 graph SLAM에 대해서 설명하도록 한다.
-
 ## Hierarchical Approach to Least Square SLAM
 
 Hierarchical Approach는 Graph SLAM의 속도를 향상시키기 위한 한가지 방법이다.
@@ -231,7 +229,6 @@ Hierarchical Approach는 Graph SLAM의 속도를 향상시키기 위한 한가�
 <img align="middle" src="/images/post/SLAM/lec13_least_square_SLAM/hierarchical.png" width="100%">
 
 맨 왼쪽 그림은 원래의 pose graph를 보여주고 있다. Hierarchical Approach는 이름에서 알 수 있듯이 여러개의 계층구조로 구성되어 있으며 아래의 layer일수록 많은 node를, 위로 갈수록 적은 수의 node를 갖는 graph로 구성되어 있다. Optimization 문제는 node의 갯수가 많을 수록 계산시간이 오래 걸리기 때문에 이러한 계층구조를 이용하여, 적은 수의 node의 graph에서(sampling된 node로 이루어진 graph) 최적의 node위치를 계산 후, 계산된 node를 기준으로 주변 node의 위치를 다시 계산하는 방법을 이용한다. Hierarchical Approach에 대해서는 자세히 언급하지 않겠다. 이 부분에 대해서 자세히 알고 싶으면 [Robot Mapping](http://ais.informatik.uni-freiburg.de/teaching/ws13/mapping/) 강의 16강을 참고하기 바란다.
-
 
 
 **본 글을 참조하실 때에는 출처 명시 부탁드립니다.**
