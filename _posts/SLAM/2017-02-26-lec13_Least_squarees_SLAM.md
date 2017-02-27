@@ -187,13 +187,13 @@ $$
 
 <img align="middle" src="/images/post/SLAM/lec13_least_square_SLAM/algorithm.png" width="100%">
 
-위에서 설명한 과정을 통해 모든 measurement에 대한 information matrix($$\mathbf{H}$$)와 $$\mathbf{b}$$를 계산하고, 두 값을 이용하여 state의 변화량인 $$\triangle \mathbf{x}$$를 계산한다($$\triangle \mathbf{x} = -\mathbf{H}^{-1}\mathbf{b}$$). 이제 계산된 변화량을 이용하여 state를 업데이트하고($$\mathbf{x} = \mathbf{x}+\triangle \mathbf{x}$$) state가 수렴할 때 까지 반복하여 최적화된 state를 계산한다. 
+위에서 설명한 과정을 통해 모든 measurement에 대한 information matrix($$\mathbf{H}$$)와 $$\mathbf{b}$$를 계산하고, 두 값을 이용하여 state의 변화량인 $$\triangle \mathbf{x}$$를 계산한다($$\triangle \mathbf{x} = -\mathbf{H}^{-1}\mathbf{b}$$). 이제 계산된 변화량을 이용하여 state를 업데이트하고($$\mathbf{x} = \mathbf{x}+\triangle \mathbf{x}$$) state가 수렴할 때 까지 반복하여 최적화된 state를 계산한다.
 
 ## Example of Pose graph
 
 이해를 돕기위해 graph의 optimization과정을 통한 state update과정의 예를 통해 설명할 것이다.
 
-<img align="middle" src="/images/post/SLAM/lec13_least_square_SLAM/example.png" width="100%">
+<img align="middle" src="/images/post/SLAM/lec13_least_square_SLAM/example.png" width="70%">
 
 위 그림과 같이 현재 2개의 state가 있으며, 센서를 통해 측정한 두 node 사이의 odometry정보는 1이다. 처음에는 모든 state의 값을 모르기 때문에 모두 0으로 설정한다.
 
