@@ -92,7 +92,7 @@ Graph optimization식을 전체 state를 표현하는 $$\mathbf{x}$$를 이용�
 
 $$
 \begin{aligned}
-x*&=\text{argmin}_{\mathbf{x}} \sum_{ij} \mathbf{e}_{ij}^T(\mathbf{x}_i,\mathbf{x}_j) \mathbf{\Omega}_{ij} \mathbf{e}_{ij}(\mathbf{x}_i,\mathbf{x}_j)\\
+x^* &=\text{argmin}_{\mathbf{x}} \sum_{ij} \mathbf{e}_{ij}^T(\mathbf{x}_i,\mathbf{x}_j) \mathbf{\Omega}_{ij} \mathbf{e}_{ij}(\mathbf{x}_i,\mathbf{x}_j)\\
 &=\text{argmin}_{\mathbf{x}} \sum_k \mathbf{e}_k^T(\mathbf{x}) \mathbf{\Omega}_k \mathbf{e}_k(\mathbf{x})
 \end{aligned}
 $$
