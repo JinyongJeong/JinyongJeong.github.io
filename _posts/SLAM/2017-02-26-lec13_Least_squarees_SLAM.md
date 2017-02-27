@@ -224,6 +224,14 @@ $$
 
 이번 글에서는 pose graph SLAM에 대해서 설명하였다. 다음 글에서는 landmark가 있을 때의 graph SLAM에 대해서 설명하도록 한다.
 
-## He
+## Hierarchical Approach to Least Square SLAM
+
+Hierarchical Approach는 Graph SLAM의 속도를 향상시키기 위한 한가지 방법이다.
+
+<img align="middle" src="/images/post/SLAM/lec13_least_square_SLAM/hierarchical.png" width="100%">
+
+맨 왼쪽 그림은 원래의 pose graph를 보여주고 있다. Hierarchical Approach는 이름에서 알 수 있듯이 여러개의 계층구조로 구성되어 있으며 아래의 layer일수록 많은 node를, 위로 갈수록 적은 수의 node를 갖는 graph로 구성되어 있다. Optimization 문제는 node의 갯수가 많을 수록 계산시간이 오래 걸리기 때문에 이러한 계층구조를 이용하여, 적은 수의 node의 graph에서(sampling된 node로 이루어진 graph) 최적의 node위치를 계산 후, 계산된 node를 기준으로 주변 node의 위치를 다시 계산하는 방법을 이용한다. Hierarchical Approach에 대해서는 자세히 언급하지 않겠다. 이 부분에 대해서 자세히 알고 싶으면 [Robot Mapping](http://ais.informatik.uni-freiburg.de/teaching/ws13/mapping/) 강의 16강을 참고하기 바란다.
+
+
 
 **본 글을 참조하실 때에는 출처 명시 부탁드립니다.**
