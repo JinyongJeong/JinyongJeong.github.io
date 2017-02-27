@@ -84,7 +84,7 @@ $$
 \mathbf{e}_{ij}(\mathbf{x}_i, \mathbf{x}_j) = \text{t2v}(\mathbf{Z}_{ij}^{-1}(\mathbf{X}_i^{-1}\mathbf{X}_j))
 $$
 
-homogeneous coordinate은 로봇의 translation과 rotation을 하나의 matrix로 표현하는 방법이며, 이러한 표현방법에 대해서는 [SE(3) and SO(3)](http://jinyongjeong.github.io/2016/06/07/se3_so3_transformation/)에서 다루었다. 
+homogeneous coordinate은 로봇의 translation과 rotation을 하나의 matrix로 표현하는 방법이며, 이러한 표현방법에 대해서는 [SE(3) and SO(3)](http://jinyongjeong.github.io/2016/06/07/se3_so3_transformation/)에서 다루었다.
 
 위 식에서 $$\mathbf{Z}_{ij}$$는 i에서 바라본 j의 measurement이며, $$\mathbf{X}_i^{-1}\mathbf{X}_j$$는 현재 graph에서 i를 기준으로 j의 위치를 의미한다. t2v함수는 homogeneous coordinate를 vector form으로 바꾸는 transform 함수이다.
 
@@ -128,7 +128,7 @@ $$
 
 <img align="middle" src="/images/post/SLAM/lec13_least_square_SLAM/jacobian.png" width="100%">
 
-[이전 글](http://jinyongjeong.github.io/2017/02/26/lec12_Least_squarees/)에서 optimization 과정을 통해서 최적화된 $$\mathbf{x}^* $$를 계산하였는데, 이를 계산하기 위해서는 $$\mathbf{b}^T$$와 $$\mathbf{H}$$를 계산해야 한다.
+[이전 글](http://jinyongjeong.github.io/2017/02/26/lec12_Least_squarees/)에서 optimization 과정을 통해서 최적화된 $$\mathbf{x}^* $$를 계산하였다. 최적화 식을 만족하는 state를 계산하기 위해서는 $$\mathbf{b}^T$$와 $$\mathbf{H}$$를 계산해야 한다.
 
 $$
 \begin{aligned}
@@ -157,6 +157,11 @@ $$
 $$
 
 $$
+\mathbf{b} = \sum_{ij} \mathbf{b}_{ij}^T
+$$
+
+
+$$
 \begin{aligned}
 \mathbf{H}_{ij} &= \mathbf{J}_{ij}^T  \mathbf{\Omega}_{ij} \mathbf{J}_{ij}\\
 &= \begin{pmatrix} 0 & \cdots & \mathbf{A}_{ij} & \cdots & \mathbf{B}_{ij} & \cdots & 0
@@ -173,9 +178,16 @@ $$
 \end{aligned}
 $$
 
+$$
+\mathbf{H} = \sum_{ij} \mathbf{H}_{ij}
+$$
+
+
 위에서 설명한 과정을 통해서 최적의 $$\mathbf{x}$$를 계산하는 과정을 정리하면 다음과 같다.
 
 <img align="middle" src="/images/post/SLAM/lec13_least_square_SLAM/algorithm.png" width="100%">
+
+위에서 설명한 과정을 통해 모든 measurement에 대한 information matrix($$\mathbf{H}$$)와 $$\mathbf{b}$$를 계산하고, 두 값을 이용하여 state의 변화량인 $$\triangle \mathbf{x}$$를 계산한다($$\triangle \mathbf{x} = -\mathbf{H}^{-1}\mathbf{b}$$). 이제 계산된 변화량을 이용하여 state를 업데이트하고($$\mathbf{x} = \mathbf{x}+\triangle \mathbf{x}$$) state가 수렴할 때 까지 반복하여 최적화된 state를 계산한다. 
 
 ## Example of Pose graph
 
