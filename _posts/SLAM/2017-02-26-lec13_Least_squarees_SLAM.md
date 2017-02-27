@@ -187,7 +187,7 @@ $$
 
 <img align="middle" src="/images/post/SLAM/lec13_least_square_SLAM/algorithm.png" width="100%">
 
-위에서 설명한 과정을 통해 모든 measurement에 대한 information matrix($$\mathbf{H}$$)와 $$\mathbf{b}$$를 계산하고, 두 값을 이용하여 state의 변화량인 $$\triangle \mathbf{x}$$를 계산한다($$\triangle \mathbf{x} = -\mathbf{H}^{-1}\mathbf{b}$$). 이제 계산된 변화량을 이용하여 state를 업데이트하고($$\mathbf{x} = \mathbf{x}+\triangle \mathbf{x}$$) state가 수렴할 때 까지 반복하여 최적화된 state를 계산한다.
+위에서 설명한 과정을 통해 모든 measurement에 대한 information matrix($$\mathbf{H}$$)와 $$\mathbf{b}$$를 계산하고, 두 값을 이용하여 state의 변화량인 $$\triangle \mathbf{x}$$를 계산한다($$\triangle \mathbf{x} = -\mathbf{H}^{-1}\mathbf{b}$$). $$\mathbf{H}$$는 크기가 큰 matrix이므로 inverse과정이 높은 계산량을 요구하므로, 이를 쉽게 계산하기 위해서 Cholesky factorization 방법을 사용한다([이전 글](http://jinyongjeong.github.io/2017/02/26/lec12_Least_squarees/) 참고).이제 계산된 변화량을 이용하여 state를 업데이트하고($$\mathbf{x} = \mathbf{x}+\triangle \mathbf{x}$$) state가 수렴할 때 까지 반복하여 최적화된 state를 계산한다.
 
 ## Example of Pose graph
 
