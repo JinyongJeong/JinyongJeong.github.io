@@ -24,6 +24,7 @@ addpkg\
     libglew-dev\
     libxmu-dev\
     libxi-dev\
+    libopenni-dev\
 
 # go forth!
 echo "apt-get install $PACKAGES"
