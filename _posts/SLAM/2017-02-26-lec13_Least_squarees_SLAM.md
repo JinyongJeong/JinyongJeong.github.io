@@ -45,7 +45,7 @@ Graph SLAM은 아래 그림과 같이 크게 Front-end와 Back-end로 나눌 수
 
 ## Graph
 
-이 글에서 로봇이 이동하는 환경은 2 dimension으로 가정하며, 로봇의 위치는 다음과 같이 3 DOF로 표현한다.
+이 글에서 로봇이 이동하는 환경은 2-dimension 으로 가정하며, 로봇의 위치는 다음과 같이 3 DOF로 표현한다.
 
 $$
 \mathbf{x}_i = (x_i, y_i, \theta_i)
@@ -78,13 +78,13 @@ Graph를 구성하는 노드 $$\mathbf{x}_i$$와 $$\mathbf{x}_{i+1}$$ 사이에�
 
 $$\mathbf{x}_i$$와 $$\mathbf{x}_j$$는 현재 graph에서 두 node의 위치이다. $$<\mathbf{z}_{ij},\Omega_{ij}>$$는 $$\mathbf{x}_i$$의 위치에서 센서를 이용하여 측정한 $$\mathbf{x}_j$$의 위치이다. 센서로 측정한 node의 위치와 현재 graph상의 위치의 차이를 $$\mathbf{e}_{ij}$$로 표현한다. Graph optimization은 이러한 error를 최소화 시키는 graph를 계산하는 것이다. Graph optimization을 계산하는 과정은 이전 글인 [least square](http://jinyongjeong.github.io/2017/02/26/lec12_Least_squarees/)을 참고하기 바란다. 여기서 $$\Omega_{ij}$$가 센서 measurement의 information matrix임을 기억하자.
 
-Error function ($$\mathbf{e}_{ij}(\mathbf{x}_i, \mathbf{x}_j)$$) homogeneous coordinate로 표현하면 다음과 같이 표현할 수 있다.
+Error function ($$\mathbf{e}_{ij}(\mathbf{x}_i, \mathbf{x}_j)$$)을 homogeneous coordinate로 표현하면 다음과 같이 표현할 수 있다.
 
 $$
 \mathbf{e}_{ij}(\mathbf{x}_i, \mathbf{x}_j) = \text{t2v}(\mathbf{Z}_{ij}^{-1}(\mathbf{X}_i^{-1}\mathbf{X}_j))
 $$
 
-homogeneous coordinate은 로봇의 translation과 rotation을 하나의 matrix로 표현하는 방법으로 [SE(3) and SO(3)](http://jinyongjeong.github.io/2016/06/07/se3_so3_transformation/)를 참고하자.
+homogeneous coordinate은 로봇의 translation과 rotation을 하나의 matrix로 표현하는 방법이며, 이러한 표현방법에 대해서는 [SE(3) and SO(3)](http://jinyongjeong.github.io/2016/06/07/se3_so3_transformation/)에서 다루었다. 
 
 위 식에서 $$\mathbf{Z}_{ij}$$는 i에서 바라본 j의 measurement이며, $$\mathbf{X}_i^{-1}\mathbf{X}_j$$는 현재 graph에서 i를 기준으로 j의 위치를 의미한다. t2v함수는 homogeneous coordinate를 vector form으로 바꾸는 transform 함수이다.
 
@@ -210,6 +210,6 @@ $$
 
 따라서 error를 최소화 하는 state의 변화량은 $$\begin{pmatrix} 0 & 1 \end{pmatrix}^T$$가 되며 state를 업데이트하면 최종적으로 $$\mathbf{x} = \mathbf{x} + \triangle \mathbf{x} = \begin{pmatrix} 0 & 1 \end{pmatrix}^T$$가 된다.
 
-이번 글에서는 pose graph SLAM에 대해서 설명하였다. 다음 글에서는 landmark가 있을 때의 graph SLAM에 대해서 설명하도록 한다. 
+이번 글에서는 pose graph SLAM에 대해서 설명하였다. 다음 글에서는 landmark가 있을 때의 graph SLAM에 대해서 설명하도록 한다.
 
 **본 글을 참조하실 때에는 출처 명시 부탁드립니다.**
