@@ -193,7 +193,7 @@ $$
 
 이해를 돕기위해 graph의 optimization과정을 통한 state update과정의 예를 통해 설명할 것이다.
 
-<img align="middle" src="/images/post/SLAM/lec13_least_square_SLAM/example.png" width="70%">
+<img align="middle" src="/images/post/SLAM/lec13_least_square_SLAM/example.png" width="100%">
 
 위 그림과 같이 현재 2개의 state가 있으며, 센서를 통해 측정한 두 node 사이의 odometry정보는 1이다. 처음에는 모든 state의 값을 모르기 때문에 모두 0으로 설정한다.
 
@@ -223,5 +223,7 @@ $$
 따라서 error를 최소화 하는 state의 변화량은 $$\begin{pmatrix} 0 & 1 \end{pmatrix}^T$$가 되며 state를 업데이트하면 최종적으로 $$\mathbf{x} = \mathbf{x} + \triangle \mathbf{x} = \begin{pmatrix} 0 & 1 \end{pmatrix}^T$$가 된다.
 
 이번 글에서는 pose graph SLAM에 대해서 설명하였다. 다음 글에서는 landmark가 있을 때의 graph SLAM에 대해서 설명하도록 한다.
+
+## He
 
 **본 글을 참조하실 때에는 출처 명시 부탁드립니다.**
