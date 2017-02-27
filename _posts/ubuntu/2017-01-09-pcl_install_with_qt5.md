@@ -15,9 +15,19 @@ description: >
 
 VTK와 PCL를 제외한 나머지 dependency는 설치 되어 있다고 하자.(openni 등)
 
-QT5 또한 원하는 버전을 /opt/에 설치한 경우이다.
+만약 dependecy가 설치되어 있지 않다면 이 [shell script](/images/post/ubuntu/pcl_install/essential_install.sh)를 다운받아 실행하자.
 
-아직 PCL dependency를 설치하지 않았다면 [이 블로그](https://github.com/hsean/Capstone-44-Object-Segmentation/wiki/PCL-1.8:-Ubuntu-14.04-Installation-Guide)를 참고하자.
+
+```
+chmod 777 essential_install.sh
+sudo ./essential_install.sh
+```
+
+위 shell script는 PCL의 dependency와 기타 기본 라이브러리를 설치해준다. 
+
+PCL의 dependency설치에 대해서 자세히 보고 싶으면 다음 [이 블로그](https://github.com/hsean/Capstone-44-Object-Segmentation/wiki/PCL-1.8:-Ubuntu-14.04-Installation-Guide)를 참고하자.
+
+이제 기본적인 dependency가 설치되어있는 환경에서 PCL의 dependency인 VTK와 PCL을 원하는 QT버전에 맞게 설치하는 방법에 대해서 설명한다. 이는 QT를 /opt/ 경로에 설치한 경우이다. 
 
 # 1. VTK 설치
 
