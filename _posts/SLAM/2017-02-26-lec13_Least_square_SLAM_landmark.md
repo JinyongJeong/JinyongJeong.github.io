@@ -81,7 +81,8 @@ damping factor는 error의 증감에 따라 크기를 변화시킨다. 전체적
 
 <img align="middle" src="/images/post/SLAM/lec14_least_square_SLAM_llandmark/LM_algorithm.png" width="100%">
 
+### 정리
 
-
+이 글에서는 Landmark가 있는 환경에서의 Graph-based SLAM에 대해서 알아보았다. Landmark가 없는 환경에서는 센서 데이터를 이용하여 non-successive node간의 edge정보를 계산하였다. 이러한 edge는 node간의 직접적인 연결이다. 반면, landmark가 있는 환경에서는 각 node에서 바라보는 landmark의 위치가 observation 정보가 되며, non-successive한 node간의 연결은 landmark를 통해서 이루어진다. 이때 센서의 종류에 따라 information matrix의 rank가 결정되고 under-determined system이 되므로 이를 풀기위한 기법이 필요하게 된다(LM method).
 
 **본 글을 참조하실 때에는 출처 명시 부탁드립니다.**
