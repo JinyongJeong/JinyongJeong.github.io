@@ -27,7 +27,7 @@ Landmark가 존재하는 실제 환경은 아래와 같다. 아래 그림과 같
 
 <img align="middle" src="/images/post/SLAM/lec14_least_square_SLAM_llandmark/landmark3.png" width="100%">
 
-이제 graph에서 node는 로봇의 위치뿐만 아니라 landmark의 위치도 포함하게 된다.
+이제 graph에서 node는 로봇의 위치뿐만 아니라 landmark의 위치도 포함하게 된다. 이때 landmark는 방향없이 x,y좌표로만 구성된다.
 
 * Node
   * 로봇의 위치
@@ -40,7 +40,46 @@ Landmark가 존재하는 실제 환경은 아래와 같다. 아래 그림과 같
 
 ### Rank of Information matrix
 
+Landmark를 통한 graph SLAM의 경우 센서 특성에 따른 information matrix의 rank를 살펴보아야 한다. 여기서는 *bearing only observation* 센서모델로 로봇의 위치에서 landmark까지의 각도만을 측정할 수 있는 센서의 경우를 생각한다.
+Bearing observation의 경우 observation function은 다음과 같다.
 
+<img align="middle" src="/images/post/SLAM/lec14_least_square_SLAM_llandmark/observation_fuction.png" width="100%">
+
+이 observation function을 이용한 error term은 다음과 같다.
+
+<img align="middle" src="/images/post/SLAM/lec14_least_square_SLAM_llandmark/error_function.png" width="100%">
+
+이제 위 error term으로 구성되는 information matrix의 rank는 어떻게 될까?
+
+$$
+\mathbf{H}_{ij} = \mathbf{J}_{ij}^T \mathbf{\Omega}_{ij} \mathbf{J}_{ij}
+$$
+
+위 식에서 $$\mathbf{J}_{ij}$$는 error term을 편미분한 행렬인데, bearing only 센서의 경우 error term의 dimension은 1이므로 Jacobian의 rank는 1이다. 따라서 $$\mathbf{H}_{ij}$$의 rank도 1이 된다.
+
+<img align="middle" src="/images/post/SLAM/lec14_least_square_SLAM_llandmark/bearing_rank.png" width="100%">
+
+rank가 1이라는 것은 무엇을 의미할까? rank가 1이라는 것은 위 그림과 같이 어떠한 landmark가 있을 때 로봇은 x-y plane에 어디든 존재할 수 있으며 단지 그 x-y좌표에 해당하는 heading 각도만 한정된다는 의미이다. 따라서 bearing only sensor의 경우 로봇의 위치를 정확히 알기 위해서는 3개 이상의 observation이 필요하다. 이러한 시스템을 "under-determined" 시스템이라고 부른다.
+
+따라서 Information matrix의 rank는 로봇의 위치 중(x,y,heading) 몇가지의 정보를 한정할 수 있는지를 의미하며, 로봇의 위치에 대한 unique solusion을 계산하기 위해서는 full lank가 되어야 한다.
+
+### under-determined system
+
+이러한 under-determined system, 즉 information matrix의 rank가 full lank가 아닌 경우 이러한 상황을 해결하기 위한 방법이 "Levenberge Marquardt" method 이다. 즉 "damping factor"를 더함으로써 full rank의 matrix를 만들어 unique한 해를 찾는다. 원래의 식은 아래와 같다.
+
+$$
+\mathbf{H} \triangle \mathbf{x} = -\mathbf{b}
+$$
+
+damping factor가 추가된 식은 아래와 같다.
+
+$$
+(\mathbf{H} + \lambda \mathbf{I})\triangle \mathbf{x} = -\mathbf{b}
+$$
+
+damping factor는 error의 증감에 따라 크기를 변화시킨다. 전체적인 알고리즘은 다음과 같다.
+
+<img align="middle" src="/images/post/SLAM/lec14_least_square_SLAM_llandmark/LM_algorithm.png" width="100%">
 
 
 
