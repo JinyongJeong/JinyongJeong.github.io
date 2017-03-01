@@ -49,7 +49,7 @@ Bearing observation의 경우 observation function은 다음과 같다.
 
 <img align="middle" src="/images/post/SLAM/lec14_least_square_SLAM_llandmark/error_function.png" width="100%">
 
-이제 위 error term으로 구성되는 information matrix의 rank는 어떻게 될까?
+위 error term으로 구성되는 information matrix의 rank는 어떻게 될까?
 
 $$
 \mathbf{H}_{ij} = \mathbf{J}_{ij}^T \mathbf{\Omega}_{ij} \mathbf{J}_{ij}
