@@ -107,7 +107,7 @@ Max-mixture에 대해서 더 공부하고 싶으면 [이 논문](/images/post/SL
 
 ### Dynamic Covariance Scaling(DCS)
 
-Graph의 최적화를 Robust하게 만드는 다른 방법은 DCS(Dynamic Covariance Scaling)방법이다. DCS는 각 Error값에 해당하는 information matrix의 크기를 조절함으로써 Robust하게 만든다. 원래 graph optimization식은 다음과 같다.
+Graph의 최적화를 Robust하게 만드는 다른 방법은 DCS(Dynamic Covariance Scaling)방법이다. DCS는 각 Error값에 해당하는 information matrix의 크기를 조절함으로써 robust하게 만든다. 원래 graph optimization식은 다음과 같다.
 
 $$
 \mathbf{x}^* = argmin_{\mathbf{x}} \sum_{ij} \mathbf{e}_{ij}(\mathbf{x})^T \Omega_{ij}\mathbf{e}_{ij}(\mathbf{x})
