@@ -103,7 +103,7 @@ $$
 
 위 그림에서 빨간색 그래프는 같은 mean값을 갖는(다른 variance) 두 gaussian의 합을 max-mixture방법을 통해 얻은 분포의 cost-function을 보여준다. 앞에서 설명한 M-estimator의 cost function들과 유사함을 알 수 있다. 따라서 여러개의 Gaussian 분포를 더함으로써 graph optimization과정을 Robust하게 만들 수 있다.
 
-Max-mixture에 대해서 더 공부하고 싶으면 [이 논문](/images/post/SLAM/lec15_MM_robust_graph/Eolson_2013_IJRR)을 참고하기 바란다.
+Max-mixture에 대해서 더 공부하고 싶으면 [이 논문](/images/post/SLAM/lec15_MM_robust_graph/Eolson_2013_IJRR.pdf)을 참고하기 바란다.
 
 ### Dynamic Covariance Scaling(DCS)
 
