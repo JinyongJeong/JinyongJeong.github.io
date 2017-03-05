@@ -11,7 +11,7 @@ sitemap :
 
 **본 글은 University Freiburg의 [Robot Mapping](http://ais.informatik.uni-freiburg.de/teaching/ws13/mapping/) 강의를 바탕으로 이해하기 쉽도록 정리하려는 목적으로 작성되었습니다. 개인적인 의견을 포함하여 작성되기 때문에 틀린 내용이 있을 수도 있습니다. 틀린 부분은 지적해주시면 확인 후 수정하겠습니다.**
 
-이번 글에서는 이전에 설명했던 [graph-based SLAM](http://jinyongjeong.github.io/2017/02/26/lec13_Least_square_SLAM/)이 Outlier(잘못된 정보)에 Robust하게 만드는 방법에 대해서 설명한다.
+이번 글에서는 이전에 설명했던 [graph-based SLAM](http://jinyongjeong.github.io/2017/02/26/lec13_Least_square_SLAM/)이 outlier(잘못된 정보)에 Robust하게 만드는 방법에 대해서 설명한다.
 
 Graph-based SLAM은 least square방법을 사용하여 로봇과 landmark의 위치를 최적화 시킨다. 즉, 현재의 graph상의 로봇의 위치에서 얻어질 것으로 예상되는 측정값과 실제 측정값과의 차이를 최소화 시키는 방향으로 graph가 최적화 된다.
 
@@ -55,9 +55,9 @@ c(\mid e \mid -\frac{c}{2}) & otherwise \end{cases}$$
 
 <img align="middle" src="/images/post/SLAM/lec15_MM_robust_graph/estimator.png" width="100%">
 
-위 그림은 각 함수의 형태를 보여준다. 최적화를 하기 위한 cost function의 형태에 변화를 줌으로써 outlier에 강인한 특성을 주기 위한 노력들이다. 왜 이렇게 cost function의 형태를 바꿈으로써 outlier에 Robust한 특성을 갖게 되는 것인지 살펴보자. 최적화의 cost fuction은 error들의 합을 최소화 하는 방향으로 입력을 변화시키며 수렴하는 방법이다. 이때 error가 매우 큰(Outlier라고 생각 할 수 있는) 항들이 최적화 과정에서 큰 weight로 작용하게 된다. 따라서 ourlier라고 생각 할 수 있는, 즉 error가 매우 큰 항에 대해서 weight를 다소 줄이는 방향으로 cost function의 형태를 구성한 것이 위와 같은 cost function들의 형태라고 볼 수 있다. 다양한 형태의 function중에서 가장 흔히 많이 사용되는 형태는 Huber M-estimator이다.
+위 그림은 각 함수의 형태를 보여준다. 최적화를 하기 위한 cost function의 형태에 변화를 줌으로써 outlier에 강인한 특성을 주기 위한 노력들이다. 이렇게 cost function의 형태를 바꿈으로써 outlier에 Robust한 특성을 어떻게 갖게 되는 것인지 살펴보자. 최적화는 error들의 합을 최소화 하는 방향으로 입력을 변화시키며 해를 찾아가는 방법이다. 이러한 과정에서 error가 매우 큰(Outlier라고 생각 할 수 있는) term들이 최적화 과정에서 큰 weight로 작용하게 된다(영향을 크게 준다). 따라서 위의 함수들은 ourlier라고 생각 할 수 있는, 즉 error가 매우 큰 term에 대해서 weight를 다소 줄이는 방향으로 cost function의 형태를 구성한 것이다. 다양한 형태의 function중에서 가장 많이 사용되는 형태는 Huber M-estimator이다.
 
-앞으로 설명할 Max-mixture와 dynamic covariance scaling 방법도 m-estimator와 비슷한 개념을 이용하여 최적화의 robust함을 높이려는 노력이다.
+앞으로 설명할 Max-mixture와 dynamic covariance scaling 방법도 m-estimator와 비슷한 개념을 이용하여 최적화의 robust함을 높이려는 방법이다.
 
 ### Max-mixture
 
