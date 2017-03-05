@@ -25,22 +25,21 @@ Graph-based SLAM은 least square방법을 사용하여 로봇과 landmark의 위
 
 그리고 이렇게 잘못 발생된 edge가 많아질 수록 왜곡은 심해지게 된다. 이러한 문제는 다음과 같은 상황에서 주로 발생한다.
 
-1. 특별한 특징이 없는 환경(아무런 특징이 없는 복도 등)
-2. 같은 빌딩내의 비슷한 방의 환경
+1. 특징이 없는 환경(아무런 특징이 없는 복도 등)
+2. 같은 빌딩내의 비슷한 환경의 방
 3. GPS의 multi-path(GPS 신호가 다른 건물에 반사된 후 수신되어 오차가 발생하는 현상)
 
-따라서 실제 graph-based SLAM을 수행할 때 위와 같은 상황 뿐만아니라 다양한 상황에 따라서 왜곡이 발생하게 된다.
-따라서 이러한 잘못된 정보를 outlier라고 하며, 이러한 outlier에 robust한 최적화 방법이 필요하다. 따라서 이번 글에서는 이러한 최적화 과정을 Robust하게 만드는 방법에 대해서 설명하도록 한다.
+따라서 실제 graph-based SLAM을 수행할 때 위의 상황 뿐만아니라 다양한 상황에서 왜곡이 발생하게 된다. 이러한 잘못된 정보를 outlier라고 하며, 이러한 outlier에 덜 영향을 받는 최적화 방법이 필요하다. 이번 글에서는 최적화 과정을 Robust하게 만드는 방법에 대해서 설명하도록 한다.
 
 ### Robust M-estimator
 
-이전 글인 [Least square](http://jinyongjeong.github.io/2017/02/26/lec12_Least_square/)에서 Gaussian으로 가정된 noise에 대해서 least square방법으로 최적해를 구하는 방법에 대해서 설명하였다. 또한 least square와 gaussian의 관계에 대해서도 언급하였었다. M-estimator는 noise의 형태를 Gaussian으로 가정하지 않는다. 즉 least square방법은 M-estimator의 한 종류이며, Gaussian noise를 가정한 model이다. M-estimator의 PDF(Probability density function)은 아래와 같이 정의된다. Least squre의 경우 PDF가 Gausian form으로 정의된 것이다.
+이전 글인 [Least square](http://jinyongjeong.github.io/2017/02/26/lec12_Least_square/)에서는 noise를 Gaussina 분포로 가정하고, least square방법으로 최적해를 구하는 방법에 대해서 설명하였다. 또한 least square와 Gaussian 분포의 관계에 대해서도 언급하였었다. Least square방법은 M-estimator의 한 종류이며, Gaussian noise를 가정한 model이다. M-estimator는 noise의 형태를 Gaussian으로 가정하지 않는다. M-estimator의 PDF(Probability density function)은 아래와 같이 정의된다.
 
 $$
 p(e)= exp(-\rho(e))
 $$
 
-그렇다면 Least square에서 최적회를 구한것과 같이 negative log likelihood formd으로 표기하면 PDF의 최대값을 찾는 문제는 log likelihood의 최소값을 찾는 문제가 된다. 이 부분에 대해서 이해가 잘 되지 않으면 [Least square](http://jinyongjeong.github.io/2017/02/26/lec12_Least_square/)를 참고하자.
+그렇다면 least square에서 최적해를 계산하는 것과 같이 negative log likelihood form으로 표기하면 PDF의 최대값을 찾는 문제는 log likelihood의 최소값을 찾는 문제가 된다. 이 부분에 대해서 이해가 잘 되지 않으면 [Least square](http://jinyongjeong.github.io/2017/02/26/lec12_Least_square/)를 참고하자.
 
 $$
 \mathbf{x}^* = argmin_{\mathbf{x}} \sum_i \rho(e_i(\mathbf{x}))
