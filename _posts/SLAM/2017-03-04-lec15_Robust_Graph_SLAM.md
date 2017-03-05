@@ -49,9 +49,9 @@ $$
 즉 위의 log likelihood식에서 $$\rho(e)$$가 $$\rho(e) = e^2$$ 처럼 제곱의 형태인 것이 Least square문제가 되는 것이다. 그렇다면 $$\rho$$ fucntion에는 어떤 종류들이 있는지 살펴보도록 하자.
 
 * Gaussian: $$\rho(e) = e^2$$
-* L1 norm: $$\rho(e) = |e|$$
-* Huber M-estimator: $$ \rho(e) = \begin{cases} \frac{e^2}{2} & if |e| < c \\
-c(|e|-\frac{c}{2}) & otherwise \end{cases}$$
+* L1 norm: $$\rho(e) = \mid e \mid$$
+* Huber M-estimator: $$ \rho(e) = \begin{cases} \frac{e^2}{2} & if \mid e \mid < c \\
+c(\mid e \mid -\frac{c}{2}) & otherwise \end{cases}$$
 * Others: Tukey, Cauchy ...
 
 <img align="middle" src="/images/post/SLAM/lec15_MM_robust_graph/estimator.png" width="100%">
