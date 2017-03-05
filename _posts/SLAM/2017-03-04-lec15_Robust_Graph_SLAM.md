@@ -34,7 +34,7 @@ Graph-based SLAM은 least square방법을 사용하여 로봇과 landmark의 위
 
 ### Robust M-estimator
 
-이전 글인 [Least square](http://jinyongjeong.github.io/2017/02/26/lec12_Least_square/)에서 Gaussian으로 가정된 noise에 대해서 least square방법으로 최적해를 구하는 방법에 대해서 설명하였다. 또한 least squre와 gaussian의 관계에 대해서도 언급하였었다. M-estimator는 noise의 형태를 Gaussian으로 가정하지 않는다. 즉 least square방법은 M-estimator의 한 종류이며, Gaussian noise를 가정한 model이다. M-estimator의 PDF(Probability density function)은 아래와 같이 정의된다. Least squre의 경우 PDF가 Gausian form으로 정의된 것이다.
+이전 글인 [Least square](http://jinyongjeong.github.io/2017/02/26/lec12_Least_square/)에서 Gaussian으로 가정된 noise에 대해서 least square방법으로 최적해를 구하는 방법에 대해서 설명하였다. 또한 least square와 gaussian의 관계에 대해서도 언급하였었다. M-estimator는 noise의 형태를 Gaussian으로 가정하지 않는다. 즉 least square방법은 M-estimator의 한 종류이며, Gaussian noise를 가정한 model이다. M-estimator의 PDF(Probability density function)은 아래와 같이 정의된다. Least squre의 경우 PDF가 Gausian form으로 정의된 것이다.
 
 $$
 p(e)= exp(-\rho(e))
