@@ -67,21 +67,21 @@ Max-mixture는 M-estimator와 마찬가지로 graph-based optimization을 outlie
 세상에 존재하는 다앙햔 분포를 1개의 Gaussian만을 이용하여 표현하기엔 부족한 경우가 많이 발생한다. 따라서 다양한 분포를 표현하기 위해서 여러개의 Gaussian을 더하는 형태로 분포를 표현할 수 있다.
 
 $$
-p(\mathbf{z}\mid\mathbf{x}) = \sum_k w_k \eta_k exp(-\frac{1}{2}\mathbf{e}_{{ij}_k}^T \Omega_{{ij}_k}\mathbf{e}_{{ij}_k})
+p(\mathbf{z}\mid\mathbf{x}) = \sum_k w_k \eta_k exp(-\frac{1}{2}\mathbf{e}_{ij}^T \Omega_{ij}\mathbf{e}_{ij})_k
 $$
 
 그렇다면 위의 분포를 최적화 시키기 위한 cost function을 얻기 위해 negative log likelihood을 취하면 다음과 같은 형태가 된다.
 
 $$
--log p(\mathbf{z}\mid\mathbf{x}) = -log \sum_k w_k \eta_k exp(-\frac{1}{2}\mathbf{e}_{{ij}_k}^T \Omega_{{ij}_k}\mathbf{e}_{{ij}_k})
+-log p(\mathbf{z}\mid\mathbf{x}) = -log \sum_k w_k \eta_k exp(-\frac{1}{2}\mathbf{e}_{ij}^T \Omega_{ij}\mathbf{e}_{ij})_k
 $$
 
 1개의 Gaussian분포일 경우에는 sum($$\sum$$)이 없기 떄문에 log와 exponential이 계산되어 우리가 앞에서 계산한 cost function의 형태로 계산되어 최적화 과정을 진행할 수 있게 된다. 하지만 Gaussian mixture 모델의 경우 Sum의 형태이기 때문에 log가 sum의 안으로 들어갈 수 없다. 따라서 mixture 모델을 최적화 시키기 위해서 최대값을 이용하는 max-mixture approximation 방법을 이용한다.
 
 $$
 \begin{aligned}
-p(\mathbf{z}\mid\mathbf{x}) &= \sum_k w_k \eta_k exp(-\frac{1}{2}\mathbf{e}_{{ij}_k}^T \Omega_{{ij}_k}\mathbf{e}_{{ij}_k})\\
-&\approx max_k w_k \eta_k exp(-\frac{1}{2}\mathbf{e}_{{ij}_k}^T \Omega_{{ij}_k}\mathbf{e}_{{ij}_k})
+p(\mathbf{z}\mid\mathbf{x}) &= \sum_k w_k \eta_k exp(-\frac{1}{2}\mathbf{e}_{ij}^T \Omega_{ij}\mathbf{e}_{ij})_k\\
+&\approx max_k w_k \eta_k exp(-\frac{1}{2}\mathbf{e}_{ij}^T \Omega_{ij}\mathbf{e}_{ij})_k
 \end{aligned}
 $$
 
@@ -93,8 +93,8 @@ $$
 
 $$
 \begin{aligned}
--log p(\mathbf{z}\mid\mathbf{x}) &= -log \ \ max_k w_k \eta_k exp(-\frac{1}{2}\mathbf{e}_{{ij}_k}^T \Omega_{{ij}_k}\mathbf{e}_{{ij}_k})\\
-&= min_k \frac{1}{2}\mathbf{e}_{{ij}_k}^T \Omega_{{ij}_k}\mathbf{e}_{{ij}_k} - log(w_k \eta_k)
+-log p(\mathbf{z}\mid\mathbf{x}) &= -log \ \ max_k w_k \eta_k exp(-\frac{1}{2}\mathbf{e}_{ij}^T \Omega_{ij}\mathbf{e}_{ij})_k\\
+&= min_k (\frac{1}{2}\mathbf{e}_{ij}^T \Omega_{ij}\mathbf{e}_{ij})_k - log(w_k \eta_k)
 \end{aligned}
 $$
 
