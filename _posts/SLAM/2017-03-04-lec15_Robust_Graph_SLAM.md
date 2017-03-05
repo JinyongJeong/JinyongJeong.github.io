@@ -19,8 +19,7 @@ Graph-based SLAM은 least square방법을 사용하여 로봇과 landmark의 위
 
 <img align="middle" src="/images/post/SLAM/lec15_MM_robust_graph/outlier.png" width="100%">
 
-위 그림과 같이 전혀 다른 두 위치를 같은 위치로 인식하여 edge를 발생시켰을 경우 아래와 같이 전체 graph가Probability density functio
-은 아래와 같이 정의된다.
+위 그림과 같이 전혀 다른 두 위치를 같은 위치로 인식하여 edge를 발생시켰을 경우 아래와 같이 그래프 전체에 왜곡이 발생하게 된다.
 
 <img align="middle" src="/images/post/SLAM/lec15_MM_robust_graph/distortion.png" width="100%">
 
