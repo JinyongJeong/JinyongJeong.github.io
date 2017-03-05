@@ -61,7 +61,7 @@ c(\mid e \mid -\frac{c}{2}) & otherwise \end{cases}$$
 
 ### Max-mixture
 
-Max-mixture는 M-estimator와 마찬가지로 graph-based optimization을 outlier에 강하게 만들기 위한 방법중에 하나이다. Max-mixture는 이름에서 알 수 있듯이 여러개의 Gaussian 분포를 합하는 과정에서 수학적인 이점을 얻기 위해서 각 Gaussian 분포의 최대값을 이용한다. 왜 이러한 방법을 사용하는지 아래 수식을 보도록 하자.
+Max-mixture는 M-estimator와 마찬가지로 graph-based optimization을 outlier에 robust하게 만들기 위한 방법중에 하나이다. Max-mixture는 이름에서 알 수 있듯이 여러개의 Gaussian 분포를 합하는 과정에서 수학적인 이점을 얻기 위해서 각 Gaussian 분포의 최대값을 이용한다. 왜 이러한 방법을 사용하는지 아래 수식을 보도록 하자.
 
 세상에 존재하는 다앙햔 분포를 1개의 Gaussian만을 이용하여 표현하기엔 부족한 경우가 많이 발생한다. 따라서 다양한 분포를 표현하기 위해서 여러개의 Gaussian을 더하는 형태로 분포를 표현할 수 있다.
 
@@ -69,7 +69,7 @@ $$
 p(\mathbf{z}\mid\mathbf{x}) = \sum_k w_k \eta_k exp(-\frac{1}{2}\mathbf{e}_{ij}^T \Omega_{ij}\mathbf{e}_{ij})_k
 $$
 
-그렇다면 위의 분포를 최적화 시키기 위한 cost function을 얻기 위해 negative log likelihood을 취하면 다음과 같은 형태가 된다.
+위의 분포를 최적화 시키기 위한 cost function을 얻기 위해 negative log likelihood을 취하면 다음과 같은 형태가 된다.
 
 $$
 -log p(\mathbf{z}\mid\mathbf{x}) = -log \sum_k w_k \eta_k exp(-\frac{1}{2}\mathbf{e}_{ij}^T \Omega_{ij}\mathbf{e}_{ij})_k
@@ -80,7 +80,7 @@ $$
 $$
 \begin{aligned}
 p(\mathbf{z}\mid\mathbf{x}) &= \sum_k w_k \eta_k exp(-\frac{1}{2}\mathbf{e}_{ij}^T \Omega_{ij}\mathbf{e}_{ij})_k\\
-&\approx max_k w_k \eta_k exp(-\frac{1}{2}\mathbf{e}_{ij}^T \Omega_{ij}\mathbf{e}_{ij})_k
+&\approx max_k \ \ w_k \eta_k exp(-\frac{1}{2}\mathbf{e}_{ij}^T \Omega_{ij}\mathbf{e}_{ij})_k
 \end{aligned}
 $$
 
@@ -88,26 +88,26 @@ $$
 
 <img align="middle" src="/images/post/SLAM/lec15_MM_robust_graph/max_mixture.png" width="100%">
 
-즉 두개의 분포의 값을 더하는 것 대신 최대값만을 추춣여 분포를 표현하는 것이다. 이는 두 분포의 평균값이 어느정도 거리로 떨어져 있을 경우에는 오차가 작지만 두 분포의 평균값이 매우 가까운 경우에는 큰 오차를 발생시킨다. 근사화된 식의 negative log likelihood는 다음과 같다.
+즉 두개의 분포의 값을 더하는 것 대신 최대값만을 추출하여 분포를 표현하는 것이다. 이는 두 분포의 평균값이 어느정도 거리로 떨어져 있을 경우에는 오차가 작지만 두 분포의 평균값이 매우 가까운 경우에는 큰 오차를 발생시킨다. 근사화된 식의 negative log likelihood는 다음과 같다.
 
 $$
 \begin{aligned}
--log p(\mathbf{z}\mid\mathbf{x}) &= -log \ \ max_k w_k \eta_k exp(-\frac{1}{2}\mathbf{e}_{ij}^T \Omega_{ij}\mathbf{e}_{ij})_k\\
+-log p(\mathbf{z}\mid\mathbf{x}) &= -log \ \ max_k \ \ w_k \eta_k exp(-\frac{1}{2}\mathbf{e}_{ij}^T \Omega_{ij}\mathbf{e}_{ij})_k\\
 &= min_k (\frac{1}{2}\mathbf{e}_{ij}^T \Omega_{ij}\mathbf{e}_{ij})_k - log(w_k \eta_k)
 \end{aligned}
 $$
 
-즉 Gaussian 분포의 max값을 취하는 형태로 근사화 함으로써 우리가 풀 수 있는 최적화의 Cost function을 구할 수 있게 되었다.
+즉 max-mixture는 Gaussian 분포의 max값을 취하는 형태로 근사화 함으로써 우리가 풀 수 있는 최적화의 Cost function을 구할 수 있게 되었다.
 
 <img align="middle" src="/images/post/SLAM/lec15_MM_robust_graph/mm_cost.png" width="100%">
 
-위 그림에서 빨간색 그래프는 같은 mean값을 갖는 두 gaussian의 합을 max-mixture방법을 통해 얻은 cost-function을 보여준다. 앞에서 설명한 M-estimator의 cost function들과 유사함을 알 수 있다. 따라서 여러개의 Gaussian 분포를 합함으로써 graph optimization과정을 Robust하게 만들 수 있다.
+위 그림에서 빨간색 그래프는 같은 mean값을 갖는(다른 variance) 두 gaussian의 합을 max-mixture방법을 통해 얻은 분포의 cost-function을 보여준다. 앞에서 설명한 M-estimator의 cost function들과 유사함을 알 수 있다. 따라서 여러개의 Gaussian 분포를 더함으로써 graph optimization과정을 Robust하게 만들 수 있다.
 
 Max-mixture에 대해서 더 공부하고 싶으면 [이 논문](/images/post/SLAM/lec15_MM_robust_graph/Eolson_2013_IJRR)을 참고하기 바란다.
 
 ### Dynamic Covariance Scaling(DCS)
 
-Graph의 최적화를 Robust하게 만드는 다른 방법은 DCS(Dynamic Covariance Scaling)방법이다. DCS는 각 Error값에 해당하는 information matrix의 크기를 조절함으로써 최적화를 Robust하게 만든다. 원래 graph optimization식은 다음과 같다.
+Graph의 최적화를 Robust하게 만드는 다른 방법은 DCS(Dynamic Covariance Scaling)방법이다. DCS는 각 Error값에 해당하는 information matrix의 크기를 조절함으로써 Robust하게 만든다. 원래 graph optimization식은 다음과 같다.
 
 $$
 \mathbf{x}^* = argmin_{\mathbf{x}} \sum_{ij} \mathbf{e}_{ij}(\mathbf{x})^T \Omega_{ij}\mathbf{e}_{ij}(\mathbf{x})
@@ -129,12 +129,12 @@ $$
 
 <img align="middle" src="/images/post/SLAM/lec15_MM_robust_graph/DCS.png" width="100%">
 
-위 그림은 DCS의 원래 cost function(검정색))과 scaling factor(function)그리고 최종 scaling이 된 cost function(빨간색)을 보여준다. Error가 적은 영역에서 scaling factor는 1이지만 error가 큰 영역으로 갈 수록 scaling factor가 작아지며, error가 큰 영역의 함수 출력값을 줄여준다. 이는 m-estimator가 error가 큰 영역의 값을 줄이는 것과 비슷한 효과로 볼 수 있다. 원래 DCS가 이러한 개념을 처음 사용한 것은 아니다. DCS가 나오기 전인 2012년 IROS에 error가 큰 term의 영향을 없애는 "Switchable Constraint for Robust Pose Graph SLAM"이 발표되었다. 이는 획기적으로 graph 최적화를 robust하게 만들었으나 과정이 매우 복잡한 단점이 있었다. 그 이후에 "Switchable Constraint" 논문을 위와같이 close form으로 정리하여 ICRA 2013년도에 발표한 논문이 "Robust Map Optimization using Dynamic Covariance Scaling"이다.
+위 그림은 DCS의 원래 cost function(검정색)과 scaling factor(파란색)그리고 최종 scaling이 된 cost function(빨간색)을 보여준다. Error가 적은 영역에서 scaling factor는 1이지만 error가 큰 영역으로 갈 수록 scaling factor가 작아지며, error가 큰 영역의 함수 출력값을 줄여준다. 이는 m-estimator가 error가 큰 영역의 값을 줄이는 것과 비슷한 효과로 볼 수 있다. 원래 DCS가 이러한 개념을 처음 사용한 것은 아니다. DCS가 나오기 전인 2012년 IROS에 error가 큰 term의 영향을 없애는 "Switchable Constraint for Robust Pose Graph SLAM"이 발표되었다. 이는 획기적으로 graph 최적화를 robust하게 만들었으나 과정이 매우 복잡한 단점이 있었다. 그 이후에 "Switchable Constraint" 논문을 위와같이 close form으로 정리하여 ICRA 2013년도에 발표한 논문이 "Robust Map Optimization using Dynamic Covariance Scaling"이다.
 
 이 글에서 DCS에 대해서 너무 깊이 논하지는 않을 것이다. 조금 더 자세히 내용이 필요한 경우 위 논문을 찾아보기 바란다.
 
 ### 정리
 
-이번 글에서는 graph optimization과정을 outlier에 robust하게 만드는 방법에 대해서 살펴보았다. 이러한 목적으로 여러가지 방법이 사용되고 있으나 결과적으로는 optimization의 cost function에서 error가 큰 영역의 출력값을 줄여주는 방법이라는 점에서는 동일함을 알 수 있다.
+이번 글에서는 graph-based SLAM을 outlier에 robust하게 만드는 방법에 대해서 살펴보았다. 이러한 목적으로 여러가지 방법이 사용되고 있으나 결과적으로는 최적화의 cost function에서 error가 큰 영역의 출력값을 줄여주는 방법이라는 점에서는 유사함을 알 수 있다. 
 
 **본 글을 참조하실 때에는 출처 명시 부탁드립니다.**
