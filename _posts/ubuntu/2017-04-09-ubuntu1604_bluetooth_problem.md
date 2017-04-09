@@ -9,6 +9,7 @@ description: >
 인텔 최신 칩셋인
 
 Intel® Dual Band Wireless-AC 8265
+
 Intel® Dual Band Wireless-AC 8260 
 
 과 같은 무선칩셋을 사용하는 노트북의 경우 ubuntu 16.04가 부팅할 때 다음과 같은 오류 메세지를 띄우면서 부팅이 안되는 경우가 발생한다. 
