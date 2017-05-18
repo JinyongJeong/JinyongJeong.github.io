@@ -70,7 +70,7 @@ $$
 Optimization 방법으로 최적의 로봇 state($$\mathbf{x}^* $$)를 구하는 순서는 다음과 같다.
 
 1. 현재의 state를 기준으로 error term($$\mathbf{e(x)}$$)의 선형화
-2. 선화된 error term으로 계산되는 squared error function($$e_i(\mathbf{x})$$)의 1차 미분계산
+2. 선형화된 error term으로 계산되는 squared error function($$e_i(\mathbf{x})$$)의 1차 미분계산
 3. squared error function은 quadratic form이므로 1차 미분값이 0이 되는 점이 최소값이므로 미분값이 0인 solution을 계산
 4. 계산된 solution을 이용하여 state를 update
 5. 위의 과정을 수렴할 때까지 반복
