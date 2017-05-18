@@ -28,7 +28,7 @@ SLAM은 로봇의 위치를 추정함과 동시에 주변 환경에 대한 맵�
 
 * $$\mathbf{x}$$는 state vector
 * $$\mathbf{z}_i$$는 실제 measurement(실제 센서 측정값)
-* $$\hat{\mathbf{x}}_i=f_i(x)$$는 현재 state vector $$\mathbf{x}$$에서 예상되는 measurement값
+* $$\hat{\mathbf{z}}_i=f_i(x)$$는 현재 state vector $$\mathbf{x}$$에서 예상되는 measurement값
 * 목표: 센서로부터 실제 얻어진 measurement($$\mathbf{z}_i$$)에 가장 적합한 $$\mathbf{x}$$ 추정
 
 <img align="middle" src="/images/post/SLAM/lec12_least_square/least_square.png" width="100%">
