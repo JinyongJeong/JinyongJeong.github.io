@@ -9,7 +9,7 @@ title: About
 {% endcomment %}
 {% include about-short.html author=site.author %}
 
-### Publications
+### Publications [Google link](https://scholar.google.co.kr/citations?user=_RDRRWwAAAAJ&hl=ko)
 
 [2017]
 
