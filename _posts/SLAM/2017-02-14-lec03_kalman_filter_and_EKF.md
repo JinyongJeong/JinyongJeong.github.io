@@ -278,7 +278,7 @@ $$
 &[Correction step]\\
 4: &\ \ K_t = \bar{\Sigma_t}H_t^T(H_t \bar{\Sigma_t}H_t^T + Q_t)^{-1}\\
 5: &\ \ \mu_t = \bar{\mu_t} + K_t(z_t - h(\bar{\mu_t}))\\
-6: &\ \ \Sigma_t = (I - K_t C_t)\bar{\Sigma_t}\\
+6: &\ \ \Sigma_t = (I - K_t H_t)\bar{\Sigma_t}\\
 7: &\ \ \text{return} \ \ \mu_t, \Sigma_t\\
 \end{aligned}
 $$
