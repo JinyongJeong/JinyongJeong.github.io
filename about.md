@@ -15,6 +15,8 @@ title: About
 
 [2017]
 
+* Roh, Hyunchul, Jinyong Jeong, and Ayoung Kim. "Aerial Image Based Heading Correction for Large Scale SLAM in an Urban Canyon." IEEE Robotics and Automation Letters 2.4 (2017): 2232-2239.
+
 * Joowan Kim, Jinyong Jeong, Young-Sik Shin, Younggun Cho, Hyunchul Roh and Ayoung Kim, LiDAR Configuration Comparison for Urban Mapping System. In Proceedings of the IEEE Ubiquitous Robots and Ambient Intelligence (URAI), Jeju, S. Korea, Aug. 2017.
 
 * Jinyong Jeong, Younggun Cho and Ayoung Kim, Road-SLAM : Road Marking based SLAM with Lane-level Accuracy. In Proceedings of the IEEE Intelligent Vehicle Symposium, Redondo Beach, CA, Jun. 2017.
