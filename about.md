@@ -9,7 +9,7 @@ title: About
 {% endcomment %}
 {% include about-short.html author=site.author %}
 
-[<3D modeling>](http://irap.kaist.ac.kr/dataset/webgl_person/jjeong/jjeong.html)
+[<My 3D model>](http://irap.kaist.ac.kr/dataset/webgl_person/jjeong/jjeong.html)
 
 ### Publications 
 
