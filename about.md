@@ -12,6 +12,7 @@ title: About
 ### Publications 
 
 [Google link](https://scholar.google.co.kr/citations?user=_RDRRWwAAAAJ&hl=ko)
+
 [2018]
 
 * Jinyong Jeong, Younggun Cho, Young-sik Shin, Hyunchul Roh, Ayoung Kim. "Complex Urban LiDAR Data Set" Robotics and Automation (ICRA), 2018 IEEE International Conference on. IEEE, 2018.
