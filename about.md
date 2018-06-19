@@ -19,6 +19,7 @@ title: About
 
 * Jinyong Jeong and Ayoung Kim, LiDAR Intensity Calibration for Road Marking Extraction. In Proceedings of the IEEE International Conference on Ubiquitous Robots, Honolulu, Jun. 2018. 
 
+* Cho, Younggun, Jinyong Jeong, and Ayoung Kim. "Model Assisted Multi-band Fusion for Single Image Enhancement and Applications to Robot Vision." IEEE Robotics and Automation Letters (2018).
 
 [2017]
 
