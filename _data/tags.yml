@@ -38,6 +38,22 @@ software:
   color: '#949667'
   description: >
     Computer software, or simply software, is that part of a computer system that consists of encoded information or computer instructions, in contrast to the physical hardware from which the system is built.
+
+software:
+  name: Android
+  image: /public/img/2.jpg
+  color: '#949667'
+  description: >
+    Android is a mobile operating system developed by Google, based on a modified version of the Linux kernel and other open source software and designed primarily for touchscreen mobile devices such as smartphones and tablets.
+
+software:
+  name: IOS(Swift)
+  image: /public/img/1.jpg
+  color: '#949667'
+  description: >
+    IOS is the mobile operating system developed by Apple Inc.
+
+
 jekyll:
   name: Jekyll
   image: /public/img/2.jpg
