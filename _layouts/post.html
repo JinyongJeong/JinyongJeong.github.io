@@ -2,11 +2,11 @@
 layout: default
 ---
 
-{% include ad.html%}
+{% include ad.html post=page %}
 
 {% include post.html post=page link_title=false %}
 
-{% include ad.html%}
+{% include ad.html post=page %}
 
 {% if site.disqus %}
   {% include comments.html post=page %}
