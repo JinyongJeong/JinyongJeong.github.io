@@ -25,7 +25,7 @@ gnome-tweak-tool
 
 실행 후 `typing` 탭에서 `alt/win key behavior`을 조정해 주면되는데
 
-아래 그림과 같이 `alt is mapped to win keys`로 설정해 주면 command키가 alt키로 변경된다.
+`alt is mapped to win keys`로 설정해 주면 command키가 alt키로 변경된다.
 
 
 
