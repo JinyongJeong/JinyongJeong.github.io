@@ -25,6 +25,6 @@ sudo apt-get update
 sudo apt-get install --reinstall bcmwl-kernel-source
 ```
 
-기타 Mac 에 우분투를 설치시 다양한 정보는 
+기타 Mac 에 우분투를 설치시 다양한 문제들에 대한 정보는 
 
 [다음 링크](https://help.ubuntu.com/community/MacBookPro5-4/Lucid#Keyboard%20Functions)에서 찾아볼수 있다.
