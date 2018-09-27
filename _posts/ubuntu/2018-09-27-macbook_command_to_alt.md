@@ -6,22 +6,26 @@ description: >
     Macbook command key to alt
 ---
 
-Macbook에 듀얼부팅으로 ubuntu16.04를 설치하였을 때 Wifi가 정상적으로 잡히지 않는 문제가 발생한다.
+맥북에 ubuntu를 설치해서 사용하면 command키가 은근 거슬린다. 
 
-구글링을 해보면 다음과 같은 답변이 많이 나오는데 나의경우에는 해결되지 않았다. 
+원래 alt자리에 command키가 있기 때문에 평소처럼 command키를 alt키로 사용하고 싶다.
 
-```
-sudo apt-get install firmware-b43-installer
-sudo modprobe -r b43
-sudo modprobe b43
-```
-
-위와 같은 방법 말고 bcmwl 커널소스를 재 설치 하는 방법으로 해결되었다. 
-
-혹시 이글을 보고 있다면 위에 코드 실행하기 전에 아래 코드를 먼저 실행해 보기 바란다. 
+그럴때는 `gnome-tweak-tool` 을 이용하자
 
 ```
 sudo apt-get update
-sudo apt-get install --reinstall bcmwl-kernel-source
+sudo apt-get install gnome-tweak-tool
 ```
--
+
+설치를 한 후 실행한다. 터미널을 열고 실행
+
+```
+gnome-tweak-tool
+```
+
+실행 후 `typing` 탭에서 `alt/win key behavior`을 조정해 주면되는데
+
+아래 그림과 같이 `alt is mapped to win keys`로 설정해 주면 command키가 alt키로 변경된다.
+
+
+
