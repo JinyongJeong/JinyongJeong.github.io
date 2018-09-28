@@ -39,7 +39,7 @@ description: >
 `fileprovider`를 사용하기 위해서는 다음과 같은 절차가 필요하다. 
 
 
-## 1. `Manifest` 설정
+## 1. Manifest 설정
 
 `AndroidManifest.xml` 의 `application` 안쪽에 선언
 
@@ -62,9 +62,9 @@ android:resource="@xml/file_path" />
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
-<paths>
-<files-path path="/" name="default" />
-</paths>
+    <paths>
+        <files-path path="/" name="default" />
+    </paths>
 </paths>
 ```
 
@@ -79,15 +79,13 @@ Uri uri = FileProvider.getUriForFile(context, activity.getPackageName()+".filepr
 Intent i = new Intent(Intent.ACTION_SEND);
 i.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 i.setType("message/rfc822");
-//                        i.putExtra(Intent.EXTRA_EMAIL, new String[] { "my@email.com" });
 i.putExtra(Intent.EXTRA_SUBJECT, "Gaitspeedometer data");
-//                        i.putExtra(Intent.EXTRA_TEXT, "See the attached...");
 i.putExtra(Intent.EXTRA_STREAM, uri);
 
 try {
-startActivity(Intent.createChooser(i, "Send file..."));
+    startActivity(Intent.createChooser(i, "Send file..."));
 } catch (Exception e) {
-Toast.makeText(activity, "No activity found for export", Toast.LENGTH_SHORT).show();
+    Toast.makeText(activity, "No activity found for export", Toast.LENGTH_SHORT).show();
 }
 ```
 
