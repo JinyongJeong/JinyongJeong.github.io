@@ -20,8 +20,10 @@ description: >
 
 이러한 각 데이터 저장 영역에 대해서는 많은 포스팅이 있으니 참고하자.
 
-[http://ismydream.tistory.com/124](http://ismydream.tistory.com/124})
+[http://ismydream.tistory.com/124](http://ismydream.tistory.com/124)
+
 [http://bitsoul.tistory.com/117](http://bitsoul.tistory.com/117)
+
 [https://developer88.tistory.com/28](https://developer88.tistory.com/28)
 
 만약 보안을 위해서 내부영역에 데이터를 저장했는데 이메일을 통해서 데이터를 출력하고 싶다면 어떻게 해야할까.
