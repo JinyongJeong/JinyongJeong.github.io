@@ -76,7 +76,7 @@ File file = new File(activity.getFilesDir(), "/exported_data.zip");
 Uri uri = FileProvider.getUriForFile(context, activity.getPackageName()+".fileprovider", file);
 Intent i = new Intent(Intent.ACTION_SEND);
 i.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-i.setDataAndType(uri, "message/rfc822");
+i.setType("message/rfc822");
 //                        i.putExtra(Intent.EXTRA_EMAIL, new String[] { "my@email.com" });
 i.putExtra(Intent.EXTRA_SUBJECT, "Gaitspeedometer data");
 //                        i.putExtra(Intent.EXTRA_TEXT, "See the attached...");
