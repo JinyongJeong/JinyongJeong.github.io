@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Android] export file in internal storage (내부 저장소의 데이터 출력, fileprovider)'
+title: '[Android] Bluetooth connect and receive data(블루투스 연결 및 데이터 수신)'
 tags: [android]
 description: >
     export file in internal storage (내부 저장소의 데이터 출력, fileprovider)
