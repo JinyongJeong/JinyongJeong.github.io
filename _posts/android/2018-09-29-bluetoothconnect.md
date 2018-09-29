@@ -6,7 +6,9 @@ description: >
 Android 디바이스에서 bluetooth 연결 및 데이터 수신 방법 (HC-06) (How to connect bluetooth device and receive data in android device)
 ---
 
+
 이 글은 일반적으로 많이 사용되는 HC-06 블루투스 모듈과 통신하기 위한 방법을 설명한다. HC-06은 블루투스 2.0을 이용하며 최근 많이 사용되고 있는 저전력 블루투스 모듈인 BLE와는 다르다.
+
 
 # 1. 블루투스 관련 권한 설정
 안드로이드 디바이스에서 블루투스 관련 기능을 사용하기 위해서는 블루투스 관련 권한 설정을 해야한다.
