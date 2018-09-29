@@ -3,8 +3,9 @@ layout: post
 title: '[Android] Bluetooth connect and receive data(블루투스 연결 및 데이터 수신)'
 tags: [android]
 description: >
-How to connect bluetooth device and receive data in android device
+	How to connect bluetooth device and receive data in android device
 ---
+
 이 글은 일반적으로 많이 사용되는 HC-06 블루투스 모듈과 통신하기 위한 방법을 설명한다. HC-06은 블루투스 2.0을 이용하며 최근 많이 사용되고 있는 저전력 블루투스 모듈인 BLE와는 다르다.
 
 
