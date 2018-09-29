@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[Android] Bluetooth connect and receive data (블루투스 연결 및 데이터 수신)'
+title: '[Android] Bluetooth connect and receive data(블루투스 연결 및 데이터 수신)'
 tags: [android]
 description: >
-Android 디바이스에서 bluetooth 연결 및 데이터 수신 방법 (HC-06) (How to connect bluetooth device and receive data in android device)
+How to connect bluetooth device and receive data in android device
 ---
 
 
