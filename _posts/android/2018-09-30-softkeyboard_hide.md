@@ -38,17 +38,15 @@ android:windowSoftInputMode="stateAlwaysHidden"
 
 ## 2. 옵션에 대한 설명
 
-```
-stateUnspecified: 키보드의 디폴트 설정 값
-stateUnchanged: 키보드의 마지막 상태로 유지
-stateHidden: activity 실행 시 키보드가 자동으로 올라오는 것을 방지
-stateAlwaysHidden: activity 실행 시 항상 자동으로 올라오는 것을 방지
-stateVisible: activity 실행 시 키보드가 자동으로 올라옴
-stateAlwaysVisible: activity 실행 시 항상 키보드가 자동으로 올라옴
-adjustUnspecified: 시스템이 알아서 상황에 맞는 옵션을 설정
-adjustResize: 키보드가 올라와도 edittext가 UI 화면에 보이도록 activity를 resize
-adjustPan: 키보드가 올라오면 edittext에 맞춰 화면 UI가 실종됨 (위아래 잘림)
+* stateUnspecified: 키보드의 디폴트 설정 값
+* stateUnchanged: 키보드의 마지막 상태로 유지
+* stateHidden: activity 실행 시 키보드가 자동으로 올라오는 것을 방지
+* stateAlwaysHidden: activity 실행 시 항상 자동으로 올라오는 것을 방지
+* stateVisible: activity 실행 시 키보드가 자동으로 올라옴
+* stateAlwaysVisible: activity 실행 시 항상 키보드가 자동으로 올라옴
+* adjustUnspecified: 시스템이 알아서 상황에 맞는 옵션을 설정
+* adjustResize: 키보드가 올라와도 edittext가 UI 화면에 보이도록 activity를 resize
+* adjustPan: 키보드가 올라오면 edittext에 맞춰 화면 UI가 실종됨 (위아래 잘림)
 
-```
 
 개인적으로 fragment전환 시 키보드가 올라오는 것을 방지하기 위해 `stateAlwaysHidden` 옵션을 사용하였다.
