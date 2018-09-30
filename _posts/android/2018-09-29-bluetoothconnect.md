@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Android] Android bluetooth connect and receive data(블루투스 연결 및 데이터 수신)'
+title: '[Android] Android bluetooth connect and receive data(안드로이드 블루투스 연결 및 데이터 수신)'
 tags: [android]
 description: >
     How to connect bluetooth device and receive data in android device

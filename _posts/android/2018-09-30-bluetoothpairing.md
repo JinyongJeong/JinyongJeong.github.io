@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Android] Android  bluetooth pairing in code (블루투스 페어링)'
+title: '[Android] Android  bluetooth pairing in code (안드로이드 블루투스 페어링)'
 tags: [android]
 description: >
     How to pairing bluetooth device

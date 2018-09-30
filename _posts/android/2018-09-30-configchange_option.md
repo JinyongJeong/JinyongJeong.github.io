@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Android] Android  configChanges option (화면 회전시 view 유지방법)'
+title: '[Android] Android  configChanges option (안드로이드 화면 회전시 view 유지방법)'
 tags: [android]
 description: >
     How to maintain view when screen direction change using configChanges option

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[Android] Android soft keyboard option (키보드 옵션 조절)'
+title: '[Android] Android soft keyboard option (안드로이드 키보드 옵션, 자동 키보드 열림 방지)'
 tags: [android]
 description: >
-    Soft keyboard 조절
+    Soft keyboard 옵션
 ---
 
 이 글에서는 안드로이드의 soft keyboard를 조절하는 옵션에 대해서 설명한다. 

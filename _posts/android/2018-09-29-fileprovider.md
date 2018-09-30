@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Android] Android export file in internal storage (내부 저장소의 데이터 출력, fileprovider)'
+title: '[Android] Android export file in internal storage (안드로이드 내부 저장소의 데이터 출력, fileprovider)'
 tags: [android]
 description: >
     export file in internal storage (내부 저장소의 데이터 출력, fileprovider)
