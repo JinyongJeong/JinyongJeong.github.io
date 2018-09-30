@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Android] Soft keyboard option (키보드 옵션 조절)'
+title: '[Android] Android soft keyboard option (키보드 옵션 조절)'
 tags: [android]
 description: >
     Soft keyboard 조절

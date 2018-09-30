@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Android] number picker with dialog (dialog를 이용한 number picker 입력받기)'
+title: '[Android] Android number picker with dialog (dialog를 이용한 number picker 입력받기)'
 tags: [android]
 description: >
     number picker with dialog (dialog를 이용한 number picker 입력받기)

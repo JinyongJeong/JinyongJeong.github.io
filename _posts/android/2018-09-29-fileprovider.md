@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Android] export file in internal storage (내부 저장소의 데이터 출력, fileprovider)'
+title: '[Android] Android export file in internal storage (내부 저장소의 데이터 출력, fileprovider)'
 tags: [android]
 description: >
     export file in internal storage (내부 저장소의 데이터 출력, fileprovider)
@@ -19,6 +19,8 @@ description: >
 외부저장소의 고유영역은 모든 어플에서 접근 가능하지만, 어플을 삭제할때 데이터도 같이 삭제되는 영역이다.
 
 이러한 각 데이터 저장 영역에 대해서는 많은 포스팅이 있으니 참고하자.
+
+[http://jinyongjeong.github.io/2018/09/30/android_path/](http://jinyongjeong.github.io/2018/09/30/android_path/)
 
 [http://ismydream.tistory.com/124](http://ismydream.tistory.com/124)
 

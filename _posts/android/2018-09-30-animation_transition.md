@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Android] Fragment transition with animation (프레그먼트 애니메이션 화면전환)'
+title: '[Android] Android fragment transition with animation (프레그먼트 애니메이션 화면전환)'
 tags: [android]
 description: >
     Fragment transition with animation

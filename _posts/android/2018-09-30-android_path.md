@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Android] Data path and method (저장소 경로 및 경로 획득 함수)'
+title: '[Android] Android data path and method (저장소 경로 및 경로 획득 함수)'
 tags: [android]
 description: >
     Data path and method (저장소 경로 및 경로 획득 함수)
