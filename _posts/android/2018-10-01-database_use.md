@@ -240,7 +240,7 @@ public class DBHelper extends SQLiteOpenHelper {
 중요한 부분만 발췌해서 설명하면 다음과 같다. 
 
 
-DBHelper 클래스의 생성자이다. 생성자의 입력으로 들어온 table의 이름으로 db table을 생성하며, db table이 없을때에만 새로 생성한다. primary ket로는 id가 되며 데이터가 입력될 때마다 1씩 자동으로 증가한다.
+DBHelper 클래스의 생성자이다. 생성자의 입력으로 들어온 table의 이름으로 db table을 생성하며, db table이 없을때에만 새로 생성한다. primary key로는 id가 되며 데이터가 입력될 때마다 1씩 자동으로 증가한다.
 
 ```
 public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -468,9 +468,9 @@ try {
 	patient_number = data.getInt("patient_number");
 	patient_average_speed = data.getDouble("ave_speed");
 	rawfile = data.getString("raw_file_path");
-	} catch (JSONException e) {
-	e.printStackTrace();
-	}
+} catch (JSONException e) {
+e.printStackTrace();
+}
 ```
 
 
