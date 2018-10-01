@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[Android] Android sqlight database useage(안드로이드 sqlight 데이터베이스 사용)'
+title: '[Android] Android sqlight database usage(안드로이드 sqlight 데이터베이스 사용)'
 tags: [android]
 description: >
-    Android sqlight database useage(안드로이드 sqlight 데이터베이스 사용)
+    Android sqlight database usage(안드로이드 sqlight 데이터베이스 사용)
 ---
 
 데이터베이스(Databse, db)는 체계화된 데이터의 모임이다. 논리적으로 연관된 하나 이상의 자료의 모음으로 그 내용을 고도로 구조화함으로써 검색과 갱신의 효율화를 꾀한 것이다. 즉, 몇 개의 자료 파일을 조직적으로 통합하여 자료 항목의 중복을 없애고 자료를 구조화하여 기억시켜 놓은 자료의 집합체라고 할 수 있다. 자세한 데이터베이스에 대한 내용은 [databse wiki](https://ko.wikipedia.org/wiki/데이터베이스)를 참고하자.
