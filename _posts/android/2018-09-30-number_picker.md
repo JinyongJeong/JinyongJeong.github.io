@@ -14,7 +14,8 @@ description: >
 
 따라서 숫자를 아래 그림과 같이 직접 입력이 아닌 입력 가능한 숫자 중에서 선택하도록 만드는 것이 좋다.
 
-<img align="middle" src="/images/post/android/2018-09-03-number_picker/number_picker.jpeg" width="70%">
+<img src="/images/post/android/2018-09-03-number_picker/number_picker.jpeg" width="70%" style="margin-left: auto; margin-right: auto; display: block;"/>
+
 
 위 예시는 특정 값에 해당하는 설정 버튼을 눌렀을 때 숫자를 선택할 수 있는 dialog가 팝업으로 뜨고 사용자가 숫자를 선택 후 확인을 누르면 적용이 되는 방식이다. 
 
