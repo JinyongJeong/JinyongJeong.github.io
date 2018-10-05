@@ -32,6 +32,12 @@ from key를 right_command로 to key를 caps_lock으로 설정한다.
 
 이 키를 오른쪽 command 키로 맵핑하는 것이다. 실제 caps lock 키를 누르고 있을 때는 길게 눌러주면 된다. 
 
+추가적으로 설정한 키는 `fn`키를 `left_command`로 변경하고 `right_option`키를 `fn`키로 변경하였다.
+
+윈도우와 리눅스에서 cnt + c,v 가 Mac OS에서는 command + c,v이기 때문에 비슷하게 사용하기 위해서 이렇게 설정하였는데
+
+이것은 본인이 원하는 대로 설정하면 된다.
+
 ## 3. 기타 원하는 키 추가
 
 개인적으로 리눅스를 쓸 때 터미널을 많이 열기 때문에 ctl +  alt + T 버튼으로 터미널을 여는 것에 익숙해져 있는데
