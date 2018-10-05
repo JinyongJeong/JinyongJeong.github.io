@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[MacOS, Ubuntu] Make function key reverse in ubuntu(Macbook에 ubuntu 설치했을 때 function키 반전)'
+title: '[Mac OS, Ubuntu] Make function key reverse in ubuntu(Macbook에 ubuntu 설치했을 때 function키 반전)'
 tags: [ubuntu]
 description: >
     Make function key reverse in ubuntu(Macbook에 ubuntu 설치했을 때 function키 반전)
