@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Ubuntu16.04 Wifi problem in Macbook(맥북 ubuntu16.04 Wifi 문제)'
+title: '[MacOS, Ubuntu] Ubuntu16.04 Wifi problem in Macbook(맥북 ubuntu16.04 Wifi 문제)'
 tags: [ubuntu]
 description: >
     Ubuntu 16.04 Wifi problem in Macbook
