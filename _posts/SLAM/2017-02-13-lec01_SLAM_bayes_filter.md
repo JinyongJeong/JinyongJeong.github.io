@@ -2,6 +2,7 @@
 layout: post
 title: '[SLAM] Bayes filter(베이즈 필터)'
 tags: [SLAM]
+comments: true
 description: >
   SLAM framework에서 Bayes filter에 대한 설명.
 
