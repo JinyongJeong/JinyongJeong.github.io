@@ -8,11 +8,15 @@ description: >
 
 [참고](https://icesquare.com/wordpress/lightroom-how-to-save-lightroom-catalog-on-network-drive-on-windows/)
 
+
+## Network drive 를 local drive로 인식시키기
+
+
+
 라이트룸으로 사진을 관리할 때 Catalog를 이용한다. NAS를 이용하는 경우 사진파일은 Network drive로 관리가능하지만 catalog는 network drive에 저장할 수 없다. (라이트룸 정책상)
 
 따라서 일반적으로 NAS를 사용할 때 network drive로 사용하기 때문에 1개의 카탈로그를 만들어서 사용할 경우에는 dropbox 혹은 시놀로지의 cloud station을 이용해서 catalog를 컴퓨터의 local에 동기화하여 사용한다. 하지만 프로젝트별로 카탈로그를 따로 관리하고 싶을 때는 난감하다. 이럴때는 network drive를 local drive로 인식시키면 된다.
 
-## Network drive 를 local drive로 인식시키기
 
 윈도우에서 `cmd`창을 열고 다음과 같이 입력.
 
