@@ -19,7 +19,7 @@ sitemap :
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/zCxZ1Z7s9lc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-가장 안정적으로 odometry를 추정하는 것을 볼 수 있다. 하지만 사용되는 데이터가 10hz의 이미지이라 속도가 빠른경우 약간씩 tracking lose를 보이기도 하며, 회전이 빠른경우 tracking에 실패한다. 일반적으로 moving object는 tracking과정에서 어느정도 filtering은 되는것으로 보이지만, 가끔씩 버스와 같은 큰 물체가 있는 경우 버스를 tracking하게 되면 모션이 이상하게 추정된다. 
+가장 안정적으로 odometry를 추정하는 것을 볼 수 있다. 하지만 사용되는 데이터가 10hz의 이미지이라 속도가 빠른경우 약간씩 tracking 실패를 보이기도 하며, 회전이 빠른경우 tracking에 실패한다. 일반적으로 moving object는 tracking과정에서 어느정도 filtering은 되는것으로 보이지만, 가끔씩 버스와 같은 큰 물체가 있는 경우 버스를 tracking하게 되면 모션이 이상하게 추정된다. 
 
 
 ## VINS-fusion
