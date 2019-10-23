@@ -28,7 +28,7 @@ title: About
 
 * Jinyong Jeong, Younggun Cho, Young-Sik Shin, Hyunchul Roh and Ayoung Kim, Complex Urban Dataset with Multi-level Sensors from Highly Diverse Urban Environments. International Journal of Robotics Research, 2019. (Accepted. To appear).
 
-* Jinyong Jeong, Lucas Y. Cho, and Ayoung Kim. "Road is Enough! Extrinsic Calibration of Non-overlapping Stereo Camera and LiDAR using Road Information." arXiv preprint arXiv:1902.10586 (2019). 
+* Jinyong Jeong, Lucas Y. Cho, and Ayoung Kim. "Road is Enough! Extrinsic Calibration of Non-overlapping Stereo Camera and LiDAR using Road Information." IEEE Robotics and Automation Letters 4.3 (2019): 2831-2838 (IROS option). 
 
 
 [2018]
