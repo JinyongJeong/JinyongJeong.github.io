@@ -5,7 +5,9 @@ layout: default
 
 {% include post.html post=page link_title=false %}
 
-{% include comments.html%}
+<div id="post-disqus" class="container"> 
+  {% include disqus.html %} 
+</div>
 
 {% include related.html post=page %}
 
