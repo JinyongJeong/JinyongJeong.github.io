@@ -3,6 +3,8 @@
 <aside class="related" role="complementary">
   <h2>Related Posts</h2>
 
+  {% include comments.html %} 
+  
   <ul class="related-posts">
     {% assign plusone = false %}
     {% assign tag_name = post.tags[0] %}
