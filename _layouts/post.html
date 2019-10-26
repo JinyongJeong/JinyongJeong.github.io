@@ -1,11 +1,12 @@
 ---
 layout: default
+comments: false
 ---
 
 
 {% include post.html post=page link_title=false %}
 
-{% if page.comments %}
+{% if post.comments %}
   {% include comments.html%}
 {% endif %}
 
