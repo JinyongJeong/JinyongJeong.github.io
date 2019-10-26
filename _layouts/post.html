@@ -8,9 +8,10 @@ layout: default
 {% if page.comments %}
   {% include comments.html%}
 {% endif %}
-{% include comments.html%}
 
 {% include related.html post=page %}
+
+{% include comments.html%}
 
 {% if site.author.about %}
   {% include about.html author=site.author %}
