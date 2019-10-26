@@ -119,6 +119,7 @@ google_analytics_id: 'UA-92196026-1'
 
 # Setting a disqus subdomain will enable the comment section
 disqus:            jinyongjeong
+discus-identifier: jinyongjeong
 
 defaults:
   -
