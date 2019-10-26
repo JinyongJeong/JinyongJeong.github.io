@@ -10,6 +10,13 @@ this.page.url = '{{ page.url | absolute_url }}';
 this.page.identifier = '{{ page.url | absolute_url }}';
 };
 */
+ var disqus_config = function () {
+	this.page.url = "{{ site.url }}{{ page.url }}";  // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = "{{ page.id }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+var disqus_shortname = '{{ site.disqus }}';
+
 (function() { // DON'T EDIT BELOW THIS LINE
 var d = document, s = d.createElement('script');
 s.src = 'https://jinyongjeong.disqus.com/embed.js';
