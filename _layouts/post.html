@@ -1,18 +1,13 @@
 ---
 layout: default
-comments: true
 ---
 
 
 {% include post.html post=page link_title=false %}
 
-{% if post.comments %}
-  {% include comments.html%}
-{% endif %}
+{% include comments.html%}
 
 {% include related.html post=page %}
-
-{% include comments.html%}
 
 {% if site.author.about %}
   {% include about.html author=site.author %}
