@@ -6,8 +6,6 @@ description: >
   NAS의 Network Drive를 Local Drive로 인식시키기
 ---
 
-[참고](https://icesquare.com/wordpress/lightroom-how-to-save-lightroom-catalog-on-network-drive-on-windows/)
-
 
 ## Network drive 를 local drive로 인식시키기
 
@@ -46,5 +44,7 @@ subst X: \\jinyong-data\photo
 
 이렇게 한 후에 컴퓨터를 재부팅 하면 자동으로 네트워크 드라이브가 로컬드라이브로 잡힐 것이다.
 
+
+[참고 사이트](https://icesquare.com/wordpress/lightroom-how-to-save-lightroom-catalog-on-network-drive-on-windows/)
 
 
