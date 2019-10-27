@@ -122,6 +122,8 @@ disqus:            jinyongjeong
 discus-identifier: jinyongjeong
 disqus_url: https://disqus.com/by/jinyongjeongsteve/
 disqus_id: jinyongjeong
+disqus_shortname: "jinyongjeong"
+
 
 defaults:
   -
