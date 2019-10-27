@@ -5,12 +5,8 @@ layout: default
 
 {% include post.html post=page link_title=false %}
 
-<div id="main" role="main">
-  <article class="hentry">
-    {% include disqus.html post=page %}
-    <section id="disqus_thread"></section><!-- /#disqus_thread -->{% endif %}
-  </article>
-</div><!-- /#main -->
+{% include disqus.html post=page %}
+    
 
 {% include related.html post=page %}
 
