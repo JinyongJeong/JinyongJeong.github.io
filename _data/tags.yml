@@ -25,6 +25,13 @@ SLAM:
   description: >
     In robotic mapping, simultaneous localization and mapping (SLAM) is the computational problem of constructing or updating a map of an unknown environment while simultaneously keeping track of an agent's location within it.
 
+paper:
+  name: Paper
+  image: /public/img/1.jpg
+  color: '#949667'
+  description: >
+    Survey related with SLAM algorithm 
+    
 ubuntu:
   name: Ubuntu
   image: /public/img/1.jpg
@@ -46,12 +53,7 @@ android:
   description: >
     Android is a mobile operating system developed by Google, based on a modified version of the Linux kernel and other open source software and designed primarily for touchscreen mobile devices such as smartphones and tablets.
 
-ios:
-  name: IOS(Swift)
-  image: /public/img/1.jpg
-  color: '#949667'
-  description: >
-    IOS is the mobile operating system developed by Apple Inc.
+
 
 
 jekyll:
