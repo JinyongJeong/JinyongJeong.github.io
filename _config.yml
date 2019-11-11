@@ -24,7 +24,7 @@ paginate_path:       '/page-:num/'
 description:         >
    This blog is to remember what I studied.
 # The tags listed as entries in the sidebar
-sidebar_tags:        [post, SLAM, ubuntu, software, android, ios, jekyll, math, IRAP]
+sidebar_tags:        [post, SLAM, paper, ubuntu, software, android, jekyll, math, IRAP]
 
 # Fallback image and color if not overwritten for tag or post
 image:                /public/img/3.jpg
