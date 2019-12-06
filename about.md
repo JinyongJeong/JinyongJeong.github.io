@@ -9,6 +9,16 @@ title: About
 {% endcomment %}
 {% include about-short.html author=site.author %}
 
+### Teaching & Seminar
+- Handong University Hustar Electronic Circuit Lecture (2019)
+- [SLAM Kr Seminar](https://youtu.be/OHeCrGIvpWw) (2019)
+
+### Prize
+- KROS Daejeon best paper 
+- 2011 Hanyang Unv. Model Car Competition Winner (2011)
+
+### Project
+
 ### Interests
 
 * SLAM, Localization, Mapping, Place Recognition, Computer Vision, Deep Learning, AI, Sensor Fusion
