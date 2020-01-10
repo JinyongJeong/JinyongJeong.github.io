@@ -9,7 +9,7 @@ sitemap :
   priority : 1.0
 ---
 
-IMU는 Angular velocity를 측정하는 Gyroscope, 가속도를 측정하는 Accelerometer, 자기장을 측정하는 Magnetometer 센서를 포함하고 있다. IMU Filter (AHRS)는 이 데이터를 이용해서 센서의 Global 회전 (Orientation)을 계산한다.
+IMU는 Angular velocity를 측정하는 Gyroscope, 가속도를 측정하는 Accelerometer, 자기장을 측정하는 Magnetometer 센서를 포함하고 있다. IMU Filter (AHRS: Attitude Heading Reference System)는 이 데이터를 이용해서 센서의 Global 회전 (Orientation)을 계산한다.
 
 관련 ROS package [http://wiki.ros.org/imu_filter_madgwick](http://wiki.ros.org/imu_filter_madgwick)
 
