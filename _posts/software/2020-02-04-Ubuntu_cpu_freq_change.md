@@ -27,16 +27,16 @@ watch -n 0.1 "lscpu | grep MHz"
 sudo apt-get install cpufrequtils
 ```
 
-CPU min 설정
+CPU frequnecy min 설정
 
 ```
 sudo cpufreq-set -d 0.8Ghz
 ```
 
-CPU min frequency 설정
+CPU frequnecy max 설정
 
 ```
-sudo cpufreq-set -u 0.8Ghz
+sudo cpufreq-set -u 4.2Ghz
 ```
 
 아래 명령어를 통해 현재 CPU의 max frequency를 확인 후 약간 아래값으로 minimum 값을 설정해주면 일정한 속도의 code 성능을 확인할 수 있다. 
