@@ -22,7 +22,7 @@ paginate_path:       '/page-:num/'
 
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
 description:         >
-   배우는 것을 즐기는 사람
+	The people who enjoy learning new things!
 # The tags listed as entries in the sidebar
 sidebar_tags:        [post, SLAM, paper, ubuntu, software, android, jekyll, math, IRAP]
 
