@@ -17,8 +17,6 @@ title: About
 - KROS Daejeon best paper 
 - 2011 Hanyang Unv. Model Car Competition Winner (2011)
 
-### Project
-
 ### Interests
 
 * SLAM, Localization, Mapping, Place Recognition, Computer Vision, Deep Learning, AI, Sensor Fusion
@@ -28,9 +26,8 @@ title: About
 * C, C++, Python, Matlab, Java, HTML, PHP
 
 
-### Publications 
+### [Publications](https://scholar.google.co.kr/citations?user=_RDRRWwAAAAJ&hl=ko)
 
-[Google link](https://scholar.google.co.kr/citations?user=_RDRRWwAAAAJ&hl=ko)
 
 [2019]
 * Hee-Won Jung, Hyunchul Roh, Younggun Cho, Jinyong Jeong, Young-Sik Shin, Validation of a Multi–Sensor‐Based Kiosk for Short Physical Performance Battery. Journal of the American Geriatrics Society, 2019.
