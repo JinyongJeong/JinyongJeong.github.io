@@ -44,7 +44,9 @@ Matrix3_6 jacobian_transform;
 jacobian_transform.block<3,3>(0,0) = _weights_translation[u]*Matrix3::Identity();
 
 //ds rotation contribution - compensate for inverse depth (far points should have an equally strong contribution as close ones)
-// proj(M_i)를 p_cam 으로 미분한 부분에서 rotation부분, 이부분이 위에 푼 식이랑 조금 다른데, R의 w_x편미분 식에서 두번째 sin(theta)/theta가 붙어있는 항만 남기고 계산하면 rotation 부분은 measurement의 skew symmetric matrix가 된다. rotoation이 매우 작다고 가정하고 수식을 단순화 한것 같긴한데 조금 더 확인 필요.
+// proj(M_i)를 p_cam 으로 미분한 부분에서 rotation부분, 이부분이 위에 푼 식이랑 조금 다른데,
+// R의 w_x편미분 식에서 두번째 sin(theta)/theta가 붙어있는 항만 남기고 계산하면 rotation 부분은 
+//measurement의 skew symmetric matrix가 된다. rotoation이 매우 작다고 가정하고 수식을 단순화 한것 같긴한데 조금 더 확인 필요.
 jacobian_transform.block<3,3>(0,3) = -2*srrg_core::skew(sampled_point_in_camera_left);
 
 //ds precompute
