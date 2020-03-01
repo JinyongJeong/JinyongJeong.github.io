@@ -27,4 +27,63 @@ Graph-based SLAM 뿐만 아니라 BA(Bundle Adjustment), Visual SLAM쪽을 공�
 <img align="middle" src="/images/post/SLAM/Jacobian_of_BA/Bundle Adjustment-8.jpg" width="100%">
 <img align="middle" src="/images/post/SLAM/Jacobian_of_BA/Bundle Adjustment-9.jpg" width="100%">
 
+그럼 이러한 Jacobian이 실제 코드에서 어떻게 적용되는지 한번 보자.
+
+아래 코드는 공부용으로 좋은 Visual SLAM 코드인 Pro-SLAM에서 Jacobian을 계산하는 부분이다. 
+
+```
+
+//ds update total error
+_total_error += _errors[u];
+
+//ds compute the jacobian of the transformation
+Matrix3_6 jacobian_transform;
+
+//ds translation contribution (will be scaled with omega)
+// proj(M_i)를 p_cam 으로 미분한 부분에서 translation부분
+jacobian_transform.block<3,3>(0,0) = _weights_translation[u]*Matrix3::Identity();
+
+//ds rotation contribution - compensate for inverse depth (far points should have an equally strong contribution as close ones)
+// proj(M_i)를 p_cam 으로 미분한 부분에서 rotation부분, 이부분이 위에 푼 식이랑 조금 다른데, R의 w_x편미분 식에서 두번째 sin(theta)/theta가 붙어있는 항만 남기고 계산하면 rotation 부분은 measurement의 skew symmetric matrix가 된다. rotoation이 매우 작다고 가정하고 수식을 단순화 한것 같긴한데 조금 더 확인 필요.
+jacobian_transform.block<3,3>(0,3) = -2*srrg_core::skew(sampled_point_in_camera_left);
+
+//ds precompute
+// Intrinsic matrix를 곱해주는 부분
+const Matrix3_6 camera_matrix_per_jacobian_transform(_camera_calibration_matrix*jacobian_transform);
+
+//ds precompute
+const real inverse_sampled_c_left  = 1/sampled_c_left;
+const real inverse_sampled_c_right = 1/sampled_c_right;
+const real inverse_sampled_c_squared_left  = inverse_sampled_c_left*inverse_sampled_c_left;
+const real inverse_sampled_c_squared_right = inverse_sampled_c_right*inverse_sampled_c_right;
+
+//ds jacobian parts of the homogeneous division: left
+Matrix2_3 jacobian_left;
+// 각 카메라의 coordinate로 이동한 measurement로 만든 matrix (미분 term에서 가장 앞에 곱해지는 matrix)
+jacobian_left << inverse_sampled_c_left, 0, -sampled_abc_in_camera_left.x()*inverse_sampled_c_squared_left,
+               0, inverse_sampled_c_left, -sampled_abc_in_camera_left.y()*inverse_sampled_c_squared_left;
+
+//ds we compute only the contribution for the horizontal error: right
+Matrix2_3 jacobian_right;
+jacobian_right << inverse_sampled_c_right, 0, -sampled_abc_in_camera_right.x()*inverse_sampled_c_squared_right,
+                0, inverse_sampled_c_right, -sampled_abc_in_camera_right.y()*inverse_sampled_c_squared_right;
+
+//ds assemble final jacobian
+_jacobian.setZero();
+
+//ds we have to compute the full block
+// 최종 p_cam으로 미분 한 matrix, 여기에선 left, right의 reporjection error를 concat해서 사용
+_jacobian.block<2,6>(0,0) = jacobian_left*camera_matrix_per_jacobian_transform;
+
+//ds we only have to compute the horizontal block
+_jacobian.block<2,6>(2,0) = jacobian_right*camera_matrix_per_jacobian_transform;
+
+//ds precompute transposed
+const Matrix6_4 jacobian_transposed(_jacobian.transpose());
+
+//ds update H and b
+// 최적화 문제를 풀기 위해 계산된 jacobian으로 hessian 계산 (이 부분은 이전 Graph SLAM post 참고)
+_H += jacobian_transposed*_omega*_jacobian;
+_b += jacobian_transposed*_omega*error;
+```
 
