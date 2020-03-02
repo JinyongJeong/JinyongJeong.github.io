@@ -32,11 +32,11 @@ title: About
 [2019]
 * Hee-Won Jung, Hyunchul Roh, Younggun Cho, Jinyong Jeong, Young-Sik Shin, Validation of a Multi–Sensor‐Based Kiosk for Short Physical Performance Battery. Journal of the American Geriatrics Society, 2019.
 
-
 * Jinyong Jeong, Younggun Cho, Young-Sik Shin, Hyunchul Roh and Ayoung Kim, Complex Urban Dataset with Multi-level Sensors from Highly Diverse Urban Environments. International Journal of Robotics Research, 2019. (Accepted. To appear).
 
-* Jinyong Jeong, Lucas Y. Cho, and Ayoung Kim. "Road is Enough! Extrinsic Calibration of Non-overlapping Stereo Camera and LiDAR using Road Information." IEEE Robotics and Automation Letters 4.3 (2019): 2831-2838 (IROS option). 
+* Yeong Sang Park, Jinyong Jeong, Youngsik Shin and Ayoung Kim. "Radar Dataset for Robust Localization and Mapping in Urban Environment" ICRA Workshop on Dataset Generation and Benchmarking of SLAM Algorithms for Robotics and VR/AR. 
 
+* Jinyong Jeong, Lucas Y. Cho, and Ayoung Kim. "Road is Enough! Extrinsic Calibration of Non-overlapping Stereo Camera and LiDAR using Road Information." IEEE Robotics and Automation Letters 4.3 (2019): 2831-2838 (IROS option). 
 
 [2018]
 * Youngji Kim, Jinyong Jeong and Ayoung Kim, Stereo Camera Localization in 3D LiDAR Maps. In Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), pages 1-9, Madrid, Oct. 2018. 
