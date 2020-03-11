@@ -40,6 +40,9 @@ $$ R = I + [t]_{\times}$$
 
 즉 근사화된 Rotation matrix를 이용해서 Jacobian을 구해보면 입력 measurement의 skew symmetric matrix가 됨을 알 수 있다. 
 
+대부분의 tracking 문제에서는 계산하고자 하는 state는 두 frame 사이의 relative pose이고, 이 relative는 크지 않다. 
+
+따라서 R을 위와같이 근사화 해서 풀 수 있다. 
 
 ## Jacobian with respect to Quaternion
 
@@ -50,26 +53,25 @@ Point를 Quaternion으로 회전 시키는 식을 미분하면 다음과 같다.
 
 <img align="middle" src="/images/post/SLAM/Jacobian_of_BA/quaternion.png" width="100%">
 
-
 state를 3개만으로 표현하였기 때문에 최종 matrix에서 뒤의 3 column 즉
 
-$$v^TaI+va^T-av^T-w[a]_{\times}$$
+$$2 (v^TaI+va^T-av^T-w[a]_{\times})$$
 
 만 해당이 된다. 
 
-그럼 이러한 Jacobian이 실제 코드에서 어떻게 적용되는지 한번 보자.
+위에서 설명한 것 처럼 대부분의 tracking 문제에서는 두 frame 사이의 relative를 계산하는 것이며, 이 relative는 크지 않다.
 
-아래 코드는 Pro-SLAM에서 Jacobian을 계산하는 부분이다. 
+따라서 jacobian을 계산하는 부분 (현재 state)를 회전이 0, 즉 identity로 보고 계산할 수 있다. 
 
-Rotation에 Jacobian이 measurement point의 skew symmetic matrix로 표현되어있다. 
+회전이 0, identity일 때 quaternion의 w 는 1, 그리고 i,j,k term (위 식에서는 v vector)은 0이 된다. 
 
-위 식에서 quternion의 값이 identiy라면, w가 1, 그리고 나머지가 0이 되므로 skew symmetric term만 남게되어 아래 코드와 동일하게 된다.
+따라서 quaternion의 jacobian은 다음이 된다.
 
-만약 state가 Lie algebra면 measurement의 skew symmetric이 jacobian이 되어야 하지만 여기서는 -2가 곱해졌다. 
+$$-2[a]_{\times}$$
 
-이것은 Quaternion의 Jacobian의 skew symmetric matrix로 부터 온 것 같은데, 왜 다른 항들은 사라지는지는 걸까.. 
-(Jacibian은 state의 current 값에서의 미분이라서 v에 현재값이 들어가야 할 것 같은데)
+Pro-SLAM 코드에서 rotation state는 quaternion으로 표현되기 때문에 위의 Jacobian을 사용한다. 
 
+Rotation의 Jacobian을 계산하는 코드를 보면 일치함을 알 수 있다. 
 
 
     //ds update total error
