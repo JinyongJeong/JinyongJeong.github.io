@@ -32,7 +32,7 @@ visual SLAM 코드를 공부하기 좋은 Pro-SLAM의 코드는 quaternion으로
 w는 3개의 state로 recovery가 가능하다. 
 Point를 jacobian으로 rotation하는 식을 미분하여 Jacobian을 계산해보면 다음과 같다. 
 
-<img align="middle" src="/images/post/SLAM/Jacobian_of_BA/quaternion.jpg" width="100%">
+<img align="middle" src="/images/post/SLAM/Jacobian_of_BA/quaternion.png" width="100%">
 
 
 state를 3개만으로 표현하였기 때문에 최종 matrix에서 뒤의 3 column 즉
