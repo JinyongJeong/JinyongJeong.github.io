@@ -9,7 +9,7 @@ sitemap :
   priority : 1.0
 ---
 
-## Jacobian
+## Jacobian with respect to Lie algebra
 
 일반적으로 최적화를 수행할 때 가장 쉬운 방법은 함수의 미분을 계산하고, 현재의 값에서 미분값이 작아지는 방향으로 값을 변경해 가면서 최적화를 수행하는 방법이다. 이러한 방법을 gradient descent 방법이라고 하는데, Jacobian은 이러한 함수가 multi-variable 일때의 미분을 의미한다. 
 즉 Jacobian은 multi-variable 문제에서 내가 최적화 하고 싶은 parameter들에 대한 편미분을 matrix로 표현한 것이다.
@@ -26,6 +26,22 @@ Graph-based SLAM 뿐만 아니라 BA(Bundle Adjustment), Visual SLAM쪽을 공�
 <img align="middle" src="/images/post/SLAM/Jacobian_of_BA/Bundle Adjustment-7.jpg" width="100%">
 <img align="middle" src="/images/post/SLAM/Jacobian_of_BA/Bundle Adjustment-8.jpg" width="100%">
 <img align="middle" src="/images/post/SLAM/Jacobian_of_BA/Bundle Adjustment-9.jpg" width="100%">
+
+최종 rotation의 Jacobian을 보면 상당히 복잡하다. 
+이 식을 조금 단순화 시키기 위해서 roation matrix를 단순화 시킨다.
+Multiple view geometry 책의 Appendix 6의 A6.9.1에 이런 말이 있다.
+Lie algebra t가 작으면, rotation matrix는 다음과 같이 근사 가능하다.
+
+$$ R = I + [t]_{\times}$$
+
+따라서 근사화된 R에 대해서 jacobian을 구해보면 다음과 같다. 
+
+<img align="middle" src="/images/post/SLAM/Jacobian_of_BA/Bundle Adjustment-11.jpg" width="100%">
+
+즉 근사화된 Rotation matrix를 이용해서 Jacobian을 구해보면 입력 measurement의 skew symmetric matrix가 됨을 알 수 있다. 
+
+
+## Jacobian with respect to Quaternion
 
 그렇다면 state가 quaternion으로 rotation을 표현한다면 어떻게 될까?
 visual SLAM 코드를 공부하기 좋은 Pro-SLAM의 코드는 quaternion으로 rotation state를 표현하고 있으며, w를 제외한 3개로 state를 표현한다.
@@ -49,7 +65,11 @@ Rotation에 Jacobian이 measurement point의 skew symmetic matrix로 표현되�
 
 위 식에서 quternion의 값이 identiy라면, w가 1, 그리고 나머지가 0이 되므로 skew symmetric term만 남게되어 아래 코드와 동일하게 된다.
 
-Jacobian은 Delta q에 대한게 아니고 q에 대한 거라서 현재 q의 값이 들어가야 할텐데 이 부분을 조금 더 찾아봐야겠다.
+만약 state가 Lie algebra면 measurement의 skew symmetric이 jacobian이 되어야 하지만 여기서는 -2가 곱해졌다. 
+
+이것은 Quaternion의 Jacobian의 skew symmetric matrix로 부터 온 것 같은데, 왜 다른 항들은 사라지는지는 걸까.. 
+(Jacibian은 state의 current 값에서의 미분이라서 v에 현재값이 들어가야 할 것 같은데)
+
 
 
     //ds update total error
