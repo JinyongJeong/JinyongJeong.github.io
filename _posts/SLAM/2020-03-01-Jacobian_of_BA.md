@@ -85,7 +85,7 @@ Matrix3_6 jacobian_transform;
 jacobian_transform.block<3,3>(0,0) = _weights_translation[u]*Matrix3::Identity();
 
 //ds rotation contribution - compensate for inverse depth (far points should have an equally strong contribution as close ones)
-// rotation 부분에 대한 jacobian 계산, 여기서 사용한 state는 quaternion form이다.
+// *******************여기가 Rotation의 Jacobian 계산하는 부분, 위에서 설명한대로 넣어주고 있다 **********************
 jacobian_transform.block<3,3>(0,3) = -2*srrg_core::skew(sampled_point_in_camera_left);
 
 //ds precompute
