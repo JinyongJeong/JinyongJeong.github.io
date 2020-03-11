@@ -49,7 +49,7 @@ Rotation에 Jacobian이 measurement point의 skew symmetic matrix로 표현되�
 
 위 식에서 quternion의 값이 identiy라면, w가 1, 그리고 나머지가 0이 되므로 skew symmetric term만 남게되어 아래 코드와 동일하게 된다.
 
-Jacobian은 $\Delta q$에 대한게 아니고 $q$에 대한 거라서 현재 q의 값이 들어가야 할텐데 이 부분을 조금 더 찾아봐야겠다.
+Jacobian은 Delta q에 대한게 아니고 q에 대한 거라서 현재 q의 값이 들어가야 할텐데 이 부분을 조금 더 찾아봐야겠다.
 
 
 ```
