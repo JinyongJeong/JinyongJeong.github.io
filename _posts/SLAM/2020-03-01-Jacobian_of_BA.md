@@ -61,7 +61,7 @@ $$2 (v^TaI+va^T-av^T-w[a]_{\times})$$
 
 위에서 설명한 것 처럼 대부분의 tracking 문제에서는 두 frame 사이의 relative를 계산하는 것이며, 이 relative는 크지 않다.
 
-따라서 jacobian을 계산하는 부분 (현재 state)를 회전이 0, 즉 identity로 보고 계산할 수 있다. 
+따라서 Jacobian은 회전이 0 (identity) 에서 미분한 값으로 단순화 할 수 있다. (찾고자 하는 relative rotation이 작기 때문에)
 
 회전이 0, identity일 때 quaternion의 w 는 1, 그리고 i,j,k term (위 식에서는 v vector)은 0이 된다. 
 
