@@ -30,7 +30,7 @@ Graph-based SLAM 뿐만 아니라 BA(Bundle Adjustment), Visual SLAM쪽을 공�
 그렇다면 state가 quaternion으로 rotation을 표현한다면 어떻게 될까?
 visual SLAM 코드를 공부하기 좋은 Pro-SLAM의 코드는 quaternion으로 rotation state를 표현하고 있으며, w를 제외한 3개로 state를 표현한다.
 w는 3개의 state로 recovery가 가능하다. 
-Point를 jacobian으로 rotation하는 식을 미분하여 Jacobian을 계산해보면 다음과 같다. 
+Point를 Quaternion으로 회전 시키는 식을 미분하면 다음과 같다.
 
 <img align="middle" src="/images/post/SLAM/Jacobian_of_BA/quaternion.png" width="100%">
 
@@ -41,11 +41,16 @@ $$v^TaI+va^T-av^T-w[a]_{\times}$$
 
 만 해당이 된다. 
 
-
-
 그럼 이러한 Jacobian이 실제 코드에서 어떻게 적용되는지 한번 보자.
 
-아래 코드는 공부용으로 좋은 Visual SLAM 코드인 Pro-SLAM에서 Jacobian을 계산하는 부분이다. 
+아래 코드는 Pro-SLAM에서 Jacobian을 계산하는 부분이다. 
+
+Rotation에 Jacobian이 measurement point의 skew symmetic matrix로 표현되어있다. 
+
+위 식에서 quternion의 값이 identiy라면, w가 1, 그리고 나머지가 0이 되므로 skew symmetric term만 남게되어 아래 코드와 동일하게 된다.
+
+Jacobian은 $\Delta q$에 대한게 아니고 $q$에 대한 거라서 현재 q의 값이 들어가야 할텐데 이 부분을 조금 더 찾아봐야겠다.
+
 
 ```
 
