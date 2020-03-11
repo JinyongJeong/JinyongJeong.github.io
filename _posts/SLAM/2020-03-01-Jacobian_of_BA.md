@@ -127,3 +127,8 @@ const Matrix6_4 jacobian_transposed(_jacobian.transpose());
 _H += jacobian_transposed*_omega*_jacobian;
 _b += jacobian_transposed*_omega*error;
 ```
+
+아래의 github 링크는 Pro-SLAM 에 대해서 한글로 주석을 달아놓은 code이다. 
+[https://github.com/JinyongJeong/proSLAM.git](https://github.com/JinyongJeong/proSLAM.git}
+
+
