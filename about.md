@@ -9,7 +9,7 @@ title: About
 {% endcomment %}
 {% include about-short.html author=site.author %}
 
-### [CV(Curriculum Vitae)](/Download/SE3/jlblanco2010geometry3d_techrep.pdf)
+### [CV(Curriculum Vitae)](http://JinyongJeong.github.io/Download/Jinyong_CV.pdf)
 
 ### Teaching & Seminar
 - Handong University Hustar Electronic Circuit Lecture (2019)
