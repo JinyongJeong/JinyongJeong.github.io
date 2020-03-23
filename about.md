@@ -9,8 +9,6 @@ title: About
 {% endcomment %}
 {% include about-short.html author=site.author %}
 
-### [CV(Curriculum Vitae)](http://JinyongJeong.github.io/Download/Jinyong_CV.pdf)
-
 ### Teaching & Seminar
 - Handong University Hustar Electronic Circuit Lecture (2019)
 - [SLAM Kr Seminar](https://youtu.be/OHeCrGIvpWw) (2019)
