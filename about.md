@@ -9,7 +9,7 @@ title: About
 {% endcomment %}
 {% include about-short.html author=site.author %}
 
-### [CV](https://github.com/JinyongJeong/JinyongJeong.github.io/blob/master/Download/Jinyong_CV.pdf)
+### [CV](/Download/Jinyong_CV.pdf)
 
 ### Teaching & Seminar
 - Handong University Hustar Electronic Circuit Lecture (2019)
