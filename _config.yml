@@ -21,8 +21,7 @@ paginate:            2
 paginate_path:       '/page-:num/'
 
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
-description:         >
-   This blog is to remember what I studied.
+description:         The person who enjoy learning new things!
 # The tags listed as entries in the sidebar
 sidebar_tags:        [post, SLAM, paper, ubuntu, software, android, jekyll, math, IRAP]
 
