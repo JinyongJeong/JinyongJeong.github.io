@@ -108,11 +108,11 @@ Omni-direction 카메라는 주변, 즉 360도를 전부 바라보는 카메라�
 
     $$P_s = \frac{P}{||P||} = (x_s, y_s, z_s)$$
 
-2. 중심점이 $$C_{\epsilon} = (0,0,\epsilon)$$ 인 새로운 reference frame으로 $$P_s$$를 옮긴다.
+2. 중심점이 $$C_{\epsilon} = (0,0,\epsilon)$$ 인 새로운 reference frame으로 $$P_s$$를 옮긴다. 여기서 $$\epsilon$$ 은 conic의 foci인 $$d$$ 와 latus rectum인 $$l$$ 에 의해서 결정된다.
+
 
 <img align="middle" src="/images/post/SLAM/2020-06-15-Camera_and_distortion_model/Untitled7.png" width="50%">
 
-여기서 $$\epsilon$$ 은 conic의 foci인 $$d$$ 와 latus rectum인 $$l$$ 에 의해서 결정된다.
 
 $$P_{\epsilon} = (x_s, y_s, z_s + \epsilon)$$
 
