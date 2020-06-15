@@ -171,9 +171,9 @@ Tangential distortion은 위와 같이 모델링된다. Radial distortion과 마
 
 [Camera Model](https://www.isprs.org/proceedings/XXXVI/5-W8/Paper/PanoWS_Berlin2005_Schwalbe.pdf)
 
-[A generic camera model and calibration method for conventional, wide-angle, and fish-eye lenses - IEEE Journals & Magazine](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1642666&casa_token=oJyQMwYes2EAAAAA:ND5Nt9U4Nnbc-I1zaC4X334O9nq9LTRaQjVvhhKij0i90ylqfq5MGmq1I8h6Q9MhCQ5GiPxypcQ&tag=1)
+[A generic camera model and calibration method for conventional, wide-angle, and fish-eye lenses](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1642666&casa_token=oJyQMwYes2EAAAAA:ND5Nt9U4Nnbc-I1zaC4X334O9nq9LTRaQjVvhhKij0i90ylqfq5MGmq1I8h6Q9MhCQ5GiPxypcQ&tag=1)
 
-[What Is Camera Calibration? - MATLAB & Simulink - MathWorks 한국](https://kr.mathworks.com/help/vision/ug/camera-calibration.html)
+[What Is Camera Calibration?](https://kr.mathworks.com/help/vision/ug/camera-calibration.html)
 
 [ethz-asl/image_undistort](https://github.com/ethz-asl/image_undistort)
 
