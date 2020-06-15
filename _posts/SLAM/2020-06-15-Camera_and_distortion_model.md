@@ -87,7 +87,7 @@ $$\frac{\alpha_1}{d_1} = \frac{\alpha_2}{d_2}$$
 
 ## Omni directional 카메라 모델 (Catadioptric Camera)
 
-<img align="middle" src="/images/post/SLAM/2020-06-15-Camera_and_distortion_model/Untitled4.png" width="50%">
+<img align="middle" src="/images/post/SLAM/2020-06-15-Camera_and_distortion_model/Untitled4.png" width="70%">
 
 
 Omni-direction 카메라는 주변, 즉 360도를 전부 바라보는 카메라를 의미한다. 위  그림은 대표적인 omni-directional camera들의 종류를 보여준다. 첫번째 그림은 앞에서 설명한 Fish-eye lens로 180 도 이상의 화각을 갖기도 한다. 두번째는 일반적인 카메라에 거울을 붙여 수평 360도를 바라보는 카메라이다. 세번째는 여러개의 카메라를 사방으로 부착하여 사용하는 카메라이다.  여기서는 두번째 모델인 Catadioptic camera model을 설명한다. 
@@ -112,9 +112,9 @@ Omni-direction 카메라는 주변, 즉 360도를 전부 바라보는 카메라�
 
 <img align="middle" src="/images/post/SLAM/2020-06-15-Camera_and_distortion_model/Untitled7.png" width="50%">
 
-    여기서 $$\epsilon$$ 은 conic의 foci인 $$d$$ 와 latus rectum인 $$l$$ 에 의해서 결정된다.
+여기서 $$\epsilon$$ 은 conic의 foci인 $$d$$ 와 latus rectum인 $$l$$ 에 의해서 결정된다.
 
-    $$P_{\epsilon} = (x_s, y_s, z_s + \epsilon)$$
+$$P_{\epsilon} = (x_s, y_s, z_s + \epsilon)$$
 
 3. $$C_{\epsilon}$$ 으로 부터 거리 1떨어진 normalized image plane으로 $$P_{\epsilon}$$ 을 projection 한다.
 
