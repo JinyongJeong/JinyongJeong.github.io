@@ -29,7 +29,7 @@ Visual SLAM, SfM 등 카메라를 이용한 연구를 하기 위해서 가장 �
 
 카메라 모델은 물체에 반사되는 빛이 이미지 센서까지 도달하는 방법에 대한 모델이다. 이러한 과정에서 빛의 왜곡에 의한 영향은 distortion 파라미터로 보정하게 된다. 먼저 다양한 카메라 모델을 살펴보자.  
 
-여기서 $f$ 는 빛이 모이는 중심점에서 image plane 까지의 거리인 Focal length, $\theta$ 는 principal axis인 $Z_c$ 와 빛이 들어오는 각도, 그리고 $r$은 이미지의 중심인 principal point와 image point의 거리를 의미한다. 
+여기서 $$f$$ 는 빛이 모이는 중심점에서 image plane 까지의 거리인 Focal length, $$\theta$$ 는 principal axis인 $$Z_c$$ 와 빛이 들어오는 각도, 그리고 $$r$$은 이미지의 중심인 principal point와 image point의 거리를 의미한다. 
 
 <img align="middle" src="/_posts/SLAM/2020-06-15-Camera_and_distortion_model/Untitled%202.png" width="80%">
 
@@ -61,11 +61,11 @@ Visual SLAM, SfM 등 카메라를 이용한 연구를 하기 위해서 가장 �
 
 ![SLAM%20Camera%20Models%20and%20distortion%20Pinhole%20Fisheye%20%20becb267c990b4cd2a3d6289889081fbd/Screenshot_from_2020-06-09_21-42-24.png](SLAM%20Camera%20Models%20and%20distortion%20Pinhole%20Fisheye%20%20becb267c990b4cd2a3d6289889081fbd/Screenshot_from_2020-06-09_21-42-24.png)
 
-Perspective projection은 기본적인 pin-hole 카메라 모델이며, Principal axis (노란색 line) 기준으로 빛이 들어오는 각도와 image plane으로 나아가는 빛의 각도가 동일한 모델이다. 즉 위 그림 기준으로 $\alpha = \beta$ 이다. 다양한 카메라 모델을 설명할 때의 식으로 표현하면 다음과 같다. 
+Perspective projection은 기본적인 pin-hole 카메라 모델이며, Principal axis (노란색 line) 기준으로 빛이 들어오는 각도와 image plane으로 나아가는 빛의 각도가 동일한 모델이다. 즉 위 그림 기준으로 $$\alpha = \beta$$ 이다. 다양한 카메라 모델을 설명할 때의 식으로 표현하면 다음과 같다. 
 
 $$r = f tan \beta$$
 
-여기서 $f$ 는 focal length 로 image plane과 빨간색 선의 거리를 의미하며, $r$은 principal axis (노란색 line)에서 부터 image plane상의 빛까지의 거리를 의미한다. 즉 빛이 들어오는 각도와 focal length에 의해 이미지에서의 위치가 결정된다. 이러한 perspective model은 가장 기본적인 카메라 모델로, 대부분의 카메라 모델에서 활용된다. 
+여기서 $$f$$ 는 focal length 로 image plane과 빨간색 선의 거리를 의미하며, $$r$$ 은 principal axis (노란색 line)에서 부터 image plane상의 빛까지의 거리를 의미한다. 즉 빛이 들어오는 각도와 focal length에 의해 이미지에서의 위치가 결정된다. 이러한 perspective model은 가장 기본적인 카메라 모델로, 대부분의 카메라 모델에서 활용된다. 
 
 ## Equidistance projection (Fisheye projection)
 
@@ -95,27 +95,27 @@ Omni-direction 카메라는 주변, 즉 360도를 전부 바라보는 카메라�
 
 모델을 이해하기 위한 단계는 크게 4단계로 나눠진다. 
 
-1. Scene point인 $P$ 를 unit sphere로 projection 한다. 
+1. Scene point인 $$P$$ 를 unit sphere로 projection 한다. 
 
     $$P_s = \frac{P}{||P||} = (x_s, y_s, z_s)$$
 
-2. 중심점이 $C_{\epsilon} = (0,0,\epsilon)$ 인 새로운 reference frame으로 $P_s$를 옮긴다.
+2. 중심점이 $$C_{\epsilon} = (0,0,\epsilon)$$ 인 새로운 reference frame으로 $$P_s$$를 옮긴다.
 
     ![SLAM%20Camera%20Models%20and%20distortion%20Pinhole%20Fisheye%20%20becb267c990b4cd2a3d6289889081fbd/Untitled%207.png](SLAM%20Camera%20Models%20and%20distortion%20Pinhole%20Fisheye%20%20becb267c990b4cd2a3d6289889081fbd/Untitled%207.png)
 
-    여기서 $\epsilon$은 conic의 foci인 $d$와 latus rectum인 $l$에 의해서 결정된다.
+    여기서 $$\epsilon$$ 은 conic의 foci인 $$d$$ 와 latus rectum인 $$l$$ 에 의해서 결정된다.
 
     $$P_{\epsilon} = (x_s, y_s, z_s + \epsilon)$$
 
-3. $C_{\epsilon}$ 으로 부터 거리 1떨어진 normalized image plane으로 $P_{\epsilon}$을 projection 한다.
+3. $$C_{\epsilon}$$ 으로 부터 거리 1떨어진 normalized image plane으로 $$P_{\epsilon}$$ 을 projection 한다.
 
     $$\tilde{m}=\left(x_{m}, y_{m}, 1\right)=\left(\frac{x_{s}}{z_{s}+\epsilon}, \frac{y_{s}}{z_{s}+\epsilon}, 1\right)=g^{-1}\left(P_{s}\right)$$
 
-4. 마지막으로 일반적인 intrinsic matrix $K$를 곱해서 image coordinate으로 변환한다.
+4. 마지막으로 일반적인 intrinsic matrix $$K$$ 를 곱해서 image coordinate으로 변환한다.
 
     $$\tilde{p} = K \tilde{m}$$
 
-위 모델을 다시 간단히 살펴보면, $\epsilon$ 값에 따라 다양한 모델을 표현할 수 있다. 즉 일반적인 perspective model은 곡선이 없는, 즉 $\epsilon = 0$ 인 경우이며,  parabolic 형태의 거울일 경우에는 $\epsilon=1$ 인 경우이다. 더욱 자세한 내용은 아래 링크를 참고바란다. 
+위 모델을 다시 간단히 살펴보면, $$\epsilon$$ 값에 따라 다양한 모델을 표현할 수 있다. 즉 일반적인 perspective model은 곡선이 없는, 즉 $$\epsilon = 0$$ 인 경우이며,  parabolic 형태의 거울일 경우에는 $$\epsilon=1$$ 인 경우이다. 더욱 자세한 내용은 아래 링크를 참고바란다. 
 
 [](http://rpg.ifi.uzh.ch/docs/omnidirectional_camera.pdf)
 
@@ -135,7 +135,7 @@ $$x_{\text {distorted }}=x\left(1+k_{1}^{*} r^{2}+k_{2}^{*} r^{4}+k_{3}^{*} r^{6
 
 $$y_{\text {distorted }}=y\left(1+k_{1}^{*} r^{2}+k_{2}^{*} r^{4}+k_{3}^{*} r^{6}\right)$$
 
-Radial distortion은 일반적으로 위와 같이 모델링된다. $x, y$는 normalized image coordinate에서의 undistorted된 pixel의 위치이다. 즉 distortion이 발생하지 않았을 때의 pixel 위치를 의미한다. $r$은 중심축에서의 각 픽셀의 거리로 $r^2 = x^2 + y^2$ 이다. 그리고 나머지 $k_1, k_2, k_3$는 radial distortion을 표현하는 parameter이다.
+Radial distortion은 일반적으로 위와 같이 모델링된다. $$x, y$$ 는 normalized image coordinate에서의 undistorted된 pixel의 위치이다. 즉 distortion이 발생하지 않았을 때의 pixel 위치를 의미한다. $$r$$은 중심축에서의 각 픽셀의 거리로 $$r^2 = x^2 + y^2$$ 이다. 그리고 나머지 $$k_1, k_2, k_3$$는 radial distortion을 표현하는 parameter이다.
 
 ### Tangential Distortion
 
@@ -147,7 +147,7 @@ $$x_{\text {distorted }}=x+\left[2^{*} p_{1}^{*} x^{*} y+p_{2}^{*}\left(r^{2}+2^
 
 $$y_{\text {distorted }}=y+\left[p_{1}^{*}\left(r^{2}+2^{*} y^{2}\right)+2^{*} p_{2}^{*} x^{*} y\right]$$
 
-Tangential distortion은 위와 같이 모델링된다. Radial distortion과 마찬가지로 $x,y$는 undistorted pixel 위치이다. Tangential distortion은 $p_1, p_2$ coefficient로 표현된다. 
+Tangential distortion은 위와 같이 모델링된다. Radial distortion과 마찬가지로 $$x,y$$ 는 undistorted pixel 위치이다. Tangential distortion은 $$p_1, p_2$$ coefficient로 표현된다. 
 
 # 정리
 
