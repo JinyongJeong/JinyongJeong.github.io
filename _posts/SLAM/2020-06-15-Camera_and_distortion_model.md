@@ -31,7 +31,8 @@ Visual SLAM, SfM 등 카메라를 이용한 연구를 하기 위해서 가장 �
 
 여기서 $f$ 는 빛이 모이는 중심점에서 image plane 까지의 거리인 Focal length, $\theta$ 는 principal axis인 $Z_c$ 와 빛이 들어오는 각도, 그리고 $r$은 이미지의 중심인 principal point와 image point의 거리를 의미한다. 
 
-![SLAM%20Camera%20Models%20and%20distortion%20Pinhole%20Fisheye%20%20becb267c990b4cd2a3d6289889081fbd/Untitled%202.png](SLAM%20Camera%20Models%20and%20distortion%20Pinhole%20Fisheye%20%20becb267c990b4cd2a3d6289889081fbd/Untitled%202.png)
+<img align="middle" src="/_posts/SLAM/2020-06-15-Camera_and_distortion_model/Untitled%202.png" width="80%">
+
 
 - 다양한 카메라 모델들
     - Perspective projection
