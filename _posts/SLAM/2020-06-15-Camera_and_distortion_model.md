@@ -126,7 +126,7 @@ $$P_{\epsilon} = (x_s, y_s, z_s + \epsilon)$$
 
 위 모델을 다시 간단히 살펴보면, $$\epsilon$$ 값에 따라 다양한 모델을 표현할 수 있다. 즉 일반적인 perspective model은 곡선이 없는, 즉 $$\epsilon = 0$$ 인 경우이며,  parabolic 형태의 거울일 경우에는 $$\epsilon=1$$ 인 경우이다. 더욱 자세한 내용은 아래 링크를 참고바란다. 
 
-[](http://rpg.ifi.uzh.ch/docs/omnidirectional_camera.pdf)
+[link](http://rpg.ifi.uzh.ch/docs/omnidirectional_camera.pdf)
 
 # Distortion models
 
