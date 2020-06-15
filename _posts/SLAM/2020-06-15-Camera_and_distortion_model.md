@@ -31,7 +31,9 @@ Visual SLAM, SfM 등 카메라를 이용한 연구를 하기 위해서 가장 �
 
 여기서 $$f$$ 는 빛이 모이는 중심점에서 image plane 까지의 거리인 Focal length, $$\theta$$ 는 principal axis인 $$Z_c$$ 와 빛이 들어오는 각도, 그리고 $$r$$은 이미지의 중심인 principal point와 image point의 거리를 의미한다. 
 
-<img align="float:middle" src="/images/post/SLAM/2020-06-15-Camera_and_distortion_model/Untitled2.png" width="50%">
+<p align="center">
+  <img src="/images/post/SLAM/2020-06-15-Camera_and_distortion_model/Untitled2.png" width="50%">
+</p>
 
 
 - 다양한 카메라 모델들
@@ -59,8 +61,9 @@ Visual SLAM, SfM 등 카메라를 이용한 연구를 하기 위해서 가장 �
 
 ## Perspective projection (Pinhole model)
 
-
-<img align="middle" src="/images/post/SLAM/2020-06-15-Camera_and_distortion_model/Screenshot_from_2020-06-09_21-42-24.png" width="50%">
+<p align="center">
+  <img src="/images/post/SLAM/2020-06-15-Camera_and_distortion_model/Screenshot_from_2020-06-09_21-42-24.png" width="50%">
+</p>
 
 Perspective projection은 기본적인 pin-hole 카메라 모델이며, Principal axis (노란색 line) 기준으로 빛이 들어오는 각도와 image plane으로 나아가는 빛의 각도가 동일한 모델이다. 즉 위 그림 기준으로 $$\alpha = \beta$$ 이다. 다양한 카메라 모델을 설명할 때의 식으로 표현하면 다음과 같다. 
 
@@ -87,7 +90,10 @@ $$\frac{\alpha_1}{d_1} = \frac{\alpha_2}{d_2}$$
 
 ## Omni directional 카메라 모델 (Catadioptric Camera)
 
-<img align="middle" src="/images/post/SLAM/2020-06-15-Camera_and_distortion_model/Untitled4.png" width="70%">
+
+<p align="center">
+  <img src="/images/post/SLAM/2020-06-15-Camera_and_distortion_model/Untitled4.png" width="70%">
+</p>
 
 
 Omni-direction 카메라는 주변, 즉 360도를 전부 바라보는 카메라를 의미한다. 위  그림은 대표적인 omni-directional camera들의 종류를 보여준다. 첫번째 그림은 앞에서 설명한 Fish-eye lens로 180 도 이상의 화각을 갖기도 한다. 두번째는 일반적인 카메라에 거울을 붙여 수평 360도를 바라보는 카메라이다. 세번째는 여러개의 카메라를 사방으로 부착하여 사용하는 카메라이다.  여기서는 두번째 모델인 Catadioptic camera model을 설명한다. 
@@ -110,8 +116,10 @@ Omni-direction 카메라는 주변, 즉 360도를 전부 바라보는 카메라�
 
 2. 중심점이 $$C_{\epsilon} = (0,0,\epsilon)$$ 인 새로운 reference frame으로 $$P_s$$를 옮긴다. 여기서 $$\epsilon$$ 은 conic의 foci인 $$d$$ 와 latus rectum인 $$l$$ 에 의해서 결정된다.
 
-
-    <img align="middle" src="/images/post/SLAM/2020-06-15-Camera_and_distortion_model/Untitled7.png" width="50%">
+<p align="center">
+  <img src="/images/post/SLAM/2020-06-15-Camera_and_distortion_model/Untitled7.png" width="50%">
+</p>
+    
 
     $$P_{\epsilon} = (x_s, y_s, z_s + \epsilon)$$
 
@@ -152,7 +160,9 @@ Radial distortion은 일반적으로 위와 같이 모델링된다. $$x, y$$ 는
 
 ### Tangential Distortion
 
-<img align="middle" src="/images/post/SLAM/2020-06-15-Camera_and_distortion_model/Untitled10.png" width="50%">
+<p align="center">
+  <img src="/images/post/SLAM/2020-06-15-Camera_and_distortion_model/Untitled10.png" width="50%">
+</p>
 
 Tangential distortion은 실제 물리적으로 카메라 렌즈와 이미지 센서의 mis-alignment로 인해 발생하는 distortion이다. 최근에는 기술의 발달로 하드웨어 적인 mis-alignment가 매우 적기 때문에 크게 신경쓰지는 않는 추세이긴 하나 상황에 따라서 필요하기도 하다. 
 
