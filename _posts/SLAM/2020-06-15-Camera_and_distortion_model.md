@@ -16,11 +16,12 @@ sitemap :
 Visual SLAM, SfM 등 카메라를 이용한 연구를 하기 위해서 가장 기본적으로 알아야 할 부분이 바로 카메라 모델이다. 일반적인 카메라는 대부분 핀홀(Pin-hole) 카메라 형태로 모델링하여 사용하고 있으며, 처음 카메라에 대해서 배울 때 대부분의 설명 자료들이 핀홀 모델을 기반으로 설명을 하고 있다. 이러한 핀홀 모델은 렌즈를 통해 들어오는 빛이 굴절되지 않고 바로 이미지 센서로 들어오는 perspective projection을 기반으로 하고 있다. 하지만 실제 연구를 진행하다 보면 넓은 화각이 이점이 되는 어플리케이션 (ex. Visual SLAM)이 있기 때문에 FOV (Field of View)가 170도 이상인 어안렌즈 (Fisheye lens)를 사용하는 경우도 많다. 이러한 화각이 매우 넓은 렌즈의 경우에는 일반적인 모델로 표현하기 어렵다. 따라서 이러한 경우에는 perspective projection이 아닌 equidistance projection 모델을 사용한다.
 
 <div style="width:48%; float:left; margin-right:3px;">
-<img align="left" src="/_post/2020-06-15-Camera_and_distortion_model/Untitled.png">
+<img align="left" src="/_post/SLAM/2020-06-15-Camera_and_distortion_model/Untitled.png">
 </div>
 <div style="width:48%; float:left;">
-<img align="left" src="/_post/2020-06-15-Camera_and_distortion_model/Untitled%201.png">
+<img align="left" src="/_post/SLAM/2020-06-15-Camera_and_distortion_model/Untitled%201.png">
 </div><div style="clear:both;"></div>
+
 
 카메라를 통해 이미지를 얻는다는 것은 3차원 공간에 있는 물체에 반사되어 오는 빛이 이미지 센서에 들어오는 신호가 변형되는 것이다. 따라서 카메라를 모델링 한다는 것은 실제 3차원에 있는 점을 카메라를 통해 보았을 때 실제 이미지상에 어떤 위치에 놓이게 되는지 추정하는 것이다. 이러한 카메라 모델이 정확히 정의 되어야 3차원 공간의 정보와 2D 이미지 상의 매칭을 수학적으로 표현 가능하다. VIsual SLAM, Visual odometry, SfM (Structure from Motion)등이 이러한 카메라 모델이 필요한 대표적인 분야라고 할 수 있다.
 
