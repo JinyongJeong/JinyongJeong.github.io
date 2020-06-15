@@ -142,10 +142,10 @@ Omni-direction 카메라는 주변, 즉 360도를 전부 바라보는 카메라�
 ### Radial Distortion
 
 
-<div style="width:48%; float:left; margin-right:3px;">
+<div style="width:58%; float:left; margin-right:3px;">
 <img align="left" src="/images/post/SLAM/2020-06-15-Camera_and_distortion_model/Untitled8.png">
 </div>
-<div style="width:48%; float:left;">
+<div style="width:38%; float:left;">
 <img align="left" src="/images/post/SLAM/2020-06-15-Camera_and_distortion_model/Untitled9.png">
 </div><div style="clear:both;"></div>
 
