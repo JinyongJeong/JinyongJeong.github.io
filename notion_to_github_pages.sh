@@ -87,26 +87,13 @@ for exported_foldername in ${exported_foldername_array[*]}; do
     sed -i '4 a '"tags: [$meta_tags]" "$exported_file_path"
     sed -i '5 a comments: true' "$exported_file_path"
     sed -i '6 a description: >' "$exported_file_path"
-    sed -i '7 a '"  $meta_subtitle" "$exported_file_path"
+    sed -i '7 a '"\ \ $meta_subtitle" "$exported_file_path"
     sed -i '8 a sitemap :'  "$exported_file_path"
-    sed -i '9 a changefreq: weekly'  "$exported_file_path"
-    sed -i '10 a priority : 1.0'  "$exported_file_path"
+    sed -i '9 a \ \ changefreq: weekly'  "$exported_file_path"
+    sed -i '10 a \ \ priority : 1.0'  "$exported_file_path"
     sed -i '11 a ---'  "$exported_file_path"
 
     sed -i '1d' "$exported_file_path"
-
-    # 한 줄씩 추가하기(한 번에 하려고 했더니 /n 줄바꿈이 문자열 그대로 md에 입력되어 한줄씩 추가로 수정)
-    # OS X ships with BSD sed, where the suffix for the -i option(changes made to the file) is mandatory. Try sed -i ''
-    # https://stackoverflow.com/questions/16745988/sed-command-with-i-option-in-place-editing-works-fine-on-ubuntu-but-not-mac
-#    sed -i '' "1s|.*|---|" "$exported_file_path"
-#    sed -i "" -e $'1 a\\\n'"title: $meta_title" "$exported_file_path" #title은 Notion 제목값으로 자동 입력
-#    sed -i "" -e $'2 a\\\n'"subtitle: $meta_subtitle" "$exported_file_path" # https://unix.stackexchange.com/questions/52131/sed-on-osx-insert-at-a-certain-line
-#    sed -i "" -e $'3 a\\\n'"categories: $meta_categories" "$exported_file_path"
-#    sed -i "" -e $'4 a\\\n'"tags: $meta_tags" "$exported_file_path"
-#    sed -i "" -e $'5 a\\\n'"date: $meta_date" "$exported_file_path"
-#    sed -i "" -e $'6 a\\\n'"last_modified_at: $meta_last_modified_at" "$exported_file_path"
-#    sed -i "" -e $'7 a\\\n'"---" "$exported_file_path"
-
 
     # Making a post file name
     fixed_filename="$(date +%Y)-$(date +%m)-$(date +%d)-$meta_title_encoded"
