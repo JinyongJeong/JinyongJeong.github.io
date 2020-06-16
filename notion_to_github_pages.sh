@@ -83,7 +83,7 @@ for exported_foldername in ${exported_foldername_array[*]}; do
     sed -i '1,6d' "$exported_file_path"
     sed -i '1 a ---' "$exported_file_path"
     sed -i '2 a layout: post' "$exported_file_path"
-    sed -i '3 a '"title: $meta_title" "$exported_file_path"
+    sed -i '3 a '"title: '$meta_title'" "$exported_file_path"
     sed -i '4 a '"tags: [$meta_tags]" "$exported_file_path"
     sed -i '5 a comments: true' "$exported_file_path"
     sed -i '6 a description: >' "$exported_file_path"
@@ -110,6 +110,7 @@ for exported_foldername in ${exported_foldername_array[*]}; do
 
     # Making a post file name
     fixed_filename="$(date +%Y)-$(date +%m)-$(date +%d)-$meta_title_encoded"
+    meta_title_encoded=$(echo "$meta_title" | sed 's/--/-/g')
 
     # Changing a image path in exported_filename.md
     exported_filename_for_images_path=$(echo "$exported_filename" | sed 's/ /_/g' | sed 's/__/_/g') # 파일명에 공백있는 경우: %20으로 수정. 추후 md 내 이미지 경로에 이용
