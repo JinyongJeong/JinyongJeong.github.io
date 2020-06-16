@@ -1,10 +1,10 @@
 ---
 layout: post
-title: [SLAM] Camera Models and distortion (Pinhole, Fisheye, Omni)
+title: '[SLAM] Camera Models and distortion (Pinhole, Fisheye, Omni)'
 tags: [SLAM]
 comments: true
 description: >
-Camera Models and distortions
+Camera Models and Distortion
 sitemap :
 changefreq: weekly
 priority : 1.0
