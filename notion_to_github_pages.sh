@@ -7,7 +7,7 @@
 
 # REPLACE THIS as your github.io structure
 posts_folder_path='_posts' # 여기서 /을 앞에 넣으면 안됨. 이미지 경로 할때는 앞에 / 넣어줘야 url상에서 image폴더 찾을 수 있지만 로컬에서 실행할때는 루트로 들어가기에...
-images_folder_path='assets/images'
+images_folder_path='images/post'
 
 # Name regexp of exported zip file from Notion
 exported_zip_reg="Export-*.zip"
@@ -110,9 +110,9 @@ for exported_foldername in ${exported_foldername_array[*]}; do
     mv -i -v "$exported_foldername/$exported_filename" "$images_folder_path/$fixed_filename"
 
     # git add
-    git add "$posts_folder_path/$fixed_filename.md"
-    git add "$images_folder_path/$fixed_filename"
-    git commit -m "$fixed_filename is uploaded"
+#    git add "$posts_folder_path/$fixed_filename.md"
+#    git add "$images_folder_path/$fixed_filename"
+#    git commit -m "$fixed_filename is uploaded"
 
     rm -r "$exported_foldername"
     rm -r "$exported_foldername.zip"
