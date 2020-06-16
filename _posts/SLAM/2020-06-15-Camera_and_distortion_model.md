@@ -4,10 +4,10 @@ title: '[SLAM] Camera Models and distortion (Pinhole, Fisheye, Omni)'
 tags: [SLAM]
 comments: true
 description: >
-[SLAM] Camera Models and distortion (Pinhole, Fisheye, Omni)
+  [SLAM] Camera Models and distortion (Pinhole, Fisheye, Omni)
 sitemap :
-changefreq : weekly
-priority : 1.0
+  changefreq : weekly
+  priority : 1.0
 ---
 
 **Visual SLAM을 공부하는 단계에서 작성한 글입니다. 혹시 틀린점이나 설명이 부족한 부분이 있으면 알려주세요. 최대한 빠르게 확인 후 업데이트 하도록 하겠습니다.** 
