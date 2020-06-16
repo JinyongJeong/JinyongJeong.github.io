@@ -100,7 +100,7 @@ for exported_foldername in ${exported_foldername_array[*]}; do
     meta_title_encoded=$(echo "$meta_title" | sed 's/--/-/g')
 
     # Changing a image path in exported_filename.md
-    exported_filename_for_images_path=$(echo "$exported_filename" | sed 's/ /_/g' | sed 's/__/_/g') # 파일명에 공백있는 경우: %20으로 수정. 추후 md 내 이미지 경로에 이용
+    exported_filename_for_images_path=$(echo "$exported_filename" | sed 's/ /_/g' | sed 's/__/_/g')
     sed -i 's/%20/_/g' "$exported_file_path"
     sed -i 's/__/_/g' "$exported_file_path"
     sed -i ''"s|"$exported_filename_for_images_path"|/$images_folder_path/$meta_tags/$fixed_filename|g"'' "$exported_file_path"
@@ -111,7 +111,6 @@ for exported_foldername in ${exported_foldername_array[*]}; do
     sed -i 's/\$\$\$\$/\$\$/g' "$exported_file_path"
     sed -i 's/\$\$\$/\$\$/g' "$exported_file_path"
 
-
     # Changing a file name and move
     # If directories not exist, make it. 
     mkdir -p $posts_folder_path/$meta_tags
@@ -120,16 +119,23 @@ for exported_foldername in ${exported_foldername_array[*]}; do
     mv -i -v "$exported_file_path" "$posts_folder_path/$meta_tags/$fixed_filename.md"
     mv -i -v "$exported_foldername/$exported_filename" "$images_folder_path/$meta_tags/$fixed_filename"
 
+    for f in $images_folder_path/$meta_tags/$fixed_filename/*; do
+     mv "$f" "${f// /_}";
+    done
+
+    rm -r "$exported_foldername"
+#    rm -r "$exported_foldername.zip"
+
+
     # git add
     git add "$posts_folder_path/$meta_tags/$fixed_filename.md"
     git add "$images_folder_path/$meta_tags/$fixed_filename"
     git commit -m "$fixed_filename is uploaded"
+    git push
 
-    rm -r "$exported_foldername"
-#    rm -r "$exported_foldername.zip"
 
     echo -e "Work for the $meta_title post is completed!\n"
 done
 
 
-# git push
+
