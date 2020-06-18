@@ -1,10 +1,10 @@
 ---
 layout: post
-title: '[SLAM] Camera Models and distortion (Pinhole, Fisheye, Omni)'
+title: '[SLAM] Camera Models and distortion (Perspective, Fisheye, Omni)'
 tags: [SLAM]
 comments: true
 description: >
-  [SLAM] Camera Models and distortion (Pinhole, Fisheye, Omni)
+  [SLAM] Camera Models and distortion (Perspective, Fisheye, Omni)
 sitemap :
   changefreq : weekly
   priority : 1.0
@@ -58,7 +58,7 @@ Visual SLAM, SfM 등 카메라를 이용한 연구를 하기 위해서 가장 �
 
 빛이 이미지로 변환되는 과정은 다양한 모델로 표현이 되지만, 주로 사용되는 모델은 perspective projection, Equidistance projection 모델이다. 이 글에서는 이 두 모델, 그리고 추가적으로 omni camera model까지 다뤄본다. 
 
-## Perspective projection (Pinhole model)
+## Perspective projection
 
 <p align="center">
   <img src="/images/post/SLAM/2020-06-15-Camera_and_distortion_model/Screenshot_from_2020-06-09_21-42-24.png" width="50%">
