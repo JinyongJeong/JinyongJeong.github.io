@@ -124,7 +124,7 @@ for exported_foldername in ${exported_foldername_array[*]}; do
     done
 
     rm -r "$exported_foldername"
-#    rm -r "$exported_foldername.zip"
+    rm -r "$exported_foldername.zip"
 
 
     # git add
