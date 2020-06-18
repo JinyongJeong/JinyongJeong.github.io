@@ -17,7 +17,7 @@ Opencv에는 다양한 카메라 모델을 다루기 위한 기본 Class들이 �
 
 
 <p align="center">
-  <img src="/images/post/SLAM/2020-06-19--SLAM-Opencv-Camera-model-정리/Untitled.png" width="50%">
+  <img src="/images/post/SLAM/2020-06-19--SLAM-Opencv-Camera-model-정리/Untitled.png" width="90%">
 </p>
 
 Pin-hole 카메라 모델은 일반적으로 많이 사용되는 카메라 모델이며, 물체로부터 오는 lay를 focal length 가 1인 normalized image plane으로 projection하고, image coordinate으로 변환시키는 모델이다. 이때 일반적으로 distortion은 radial distortion과 tangential distortion을 고려한다. 
