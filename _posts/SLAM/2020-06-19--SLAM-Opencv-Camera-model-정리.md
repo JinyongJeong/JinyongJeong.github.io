@@ -15,7 +15,10 @@ Opencv에는 다양한 카메라 모델을 다루기 위한 기본 Class들이 �
 
 ## Pinhole Camera model
 
-![/images/post/SLAM/2020-06-19--SLAM-Opencv-Camera-model-정리/Untitled.png](/images/post/SLAM/2020-06-19--SLAM-Opencv-Camera-model-정리/Untitled.png)
+
+<p align="center">
+  <img src="/images/post/SLAM/2020-06-19--SLAM-Opencv-Camera-model-정리/Untitled.png" width="50%">
+</p>
 
 Pin-hole 카메라 모델은 일반적으로 많이 사용되는 카메라 모델이며, 물체로부터 오는 lay를 focal length 가 1인 normalized image plane으로 projection하고, image coordinate으로 변환시키는 모델이다. 이때 일반적으로 distortion은 radial distortion과 tangential distortion을 고려한다. 
 
@@ -41,7 +44,10 @@ x^{\prime}=x / z \\
 y^{\prime}=y / z 
 \end{array}$$
 
-![/images/post/SLAM/2020-06-19--SLAM-Opencv-Camera-model-정리/Screenshot_from_2020-06-19_06-23-04.png](/images/post/SLAM/2020-06-19--SLAM-Opencv-Camera-model-정리/Screenshot_from_2020-06-19_06-23-04.png)
+
+<p align="center">
+  <img src="/images/post/SLAM/2020-06-19--SLAM-Opencv-Camera-model-정리/Screenshot_from_2020-06-19_06-23-04.png" width="50%">
+</p>
 
 그 다음은 Camera coordinate으로 변환된 좌표를 normalized image plane으로 변환합니다. normalized image plane은 원점으로 부터 거리가 1인 평면을 의미하며, 이때의 x, y값에 f를 곱함으로써 초첨거리가 f인 평면으로 변환할 수 있다. 따라서 첫번째로 camera coordinate으로 변환된 좌표를 각각 $$z$$ 로 나눠줌으로써 normalized image plane으로 변환한다. 
 
@@ -83,7 +89,10 @@ Distortion model을 적용한 이후의 normalized image plane 의 pixel ($$x'',
 
 ## Fish-eye Camera model
 
-![/images/post/SLAM/2020-06-19--SLAM-Opencv-Camera-model-정리/Untitled_1.png](/images/post/SLAM/2020-06-19--SLAM-Opencv-Camera-model-정리/Untitled_1.png)
+<p align="center">
+  <img src="/images/post/SLAM/2020-06-19--SLAM-Opencv-Camera-model-정리/Untitled_1.png" width="50%">
+</p>
+
 
 Fish-eye camera는 물고기의 눈처럼 렌즈가 볼록하여 넓은 화각을 갖는 카메라 모델을 의미한다. 일반적인 핀홀 카메라와는 다르게 Object point의 빛이 렌즈를 통과하여 직진으로 image plane에 도달하는 것이 아닌 렌즈의 왜곡에 의해 빛이 꺽여서 image plane에 도달하게 된다. Fish-eye camera를 모델링하기 위해 가장 많이 활용되는 모델은 Equidistant model로 빛의 입시각 $$\theta$$와 image plane에서 principal point와의 거리인 $$r$$ 가 비례적인 관계를 갖는 모델이다. 즉, 
 
