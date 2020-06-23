@@ -15,6 +15,12 @@ sitemap :
 sudo gedit /usr/share/applications/clion.desktop
 ```
 
+만약 위의 경로에 설정을 하면 모든 사용자에게 적용되며, local 사용자에게만 적용시키고 싶은 경우 다음의 경로에 추가한다. 
+
+```bash
+sudo gedit /home/user/.local/share/applications/clion.desktop
+```
+
 `/usr/share/applications` 폴더에는 다양한 desktop application들이 등록되어 있다. 위의 파일을 생성 후 다음과 같이 작성해 준다. 
 
 ```bash
