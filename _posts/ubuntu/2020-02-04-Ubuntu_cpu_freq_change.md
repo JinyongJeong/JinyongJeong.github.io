@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Ubuntu CPU Frequency 최적화 하기'
-tags: [software]
+tags: [ubuntu]
 description: >
     Ubuntu CPU Frequency 최적화 하기
 ---
