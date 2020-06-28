@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'bash shell 환경변수'
+title: '[Ubuntu] bash shell 환경변수'
 tags: [ubuntu]
 description: >
   bash shell 환경변수

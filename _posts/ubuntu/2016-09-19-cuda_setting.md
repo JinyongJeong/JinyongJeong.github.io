@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '그래픽 카드별 CUDA 및 Opencv 설정'
+title: '[Ubuntu] 그래픽 카드별 CUDA 및 Opencv 설정'
 tags: [ubuntu]
 description: >
   그래픽 카드별 CUDA 및 Opencv 설정

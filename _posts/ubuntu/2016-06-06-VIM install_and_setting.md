@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'vim install and setting'
+title: '[Ubuntu] vim install and setting'
 tags: [ubuntu]
 description: >
   vim install and setting

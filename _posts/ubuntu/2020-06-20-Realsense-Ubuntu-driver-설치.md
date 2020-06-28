@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Realsense Ubuntu driver 설치'
+title: '[Ubuntu] Realsense Ubuntu driver 설치'
 tags: [ubuntu]
 comments: true
 description: >

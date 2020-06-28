@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'SE(3) and SO(3) transformation'
+title: '[Math] SE(3) and SO(3) transformation'
 tags: [math]
 description: >
   SE(3) and SO(3) transformation

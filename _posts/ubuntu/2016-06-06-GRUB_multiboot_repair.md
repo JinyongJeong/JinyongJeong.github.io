@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'GRUB multiboot repair(멀티부팅 재설치)'
+title: '[Ubuntu] GRUB multiboot repair(멀티부팅 재설치)'
 tags: [ubuntu]
 description: >
   GRUB multiboot repair

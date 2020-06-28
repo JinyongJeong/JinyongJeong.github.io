@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'tensorflow 1.0 설치 (cuda, cudnn 호환, Ubuntu)'
+title: '[Ubuntu] tensorflow 1.0 설치 (cuda, cudnn 호환, Ubuntu)'
 tags: [ubuntu]
 description: >
     Tensorflow 1.0 설치 방법

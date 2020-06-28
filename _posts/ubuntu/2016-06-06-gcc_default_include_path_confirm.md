@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'gcc default include path 확인 방법'
+title: '[Ubuntu] gcc default include path 확인 방법'
 tags: [ubuntu]
 description: >
   gcc default include path 확인하기

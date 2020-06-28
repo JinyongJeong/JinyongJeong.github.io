@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Ubuntu 노트북 사용시 배터리 최적화 하기'
+title: '[Ubuntu] Ubuntu 노트북 사용시 배터리 최적화 하기'
 tags: [ubuntu]
 description: >
   Ubuntu 노트북 사용시 배터리 최적화 하기

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Ubuntu Sublime text 설치하기'
+title: '[Ubuntu] Ubuntu Sublime text 설치하기'
 tags: [ubuntu, IRAP]
 description: >
   Sublime text 설치 후 셋팅하는 방법을 설명한다. 

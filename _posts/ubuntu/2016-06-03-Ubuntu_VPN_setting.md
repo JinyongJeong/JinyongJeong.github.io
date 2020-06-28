@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Ubuntu VPN server'
+title: '[Ubuntu] Ubuntu VPN server'
 tags: [ubuntu]
 description: >
   Ubuntu VPN server setting

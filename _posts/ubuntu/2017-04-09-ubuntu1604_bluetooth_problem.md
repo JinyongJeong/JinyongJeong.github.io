@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Ubuntu 16.04.2 bluetooth load fail 문제'
+title: '[Ubuntu] Ubuntu 16.04.2 bluetooth load fail 문제'
 tags: [ubuntu]
 description: >
     최신 intel wireless chipset을 사용하는 노트북에서 ubuntu 부팅시 bluetooth를 인식하지 못하는 문제 해결방법

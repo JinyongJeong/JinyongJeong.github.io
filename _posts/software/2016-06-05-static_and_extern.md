@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Static 변수와 Extern변수'
+title: '[Software] Static 변수와 Extern변수'
 tags: [software]
 description: >
   Static 변수와 Extern변수

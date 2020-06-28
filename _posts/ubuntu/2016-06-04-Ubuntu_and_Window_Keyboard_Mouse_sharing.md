@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Ubuntu and Window Keyboard&Mouse sharing(Synergy)'
+title: '[Ubuntu] Ubuntu and Window Keyboard&Mouse sharing(Synergy)'
 tags: [ubuntu]
 description: >
   Ubuntu and Window Keyboard&Mouse sharing

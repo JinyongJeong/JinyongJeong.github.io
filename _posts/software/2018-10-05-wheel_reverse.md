@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[MAC OS]MAC OS wheel direction change (MAC OS 마우스, 터치패드 휠 방향 각각 변경)'
+title: '[Software] MAC OS wheel direction change (MAC OS 마우스, 터치패드 휠 방향 각각 변경)'
 tags: [software]
 description: >
   MAC OS wheel direction change (MAC OS 마우스, 터치패드 휠 방향 각각 변경)

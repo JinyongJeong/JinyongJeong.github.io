@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Ubuntu Gedit 한글 깨짐 수정'
+title: '[Ubuntu] Ubuntu Gedit 한글 깨짐 수정'
 tags: [ubuntu]
 description: >
   Ubuntu Gedit 한글 깨짐 수정

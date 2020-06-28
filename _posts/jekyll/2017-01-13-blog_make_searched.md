@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'github blog를 google에서 검색되도록 설정하기'
+title: '[Jekyll] github blog를 google에서 검색되도록 설정하기'
 tags: [jekyll]
 description: >
   github io와 같은 개인 블로그를 google과 naver, 그리고 daum과 같은 포탈사이트에서 검색 가능하도록 만드는 방법

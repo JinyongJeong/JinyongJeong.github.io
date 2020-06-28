@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Pycaffe importerror문제'
+title: '[Ubuntu] Pycaffe importerror문제'
 tags: [ubuntu]
 description: >
   Pycaffe importerror문제

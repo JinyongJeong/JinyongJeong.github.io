@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Ubuntu rsync 오류 및 옵션'
+title: '[Ubuntu] Ubuntu rsync 오류 및 옵션'
 tags: [ubuntu]
 description: >
   Ubuntu rsync 오류 및 옵션

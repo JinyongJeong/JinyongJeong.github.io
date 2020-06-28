@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Ubuntu apt-get 명령어 정리'
+title: '[Ubuntu] Ubuntu apt-get 명령어 정리'
 tags: [ubuntu]
 description: >
   Ubuntu apt-get 명령어 정리

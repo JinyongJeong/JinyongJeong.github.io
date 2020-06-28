@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '원하는 QT 버전에 맞게 PCL 설치하기'
+title: '[Ubuntu] 원하는 QT 버전에 맞게 PCL 설치하기'
 tags: [ubuntu]
 description: >
   PCL을 설치할 때 원하는 QT버전으로 지정하여 설치하는 방법에 대해서 설명한다. 

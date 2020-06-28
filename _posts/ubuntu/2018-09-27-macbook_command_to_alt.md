@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Mac OS, Ubuntu] Macbook command key to alt in Ubuntu 16.04 (Ubuntu16.04에서 command키 alt로 사용)'
+title: '[Ubuntu] Macbook command key to alt in Ubuntu 16.04 (Ubuntu16.04에서 command키 alt로 사용)'
 tags: [ubuntu]
 description: >
     Macbook command key to alt

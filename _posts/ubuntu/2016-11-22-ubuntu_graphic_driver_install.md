@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Ubuntu NVIDIA Graphic Driver 설치(nouveau kernel 문제 등)'
+title: '[Ubuntu] Ubuntu NVIDIA Graphic Driver 설치(nouveau kernel 문제 등)'
 tags: [ubuntu]
 description: >
   Ubuntu NVIDIA Graphic Driver 설치(nouveau kernel 문제 등)

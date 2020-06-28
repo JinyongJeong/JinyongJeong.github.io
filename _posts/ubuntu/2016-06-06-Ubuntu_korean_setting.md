@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Ubuntu 한글 키보드 설정'
+title: '[Ubuntu] Ubuntu 한글 키보드 설정'
 tags: [ubuntu]
 description: >
   Ubuntu 에서 한글 키보드를 사용하기 위한 설정방법을 설명합니다.

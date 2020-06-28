@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Jekyll Markdown에서 HTML소스코드 그대로 포스팅하기'
+title: '[Jekyll] Jekyll Markdown에서 HTML소스코드 그대로 포스팅하기'
 tags: [jekyll]
 description: >
   Markdown을 이용하여 포스팅 시 HTML 코드를 그대로 포스팅하는 방법

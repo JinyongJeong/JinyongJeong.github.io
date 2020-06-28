@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Windows Partition Auto Mount in Ubuntu 14.04'
+title: '[Ubuntu] Windows Partition Auto Mount in Ubuntu 14.04'
 tags: [ubuntu]
 description: >
   우분투 14.04에서 NTFS형식으로 되어있는 윈도우 파티션을 자동 마운트 하는 방법 소개

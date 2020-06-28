@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'NAS의 Network Drive를 Local Drive로 인식시키기'
+title: '[Software] NAS의 Network Drive를 Local Drive로 인식시키기'
 tags: [software]
 description: >
   NAS의 Network Drive를 Local Drive로 인식시키기

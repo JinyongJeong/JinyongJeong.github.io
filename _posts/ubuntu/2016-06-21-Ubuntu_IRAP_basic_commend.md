@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Ubuntu SVN 및 기타 명령어 정리 (IRAP)'
+title: '[Ubuntu] Ubuntu SVN 및 기타 명령어 정리 (IRAP)'
 tags: [ubuntu,IRAP]
 description: >
   IRAP에서 주로 사용하는 svn 및 기타 ubuntu 명령어 정리

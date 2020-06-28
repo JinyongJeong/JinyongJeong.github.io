@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Jekyll&github blog에서 latex 문법 사용하기'
+title: '[Jekyll] Jekyll&github blog에서 latex 문법 사용하기'
 tags: [jekyll]
 description: >
   Jekyll&github blog에서 latex 문법 사용하기
