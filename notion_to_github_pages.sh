@@ -76,7 +76,7 @@ for exported_foldername in ${exported_foldername_array[*]}; do
     meta_date="$(date +%Y)-$(date +%m)-$(date +%d) $(date +%H):$(date +%M):$(date +%S) +0000"
     meta_last_modified_at="$(date +%Y)-$(date +%m)-$(date +%d) $(date +%H):$(date +%M):$(date +%S) +0000"
 
-    sed -i '1,6d' "$exported_file_path"
+    sed -i '1,2d' "$exported_file_path"
     sed -i '1 a ---' "$exported_file_path"
     sed -i '2 a layout: post' "$exported_file_path"
     sed -i '3 a '"title: '$meta_title'" "$exported_file_path"
