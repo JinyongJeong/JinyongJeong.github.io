@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Ubuntu Memo widget'
+title: '[Ubuntu] Ubuntu Memo widget'
 tags: [ubuntu]
 comments: true
 description: >
