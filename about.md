@@ -28,6 +28,12 @@ title: About
 
 ### [Publications](https://scholar.google.co.kr/citations?user=_RDRRWwAAAAJ&hl=ko)
 
+[2020]
+* Jinyong Jeong, Younggun Cho, Ayoung Kim, HDMI-Loc: Exploiting High Definition Map Image for Precise Localization via Bitwise Particle Filter. 
+IEEE Robotics and Automation Letters (2020): IROS option
+
+* Giseop Kim, Yeong Sang Park, Younghun Cho, Jinyong Jeong, Ayoung Kim, Mulran: Multimodal range dataset for urban place recognition. IEEE International Conference on Robotics and Automation (ICRA), 2020
+
 
 [2019]
 * Hee-Won Jung, Hyunchul Roh, Younggun Cho, Jinyong Jeong, Young-Sik Shin, Validation of a Multi–Sensor‐Based Kiosk for Short Physical Performance Battery. Journal of the American Geriatrics Society, 2019.
