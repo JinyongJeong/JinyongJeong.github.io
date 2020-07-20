@@ -38,7 +38,7 @@ IEEE Robotics and Automation Letters (2020): IROS option
 [2019]
 * Hee-Won Jung, Hyunchul Roh, Younggun Cho, Jinyong Jeong, Young-Sik Shin, Validation of a Multi–Sensor‐Based Kiosk for Short Physical Performance Battery. Journal of the American Geriatrics Society, 2019.
 
-* Jinyong Jeong, Younggun Cho, Young-Sik Shin, Hyunchul Roh and Ayoung Kim, Complex Urban Dataset with Multi-level Sensors from Highly Diverse Urban Environments. International Journal of Robotics Research, 2019. (Accepted. To appear).
+* Jinyong Jeong, Younggun Cho, Young-Sik Shin, Hyunchul Roh and Ayoung Kim, Complex Urban Dataset with Multi-level Sensors from Highly Diverse Urban Environments. International Journal of Robotics Research, 2019.
 
 * Yeong Sang Park, Jinyong Jeong, Youngsik Shin and Ayoung Kim. "Radar Dataset for Robust Localization and Mapping in Urban Environment" ICRA Workshop on Dataset Generation and Benchmarking of SLAM Algorithms for Robotics and VR/AR. 
 
