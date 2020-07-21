@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Background로 실행 중인 프로세스 output 확인'
+title: '[Ubuntu] Background로 실행 중인 프로세스 output 확인'
 tags: [ubuntu]
 comments: true
 description: >
