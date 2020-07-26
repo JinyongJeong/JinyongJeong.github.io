@@ -13,4 +13,4 @@ sitemap :
 
 [JinyongJeong/Awesome-VO-VIO](https://github.com/JinyongJeong/Awesome-VO-VIO)
 
-<script src="http://gist-it.appspot.com/https://github.com/JinyongJeong/Awesome-VO-VIO"></script>
+
