@@ -14,17 +14,17 @@ I am using Ubuntu 18.04 on two laptop (dell XPS9700, Lenovo X1 carbon 7th). In b
 The solution of this issue is replacing pulse audio to Pipewire
 
 1. Add PPA (tested in ubuntu 18.04, 20.04)
-	```bash
-	sudo add-apt-repository ppa:pipewire-debian/pipewire-upstream
-	```
+```bash
+sudo add-apt-repository ppa:pipewire-debian/pipewire-upstream
+```
 2. Update packages
-	```bash
-	sudo apt update
-	```
+```bash
+sudo apt update
+```
 3. Install the packges
-	```bash
-	sudo apt install pipewire
-	```
+```bash
+sudo apt install pipewire
+```
 4. Install dependency. If you don't install this dependency, you will face the issue of "Bluetooth headset won't connect after installing pipewire"
 ```bash
 sudo apt install libspa-0.2-bluetooth
