@@ -74,6 +74,12 @@ If you want to rollback all changes we  did, do this
 systemctl --user unmask pulseaudio
 systemctl --user --now enable pulseaudio.service pulseaudio.socket
 ```
+Sometimes, I was not ablue to connect to HFP profile after this process. In this case, I installed blueman and reconnect to headset using blueman. After that, 
+I was able to see HFP profile after reconnection. Let's try!
+```bash
+sudo apt install blueman
+```
+
 
 reference: 
 
