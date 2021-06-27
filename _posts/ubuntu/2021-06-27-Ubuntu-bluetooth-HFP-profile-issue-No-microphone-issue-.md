@@ -14,93 +14,63 @@ I am using Ubuntu 18.04 on two laptop (dell XPS9700, Lenovo X1 carbon 7th). In b
 The solution of this issue is replacing pulse audio to Pipewire
 
 1. Add PPA (tested in ubuntu 18.04, 20.04)
-
-```jsx
+```bash
 sudo add-apt-repository ppa:pipewire-debian/pipewire-upstream
 ```
-
 2. Update packages
-
-```jsx
+```bash
 sudo apt update
 ```
-
 3. Install the packges
-
-```jsx
+```bash
 sudo apt install pipewire
 ```
-
 4. Install dependency. If you don't install this dependency, you will face the issue of "Bluetooth headset won't connect after installing pipewire"
-
-```jsx
+```bash
 sudo apt install libspa-0.2-bluetooth
 ```
-
 5. Install client library
-
-```jsx
+```bash
 sudo apt install pipewire-audio-client-libraries
 ```
-
 6. Reload daemon
-
-```jsx
+```bash
 systemctl --user daemon-reload
 ```
-
 7. Disable pulseAudio
-
-```jsx
+```bash
 systemctl --user --now disable pulseaudio.service pulseaudio.socket
 ```
-
 8. If you are on ubuntu 20.04, you also need to "mask" the pulseAudio using follow
-
-```jsx
+```bash
 systemctl --user mask pulseaudio
 ```
-
 When I used this command in Ubuntu 18.04, there was no issue. So you can try to run this command on other version too.
-
 9. Enable pipewire service
-
-```jsx
+```bash
 systemctl --user --now enable pipewire-media-session.service
 ```
-
 10. You can ensure that Pipewire is not running through
-
-```jsx
+```bash
 pactl info
 ```
-
 This command will give the following output, in server name
-
-```jsx
+```bash
 PulseAudio (on PipeWire 0.3.28)
 ```
-
 If you don't show up, then try restart pipewire by this command.
-
-```jsx
+```bash
 systemctl --user restart pipewire
 ```
-
 If you can't see this server name, just try to connect your bluetooth earbuds to test it.
-
 11. If you have installed ofono, ofono-phonesim, remove them
-
-```jsx
+```bash
 sudo apt remove ofono
 sudo apt remove ofono-phonesim
 ```
-
 If it’s still not showing your microphone, you can try rebooting once and remove and pair your Bluetooth device again to check if it works now.
-
 If you want to rollback all changes we  did, do this
-
-```jsx
+```bash
 systemctl --user unmask pulseaudio
 systemctl --user --now enable pulseaudio.service pulseaudio.socket
 ```
