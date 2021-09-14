@@ -9,7 +9,7 @@ sitemap :
   priority : 1.0
 ---
 
-현재 [KAIST Urban Dataset](http://irap.kaist.ac.kr/dataset/)의 데이터는 각 센서들의 raw데이터, stereo image 데이터, 그리고 pointcloud data를 제공하고 있다. 
+현재 [KAIST Urban Dataset](https://sites.google.com/view/complex-urban-dataset)의 데이터는 각 센서들의 raw데이터, stereo image 데이터, 그리고 pointcloud data를 제공하고 있다. 
 
 
 제공되는 데이터중 Urban39-pankyo 데이터의 stereo image들을 이용해서 여러가지 visual SLAM 알고리즘들의 결과를 비교해본다. (시간이 될때 추가적인 알고리즘 추가 예정)
