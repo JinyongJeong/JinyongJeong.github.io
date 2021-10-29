@@ -25,6 +25,9 @@ title: About
 
 * C, C++, Python, Matlab, Java, HTML, PHP
 
+### Magazine & News
+- [2021-11 GQ Korea](https://www.gqkorea.co.kr/?p=176795&preview=1&_ppp=fefa019302)
+
 
 ### [Publications](https://scholar.google.co.kr/citations?user=_RDRRWwAAAAJ&hl=ko)
 
