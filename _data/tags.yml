@@ -66,11 +66,3 @@ math:
   color: '#949667'
   description: >
     Mathematics is the study of topics such as quantity (numbers), structure, space, and change.
-
-IRAP:
-  name: IRAP
-  image: /public/img/4.jpg
-  color: '#949667'
-  description: >
-    Intelligent Robotic Autonomy and Perception ([IRAP](http://irap.kaist.ac.kr)) Lab focuses on robotics problems in civil and environmental engineering applications. Targeting many hardly accessible or dangerous sites in the environment, we solves for robot autonomy dealing with perceptual sensor data. Main research interest and detailed robotics topics include perception based environment mapping, intelligent sensor fusion, decision making and control of the robotic agents, robotic operation and navigation in GPS-denied enthronements (e.g., underwater, indoor). 
-

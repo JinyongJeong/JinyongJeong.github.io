@@ -23,7 +23,7 @@ paginate_path:       '/page-:num/'
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
 description:         The person who enjoy learning new things!
 # The tags listed as entries in the sidebar
-sidebar_tags:        [post, SLAM, paper, ubuntu, software, android, jekyll, math, IRAP]
+sidebar_tags:        [post, SLAM, paper, ubuntu, software, android, jekyll, math]
 
 # Fallback image and color if not overwritten for tag or post
 image:                /public/img/3.jpg
