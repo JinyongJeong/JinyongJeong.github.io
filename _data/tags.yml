@@ -66,3 +66,10 @@ math:
   color: '#949667'
   description: >
     Mathematics is the study of topics such as quantity (numbers), structure, space, and change.
+
+ml:
+  name: Machine Learning
+  image: /public/img/3.jpg
+  color: '#949667'
+  description: >
+    Machine learning will change the world.
