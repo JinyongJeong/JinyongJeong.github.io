@@ -39,8 +39,8 @@ author:
   name:              'Jinyong Jeong'
 
   # This photo will be used in the about section
-  photo:             /images/about/profile.jpg
-  photo2x:           /images/about/profile.jpg
+  photo:             /images/about/profile2.jpg
+  photo2x:           /images/about/profile2.jpg
 
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
