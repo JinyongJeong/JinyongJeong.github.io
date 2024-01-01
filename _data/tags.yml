@@ -67,9 +67,11 @@ math:
   description: >
     Mathematics is the study of topics such as quantity (numbers), structure, space, and change.
 
-ml:
-  name: Machine Learning
+diary:
+  name: Diary
   image: /public/img/6_2.jpg
   color: '#949667'
   description: >
-    Machine learning will change the world.
+    Every day's record becomes an asset.
+
+

@@ -23,10 +23,10 @@ paginate_path:       '/page-:num/'
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
 description:         A passionate developer
 # The tags listed as entries in the sidebar
-sidebar_tags:        [post, SLAM, ml, paper, ubuntu, software, android, jekyll, math]
+sidebar_tags:        [post, SLAM, paper, ubuntu, software, android, jekyll, math, diary]
 
 # Fallback image and color if not overwritten for tag or post
-image:                /public/img/3.jpg
+image:                /public/img/2_2.jpg
 color:               '#A85641'
 
 # Fonts
@@ -55,8 +55,6 @@ author:
     
     Dataset Homepage: [https://sites.google.com/view/complex-urban-dataset](https://sites.google.com/view/complex-urban-dataset)
     
-    [<My 3D model>](http://irap.kaist.ac.kr/dataset/webgl_person/jjeong/jjeong.html)
-
     [Current]
 
     * TIM Robotics, CTO
