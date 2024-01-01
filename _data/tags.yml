@@ -26,25 +26,25 @@ SLAM:
     In robotic mapping, simultaneous localization and mapping (SLAM) is the computational problem of constructing or updating a map of an unknown environment while simultaneously keeping track of an agent's location within it.
 
 paper:
-  name: Paper Survey
+  name: Paper Review
   image: /public/img/3_2.jpg
   color: '#949667'
   description: >
-    Survey related with SLAM algorithm 
+    Paper review for new technology
     
 ubuntu:
   name: Ubuntu
   image: /public/img/4_2.jpg
   color: '#949667'
   description: >
-    Ubuntu is a Debian-based Linux operating system for personal computers, tablets and smartphones.
+    Ubuntu is a Debian-based Linux operating system
 
 software:
   name: Software
   image: /public/img/5_2.jpg
   color: '#949667'
   description: >
-    Computer software, or simply software, is that part of a computer system that consists of encoded information or computer instructions, in contrast to the physical hardware from which the system is built.
+    
 
 android:
   name: Android
@@ -65,7 +65,6 @@ math:
   image: /public/img/6_2.jpg
   color: '#949667'
   description: >
-    Mathematics is the study of topics such as quantity (numbers), structure, space, and change.
 
 diary:
   name: Diary
