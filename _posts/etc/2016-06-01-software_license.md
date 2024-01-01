@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '[Software] 공개 SW 라이센스(GPL, LGPL, BSD)'
-tags: [software]
+title: '공개 SW 라이센스(GPL, LGPL, BSD)'
+tags: [etc]
 description: >
   공개 SW 라이센스(GPL, LGPL, BSD)
 ---

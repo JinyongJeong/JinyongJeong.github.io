@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '[Software] Static 변수와 Extern변수'
-tags: [software]
+title: 'Static 변수와 Extern변수'
+tags: [etc]
 description: >
   Static 변수와 Extern변수
 ---

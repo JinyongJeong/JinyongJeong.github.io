@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '[알고리즘] Map and Unordered_map'
-tags: [software]
+title: 'Map and Unordered_map'
+tags: [etc]
 comments: true
 description: >
   STL map 그리고 unordered_map 비교

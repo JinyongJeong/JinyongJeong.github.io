@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '[Software] MAC OS keyboard customize (맥 OS 키보드 커스텀, 한영전환 쉽게하기)'
-tags: [software]
+title: 'MAC OS keyboard customize (맥 OS 키보드 커스텀, 한영전환 쉽게하기)'
+tags: [etc]
 description: >
   MAC OS keyboard customize (맥 OS 키보드 커스텀, 한영전환 쉽게하기)
 ---

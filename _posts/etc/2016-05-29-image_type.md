@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '[Software] 이미지 확장자 (AI, BMP, JPG, PNG, GIF, TIF 등)'
-tags: [software]
+title: '이미지 확장자 (AI, BMP, JPG, PNG, GIF, TIF 등)'
+tags: [etc]
 description: >
   이미지 확장자에 대해 설명
 ---

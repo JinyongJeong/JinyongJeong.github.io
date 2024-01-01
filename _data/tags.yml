@@ -40,8 +40,8 @@ ubuntu:
   description: >
         우분투는 Debian 기반의 Linux 운영체제이다
 
-software:
-  name: Software
+etc:
+  name: ETC
   image: /public/img/5_2.jpg
   color: '#949667'
   description: >
