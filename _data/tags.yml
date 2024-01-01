@@ -24,21 +24,21 @@ SLAM:
   image: /public/img/2_2.jpg
   color: '#949667'
   description: >
-    SLAM
+    SLAM은 로봇이 미지의 영역에서 위치를 추정하며 동시에 맵을 업데이트 하는 기술이다. 로봇청소기가 대표적으로 SLAM을 활용한 로봇이다. 
 
 paper:
   name: Paper Review
   image: /public/img/3_2.jpg
   color: '#949667'
   description: >
-    Paper Review
+        새로운 기술에 대한 다양한 논문 리뷰
     
 ubuntu:
   name: Ubuntu
   image: /public/img/4_2.jpg
   color: '#949667'
   description: >
-    Ubuntu 
+        우분투는 Debian 기반의 Linux 운영체제이다. 
 
 software:
   name: Software
@@ -46,7 +46,6 @@ software:
   color: '#949667'
   description: >
     Software
-    
 
 android:
   name: Android
@@ -74,6 +73,6 @@ diary:
   image: /public/img/6_2.jpg
   color: '#949667'
   description: >
-    Diary
+        성공한 사람은 기억을 믿지 않고 기록에 의존한다
 
 
