@@ -16,7 +16,7 @@ post:
   image: /public/img/2_2.jpg
   color: '#949667'
   description: >
-  All post
+    All post
     
 
 SLAM:
@@ -24,7 +24,7 @@ SLAM:
   image: /public/img/2_2.jpg
   color: '#949667'
   description: >
-  SLAM
+    SLAM
 
 paper:
   name: Paper Review
@@ -45,7 +45,7 @@ software:
   image: /public/img/5_2.jpg
   color: '#949667'
   description: >
-  Software
+    Software
     
 
 android:
@@ -53,7 +53,7 @@ android:
   image: /public/img/5_2.jpg
   color: '#949667'
   description: >
-Android
+    Android
 
 jekyll:
   name: Jekyll
@@ -67,13 +67,13 @@ math:
   image: /public/img/6_2.jpg
   color: '#949667'
   description: >
-  Math
+    Math
 
 diary:
   name: Diary
   image: /public/img/6_2.jpg
   color: '#949667'
   description: >
-  Diary
+    Diary
 
 
