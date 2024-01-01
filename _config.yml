@@ -17,7 +17,7 @@ baseurl:             http://JinyongJeong.github.io
 title:               Jinyong
 
 # Pagination
-paginate:            2
+paginate:            5
 paginate_path:       '/page-:num/'
 
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
