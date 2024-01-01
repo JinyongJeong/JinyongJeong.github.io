@@ -21,7 +21,7 @@ paginate:            2
 paginate_path:       '/page-:num/'
 
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
-description:         The person who enjoy learning new things!
+description:         A passionate developer
 # The tags listed as entries in the sidebar
 sidebar_tags:        [post, SLAM, ml, paper, ubuntu, software, android, jekyll, math]
 
@@ -59,9 +59,8 @@ author:
 
     [Current]
 
-    * Motion2AI, CTO
-    * SLAM (Simultaneous Localization and Mapping) engineer
-    * Email: jjy0923@motion2ai.com
+    * TIM Robotics, CTO
+    * Email: jjy0923@tim-robotics.com
     * Research Interest: Autonomous car, SLAM, computer Vision
 
     [Previous]
@@ -70,7 +69,7 @@ author:
     * 2012.08 ~ 2014.08 : KAIST (master course)
     * 2014.08 ~ 2015.10 : Defense Agency for Technology and Quality (DTaQ) researcher
     * 2016.02 ~ 2020.05 : KAIST (ph.D course)
-    * 2020.05 ~ current : Motion2AI
+    * 2020.05 ~ 2023.12 : Motion2AI (CTO)
 
 
   # Social media icons in sidebar

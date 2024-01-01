@@ -13,63 +13,63 @@
 
 post:
   name: All post
-  image: /public/img/3.jpg
+  image: /public/img/2_2.jpg
   color: '#949667'
   description: >
     This blog is to remember what I studied.
 
 SLAM:
   name: SLAM
-  image: /public/img/2.jpg
+  image: /public/img/2_2.jpg
   color: '#949667'
   description: >
     In robotic mapping, simultaneous localization and mapping (SLAM) is the computational problem of constructing or updating a map of an unknown environment while simultaneously keeping track of an agent's location within it.
 
 paper:
   name: Paper Survey
-  image: /public/img/1.jpg
+  image: /public/img/3_2.jpg
   color: '#949667'
   description: >
     Survey related with SLAM algorithm 
     
 ubuntu:
   name: Ubuntu
-  image: /public/img/1.jpg
+  image: /public/img/4_2.jpg
   color: '#949667'
   description: >
     Ubuntu is a Debian-based Linux operating system for personal computers, tablets and smartphones.
 
 software:
   name: Software
-  image: /public/img/5.jpg
+  image: /public/img/5_2.jpg
   color: '#949667'
   description: >
     Computer software, or simply software, is that part of a computer system that consists of encoded information or computer instructions, in contrast to the physical hardware from which the system is built.
 
 android:
   name: Android
-  image: /public/img/2.jpg
+  image: /public/img/5_2.jpg
   color: '#949667'
   description: >
     Android is a mobile operating system developed by Google, based on a modified version of the Linux kernel and other open source software and designed primarily for touchscreen mobile devices such as smartphones and tablets.
 
 jekyll:
   name: Jekyll
-  image: /public/img/2.jpg
+  image: /public/img/6_2.jpg
   color: '#949667'
   description: >
     Jekyll is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes.
 
 math:
   name: Math
-  image: /public/img/3.jpg
+  image: /public/img/6_2.jpg
   color: '#949667'
   description: >
     Mathematics is the study of topics such as quantity (numbers), structure, space, and change.
 
 ml:
   name: Machine Learning
-  image: /public/img/3.jpg
+  image: /public/img/6_2.jpg
   color: '#949667'
   description: >
     Machine learning will change the world.
