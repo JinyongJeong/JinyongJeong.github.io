@@ -16,28 +16,28 @@ post:
   image: /public/img/2_2.jpg
   color: '#949667'
   description: >
-    This blog is to remember what I studied.
+    
 
 SLAM:
   name: SLAM
   image: /public/img/2_2.jpg
   color: '#949667'
   description: >
-    In robotic mapping, simultaneous localization and mapping (SLAM) is the computational problem of constructing or updating a map of an unknown environment while simultaneously keeping track of an agent's location within it.
+  SLAM은 로봇이 미지의 영역에서 위치를 추정하며 동시에 맵을 업데이트 하는 기술이다. 로봇청소기가 대표적으로 SLAM을 활용한 로봇이다. 
 
 paper:
   name: Paper Review
   image: /public/img/3_2.jpg
   color: '#949667'
   description: >
-    Paper review for new technology
+    새로운 기술에 대한 다양한 논문 리뷰
     
 ubuntu:
   name: Ubuntu
   image: /public/img/4_2.jpg
   color: '#949667'
   description: >
-    Ubuntu is a Debian-based Linux operating system
+    우분투는 Debian 기반의 Linux 운영체제이다. 
 
 software:
   name: Software
@@ -51,7 +51,7 @@ android:
   image: /public/img/5_2.jpg
   color: '#949667'
   description: >
-    Android is a mobile operating system developed by Google, based on a modified version of the Linux kernel and other open source software and designed primarily for touchscreen mobile devices such as smartphones and tablets.
+
 
 jekyll:
   name: Jekyll
@@ -71,6 +71,6 @@ diary:
   image: /public/img/6_2.jpg
   color: '#949667'
   description: >
-    Every day's record becomes an asset.
+  성공한 사람은 기억을 믿지 않고 기록에 의존한다
 
 
