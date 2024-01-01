@@ -16,8 +16,7 @@ post:
   image: /public/img/2_2.jpg
   color: '#949667'
   description: >
-    All post
-    
+    All post    
 
 SLAM:
   name: SLAM
@@ -38,35 +37,35 @@ ubuntu:
   image: /public/img/4_2.jpg
   color: '#949667'
   description: >
-        우분투는 Debian 기반의 Linux 운영체제이다
+        우분투는 Debian 기반의 Linux 운영체제이다. 우분투 개발환경과 관련된 다양한 내용 정리
 
 etc:
-  name: ETC
+  name: Etc
   image: /public/img/5_2.jpg
   color: '#949667'
   description: >
-    Software
+    기타 내용 정리
 
 android:
   name: Android
   image: /public/img/5_2.jpg
   color: '#949667'
   description: >
-    Android
+    Android는 오픈소스 기반의 모바일 디바이스 OS이다. 안드로이드 앱 개발과 관련된 내용 정리
 
 jekyll:
   name: Jekyll
   image: /public/img/6_2.jpg
   color: '#949667'
   description: >
-    Jekyll is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes.
+    Jekyll은 오픈소스 기반의 정적 사이트 생성도구이다. Jekyll 사이트 개발과 관련된 내용 정리
 
 math:
   name: Math
   image: /public/img/6_2.jpg
   color: '#949667'
   description: >
-    Math
+       중요한 것이 있는 곳에는 기하학이 있다 <케플러>
 
 diary:
   name: Diary
