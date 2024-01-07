@@ -72,6 +72,13 @@ diary:
   image: /public/img/6_2.jpg
   color: '#949667'
   description: >
-        성공한 사람은 기억을 믿지 않고 기록에 의존한다
+        기억을 믿지 말고 기록에 의존하라
+
+book:
+  name: Book
+  image: /public/img/6_2.jpg
+  color: '#949667'
+  description: >
+        책속에 길이 있다
 
 
