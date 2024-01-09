@@ -1,0 +1,18 @@
+{
+  "imageAltText": true,
+  "replaceOriginalDoc": true,
+  "attachmentLocation": "images/post",
+  "imageStore": "IMGUR",
+  "imgurAnonymousSetting": {
+    "clientId": "21afe165a33aa45"
+  },
+  "ossSetting": {
+    "region": "oss-cn-hangzhou",
+    "accessKeyId": "",
+    "accessKeySecret": "",
+    "bucket": "",
+    "endpoint": "https://oss-cn-hangzhou.aliyuncs.com/",
+    "path": "",
+    "customDomainName": ""
+  }
+}
