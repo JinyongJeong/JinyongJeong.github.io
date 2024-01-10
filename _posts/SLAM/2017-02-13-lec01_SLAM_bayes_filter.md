@@ -23,7 +23,7 @@ State estimation은 로봇에 주어지는 입력과, 로봇의 센서로부터 
 
 $$ p(\mathbf{x}\mid \mathbf{z}, \mathbf{u})$$
 
-위의 식은 기본적인 state estimation을 의미한다. $$\mathbf{x}$$ 는 로봇의 위치 및 지도(주변의 land mark들의 위치)를 의미하는 vector이며, $$\mathbf{z}$$ 는 로봇의 센서로부터 얻어지는 데이터로 observation이라고 부르며, $$\mathbf{u}$$ 는 센서의 움직임을 제어하는 입력으로 control input이라고 부른다. state estimation은 이러한 control input과 observation의 데이터를 통해 현재의 위치와 지도를 추정한다.
+위의 식은 기본적인 state estimation을 의미한다. $\mathbf{x}$ 는 로봇의 위치 및 지도(주변의 land mark들의 위치)를 의미하는 vector이며, $$\mathbf{z}$$ 는 로봇의 센서로부터 얻어지는 데이터로 observation이라고 부르며, $$\mathbf{u}$$ 는 센서의 움직임을 제어하는 입력으로 control input이라고 부른다. state estimation은 이러한 control input과 observation의 데이터를 통해 현재의 위치와 지도를 추정한다.
 
 ### bayes theorem
 
