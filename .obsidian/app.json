@@ -1,4 +1,5 @@
 {
   "attachmentFolderPath": "images/post",
-  "promptDelete": false
+  "promptDelete": false,
+  "useMarkdownLinks": true
 }

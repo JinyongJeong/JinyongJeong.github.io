@@ -194,9 +194,9 @@ $$
 
 하지만 motion 모델과 observation 모델을 비선형으로 확장한 경우 문제가 발생한다. 다음 그림은 이러한 문제를 보여준다.
 
-![linear](https://i.imgur.com/ew9GFag.png)
+![linear|675](https://i.imgur.com/ew9GFag.png)
 
-![non linear](https://i.imgur.com/1nkWjlz.png)
+![non linear|677](https://i.imgur.com/1nkWjlz.png)
 
 많은 문제에서 Gaussian 분포를 사용하는 이유는 평균(mean)과 분산(variance) 두개의 파라미터로 분포를 표현함과 동시에 데이터들의 분포를 정확히 반영할 수 있기 때문이다. 따라서 반복적인 계산을 통해 state를 추정하는 문제에서 입력이 Gaussian 분포일 때 출력 또한 Gaussian 분포이여야 한다. 위쪽 그림은 선형 시스템에서의 입력과 출력을 보여준다. 선형 시스템이기 때문에 입력이 Gaussian 분포일 때 출력 또한 Gaussian 분포가 된다. 하지만 아래쪽 그림과 같이 비선형 시스템의 경우, 입력은 Gaussian 분포이지만 시스템의 비선형성에 의해 출력은 Gaussian 분포가 아니다. 따라서 이런 경우 출력을 평균과 분산으로 표현 할 수 없다. 이러한 문제를 풀기 위해서는 비선형함수를 선형화(Linearization) 시키는 과정이 필요하다.
 
@@ -246,9 +246,9 @@ $$
 
 아래 그림은 Talyer 근사화를 통해 선형화를 하였을 때의 특징을 보여준다.
 
-![large variance|320](https://i.imgur.com/kl5O8Hb.png)  
+![large variance|503](https://i.imgur.com/kl5O8Hb.png)
 
-![small variance|310](https://i.imgur.com/UVNUTAz.png)
+![small variance|496](https://i.imgur.com/UVNUTAz.png)
 
 위쪽그림은 입력의 분산(variance)가 큰 경우를 보여주며, 아래쪽 그림은 분산이 작은 경우를 보여준다. 분산이 큰 경우 실제 비선형 함수 출력의 평균값과 선형화를 통해 계산된 평균값의 차이가 큰 것을 알 수 있다. 반면 분산이 작은 경우는 선형화를 통해 계산된 평균값이 실제 평균값과 유사함을 알 수 있다. 따라서 선형화 시 선형화 지점으로 부터 멀수록(분산이 클수록) 실제 함수를 반영하지 못한다.
 
