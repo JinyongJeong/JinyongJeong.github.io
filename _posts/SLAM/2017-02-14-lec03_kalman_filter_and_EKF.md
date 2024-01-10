@@ -246,7 +246,7 @@ $$
 
 아래 그림은 Talyer 근사화를 통해 선형화를 하였을 때의 특징을 보여준다.
 
-![large variance](https://i.imgur.com/kl5O8Hb.png){:width="100%"}
+![large variance](https://i.imgur.com/kl5O8Hb.png){:width="50%"}
 
 ![small variance](https://i.imgur.com/UVNUTAz.png)
 
