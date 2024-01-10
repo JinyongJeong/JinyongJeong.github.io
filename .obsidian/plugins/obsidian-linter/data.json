@@ -63,7 +63,7 @@
       "use-yaml-key-to-keep-track-of-old-filename-or-heading": true
     },
     "capitalize-headings": {
-      "enabled": false,
+      "enabled": true,
       "style": "Title Case",
       "ignore-case-words": true,
       "ignore-words": "macOS, iOS, iPhone, iPad, JavaScript, TypeScript, AppleScript, I",
@@ -73,7 +73,7 @@
       "enabled": false
     },
     "header-increment": {
-      "enabled": false,
+      "enabled": true,
       "start-at-h2": false
     },
     "headings-start-line": {
@@ -182,13 +182,13 @@
       "empty-line-after-yaml": true
     },
     "line-break-at-document-end": {
-      "enabled": false
+      "enabled": true
     },
     "move-math-block-indicators-to-their-own-line": {
       "enabled": false
     },
     "paragraph-blank-lines": {
-      "enabled": false
+      "enabled": true
     },
     "remove-empty-lines-between-list-markers-and-checklists": {
       "enabled": false
