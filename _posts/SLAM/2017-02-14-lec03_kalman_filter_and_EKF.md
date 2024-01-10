@@ -171,7 +171,7 @@ Correction 단계에서는 새로운 변수인 K(Kalman gain)이 추가된다. K
 
 조금 더 쉽게 이해하기 위해 observation의 covariance인 $Q_t$가 무한대라고 해보자. covariance가 무한대라는 의미는 거리측정 센서로부터 얻어진 데이터는 전혀 신뢰 할 수 없다는 것을 의미한다. 이때 K는 0이 되며, $\mu_t = \bar{\mu_t}$가 된다. 즉, 관측된 센서 데이터는 신뢰할 수 없으므로, 예측된 로봇의 위치를 전적으로 신뢰하겠다는 것이다. 반대로 $Q_t$가 0라고 해보자. Covariance가 0이라는 의미는 센서 데이터를 100% 신뢰할 수 있음을 의미한다. 따라서 $Q_t$가 0이라면 $K = C_t^{-1}$이 되며, 5번식은 $\mu_t = C_t^{-1} z_t$가 된다. 즉 로봇의 거리 측정센서로 부터 얻어진 데이터($z_t$)를 전적으로 신뢰하여, 이로부터 로봇의 state를 추정하겠다는 의미이다. 6번식 covariace를 계산하는 부분도 이와 마찬가지로 $Q_t$가 무한대 일때는 최종 covariace는 prediction의 covariance를 그대로 사용하며, $Q_t$가 0일때는 관측데이터가 100%신뢰할 수 있음을 의미하므로 covariace는 0이 된다.
 
-![kalman fig](https://i.imgur.com/bw53Poq.png)
+[kalman fig](https://i.imgur.com/bw53Poq.png)
 
 위 그림은 Kalman filter의 과정을 그림으로 표현하였다. 빨간색은 그래프는 prediction step에서 계산한 state의 Gaussian, 초록색은 observation으로 추정한 state의 Gaussian 분포이다. Kalman filter algorithm의 계산에 의해 두 Gaussian분포는 파란색의 최종 Gaussian 분포로 state가 결정된다. 이때 초록색 Gaussian의 variance가 빨간색보다 작기 때문에, 최종 결과는 measurement에 더욱 dominant하다.
 
@@ -194,9 +194,9 @@ $$
 
 하지만 motion 모델과 observation 모델을 비선형으로 확장한 경우 문제가 발생한다. 다음 그림은 이러한 문제를 보여준다.
 
-![linear](https://i.imgur.com/ew9GFag.png)
+[linear](https://i.imgur.com/ew9GFag.png)
 
-![non linear](https://i.imgur.com/1nkWjlz.png)
+[non linear](https://i.imgur.com/1nkWjlz.png)
 
 많은 문제에서 Gaussian 분포를 사용하는 이유는 평균(mean)과 분산(variance) 두개의 파라미터로 분포를 표현함과 동시에 데이터들의 분포를 정확히 반영할 수 있기 때문이다. 따라서 반복적인 계산을 통해 state를 추정하는 문제에서 입력이 Gaussian 분포일 때 출력 또한 Gaussian 분포이여야 한다. 위쪽 그림은 선형 시스템에서의 입력과 출력을 보여준다. 선형 시스템이기 때문에 입력이 Gaussian 분포일 때 출력 또한 Gaussian 분포가 된다. 하지만 아래쪽 그림과 같이 비선형 시스템의 경우, 입력은 Gaussian 분포이지만 시스템의 비선형성에 의해 출력은 Gaussian 분포가 아니다. 따라서 이런 경우 출력을 평균과 분산으로 표현 할 수 없다. 이러한 문제를 풀기 위해서는 비선형함수를 선형화(Linearization) 시키는 과정이 필요하다.
 
@@ -246,9 +246,9 @@ $$
 
 아래 그림은 Talyer 근사화를 통해 선형화를 하였을 때의 특징을 보여준다.
 
-![large variance](https://i.imgur.com/kl5O8Hb.png)
+[large variance](https://i.imgur.com/kl5O8Hb.png)
 
-![small variance](https://i.imgur.com/UVNUTAz.png)
+[small variance](https://i.imgur.com/UVNUTAz.png)
 
 위쪽그림은 입력의 분산(variance)가 큰 경우를 보여주며, 아래쪽 그림은 분산이 작은 경우를 보여준다. 분산이 큰 경우 실제 비선형 함수 출력의 평균값과 선형화를 통해 계산된 평균값의 차이가 큰 것을 알 수 있다. 반면 분산이 작은 경우는 선형화를 통해 계산된 평균값이 실제 평균값과 유사함을 알 수 있다. 따라서 선형화 시 선형화 지점으로 부터 멀수록(분산이 클수록) 실제 함수를 반영하지 못한다.
 
