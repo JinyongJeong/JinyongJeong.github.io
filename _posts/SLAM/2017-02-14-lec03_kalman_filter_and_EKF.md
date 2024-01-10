@@ -246,9 +246,7 @@ $$
 
 아래 그림은 Talyer 근사화를 통해 선형화를 하였을 때의 특징을 보여준다.
 
-![large variance](https://i.imgur.com/kl5O8Hb.png)
-
-![small variance](https://i.imgur.com/UVNUTAz.png)
+![large variance|320](https://i.imgur.com/kl5O8Hb.png)  ![small variance|310](https://i.imgur.com/UVNUTAz.png)
 
 위쪽그림은 입력의 분산(variance)가 큰 경우를 보여주며, 아래쪽 그림은 분산이 작은 경우를 보여준다. 분산이 큰 경우 실제 비선형 함수 출력의 평균값과 선형화를 통해 계산된 평균값의 차이가 큰 것을 알 수 있다. 반면 분산이 작은 경우는 선형화를 통해 계산된 평균값이 실제 평균값과 유사함을 알 수 있다. 따라서 선형화 시 선형화 지점으로 부터 멀수록(분산이 클수록) 실제 함수를 반영하지 못한다.
 
