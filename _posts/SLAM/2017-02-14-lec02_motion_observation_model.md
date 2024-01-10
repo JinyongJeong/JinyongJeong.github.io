@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[SLAM] Motion & Observation model'
+title: '[SLAM] Motion Model & Observation model'
 tags: [SLAM]
 description: >
   Motion model과 observation model 설명.
@@ -10,7 +10,7 @@ sitemap :
   priority : 1.0
 ---
 
-**본 글은 University Freiburg의 [Robot Mapping](http://ais.informatik.uni-freiburg.de/teaching/ws13/mapping/) 강의를 바탕으로 이해하기 쉽도록 정리하려는 목적으로 작성되었습니다. 
+**본 글은 University Freiburg의 [Robot Mapping](http://ais.informatik.uni-freiburg.de/teaching/ws13/mapping/) 강의를 바탕으로 이해하기 쉽도록 정리하려는 목적으로 작성되었습니다. **
 
 # Motion Model & Observation Model
 
