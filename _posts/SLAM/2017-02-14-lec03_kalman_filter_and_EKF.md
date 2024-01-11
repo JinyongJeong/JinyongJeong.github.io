@@ -194,7 +194,7 @@ $$
 
 하지만 motion 모델과 observation 모델을 비선형으로 확장한 경우 문제가 발생한다. 다음 그림은 이러한 문제를 보여준다.
 
-<div class="container" width="100%">
+<div class="container-fluid">
 <img src="https://i.imgur.com/ew9GFag.png)" width="48%" align="left"/>
 <img src="https://i.imgur.com/1nkWjlz.png))" width="48%" align="right"/>
 </div><div style="clear:both;"></div>
@@ -247,7 +247,7 @@ $$
 
 아래 그림은 Talyer 근사화를 통해 선형화를 하였을 때의 특징을 보여준다.
 
-<div class="container" width="100%">
+<div class="container-fluid">
 <img src="https://i.imgur.com/kl5O8Hb.png)" width="48%" align="left"/>
 <img src="https://i.imgur.com/UVNUTAz.png))" width="48%" align="right"/>
 </div><div style="clear:both;"></div>
