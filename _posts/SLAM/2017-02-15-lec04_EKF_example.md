@@ -14,11 +14,12 @@ sitemap :
 
 이번 글에서는 이전 글에서 설명한 Extended Kalman Filter(EKF)를 실제 모델을 이용해서 설명한다. 이전 글을 통해 EKF의 선형화 과정과 bayes filter 과정을 이해했지만 실제 어떻게 적용을 하는지에 대해서는 이해가 잘 되지 않을 수 있다. 이 글에서는 velocity motion model과 observation model을 이용하여 EKF과정을 설명한다.
 
-### Motion model
+# Motion Model
 
 Robot의 Motion model은 크게 두가지로 나뉜다.
 
 * Odometry-based model
+
 * Velocity-based model
 
 이 글에서는 velocity-based model을 이용하여 설명한다. 아래 그림은 velocity-based model을 보여준다. $$x,y,\theta$$는 로봇의 x,y좌표 및 방향을 의미하며, 로봇의 선속도는 $$v$$, 각속도는 $$\omega$$이다.
@@ -95,7 +96,7 @@ $$
 \bar{\Sigma_t} = G_t \Sigma_{t-1} G_t^T + V_t M_t V_t^T = G_t \Sigma_{t-1} G_t^T + R_t
 $$
 
-### Observation model
+# Observation Model
 
 비선형 observation model을 EKF에 적용해 보기 위해서 가상의 로봇을 이용한다. 이 로봇은 3개의 센서를 갖고 있다. 첫번째 센서는 로봇의 위치에서 부터 landmark까지의 euclidean distance를 측정할 수 있다. 두번째, 세번째 센서는 landmark까지의 x방향의 거리와 y방향의 거리를 각각 측정할 수 있다. 로봇의 state는 $$\mathbf{\bar{x}_t} = \begin{bmatrix} \bar{x}_t \\ \bar{y}_t \\ \bar{\theta}_t \end{bmatrix}$$로 표시하며, landmark의 위치는 $$ \mathbf{m} = \begin{bmatrix} m_x\\m_y \end{bmatrix}$$라고 하자. 이때의 각 센서의 데이터입력 $$\mathbf{z}$$는 다음과 같다.
 
@@ -124,6 +125,7 @@ H_t = \frac{\partial \mathbf{z_t}}{\partial \mathbf{\bar{x}_t}} =
 $$
 
 따라서 위에서 계산한 Jacobian $$H_t$$를 이용하여 EKF의 correction step을 수행할 수 있다.
+
 Observation model에서 $$Q_t$$는 measurement 노이즈로, 데이터를 얻는 센서의 부정확성으로 인해 발생한다. 따라서 observation model에서 $$Q_t$$는 센서의 uncertainty자체를 의미한다. 추가적으로 Jacobian matrix는 선형화 포인트에서만 유효하기 때문에 매 step마다 다시 계산해 주어야 한다는 점을 기억해야 한다.
 
 다음 글은 EKF를 이용한 SLAM에 대해서 설명한다.
