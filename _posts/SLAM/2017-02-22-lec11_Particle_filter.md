@@ -8,7 +8,7 @@ sitemap :
   changefreq : weekly
   priority : 1.0
 ---
-
+ 
 **본 글은 University Freiburg의 [Robot Mapping](http://ais.informatik.uni-freiburg.de/teaching/ws13/mapping/) 강의를 바탕으로 이해하기 쉽도록 정리하려는 목적으로 작성되었습니다.**
 
 이번 글에서는 Particle filter를 이용한 localization방법에 대해서 설명한다. EKF나 EIF와 같은 filter들은 Gaussian 분포만을 이용하여 시스템을 모델링하였다. Particle filter의 목적은 아래 그림과 같이 Gaussian이 아닌 임의의 분포를 다루기 위한 접근 방법이다.
