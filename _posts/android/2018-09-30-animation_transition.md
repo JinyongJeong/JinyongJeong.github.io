@@ -8,7 +8,7 @@ description: >
 
 이 글에서는 fragment의 화면전환 할 때 애니메이션을 넣는 방법에 대해서 설명한다. 
 
-## 1. 애니메이션 정의
+# 1. 애니메이션 정의
 
 화면전환에 대한 애니메이션을 각각 정의해 주어야 한다. 
 
@@ -16,7 +16,7 @@ description: >
 
 다양한 동작을 하는 애니메이션들을 정의해보자
 
-### `enter_from_left.xml`
+## `enter_from_left.xml`
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -30,7 +30,7 @@ description: >
 </set>
 ```
 
-### `enter_from_right.xml`
+## `enter_from_right.xml`
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -44,7 +44,7 @@ description: >
 </set>
 ```
 
-### `exit_to_left.xml`
+## `exit_to_left.xml`
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -57,7 +57,7 @@ description: >
     android:valueType="floatType" />
 </set>
 ```
-### `exit_to_left.xml`
+## `exit_to_left.xml`
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -75,8 +75,7 @@ description: >
 
 이동하는 애니메이션 뿐만 아니라 `fade_in`, `fade_out` 애니메이션도 다음과 같이 정의할 수 있다.
 
-
-### `fade_in.xml`
+## `fade_in.xml`
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -91,7 +90,7 @@ description: >
 </set>
 ```
 
-### `fade_out.xml`
+## `fade_out.xml`
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -106,7 +105,7 @@ description: >
 </set>
 ```
 
-## 2. 애니메이션을 통한 fragment 전환
+# 2. 애니메이션을 통한 Fragment 전환
 
 애니메이션을 적용한 fragment의 전환을 위해서는 기본적은 fragment transition에 `setCustomAnimations` 옵션을 추가해주면 된다. 다음은 이전 화면은 왼쪽으로 나가면서 오른쪽에서 새로운 fragment가 들어오는 애니메이션이 적용되는 예이다. 
 
@@ -129,5 +128,3 @@ manager.beginTransaction()
 세번째 인자는 뒤로가기를 눌렀을 때, 즉 이전화면으로 이동 시의 애니메이션이다. 
 
 즉 stack에 쌓여있던 fragment는 왼쪽에서 들어오며, 기존에 있던 fragment는 오른쪽으로 사라진다. 
-
-

@@ -12,10 +12,10 @@ description: >
 
 이 글에서 사용된 블루투스 연결 기기는 일반적으로 많이 사용되는 HC-06 블루투스 모듈이다. 
 
-
-## 1. 블루투스 관련 권한 설정
+# 1. 블루투스 관련 권한 설정
 
 안드로이드 디바이스에서 블루투스 관련 기능을 사용하기 위해서는 블루투스 관련 권한 설정을 해야한다.
+
 또한 블루투스 권한설정 뿐만 아니라 주변 기기의 검색을 위해서는 위치 접근에 대한 권한이 필요하다. 따라서 다음과 같이 4개에 대해서 접근 권한을 설정한다.
 
 ```
@@ -24,9 +24,10 @@ description: >
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 ```
+
 안드로이드 디바이스에서 블루투스 권한을 얻기 위해서는 `AndroidManifest.xml` 파일에 위의 코드 두줄을 추가해 줘야 한다.
 
-## 2. 블루투스 기기 검색에 대한 IntentFilter 설정
+# 2. 블루투스 기기 검색에 대한 IntentFilter 설정
 
 안드로이드의 IntentFilter는 안드로이드 시스템이나 다른 어플에서 broadcast하는 메세지를 받을 수 있도록 설정하는 것이다. 즉 어떤 메세지를 날렸을 때 받을 것인지를 설정하는 것이다. 아래 코드는 블루투스의 상태변화, 연결됨, 연결 끊어짐 등에 대한 설정 뿐만 아니라 기기 검색 시작, 종료, 검색됨 등에 대한 메세지도 받을 수 있도록 설정하는 코드이다. 
 
@@ -50,10 +51,9 @@ registerReceiver(mBluetoothStateReceiver, stateFilter);
 unregisterReceiver(bluetoothRequest.mBluetoothStateReceiver);
 ```
 
-## 3. Broadcast Receiver 정의
+# 3. Broadcast Receiver 정의
 
 다음으로는 Intentfilter에 의해서 메세지를 수신할 broadcast receiver를 정의해야 한다. 
-
 
 ```
 BroadcastReceiver mBluetoothStateReceiver = new BroadcastReceiver() {
@@ -133,8 +133,7 @@ BroadcastReceiver mBluetoothStateReceiver = new BroadcastReceiver() {
 
 따라서 검색되는 기기에 대한 저장을 한 후에 `BluetoothDevice.ACTION_DISCOVERY_FINISHED` 가 수행되었을 때 원하는 기기에 접근해서 페어링을 수행하면 된다. 
 
-
-## 4. 블루투스 기기 검색 요청
+# 4. 블루투스 기기 검색 요청
 
 블루투스 기기에 대한 요청을 하기 위해서는 bluetooth adapter 객체를 가지고 있어야 한다. 
 
@@ -168,8 +167,7 @@ mBluetoothAdapter.startDiscovery(); //블루투스 기기 검색 시작
 
 본 예제에서는 검색 종료시 `StartBluetoothDeviceConnection()` 함수가 수행되었다. 
 
-
-## 5. 검색된 블루투스 기기에 페어링 및 연결
+# 5. 검색된 블루투스 기기에 페어링 및 연결
 
 앞에서 검색된 기기의 이름은 `bluetooth_device`라는 맴버변수에 저장되어 있다. 이제 이 리스트 중에서 연결한 기기를 사용자가 선택할 수 있도록 해준다. 
 
@@ -225,7 +223,7 @@ public void StartBluetoothDeviceConnection(){
 }
 ```
 
-## 6. 해당 기기에 연결
+# 6. 해당 기기에 연결
 
 이제 사용자가 선택한 블루투스 객체를 이용해서 해당 블루투스 기기에 연결 혹은 pairing을 수행해야 한다. 
 
@@ -268,5 +266,3 @@ public void ConnectBluetoothDevice(final BluetoothDevice device){
 물론 이러한 블루투스에 연결되는 과정들은 시간이 소요되는 과정들이기 때문에 연결 중에는 로딩화면을 띄워주면 좋다. 
 
 위의 코드에서는 로딩 화면을 띄워주는 부분은 포함하고 있지 않다.
-
-

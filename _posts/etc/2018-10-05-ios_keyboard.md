@@ -14,11 +14,11 @@ description: >
 
 이러한 단점을 해결하기 위해서 `karabiner`라는 프로그램을 사용하면 좋다. 
 
-## 1. karabiner 설치
+# 1. Karabiner 설치
 
 우선 [https://pqrs.org/osx/karabiner/](https://pqrs.org/osx/karabiner/)에 접속해서 설치파일을 다운받아서 설치한다. 
 
-## 2. 한영전환 키 설정
+# 2. 한영전환 키 설정
 
 맨 오른쪽 탭인 `simple modifications`설정에서 Add item을 눌러서 키를 추가해준다.
 
@@ -38,7 +38,7 @@ from key를 right_command로 to key를 caps_lock으로 설정한다.
 
 이것은 본인이 원하는 대로 설정하면 된다.
 
-## 3. 기타 원하는 키 추가
+# 3. 기타 원하는 키 추가
 
 개인적으로 리눅스를 쓸 때 터미널을 많이 열기 때문에 ctl +  alt + T 버튼으로 터미널을 여는 것에 익숙해져 있는데
 
@@ -55,4 +55,3 @@ Mac OS에는 이러한 기능이 없어서 매우 불편했다.
 이 룰은 오른쪽 command 버튼과 T를 누르면 터미널을, F를 누르면 finder를 킬 수 있으며 몇가지 기능이 더 있다. 
 
 이거 뿐만 아니라 다양한 룰들이 있으니 원하는  것을 검색해서 추가해보자.
-

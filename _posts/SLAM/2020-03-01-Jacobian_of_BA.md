@@ -9,34 +9,47 @@ sitemap :
   priority : 1.0
 ---
 
-## Jacobian with respect to Lie algebra
+# Jacobian with respect to Lie Algebra
 
 일반적으로 최적화를 수행할 때 가장 쉬운 방법은 함수의 미분을 계산하고, 현재의 값에서 미분값이 작아지는 방향으로 값을 변경해 가면서 최적화를 수행하는 방법이다. 이러한 방법을 gradient descent 방법이라고 하는데, Jacobian은 이러한 함수가 multi-variable 일때의 미분을 의미한다. 
+
 즉 Jacobian은 multi-variable 문제에서 내가 최적화 하고 싶은 parameter들에 대한 편미분을 matrix로 표현한 것이다.
+
 Graph-based SLAM 뿐만 아니라 BA(Bundle Adjustment), Visual SLAM쪽을 공부하다 보면 계속 이러한 Jacobian을 만나게 되는데 정확히 어떻게 계산이 되는지 알고 넘어가는게 좋을 것 같아서 수식을 정리해 보았다. 
 
 수식이 너무 많아서 손필기로 정리하였으며, Error function은 일반적인 BA에서 사용하는 reprojection error에 대한 Jacobian을 구하는 방법이다. 
+
 (혹시 수식적으로 틀린 부분이 있거나, 더 간단하게 풀수있는 방법이 있으면 댓글로 알려주세요)
 
-<img align="middle" src="/images/post/SLAM/Jacobian_of_BA/Bundle Adjustment-2.jpg" width="100%">
-<img align="middle" src="/images/post/SLAM/Jacobian_of_BA/Bundle Adjustment-3.jpg" width="100%">
-<img align="middle" src="/images/post/SLAM/Jacobian_of_BA/Bundle Adjustment-4.jpg" width="100%">
-<img align="middle" src="/images/post/SLAM/Jacobian_of_BA/Bundle Adjustment-5.jpg" width="100%">
-<img align="middle" src="/images/post/SLAM/Jacobian_of_BA/Bundle Adjustment-6.jpg" width="100%">
-<img align="middle" src="/images/post/SLAM/Jacobian_of_BA/Bundle Adjustment-7.jpg" width="100%">
-<img align="middle" src="/images/post/SLAM/Jacobian_of_BA/Bundle Adjustment-8.jpg" width="100%">
-<img align="middle" src="/images/post/SLAM/Jacobian_of_BA/Bundle Adjustment-9.jpg" width="100%">
+![Bundle Adjustment 2](https://i.imgur.com/CSRioZC.jpg)
+
+![Bundle Adjustment 3](https://i.imgur.com/RA96sfx.jpg)
+
+![Bundle Adjustment 4](https://i.imgur.com/t7IywjE.jpg)
+
+![Bundle Adjustment 5](https://i.imgur.com/M9hgzCv.jpg)
+
+![Bundle Adjustment 6](https://i.imgur.com/8LMs1e0.jpg)
+
+![Bundle Adjustment 7](https://i.imgur.com/FvV324V.jpg)
+
+![Bundle Adjustment 8](https://i.imgur.com/638WFPO.jpg)
+
+![Bundle Adjustment 9](https://i.imgur.com/4n0GHlo.jpg)
 
 최종 rotation의 Jacobian을 보면 상당히 복잡하다. 
+
 이 식을 조금 단순화 시키기 위해서 roation matrix를 단순화 시킨다.
+
 Multiple view geometry 책의 Appendix 6의 A6.9.1에 이런 말이 있다.
+
 Lie algebra t가 작으면, rotation matrix는 다음과 같이 근사 가능하다.
 
 $$ R = I + [t]_{\times}$$
 
 따라서 근사화된 R에 대해서 jacobian을 구해보면 다음과 같다. 
 
-<img align="middle" src="/images/post/SLAM/Jacobian_of_BA/Bundle Adjustment-11.jpg" width="100%">
+![Bundle Adjustment 11](https://i.imgur.com/2OxBKrR.jpg)
 
 즉 근사화된 Rotation matrix를 이용해서 Jacobian을 구해보면 입력 measurement의 skew symmetric matrix가 됨을 알 수 있다. 
 
@@ -44,14 +57,17 @@ $$ R = I + [t]_{\times}$$
 
 따라서 R을 위와같이 근사화 해서 풀 수 있다. 
 
-## Jacobian with respect to Quaternion
+# Jacobian with respect to Quaternion
 
 그렇다면 state가 quaternion으로 rotation을 표현한다면 어떻게 될까?
+
 visual SLAM 코드를 공부하기 좋은 Pro-SLAM의 코드는 quaternion으로 rotation state를 표현하고 있으며, w를 제외한 3개로 state를 표현한다.
+
 w는 3개의 state로 recovery가 가능하다. 
+
 Point를 Quaternion으로 회전 시키는 식을 미분하면 다음과 같다.
 
-<img align="middle" src="/images/post/SLAM/Jacobian_of_BA/quaternion.png" width="100%">
+![quaternion](https://i.imgur.com/uXIapKE.png)
 
 state를 3개만으로 표현하였기 때문에 최종 matrix에서 뒤의 3 column 즉
 
@@ -129,6 +145,5 @@ _b += jacobian_transposed*_omega*error;
 ```
 
 아래의 github 링크는 Pro-SLAM 에 대해서 한글로 주석을 달아놓은 code이다. 
+
 [https://github.com/JinyongJeong/proSLAM.git](https://github.com/JinyongJeong/proSLAM.git)
-
-

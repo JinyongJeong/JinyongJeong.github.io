@@ -9,6 +9,7 @@ sitemap :
   changefreq: weekly
   priority : 1.0
 ---
+
 우분투에서 Clion 과 같은 프로그램을 설치하면 프로그램을 시작하기 위해서는 shell로 구동을 시작해야 한다. 이런 경우 터미널을 열고 실행을 해야하기 때문에 실수로 터미널을 끄게 되면 프로그램이 꺼지게 된다. 상당히 불편하다. 이런경우 프로그램을 실행하는 shell파일을 desktop 프로그램으로 등록하고, 윈도우키를 누르고 실행하면, 터미널 실행없이 바로 실행시킬 수 있다.  
 
 ```bash
@@ -49,4 +50,4 @@ Exec=bash -c "source /opt/ros/melodic/setup.bash && /home/jjy0923/CLion-2020.1.2
 
 위와 같이 desktop application을 등록하게 되면 윈도우키를 누르고 다음과 같이 프로그램을 검색해서 실행할 수 있다. 
 
-![/images/post/ubuntu/2020-06-23-Ubuntu-shell-file-make-desktop-application/Screenshot_from_2020-06-23_11-39-53.png](/images/post/ubuntu/2020-06-23-Ubuntu-shell-file-make-desktop-application/Screenshot_from_2020-06-23_11-39-53.png)
+![Screenshot from 2020 06 23 11 39 53](https://i.imgur.com/dTIpxp8.jpg)

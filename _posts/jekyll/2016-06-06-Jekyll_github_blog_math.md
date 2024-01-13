@@ -10,7 +10,7 @@ Markdown을 이용하여 글을 작성하는 것은 직관적이면서도 편리
 
 자세한 내용은 [여기](http://www.dianacai.com/blog/2015/09/12/making-blog/)를 참고.
 
-## MathJax
+# MathJax
 
 `_includes/head.html` 파일에 `MathJax`를 추가해 줌으로써 latex을 이용하여 수학 공식을 작성할 수 있다. `head.html`파일의 맨 위쪽에 다음의 code를 추가한다.
 
@@ -20,5 +20,3 @@ Markdown을 이용하여 글을 작성하는 것은 직관적이면서도 편리
 ```
 
 그리고 Matxjax가 정상적으로 동작하기 위해서는 `_config.yml`파일에서 `markdown: kramdown` 으로 되어 있어야 한다. 기본적으로 github & jekyll 에서는 기본적으로 kramdown으로 되어 있을 것이다. 
-
-

@@ -11,6 +11,7 @@ description: >
 오픈소스를 사용하다보면 GPL, LGPL, BSD, MIT 등 다양한 라이센스가 있는데 이에 대해 알아두어야 할 것 같아서 정리합니다.
 
 대부분의 라이센스는 [wiki](https://en.wikipedia.org/wiki/Comparison_of_free_and_open-source_software_licenses
+
 )에 표로 정리되어 있습니다.
 
 [이 사이트](https://choosealicense.com/licenses/)에는 조금 더 보기 편하게 정리되어 있습니다.
@@ -18,14 +19,16 @@ description: >
 관련 링크
 
 * GPL 전문(한국어 번역본): <http://korea.gnu.org/documents/copyleft/gpl.ko.html>
+
 * GPL FAQ(한국어 번역본): <http://www.gnu.org/licenses/gpl-faq.ko.htm>
+
 * LGPL 전문(한국어 번역본): <http://korea.gnu.org/people/chsong/copyleft/lgpl.ko.html>
+
 * KLDP 오픈소스 SW 라이센스 가이드: <http://wiki.kldp.org/wiki.php/OpenSourceLicenseGuide>
 
 GLP/LGPL 전문은 읽어봐도 내용이 어려워서 무슨 말인지 알기가 쉽지 않네요. 하지만 KLDP 가이드를 보면 여러 오픈소스 SW 라이센스(GPL/LGPL/BSD 등)들이 잘 비교 정리되어 있습니다.
 
-
-## 1. GNU GPL(General Public License)
+# 1. GNU GPL(General Public License)
 
 GPL은 Free Software Foundation(FSF)에서 만든 Free 소프트웨어 라이센스로 1989년 1차 버전, 1991년 2차 버전, 2007년 3차 버전까지 발표되었습니다.
 
@@ -49,8 +52,7 @@ GPL 전문에 보면, '만일 배포하고자 하는 프로그램의 특정 부�
 
 GPL 전문에 있는 '보통의 소프트웨어 라이센스들이 SW에 대한 공유와 수정의 자유를 제한하려는 목적을 가진 반면에 GPL은 공유와 수정의 자유를 보장하기 위한 규정이다'라는 말이 꽤나 인상적이네요..
 
-
-## 2. GNU LGPL(Lesser General Public License)
+# 2. GNU LGPL(Lesser General Public License)
 
 LGPL은 GPL보다는 훨씬 완화된(lesser) 조건의 공개 소프트웨어 라이센스입니다.
 
@@ -58,25 +60,22 @@ LGPL은 GPL보다는 훨씬 완화된(lesser) 조건의 공개 소프트웨어 �
 
 단, LGPL 코드를 단순히 이용하는 것이 아니라 이를 수정한 또는 이로부터 파생된 라이브러리를 개발하여 배포하는 경우에는 전체 코드를 공개해야 합니다.
 
-
-## 3. BSD (Berkeley Software Distribution) License
+# 3. BSD (Berkeley Software Distribution) License
 
 소스코드 공개의 의무가 없으며 상용(상업적) 소프트웨어에서도 무제한 사용 가능한 라이센스라고 하는데.. 그렇다면 아무런 제한이 없는 라이센스라는 의미겠네요.
 
 참고로 OpenCV는 BSD 라이센스를 따릅니다. GPL 정신에는 맞지 않겠지만 쓰는 사람 입장에서는 정말 편하네요..
 
-## 4. MIT License
+# 4. MIT License
 
 MIT license는 copyright와 license에 대한 정보만 표기하면 자유롭게 사용할 수 있는 라이센스인데, 상업적인사용, 배포, 수정 및 개인적인 사용이 모두 가능합니다. BSD와 MIT는 매우 유사한 조건이라고 볼 수 있을 것 같습니다.
 
-
-## GNU
+# GNU
 
 문득 GNU는 무엇의 약자일까? 하는 궁금증이 생겨서 같이 찾아보았습니다.
 
 "GNU's Not Unix"의 약자라는군요. gnu는 unix가 아니다..
+
 이런 것을 재귀약자라고 한다네요.
+
 참고로 아프리카 영양중에 gnu(누~ 라고 발음)라는 것이 있는데, 이것과 구분하여 GNU는 '그누~'라고 발음한답니다. 그리고 [GNU 홈페이지](http://www.gnu.org/)에 가보면 이 영양 머리모양을 마크로 하고 있음을 알 수 있습니다.
-
-
-

@@ -10,7 +10,7 @@ description: >
 
 안드로이드에서도 데이터를 관리하기 위해서 db를 사용하면 좋다. 이 글에서는 안드로이드에서 사용하기 편리한 sqlight를 사용하여 데이터를 관리하는 방법에 대해서 소개한다. 
 
-## 1. DB 관리 클레스 생성 (DBHelper)
+# 1. DB 관리 클레스 생성 (DBHelper)
 
 Activity에서 DB를 잘 관리하기 위해서 DB를 관리하기 위한 DBHelper라는 클래스를 생성한다. 아래 예제코드에서는 1개의 앱에서는 1개의 db파일만을 관리하기 때문에 생성자에서 db파일을 생성해서 관리한다. 만약에 사용자별로 db를 관리하거나 생성하고자 한다면 생성자에서 db파일을 생성하지 않고 추가 생성관련 함수에서 db를 생성하면 된다.
 
@@ -237,8 +237,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
 }
 ```
-중요한 부분만 발췌해서 설명하면 다음과 같다. 
 
+중요한 부분만 발췌해서 설명하면 다음과 같다. 
 
 DBHelper 클래스의 생성자이다. 생성자의 입력으로 들어온 table의 이름으로 db table을 생성하며, db table이 없을때에만 새로 생성한다. primary key로는 id가 되며 데이터가 입력될 때마다 1씩 자동으로 증가한다.
 
@@ -445,7 +445,7 @@ public void removeAll() {
 }
 ```
 
-## DBHelper 사용
+# DBHelper 사용
 
 Mainactivity에 DBHelper 객체를 선언하고 생성한다.
 
@@ -472,5 +472,3 @@ try {
 e.printStackTrace();
 }
 ```
-
-

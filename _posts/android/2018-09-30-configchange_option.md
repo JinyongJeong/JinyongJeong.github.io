@@ -28,9 +28,11 @@ description: >
 
 적용시키는 방법은 다음과 같다.
 
-## 1. AndroidManifest.xml 수정
+# 1. AndroidManifest.xml 수정
  
+
  `AndroidManifest.xml` 파일에 `android:configChanges="orientation"` 을 추가해준다. activity안에 넣어주어야 한다. 다른 설정과 함께 작성하면 다음과 같다. 
+
  
  ```
  <activity
@@ -44,25 +46,33 @@ description: >
 
 위의 옵션은 화면의 방향이 변해도 화면이 초기화 되지 않도록 하며 (`android:configChanges="orientation"`), fragment가 변경되었을 때 항상 soft 키보드를 숨기는 옵션 (`android:windowSoftInputMode="stateAlwaysHidden"`) 을 적용하였다. 키보드 관련된 내용은 [다음 글](http://jinyongjeong.github.io/2018/09/30/softkeyboard_hide/)을 참고하면 된다.
 
-## 2. onConfigurationChanged() 함수 작성
+# 2. onConfigurationChanged() 함수 작성
 
 1번과 같이 옵션을 추가하고 화면의 방향이 변경 시, `onConfigurationChanged()` 함수가 호출된다. 만약 화면의 방향이 전환되었을 때 수행해야 하는 작업이 있는 경우 이 함수에 추가하면 된다. 
 
-## 3. configChanges의 여러가지 옵션들
-
+# 3. configChanges의 여러가지 옵션들
 
 * "mcc": SIM 이 Detect 되고 MCC 가 Update 될 경우. ( IMSI Mobile Country Code가 변했을 때 )   
-* "mnc": SIM 이 Detect 되고 MNC 가 Update 될 경우. ( IMSI Mobile Network Code가 변했을 때 )
-* "locale":  User 가 새로운 Language 를 선택했을 때 ( Locale 이 변경될 때 )
-* "touchscreen": Touch Screen Hardware 가 바뀌었을 때 ( 보통은 절대 일어나지 않는 Case 임 )   
-* "keyboard": User 가 External Keyboard를 꽂았을 때를 비롯하여 Keyboard 의 Type 변경시
-* "keyboardHidden": User 가 Hardware Keyboard를 보이고 감추는 등의 Keyboard의 Accessibility가 변경되었을 때   
-* "navigation": Navigation Type ( 트랙볼 / DPad ) 가 변경되었을 때 ( 보통 절대 일어나지 않는 Case )
-* "orientation": User가 Device 를 돌리는 등의 행위로 Screen 의 Orientation 이 변경되었을 경우
-* "screenLayout": Screen의 Layout이 변했을 때, 다른 Display 가 Activate 되었을 경우 Layout이 변한 경우 
-* "fontScale": User 가 새로운 Font Size 를 선택했을 때.
-* "uiMode": User 가 Device 를 Desk 나 Car Dock 등에 비치하여 Interface Mode 를 바꾸었을 때
 
+* "mnc": SIM 이 Detect 되고 MNC 가 Update 될 경우. ( IMSI Mobile Network Code가 변했을 때 )
+
+* "locale":  User 가 새로운 Language 를 선택했을 때 ( Locale 이 변경될 때 )
+
+* "touchscreen": Touch Screen Hardware 가 바뀌었을 때 ( 보통은 절대 일어나지 않는 Case 임 )   
+
+* "keyboard": User 가 External Keyboard를 꽂았을 때를 비롯하여 Keyboard 의 Type 변경시
+
+* "keyboardHidden": User 가 Hardware Keyboard를 보이고 감추는 등의 Keyboard의 Accessibility가 변경되었을 때   
+
+* "navigation": Navigation Type ( 트랙볼 / DPad ) 가 변경되었을 때 ( 보통 절대 일어나지 않는 Case )
+
+* "orientation": User가 Device 를 돌리는 등의 행위로 Screen 의 Orientation 이 변경되었을 경우
+
+* "screenLayout": Screen의 Layout이 변했을 때, 다른 Display 가 Activate 되었을 경우 Layout이 변한 경우 
+
+* "fontScale": User 가 새로운 Font Size 를 선택했을 때.
+
+* "uiMode": User 가 Device 를 Desk 나 Car Dock 등에 비치하여 Interface Mode 를 바꾸었을 때
 
 참고사이트: [https://aroundck.tistory.com/36](https://aroundck.tistory.com/36)
 

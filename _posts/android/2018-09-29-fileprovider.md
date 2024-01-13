@@ -40,8 +40,7 @@ description: >
 
 `fileprovider`를 사용하기 위해서는 다음과 같은 절차가 필요하다. 
 
-
-## 1. Manifest 설정
+# 1. Manifest 설정
 
 `AndroidManifest.xml` 의 `application` 안쪽에 선언
 
@@ -57,7 +56,7 @@ android:resource="@xml/file_path" />
 </provider>
 ```
 
-## 2. provider의 경로 설정
+# 2. Provider의 경로 설정
 
 `res/xml/file_path.xml` 을 생성하고 다음을 입력
 
@@ -72,8 +71,7 @@ android:resource="@xml/file_path" />
 
 경로가 `xml` 폴더가 아닐경우 오류가 난다
 
-
-## 3. Email을 통해 데이터 출력
+# 3. Email을 통해 데이터 출력
 
 ```
 File file = new File(activity.getFilesDir(), "/exported_data.zip");
@@ -92,5 +90,3 @@ try {
 ```
 
 위와 같이 코드를 실행하면 내부 영역에 있는 `exported_data.zip`파일이 이메일에 첨부되고 출력할 수 있게 된다.
-
-

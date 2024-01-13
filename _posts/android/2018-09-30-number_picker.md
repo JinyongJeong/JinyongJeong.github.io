@@ -14,18 +14,15 @@ description: >
 
 따라서 숫자를 아래 그림과 같이 직접 입력이 아닌 입력 가능한 숫자 중에서 선택하도록 만드는 것이 좋다.
 
-<img src="/images/post/android/2018-09-03-number_picker/number_picker.jpeg" width="70%" style="margin-left: auto; margin-right: auto; display: block;"/>
-
+![number picker](https://i.imgur.com/xd8fsQi.jpg)
 
 위 예시는 특정 값에 해당하는 설정 버튼을 눌렀을 때 숫자를 선택할 수 있는 dialog가 팝업으로 뜨고 사용자가 숫자를 선택 후 확인을 누르면 적용이 되는 방식이다. 
 
 이러한 코드를 구현해 보자.
 
-
-## 1. NumberpickerDialog 클래스 구현
+# 1. NumberpickerDialog 클래스 구현
 
 아래 코드는 NumberpickrDialog를 구현한 클래스이다. 각 코드마다 기능들은 주석으로 추가해 놓았다. 
-
 
 ```
 import android.app.AlertDialog;
@@ -136,15 +133,19 @@ public class NumberPickerDialog extends DialogFragment {
 
 이 코드에서 주의해야 할 점은 다음과 같다. 
 
-### 1. 일정 간격의 입력값을 입력 후보군으로 보여주고 싶을 때는 setDisplayedValues 함수를 사용한다
+## 1. 일정 간격의 입력값을 입력 후보군으로 보여주고 싶을 때는 setDisplayedValues 함수를 사용한다
 
 일반적인 numberpicker는 최소값부터 최대값까지 1의 간격의 숫자를 보여주고 선택할 수 있다. 이런 경우에는 Dialog에서 사용자가 선택한 값이 바로 리턴값이 된다. 
+
 하지만 최소값부터 최대값까지 일정한 step 간격의 숫자를 보여주고 선택하게 하고 싶다면 (맨 위에 그림처럼) setDisplayedValues함수를 이용해야 한다. 
+
 setDisplayedValues 함수는 사용자에게 보여주고자 하는 숫자들을 String 배열로 입력받는다. Dialog는 입력받은 숫자들의 String 값을 사용자에게 보여준다. 
+
 이때 주의해야 할 점은 사용자가 선택한 숫자에 대한 리턴값은 String 배열의 index이다. 즉 리턴을 받았을 때 실제 사용자가 선택한 값은 index를 이용해서 다시 계산해야 한다는 것이다. 
+
 또한 이때 minvalue와 maxvalue또한 String 배열의 index에 맞게 설정해 줘야 한다. 
 
-### 2. 외부 클레스에서 implements를 이용해서 Listener를 등록해서 사용한다
+## 2. 외부 클레스에서 Implements를 이용해서 Listener를 등록해서 사용한다
 
 사용자가 숫자를 선택하고 적용을 시키기 위해 `OK` 버튼을 누르면 `valueChangeListener.onValueChange(numberPicker,numberPicker.getValue(), numberPicker.getValue())` 함수가 실행된다. 이 함수는 외부에서 implement로 상속한 함수의 onValueChange함수를 실행시킨다. 이와같은 역할을 하는 코드는 다음과 같다. 
 
