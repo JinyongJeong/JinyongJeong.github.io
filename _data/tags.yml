@@ -25,6 +25,14 @@ SLAM:
   description: >
     SLAM은 로봇이 미지의 영역에서 위치를 추정하며 동시에 맵을 업데이트 하는 기술이다. 로봇청소기가 대표적으로 SLAM을 활용한 로봇이다
 
+development:
+  name: Development
+  image: /public/img/2_2.jpg
+  color: '#949667'
+  description: >
+    개발에 관련된 다양한 내용 정리
+
+
 paper:
   name: Paper Review
   image: /public/img/3_2.jpg

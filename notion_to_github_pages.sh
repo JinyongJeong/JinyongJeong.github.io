@@ -68,9 +68,9 @@ for exported_foldername in ${exported_foldername_array[*]}; do
     # Jekyll에서 사용되는 meta 정보 추가하기
     echo -n "Enter a subtitle: "
     read  meta_subtitle
-#    echo -n "Enter categories (SLAM, ubuntu, software, math, jekyll, android, paper) : "
+#    echo -n "Enter categories (SLAM, development, ubuntu, software, math, jekyll, android, paper) : "
 #    read  meta_categories
-    echo -n "Enter tags (SLAM, ubuntu, software, math, jekyll, android, paper) : "
+    echo -n "Enter tags (SLAM, development, ubuntu, software, math, jekyll, android, paper) : "
     read  meta_tags
 
     meta_date="$(date +%Y)-$(date +%m)-$(date +%d) $(date +%H):$(date +%M):$(date +%S) +0000"
