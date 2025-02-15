@@ -6,4 +6,4 @@
 .sass-cache
 _site
 .obsidian/workspace.json
-
+.DS_Store
